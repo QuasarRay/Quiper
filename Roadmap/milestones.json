@@ -1,0 +1,313 @@
+{
+  "document_kind": "implementation-roadmap",
+  "format_version": 1,
+  "prepared_on": "2026-10-09",
+  "status": "proposed-not-implemented",
+  "baseline": {
+    "QuasarRay/Quiper": "413219948f91911ffaf0ac37a5ff941c5d1e55c7",
+    "Rust-GPU/spirt": "e8757adba8d14068a7bf1b3bc9f24cac982f4bd3"
+  },
+  "contract_scope": "No existing source/build/registry edits for compatible additions within the supported contract; incompatible semantics require explicit versioning.",
+  "dependency_semantics": "depends_on lists exit-gate prerequisites; investigation and proof work can begin earlier as documented.",
+  "phases": [
+    {
+      "id": "P0",
+      "title": "Inventory and baseline",
+      "status": "planned",
+      "depends_on": [],
+      "gates": [
+        "G-BASELINE"
+      ],
+      "optional": false,
+      "engineering_person_weeks_estimate": [
+        2,
+        4
+      ],
+      "details": "07-implementation-phases.md"
+    },
+    {
+      "id": "P1",
+      "title": "Contracts and semantic core",
+      "status": "planned",
+      "depends_on": [
+        "P0"
+      ],
+      "gates": [
+        "G-CONTRACT"
+      ],
+      "optional": false,
+      "engineering_person_weeks_estimate": [
+        4,
+        8
+      ],
+      "details": "07-implementation-phases.md"
+    },
+    {
+      "id": "P2",
+      "title": "Language-independent extraction",
+      "status": "planned",
+      "depends_on": [
+        "P1"
+      ],
+      "gates": [
+        "G-EXTRACT"
+      ],
+      "optional": false,
+      "engineering_person_weeks_estimate": [
+        4,
+        8
+      ],
+      "details": "07-implementation-phases.md"
+    },
+    {
+      "id": "P3",
+      "title": "SPIR-T and Vulkan vertical path",
+      "status": "planned",
+      "depends_on": [
+        "P2"
+      ],
+      "gates": [
+        "G-VERTICAL"
+      ],
+      "optional": false,
+      "engineering_person_weeks_estimate": [
+        6,
+        12
+      ],
+      "details": "07-implementation-phases.md"
+    },
+    {
+      "id": "P4",
+      "title": "Memory and concurrency",
+      "status": "planned",
+      "depends_on": [
+        "P3"
+      ],
+      "gates": [
+        "G-CONCURRENCY"
+      ],
+      "optional": false,
+      "engineering_person_weeks_estimate": [
+        8,
+        16
+      ],
+      "details": "07-implementation-phases.md"
+    },
+    {
+      "id": "P5",
+      "title": "Numerical and feature coverage",
+      "status": "planned",
+      "depends_on": [
+        "P4"
+      ],
+      "gates": [
+        "G-COVERAGE"
+      ],
+      "optional": false,
+      "engineering_person_weeks_estimate": [
+        8,
+        20
+      ],
+      "details": "07-implementation-phases.md"
+    },
+    {
+      "id": "P6",
+      "title": "Verification argument",
+      "status": "planned",
+      "depends_on": [
+        "P5"
+      ],
+      "gates": [
+        "G-TRUST"
+      ],
+      "optional": false,
+      "engineering_person_weeks_estimate": [
+        10,
+        24
+      ],
+      "details": "07-implementation-phases.md",
+      "work_starts_after": "P1"
+    },
+    {
+      "id": "P7",
+      "title": "Independent extensions",
+      "status": "planned",
+      "depends_on": [
+        "P4"
+      ],
+      "gates": [
+        "G-ADD-COMPILER",
+        "G-ADD-RUNTIME",
+        "G-ADD-LANGUAGE",
+        "G-ADD-OP"
+      ],
+      "optional": false,
+      "engineering_person_weeks_estimate": [
+        6,
+        14
+      ],
+      "details": "07-implementation-phases.md"
+    },
+    {
+      "id": "P8",
+      "title": "Production qualification and cutover",
+      "status": "planned",
+      "depends_on": [
+        "P5",
+        "P6",
+        "P7"
+      ],
+      "gates": [
+        "G-PRODUCTION",
+        "G-CUDA-FREE"
+      ],
+      "optional": false,
+      "engineering_person_weeks_estimate": [
+        8,
+        16
+      ],
+      "details": "07-implementation-phases.md"
+    },
+    {
+      "id": "PX",
+      "title": "Direct Mesa experiment",
+      "status": "planned",
+      "depends_on": [
+        "P4"
+      ],
+      "gates": [
+        "G-MESA-DECISION"
+      ],
+      "optional": true,
+      "engineering_person_weeks_estimate": null,
+      "details": "07-implementation-phases.md"
+    }
+  ],
+  "gates": [
+    {
+      "id": "G-BASELINE",
+      "criterion": "Complete semantic/primitive inventory and reproducible baseline.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-CONTRACT",
+      "criterion": "Reviewed contracts, canonical vectors, independent readers and rejection fixtures.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-EXTRACT",
+      "criterion": "Declared baseline extracts through KIR without mandatory CUDA or Karamel.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-VERTICAL",
+      "criterion": "Real-GPU SPIR-T/Vulkan path with correct results, errors and CUDA-free dependencies.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-CONCURRENCY",
+      "criterion": "Required memory, ownership, subgroup, atomic and async relations checked on qualified devices.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-COVERAGE",
+      "criterion": "All legacy inventory rows classified; all claimed features qualified for the release profile.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-TRUST",
+      "criterion": "O1-O10 evidence/dispositions complete; assumptions explicit; no silently discharged obligations.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-ADD-COMPILER",
+      "criterion": "Independent compiler plugin installed against immutable core with no existing source/build edits.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-ADD-RUNTIME",
+      "criterion": "Distinct real runtime/API installed and tested without changing the core or existing applications.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-ADD-LANGUAGE",
+      "criterion": "Independent frontend and host binding reuse unchanged contracts, compiler and runtime.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-ADD-OP",
+      "criterion": "Semantic extension installs additively and fails safely when its required support is absent.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-PRODUCTION",
+      "criterion": "Hardware, workload, performance, operational, packaging and rollback matrix passes.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-CUDA-FREE",
+      "criterion": "Default new path builds, installs and runs without CUDA toolkit/runtime, NVCC or mandatory Karamel.",
+      "status": "not-run"
+    },
+    {
+      "id": "G-MESA-DECISION",
+      "criterion": "Measured one-driver comparison supports an explicit promote/defer decision.",
+      "status": "not-run"
+    }
+  ],
+  "proof_obligations": [
+    {
+      "id": "O1",
+      "status": "planned",
+      "details": "06-verification-and-trust.md"
+    },
+    {
+      "id": "O2",
+      "status": "planned",
+      "details": "06-verification-and-trust.md"
+    },
+    {
+      "id": "O3",
+      "status": "planned",
+      "details": "06-verification-and-trust.md"
+    },
+    {
+      "id": "O4",
+      "status": "planned",
+      "details": "06-verification-and-trust.md"
+    },
+    {
+      "id": "O5",
+      "status": "planned",
+      "details": "06-verification-and-trust.md"
+    },
+    {
+      "id": "O6",
+      "status": "planned",
+      "details": "06-verification-and-trust.md"
+    },
+    {
+      "id": "O7",
+      "status": "planned",
+      "details": "06-verification-and-trust.md"
+    },
+    {
+      "id": "O8",
+      "status": "planned",
+      "details": "06-verification-and-trust.md"
+    },
+    {
+      "id": "O9",
+      "status": "planned",
+      "details": "06-verification-and-trust.md"
+    },
+    {
+      "id": "O10",
+      "status": "planned",
+      "details": "06-verification-and-trust.md"
+    }
+  ],
+  "qualification_details": "08-production-acceptance.md",
+  "sources": "10-sources.md",
+  "estimate_caveat": "Planning ranges only, before optional Mesa work; re-estimate after P0 and P3. No calendar delivery promise."
+}
