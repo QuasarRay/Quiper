@@ -1,0 +1,178 @@
+{
+  "format_version": 1,
+  "audit_commit": "0a3b1c23ef6773ee8c38483875b0e05e66df9abd",
+  "status_meaning": {
+    "roadmap": "Corrected requirements and procedures; no implementation proof claimed.",
+    "implementation": "Pending until each finding closure has actual evidence."
+  },
+  "findings": [
+    {
+      "id": "F01",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/01-release-and-gates/f01.md",
+      "instructions": "00-current-state-and-gaps/implementation.md",
+      "correction": "Mandatory legacy-scope coverage and separate G-REPLACEMENT; deferral cannot complete migration."
+    },
+    {
+      "id": "F02",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/01-release-and-gates/f02.md",
+      "instructions": "06-verification-and-trust/evidence-policy.md",
+      "correction": "Fixed assurance policies with required O1–O10 evidence and an enumerated trust boundary."
+    },
+    {
+      "id": "F03",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/01-release-and-gates/f03.md",
+      "instructions": "08-production-acceptance/gate-records.md",
+      "correction": "Nonwaivable safety, ownership, failure, cleanup and applicable soak gates; performance-only waivers."
+    },
+    {
+      "id": "F04",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/01-release-and-gates/f04.md",
+      "instructions": "08-production-acceptance/gate-records.md",
+      "correction": "Candidate/input-bound append-only results, dependency invalidation and final-candidate extension tests."
+    },
+    {
+      "id": "F05",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/01-release-and-gates/f05.md",
+      "instructions": "07-implementation-phases/implementation.md",
+      "correction": "Select second API/hardware/common subset in P0; implement and test it in P7."
+    },
+    {
+      "id": "F06",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/01-release-and-gates/f06.md",
+      "instructions": "08-production-acceptance/performance-procedure.md",
+      "correction": "Fixed ratio direction, weights, limits, uncertainty, repeated-look budget and evaluator fixtures."
+    },
+    {
+      "id": "F07",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/02-spirt-and-lowering/f07.md",
+      "instructions": "04-spirt-and-gpu-lowering/emission-and-validation.md",
+      "correction": "Restricted literal baseline; reject unsupported annotations; qualify a patched profile separately."
+    },
+    {
+      "id": "F08",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/02-spirt-and-lowering/f08.md",
+      "instructions": "04-spirt-and-gpu-lowering/control-and-pointers.md",
+      "correction": "Block affected loop paths pending justified reproduction, fix, or enforced/proved exclusion."
+    },
+    {
+      "id": "F09",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/02-spirt-and-lowering/f09.md",
+      "instructions": "04-spirt-and-gpu-lowering/control-and-pointers.md",
+      "correction": "Explicit optional QPtr eligibility with call/merge/memory-operand/range checks before and after passes."
+    },
+    {
+      "id": "F10",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/02-spirt-and-lowering/f10.md",
+      "instructions": "10-sources/upstream-decisions.md",
+      "correction": "Baseline decision and per-candidate adoption criteria, prerequisite/pin/upgrade ownership and independent oracle."
+    },
+    {
+      "id": "F11",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/03-extraction-and-verification/f11.md",
+      "instructions": "02-language-independent-extraction/typed-capture-procedure.md",
+      "correction": "Actual pre-erasure candidate hook and checked body/metadata correspondence through rewrites."
+    },
+    {
+      "id": "F12",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/03-extraction-and-verification/f12.md",
+      "instructions": "02-language-independent-extraction/caller-and-host-contracts.md",
+      "correction": "Static/dynamic/caller-evidence/trusted obligations with asynchronous ownership and mutation control."
+    },
+    {
+      "id": "F13",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/03-extraction-and-verification/f13.md",
+      "instructions": "02-language-independent-extraction/caller-and-host-contracts.md",
+      "correction": "Bind each host import to its semantic contract and checked/restricted/permitted-trust implementation."
+    },
+    {
+      "id": "F14",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/03-extraction-and-verification/f14.md",
+      "instructions": "02-language-independent-extraction/caller-and-host-contracts.md",
+      "correction": "Interpreter plus independent bindings is mandatory; native host compilation has optional G-HOST-CODEGEN."
+    },
+    {
+      "id": "F15",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/04-backends-and-plugins/f15.md",
+      "instructions": "03-backend-extension-contract/addition-only-tests.md",
+      "correction": "Independent compiler and compatible-runtime substitutions, plus the distinct-API installation exercise."
+    },
+    {
+      "id": "F16",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/04-backends-and-plugins/f16.md",
+      "instructions": "05-runtime-and-interop/submission-and-lifecycle.md",
+      "correction": "Distinguish recoverable errors/unwinds from process-fatal abort; IPC for application-survival policy."
+    },
+    {
+      "id": "F17",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/04-backends-and-plugins/f17.md",
+      "instructions": "05-runtime-and-interop/submission-and-lifecycle.md",
+      "correction": "Pin resources and callbacks to immutable provider generation; drain/fail before unloading."
+    },
+    {
+      "id": "F18",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/04-backends-and-plugins/f18.md",
+      "instructions": "08-production-acceptance/ci-admission.md",
+      "correction": "Protected commit-bound runner/admission policy separate from package manifest and release signing."
+    },
+    {
+      "id": "F19",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/05-runtime-and-memory/f19.md",
+      "instructions": "05-runtime-and-interop/submission-and-lifecycle.md",
+      "correction": "Session-scoped operation identity, acceptance/dedup/query, unknown outcomes and fail-stop restart policy."
+    },
+    {
+      "id": "F20",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/05-runtime-and-memory/f20.md",
+      "instructions": "05-runtime-and-interop/memory-and-failures.md",
+      "correction": "Physical atom-footprint ownership, safe allocator/flush/invalidate policy and noncoherent qualification."
+    },
+    {
+      "id": "F21",
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "finding": "Flaws/05-runtime-and-memory/f21.md",
+      "instructions": "05-runtime-and-interop/memory-and-failures.md",
+      "correction": "Separate assertions and guards; collective-safe failure and suppression of invalid effects/postconditions."
+    }
+  ]
+}

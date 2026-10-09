@@ -1,11 +1,12 @@
 {
   "document_kind": "implementation-roadmap",
-  "format_version": 1,
+  "format_version": 2,
   "prepared_on": "2026-10-09",
   "status": "proposed-not-implemented",
   "baseline": {
     "QuasarRay/Quiper": "413219948f91911ffaf0ac37a5ff941c5d1e55c7",
-    "Rust-GPU/spirt": "e8757adba8d14068a7bf1b3bc9f24cac982f4bd3"
+    "Rust-GPU/spirt": "e8757adba8d14068a7bf1b3bc9f24cac982f4bd3",
+    "QuasarRay/FStar": "0eef57bef411aac090354a75c21e00b674bd420c"
   },
   "contract_scope": "No existing source/build/registry edits for compatible additions within the supported contract; incompatible semantics require explicit versioning.",
   "dependency_semantics": "depends_on lists exit-gate prerequisites; investigation and proof work can begin earlier as documented.",
@@ -16,14 +17,15 @@
       "status": "planned",
       "depends_on": [],
       "gates": [
-        "G-BASELINE"
+        "G-BASELINE",
+        "G-SPIRT-FEASIBILITY"
       ],
       "optional": false,
       "engineering_person_weeks_estimate": [
         2,
         4
       ],
-      "details": "07-implementation-phases.md"
+      "details": "07-implementation-phases/implementation.md"
     },
     {
       "id": "P1",
@@ -40,7 +42,7 @@
         4,
         8
       ],
-      "details": "07-implementation-phases.md"
+      "details": "07-implementation-phases/implementation.md"
     },
     {
       "id": "P2",
@@ -57,7 +59,7 @@
         4,
         8
       ],
-      "details": "07-implementation-phases.md"
+      "details": "07-implementation-phases/implementation.md"
     },
     {
       "id": "P3",
@@ -74,7 +76,7 @@
         6,
         12
       ],
-      "details": "07-implementation-phases.md"
+      "details": "07-implementation-phases/implementation.md"
     },
     {
       "id": "P4",
@@ -91,7 +93,7 @@
         8,
         16
       ],
-      "details": "07-implementation-phases.md"
+      "details": "07-implementation-phases/implementation.md"
     },
     {
       "id": "P5",
@@ -108,7 +110,7 @@
         8,
         20
       ],
-      "details": "07-implementation-phases.md"
+      "details": "07-implementation-phases/implementation.md"
     },
     {
       "id": "P6",
@@ -125,7 +127,7 @@
         10,
         24
       ],
-      "details": "07-implementation-phases.md",
+      "details": "07-implementation-phases/implementation.md",
       "work_starts_after": "P1"
     },
     {
@@ -146,7 +148,7 @@
         6,
         14
       ],
-      "details": "07-implementation-phases.md"
+      "details": "07-implementation-phases/implementation.md"
     },
     {
       "id": "P8",
@@ -159,14 +161,15 @@
       ],
       "gates": [
         "G-PRODUCTION",
-        "G-CUDA-FREE"
+        "G-CUDA-FREE",
+        "G-REPLACEMENT"
       ],
       "optional": false,
       "engineering_person_weeks_estimate": [
         8,
         16
       ],
-      "details": "07-implementation-phases.md"
+      "details": "07-implementation-phases/implementation.md"
     },
     {
       "id": "PX",
@@ -180,134 +183,203 @@
       ],
       "optional": true,
       "engineering_person_weeks_estimate": null,
-      "details": "07-implementation-phases.md"
+      "details": "07-implementation-phases/implementation.md"
     }
   ],
   "gates": [
     {
       "id": "G-BASELINE",
       "criterion": "Complete semantic/primitive inventory and reproducible baseline.",
-      "status": "not-run"
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-CONTRACT",
       "criterion": "Reviewed contracts, canonical vectors, independent readers and rejection fixtures.",
-      "status": "not-run"
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-EXTRACT",
       "criterion": "Declared baseline extracts through KIR without mandatory CUDA or Karamel.",
-      "status": "not-run"
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-VERTICAL",
       "criterion": "Real-GPU SPIR-T/Vulkan path with correct results, errors and CUDA-free dependencies.",
-      "status": "not-run"
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-CONCURRENCY",
       "criterion": "Required memory, ownership, subgroup, atomic and async relations checked on qualified devices.",
-      "status": "not-run"
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-COVERAGE",
       "criterion": "All legacy inventory rows classified; all claimed features qualified for the release profile.",
-      "status": "not-run"
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-TRUST",
-      "criterion": "O1-O10 evidence/dispositions complete; assumptions explicit; no silently discharged obligations.",
-      "status": "not-run"
+      "criterion": "Fixed evidence policy satisfied; O1-O10 dispositions and required relations complete; no ad hoc trust waivers.",
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-ADD-COMPILER",
-      "criterion": "Independent compiler plugin installed against immutable core with no existing source/build edits.",
-      "status": "not-run"
+      "criterion": "Independent compiler-only substitution with unchanged runtime/bindings passes against the exact immutable candidate without existing source/build/registry edits.",
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-ADD-RUNTIME",
-      "criterion": "Distinct real runtime/API installed and tested without changing the core or existing applications.",
-      "status": "not-run"
+      "criterion": "Independent shared-artifact runtime substitution AND distinct real API backend pass against the exact immutable candidate without existing source/build/registry edits.",
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-ADD-LANGUAGE",
       "criterion": "Independent frontend and host binding reuse unchanged contracts, compiler and runtime.",
-      "status": "not-run"
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-ADD-OP",
       "criterion": "Semantic extension installs additively and fails safely when its required support is absent.",
-      "status": "not-run"
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-PRODUCTION",
-      "criterion": "Hardware, workload, performance, operational, packaging and rollback matrix passes.",
-      "status": "not-run"
+      "criterion": "Exact-candidate hardware/workload/operational/install/rollback matrix passes; safety and required soak have no waivers; performance follows fixed pass/fail/inconclusive policy.",
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-CUDA-FREE",
       "criterion": "Default new path builds, installs and runs without CUDA toolkit/runtime, NVCC or mandatory Karamel.",
-      "status": "not-run"
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
     },
     {
       "id": "G-MESA-DECISION",
       "criterion": "Measured one-driver comparison supports an explicit promote/defer decision.",
-      "status": "not-run"
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "08-production-acceptance/gate-records.md"
+    },
+    {
+      "id": "G-SPIRT-FEASIBILITY",
+      "criterion": "Annotation, loop-triage/exclusion, QPtr eligibility and dependency decisions supported by pinned probes before enabling affected paths.",
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "04-spirt-and-gpu-lowering/qualification-and-upstream.md"
+    },
+    {
+      "id": "G-REPLACEMENT",
+      "criterion": "Every mandatory baseline entrypoint and reachable semantic dependency has qualified CUDA-independent coverage and required evidence; deferred or CUDA-only rows block completion.",
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "00-current-state-and-gaps/implementation.md"
+    },
+    {
+      "id": "G-HOST-CODEGEN",
+      "criterion": "If native host-plan compilation is enabled, establish interpreter/compiler equivalence including callbacks, failures, cleanup and asynchronous ownership.",
+      "status": "not-run",
+      "definition_version": 1,
+      "details": "02-language-independent-extraction/caller-and-host-contracts.md",
+      "optional": true
     }
   ],
   "proof_obligations": [
     {
       "id": "O1",
       "status": "planned",
-      "details": "06-verification-and-trust.md"
+      "details": "06-verification-and-trust/evidence-policy.md"
     },
     {
       "id": "O2",
       "status": "planned",
-      "details": "06-verification-and-trust.md"
+      "details": "06-verification-and-trust/evidence-policy.md"
     },
     {
       "id": "O3",
       "status": "planned",
-      "details": "06-verification-and-trust.md"
+      "details": "06-verification-and-trust/evidence-policy.md"
     },
     {
       "id": "O4",
       "status": "planned",
-      "details": "06-verification-and-trust.md"
+      "details": "06-verification-and-trust/evidence-policy.md"
     },
     {
       "id": "O5",
       "status": "planned",
-      "details": "06-verification-and-trust.md"
+      "details": "06-verification-and-trust/evidence-policy.md"
     },
     {
       "id": "O6",
       "status": "planned",
-      "details": "06-verification-and-trust.md"
+      "details": "06-verification-and-trust/evidence-policy.md"
     },
     {
       "id": "O7",
       "status": "planned",
-      "details": "06-verification-and-trust.md"
+      "details": "06-verification-and-trust/evidence-policy.md"
     },
     {
       "id": "O8",
       "status": "planned",
-      "details": "06-verification-and-trust.md"
+      "details": "06-verification-and-trust/evidence-policy.md"
     },
     {
       "id": "O9",
       "status": "planned",
-      "details": "06-verification-and-trust.md"
+      "details": "06-verification-and-trust/evidence-policy.md"
     },
     {
       "id": "O10",
       "status": "planned",
-      "details": "06-verification-and-trust.md"
+      "details": "06-verification-and-trust/evidence-policy.md"
     }
   ],
-  "qualification_details": "08-production-acceptance.md",
-  "sources": "10-sources.md",
-  "estimate_caveat": "Planning ranges only, before optional Mesa work; re-estimate after P0 and P3. No calendar delivery promise."
+  "qualification_details": "08-production-acceptance/README.md",
+  "sources": "10-sources/README.md",
+  "estimate_caveat": "Planning ranges only, before optional Mesa work; re-estimate after P0 and P3. No calendar delivery promise.",
+  "revised_on": "2026-10-10",
+  "timezone": "Australia/Melbourne",
+  "audited_roadmap_commit": "689c4528f227704df989f0f1e3eaabb8ce4b600a",
+  "audit_commit": "0a3b1c23ef6773ee8c38483875b0e05e66df9abd",
+  "result_schema": "schemas/gate-result.schema.json",
+  "gate_result_policy": "08-production-acceptance/gate-records.md",
+  "finding_resolutions": "resolutions.json",
+  "completion_claims": {
+    "portable_qualification": "All mandatory phase gates except G-REPLACEMENT; exact declared support/evidence profile only.",
+    "full_cuda_replacement": "Portable qualification plus G-REPLACEMENT over every mandatory legacy-scope row; no mandatory deferred/CUDA-only rows.",
+    "assurance": "Fixed policy in 06-verification-and-trust/evidence-policy.md; source proofs are not end-to-end refinement evidence."
+  },
+  "conditional_gates": [
+    {
+      "id": "G-HOST-CODEGEN",
+      "condition": "Native host-plan compilation is offered",
+      "owner": "Host-plan and verification owners"
+    }
+  ]
 }

@@ -1,0 +1,235 @@
+{
+  "format_version": 1,
+  "original_commit": "0a3b1c23ef6773ee8c38483875b0e05e66df9abd",
+  "documents": {
+    "Roadmap/README.md": {
+      "folder": "Roadmap/README",
+      "index": "Roadmap/README/README.md",
+      "documents": [
+        "Roadmap/README/requirements.md",
+        "Roadmap/README/architecture.md",
+        "Roadmap/README/reading-order.md",
+        "Roadmap/README/completion.md",
+        "Roadmap/README/implementation-sequence.md"
+      ]
+    },
+    "Roadmap/00-current-state-and-gaps.md": {
+      "folder": "Roadmap/00-current-state-and-gaps",
+      "index": "Roadmap/00-current-state-and-gaps/README.md",
+      "documents": [
+        "Roadmap/00-current-state-and-gaps/baseline.md",
+        "Roadmap/00-current-state-and-gaps/coupling.md",
+        "Roadmap/00-current-state-and-gaps/semantic-risks.md",
+        "Roadmap/00-current-state-and-gaps/reuse.md",
+        "Roadmap/00-current-state-and-gaps/implementation.md"
+      ]
+    },
+    "Roadmap/01-target-architecture.md": {
+      "folder": "Roadmap/01-target-architecture",
+      "index": "Roadmap/01-target-architecture/README.md",
+      "documents": [
+        "Roadmap/01-target-architecture/boundaries.md",
+        "Roadmap/01-target-architecture/artifacts.md",
+        "Roadmap/01-target-architecture/planning-and-compatibility.md",
+        "Roadmap/01-target-architecture/implementation.md"
+      ]
+    },
+    "Roadmap/02-language-independent-extraction.md": {
+      "folder": "Roadmap/02-language-independent-extraction",
+      "index": "Roadmap/02-language-independent-extraction/README.md",
+      "documents": [
+        "Roadmap/02-language-independent-extraction/kir-contract.md",
+        "Roadmap/02-language-independent-extraction/capture.md",
+        "Roadmap/02-language-independent-extraction/host-and-languages.md",
+        "Roadmap/02-language-independent-extraction/implementation.md",
+        "Roadmap/02-language-independent-extraction/typed-capture-procedure.md",
+        "Roadmap/02-language-independent-extraction/caller-and-host-contracts.md"
+      ]
+    },
+    "Roadmap/03-backend-extension-contract.md": {
+      "folder": "Roadmap/03-backend-extension-contract",
+      "index": "Roadmap/03-backend-extension-contract/README.md",
+      "documents": [
+        "Roadmap/03-backend-extension-contract/discovery.md",
+        "Roadmap/03-backend-extension-contract/compiler-protocol.md",
+        "Roadmap/03-backend-extension-contract/runtime-abi.md",
+        "Roadmap/03-backend-extension-contract/capabilities.md",
+        "Roadmap/03-backend-extension-contract/conformance.md",
+        "Roadmap/03-backend-extension-contract/implementation.md",
+        "Roadmap/03-backend-extension-contract/addition-only-tests.md"
+      ]
+    },
+    "Roadmap/04-spirt-and-gpu-lowering.md": {
+      "folder": "Roadmap/04-spirt-and-gpu-lowering",
+      "index": "Roadmap/04-spirt-and-gpu-lowering/README.md",
+      "documents": [
+        "Roadmap/04-spirt-and-gpu-lowering/pipeline.md",
+        "Roadmap/04-spirt-and-gpu-lowering/primitive-lowering.md",
+        "Roadmap/04-spirt-and-gpu-lowering/numeric-and-matrix.md",
+        "Roadmap/04-spirt-and-gpu-lowering/other-backends.md",
+        "Roadmap/04-spirt-and-gpu-lowering/direct-construction.md",
+        "Roadmap/04-spirt-and-gpu-lowering/control-and-pointers.md",
+        "Roadmap/04-spirt-and-gpu-lowering/emission-and-validation.md",
+        "Roadmap/04-spirt-and-gpu-lowering/qualification-and-upstream.md",
+        "Roadmap/04-spirt-and-gpu-lowering/operation-mapping.md"
+      ]
+    },
+    "Roadmap/05-runtime-and-interop.md": {
+      "folder": "Roadmap/05-runtime-and-interop",
+      "index": "Roadmap/05-runtime-and-interop/README.md",
+      "documents": [
+        "Roadmap/05-runtime-and-interop/state-and-epochs.md",
+        "Roadmap/05-runtime-and-interop/memory-and-bindings.md",
+        "Roadmap/05-runtime-and-interop/interop.md",
+        "Roadmap/05-runtime-and-interop/deployment.md",
+        "Roadmap/05-runtime-and-interop/submission-and-lifecycle.md",
+        "Roadmap/05-runtime-and-interop/memory-and-failures.md",
+        "Roadmap/05-runtime-and-interop/vulkan-adapter.md"
+      ]
+    },
+    "Roadmap/06-verification-and-trust.md": {
+      "folder": "Roadmap/06-verification-and-trust",
+      "index": "Roadmap/06-verification-and-trust/README.md",
+      "documents": [
+        "Roadmap/06-verification-and-trust/obligations.md",
+        "Roadmap/06-verification-and-trust/source-and-extraction.md",
+        "Roadmap/06-verification-and-trust/validators.md",
+        "Roadmap/06-verification-and-trust/trust-and-reports.md",
+        "Roadmap/06-verification-and-trust/evidence-policy.md"
+      ]
+    },
+    "Roadmap/07-implementation-phases.md": {
+      "folder": "Roadmap/07-implementation-phases",
+      "index": "Roadmap/07-implementation-phases/README.md",
+      "documents": [
+        "Roadmap/07-implementation-phases/foundations.md",
+        "Roadmap/07-implementation-phases/vertical-and-concurrency.md",
+        "Roadmap/07-implementation-phases/coverage-and-proof.md",
+        "Roadmap/07-implementation-phases/extension-and-release.md",
+        "Roadmap/07-implementation-phases/research-and-effort.md",
+        "Roadmap/07-implementation-phases/implementation.md"
+      ]
+    },
+    "Roadmap/08-production-acceptance.md": {
+      "folder": "Roadmap/08-production-acceptance",
+      "index": "Roadmap/08-production-acceptance/README.md",
+      "documents": [
+        "Roadmap/08-production-acceptance/profiles-and-hardware.md",
+        "Roadmap/08-production-acceptance/correctness.md",
+        "Roadmap/08-production-acceptance/performance.md",
+        "Roadmap/08-production-acceptance/ci.md",
+        "Roadmap/08-production-acceptance/rollout.md",
+        "Roadmap/08-production-acceptance/gate-records.md",
+        "Roadmap/08-production-acceptance/performance-procedure.md",
+        "Roadmap/08-production-acceptance/ci-admission.md"
+      ]
+    },
+    "Roadmap/09-work-packages-and-decisions.md": {
+      "folder": "Roadmap/09-work-packages-and-decisions",
+      "index": "Roadmap/09-work-packages-and-decisions/README.md",
+      "documents": [
+        "Roadmap/09-work-packages-and-decisions/work-packages.md",
+        "Roadmap/09-work-packages-and-decisions/decisions.md",
+        "Roadmap/09-work-packages-and-decisions/risks.md",
+        "Roadmap/09-work-packages-and-decisions/traceability.md",
+        "Roadmap/09-work-packages-and-decisions/corrections.md"
+      ]
+    },
+    "Roadmap/10-sources.md": {
+      "folder": "Roadmap/10-sources",
+      "index": "Roadmap/10-sources/README.md",
+      "documents": [
+        "Roadmap/10-sources/kuiper.md",
+        "Roadmap/10-sources/spirt.md",
+        "Roadmap/10-sources/external.md",
+        "Roadmap/10-sources/audit-method.md",
+        "Roadmap/10-sources/claim-evidence.md",
+        "Roadmap/10-sources/upstream-decisions.md"
+      ]
+    },
+    "Roadmap/Flaws/01-release-and-gates.md": {
+      "folder": "Roadmap/Flaws/01-release-and-gates",
+      "index": "Roadmap/Flaws/01-release-and-gates/README.md",
+      "documents": [
+        "Roadmap/Flaws/01-release-and-gates/f01.md",
+        "Roadmap/Flaws/01-release-and-gates/f02.md",
+        "Roadmap/Flaws/01-release-and-gates/f03.md",
+        "Roadmap/Flaws/01-release-and-gates/f04.md",
+        "Roadmap/Flaws/01-release-and-gates/f05.md",
+        "Roadmap/Flaws/01-release-and-gates/f06.md"
+      ]
+    },
+    "Roadmap/Flaws/02-spirt-and-lowering.md": {
+      "folder": "Roadmap/Flaws/02-spirt-and-lowering",
+      "index": "Roadmap/Flaws/02-spirt-and-lowering/README.md",
+      "documents": [
+        "Roadmap/Flaws/02-spirt-and-lowering/f07.md",
+        "Roadmap/Flaws/02-spirt-and-lowering/f08.md",
+        "Roadmap/Flaws/02-spirt-and-lowering/f09.md",
+        "Roadmap/Flaws/02-spirt-and-lowering/f10.md"
+      ]
+    },
+    "Roadmap/Flaws/03-extraction-and-verification.md": {
+      "folder": "Roadmap/Flaws/03-extraction-and-verification",
+      "index": "Roadmap/Flaws/03-extraction-and-verification/README.md",
+      "documents": [
+        "Roadmap/Flaws/03-extraction-and-verification/f11.md",
+        "Roadmap/Flaws/03-extraction-and-verification/f12.md",
+        "Roadmap/Flaws/03-extraction-and-verification/f13.md",
+        "Roadmap/Flaws/03-extraction-and-verification/f14.md"
+      ]
+    },
+    "Roadmap/Flaws/04-backends-and-plugins.md": {
+      "folder": "Roadmap/Flaws/04-backends-and-plugins",
+      "index": "Roadmap/Flaws/04-backends-and-plugins/README.md",
+      "documents": [
+        "Roadmap/Flaws/04-backends-and-plugins/f15.md",
+        "Roadmap/Flaws/04-backends-and-plugins/f16.md",
+        "Roadmap/Flaws/04-backends-and-plugins/f17.md",
+        "Roadmap/Flaws/04-backends-and-plugins/f18.md"
+      ]
+    },
+    "Roadmap/Flaws/05-runtime-and-memory.md": {
+      "folder": "Roadmap/Flaws/05-runtime-and-memory",
+      "index": "Roadmap/Flaws/05-runtime-and-memory/README.md",
+      "documents": [
+        "Roadmap/Flaws/05-runtime-and-memory/f19.md",
+        "Roadmap/Flaws/05-runtime-and-memory/f20.md",
+        "Roadmap/Flaws/05-runtime-and-memory/f21.md"
+      ]
+    },
+    "Roadmap/Flaws/06-coverage-and-evidence.md": {
+      "folder": "Roadmap/Flaws/06-coverage-and-evidence",
+      "index": "Roadmap/Flaws/06-coverage-and-evidence/README.md",
+      "documents": [
+        "Roadmap/Flaws/06-coverage-and-evidence/what-this-audit-establishes.md",
+        "Roadmap/Flaws/06-coverage-and-evidence/revision-and-investigation-record.md",
+        "Roadmap/Flaws/06-coverage-and-evidence/coverage-of-every-roadmap-file.md",
+        "Roadmap/Flaws/06-coverage-and-evidence/suspicions-checked-and-not-counted-as-findings.md",
+        "Roadmap/Flaws/06-coverage-and-evidence/primary-specifications-used-in-this-audit.md",
+        "Roadmap/Flaws/06-coverage-and-evidence/remaining-investigation-and-validation.md",
+        "Roadmap/Flaws/06-coverage-and-evidence/documentation-validation.md"
+      ]
+    },
+    "Roadmap/Flaws/07-remediation-order.md": {
+      "folder": "Roadmap/Flaws/07-remediation-order",
+      "index": "Roadmap/Flaws/07-remediation-order/README.md",
+      "documents": [
+        "Roadmap/Flaws/07-remediation-order/work-order.md",
+        "Roadmap/Flaws/07-remediation-order/map-corrections-into-existing-work-packages.md",
+        "Roadmap/Flaws/07-remediation-order/required-closure-record.md",
+        "Roadmap/Flaws/07-remediation-order/smallest-useful-next-review.md"
+      ]
+    },
+    "Roadmap/Flaws/README.md": {
+      "folder": "Roadmap/Flaws/README",
+      "index": "Roadmap/Flaws/README/README.md",
+      "documents": [
+        "Roadmap/Flaws/README/exact-scope.md",
+        "Roadmap/Flaws/README/finding-index.md",
+        "Roadmap/Flaws/README/how-to-act-on-this-collection.md",
+        "Roadmap/Flaws/README/resolutions.md"
+      ]
+    }
+  }
+}

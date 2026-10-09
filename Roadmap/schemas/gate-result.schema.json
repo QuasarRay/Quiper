@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kuiper gate result envelope v1",
+  "description": "Structural result envelope. The gate definition and protected evaluator determine required input keys, evidence semantics, and admission.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format_version",
+    "gate_id",
+    "gate_definition_digest",
+    "candidate_digest",
+    "inputs",
+    "profile",
+    "outcome",
+    "skips",
+    "waivers",
+    "evidence",
+    "recorded_at"
+  ],
+  "properties": {
+    "format_version": {
+      "const": 1
+    },
+    "gate_id": {
+      "enum": [
+        "G-BASELINE",
+        "G-CONTRACT",
+        "G-EXTRACT",
+        "G-VERTICAL",
+        "G-CONCURRENCY",
+        "G-COVERAGE",
+        "G-TRUST",
+        "G-ADD-COMPILER",
+        "G-ADD-RUNTIME",
+        "G-ADD-LANGUAGE",
+        "G-ADD-OP",
+        "G-PRODUCTION",
+        "G-CUDA-FREE",
+        "G-MESA-DECISION",
+        "G-SPIRT-FEASIBILITY",
+        "G-REPLACEMENT",
+        "G-HOST-CODEGEN"
+      ]
+    },
+    "gate_definition_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "candidate_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "inputs": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$"
+      }
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "support",
+        "assurance"
+      ],
+      "properties": {
+        "support": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assurance": {
+          "enum": [
+            "qualified-v1",
+            "source-verified-v1",
+            "refinement-verified-v1"
+          ]
+        }
+      }
+    },
+    "outcome": {
+      "enum": [
+        "pass",
+        "fail",
+        "inconclusive",
+        "infrastructure-error"
+      ]
+    },
+    "skips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "case_id",
+          "reason",
+          "outside_claim"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "outside_claim": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "waivers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "metric",
+          "policy_record_digest"
+        ],
+        "properties": {
+          "kind": {
+            "const": "performance"
+          },
+          "metric": {
+            "type": "string",
+            "minLength": 1
+          },
+          "policy_record_digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "uri",
+          "digest",
+          "kind"
+        ],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "minLength": 1
+          },
+          "digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
