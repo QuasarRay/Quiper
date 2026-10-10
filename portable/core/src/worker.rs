@@ -31,7 +31,10 @@ fn measured(path: &Path) -> Result<String> {
     if !metadata.is_file() || metadata.len() > 128 * 1024 * 1024 {
         return Err(error("worker-size", "worker exceeds file limit"));
     }
-    Ok(canonical::hash(&io(fs::read(path))?))
+    Ok(canonical::hash(&crate::read_bounded(
+        path,
+        128 * 1024 * 1024,
+    )?))
 }
 pub fn discover(root: &Path) -> Result<Vec<Worker>> {
     let root = io(root.canonicalize())?;
@@ -46,7 +49,10 @@ pub fn discover(root: &Path) -> Result<Vec<Worker>> {
             continue;
         }
         let path = entry.path();
-        let manifest: Manifest = canonical::parse(&io(fs::read(path.join("manifest.json")))?)?;
+        let manifest: Manifest = canonical::parse(&crate::read_bounded(
+            &path.join("manifest.json"),
+            MAX_MESSAGE,
+        )?)?;
         if manifest.protocol != PROTOCOL
             || !identity(&manifest.id)
             || !canonical::is_digest(&manifest.executable_digest)
@@ -199,12 +205,25 @@ fn rpc(worker: &Worker, request: &Request, compiler: bool) -> Result<Response> {
     });
     let start = Instant::now();
     let mut deadline_error = None;
+    let mut observed_status = None;
     loop {
         let observation = waitid(
             Id::Pid(pid),
             WaitPidFlag::WEXITED | WaitPidFlag::WNOHANG | WaitPidFlag::WNOWAIT,
-        )
-        .map_err(|e| error("worker-wait", e.to_string()))?;
+        );
+        let observation = match observation {
+            Ok(status) => status,
+            Err(nix::errno::Errno::EINTR) => continue,
+            Err(cause) => {
+                if compiler {
+                    let _ = killpg(pid, Signal::SIGKILL);
+                    let _ = child.kill();
+                }
+                observed_status = Some(io(child.wait())?);
+                deadline_error = Some(error("worker-wait", cause.to_string()));
+                break;
+            }
+        };
         if !matches!(observation, WaitStatus::StillAlive) {
             if compiler {
                 let _ = killpg(pid, Signal::SIGKILL);
@@ -224,7 +243,10 @@ fn rpc(worker: &Worker, request: &Request, compiler: bool) -> Result<Response> {
         }
         std::thread::sleep(Duration::from_millis(5));
     }
-    let status = io(child.wait())?;
+    let status = match observed_status {
+        Some(status) => status,
+        None => io(child.wait())?,
+    };
     let written = writer
         .join()
         .map_err(|_| error("worker-input", "writer panicked"))?;
@@ -239,7 +261,7 @@ fn rpc(worker: &Worker, request: &Request, compiler: bool) -> Result<Response> {
     if !status.success() {
         return Err(error("worker-exit", format!("worker exited {status}")));
     }
-    if raw.len() > MAX_MESSAGE
+    if raw.len() > MAX_MESSAGE + 1
         || !raw.ends_with(b"\n")
         || raw[..raw.len() - 1].contains(&b'\n')
         || raw.contains(&b'\r')

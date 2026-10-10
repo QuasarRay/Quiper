@@ -210,9 +210,7 @@ impl Builder {
         self.module.cx()
     }
     fn region(&mut self) -> Region {
-        self.func
-            .regions
-            .define(&self.cx(), RegionDef::default().into())
+        self.func.regions.define(&self.cx(), RegionDef::default())
     }
     fn append_node(&mut self, region: Region, node: NodeDef) -> spirt::Node {
         let node = self.func.nodes.define(&self.cx(), node.into());
@@ -960,7 +958,7 @@ pub(crate) fn lower(kernel: &Kernel) -> Result<Lowered> {
     .map(|builtin| builtin_global(&mut module, builtin));
     interfaces.extend(builtins);
     let mut regions = spirt::EntityDefs::default();
-    let body = regions.define(&cx, RegionDef::default().into());
+    let body = regions.define(&cx, RegionDef::default());
     let mut builder = Builder {
         module,
         func: FuncDefBody {

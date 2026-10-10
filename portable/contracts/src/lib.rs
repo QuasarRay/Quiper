@@ -1,4 +1,5 @@
 //! Versioned, implementation-independent contracts for the portable worker boundary.
+#![forbid(unsafe_code)]
 pub mod canonical;
 pub mod validate;
 

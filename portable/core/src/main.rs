@@ -3,7 +3,7 @@ use kuiper_core::{host, reference, worker};
 use std::path::Path;
 
 fn read<T: serde::de::DeserializeOwned>(path: &str) -> Result<T> {
-    let bytes = std::fs::read(path).map_err(|e| Diagnostic::new("cli", "io", e.to_string()))?;
+    let bytes = kuiper_core::read_bounded(Path::new(path), MAX_MESSAGE)?;
     canonical::parse(&bytes)
 }
 fn missing() -> Diagnostic {

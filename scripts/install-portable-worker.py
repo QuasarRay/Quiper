@@ -26,19 +26,28 @@ def pairs(items):
     return result
 
 def digest(path):
-    data = path.read_bytes()
+    with path.open('rb') as source:
+        data = source.read(MAX_BINARY + 1)
     if len(data) > MAX_BINARY:
         raise ValueError("Worker exceeds the binary limit")
     return hashlib.sha256(data).hexdigest()
 
 def describe(path, deadline_seconds=10):
-    child = subprocess.Popen([str(path), "describe"], stdin=subprocess.DEVNULL,
+    child = subprocess.Popen([str(path), "worker"], stdin=subprocess.PIPE,
                              stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                              start_new_session=True)
     selector = selectors.DefaultSelector()
     streams = {child.stdout: (bytearray(), 65536), child.stderr: (bytearray(), 4096)}
     deadline = time.monotonic() + deadline_seconds
     try:
+        # Describe uses the same wire protocol as compilation and execution.
+        # This single small request fits a newly created pipe without waiting
+        # for the worker; EOF also makes one-request workers exit normally.
+        try:
+            child.stdin.write(b'{"method":"describe"}\n')
+            child.stdin.close()
+        except BrokenPipeError:
+            child.stdin.close()
         for stream in streams:
             os.set_blocking(stream.fileno(), False)
             selector.register(stream, selectors.EVENT_READ)
