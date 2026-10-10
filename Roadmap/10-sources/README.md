@@ -1,18 +1,6 @@
-# 10. Sources and audit provenance
+# Sources
 
-The roadmap distinguishes **observed implementation**, **primary specification/documentation**, and **proposed design**. Proposed architecture, timelines, performance budgets, profiles, protocols, and proof obligations are engineering decisions, not claims that upstream already implements them.
+Implement these milestones in order. Each page names a concrete deliverable, its declarative F* relations, the implementation procedure and the evidence required to close it. These are implementation instructions; the backend work remains planned.
 
-Repository evidence was inspected at the full revisions below on 2026-10-09. External `latest` documentation is mutable; P0 must pin the exact API/specification/tool revisions used for implementation and qualification.
-
-
-## Categorized instructions
-
-- [Kuiper](kuiper.md)
-- [Spirt](spirt.md)
-- [External](external.md)
-- [Audit method](audit-method.md)
-
-## Detailed implementation and correction procedures
-
-- [Claim evidence](claim-evidence.md)
-- [Upstream decisions](upstream-decisions.md)
+- [M30: Lock and reproduce the primary-source evidence](01-lock-and-reproduce-primary-sources.md)
+- [M31: Check each correctness claim against its evidence](02-check-each-correctness-claim.md)

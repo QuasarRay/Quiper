@@ -1,25 +1,39 @@
-# Kuiper: replace CUDA dependence with SPIR-T
+# Kuiper roadmap v3: implement the declarative specification
 
-The goal is to make Kuiper a verified GPU programming system whose compiler, runtime, and extraction contracts are independent of CUDA and of any single source or output language. SPIR-T becomes the device compilation layer. GPU backends, source-language adapters, and host-language bindings become independently installable packages.
+Implement these milestones in order. Each page names a concrete deliverable, its declarative F* relations, the implementation procedure and the evidence required to close it. These are implementation instructions; the backend work remains planned.
 
-The target repository is **QuasarRay/Quiper**. The existing language and modules are named **Kuiper**; this roadmap preserves that naming. All components, APIs, profiles, commands, and directories proposed below are future work unless explicitly identified as existing.
+The target is a fully decoupled Kuiper with language-independent kernel/host contracts and independently installable compiler, runtime, binding and semantic packages. Compatible backend additions must preserve the frozen installed core and existing packages. SPIR-T is the first detailed compiler realization.
 
-**Status:** revised implementation instructions; proposed components remain unimplemented. Revised on 2026-10-10 Australia/Melbourne, using evidence inspected on 2026-10-09 UTC. Baseline: Quiper `413219948f91911ffaf0ac37a5ff941c5d1e55c7` and SPIR-T `e8757adba8d14068a7bf1b3bc9f24cac982f4bd3`.
+**V3 status:** all eight v2 documentation flaws are corrected. The executable F* model and its verification record are in [Specification](../Specification/README.md). Production implementation, refinement of concrete code and GPU qualification remain outstanding.
 
+## Begin here
 
-## Categorized instructions
+- [Specification and proof scope](../Specification/README.md)
+- [V2 correction record](../Flaws/v2/resolutions/README.md)
+- [Implementation milestone inventory](../implementation-milestones.json)
 
-- [Requirements](requirements.md)
-- [Architecture](architecture.md)
-- [Reading order](reading-order.md)
-- [Completion](completion.md)
+- [M01: Freeze the decoupling and replacement claim](01-freeze-the-goal.md)
+- [M02: Sequence implementation by evidence dependencies](02-sequence-the-implementation.md)
 
-## Detailed implementation and correction procedures
+## Implementation areas
 
-- [Implementation sequence](implementation-sequence.md)
+- [00 current state and gaps](../00-current-state-and-gaps/README.md)
+- [01 target architecture](../01-target-architecture/README.md)
+- [02 language independent extraction](../02-language-independent-extraction/README.md)
+- [03 backend extension contract](../03-backend-extension-contract/README.md)
+- [04 spirt and gpu lowering](../04-spirt-and-gpu-lowering/README.md)
+- [05 runtime and interop](../05-runtime-and-interop/README.md)
+- [06 verification and trust](../06-verification-and-trust/README.md)
+- [07 implementation phases](../07-implementation-phases/README.md)
+- [08 production acceptance](../08-production-acceptance/README.md)
+- [09 work packages and decisions](../09-work-packages-and-decisions/README.md)
+- [10 sources](../10-sources/README.md)
 
-## Start here
+## Evidence and history
 
-Read [the implementation sequence](implementation-sequence.md), then [the categorized topic order](reading-order.md). See [all 21 corrections](../Flaws/README/resolutions.md), [the full audit collection](../Flaws/README/README.md), [primary evidence](../10-sources/claim-evidence.md), and [the path migration map](../document-map.json).
+- [Audit collection](../Flaws/README/README.md)
+- [V2 audit, preserved against its reviewed revision](../Flaws/v2/README.md)
+- [Phase and gate plan](../milestones.json)
+- [Document migration map](../document-map.json)
 
-The original 20 Markdown files, including the eight audit files, each now have a matching folder containing categorized pages. `README.md` files inside those folders are new navigation indexes. Run `python3 Roadmap/tools/check_roadmap.py` from the repository root to validate document links, finding coverage, milestone references and pinned source paths available in this checkout.
+Run `python3 Roadmap/tools/check_roadmap.py` for links, milestone/specification coverage and proof-record identity. Run `python3 Roadmap/tools/verify_spec.py --fstar /absolute/path/to/fstar.exe --report /tmp/quiper-spec-verification.json` for strict F* verification. Use the locked toolchain described in the specification.

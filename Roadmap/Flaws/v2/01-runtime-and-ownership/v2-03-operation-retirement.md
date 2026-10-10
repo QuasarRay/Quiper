@@ -1,10 +1,12 @@
 # V2-03: duplicate suppression has no bounded retirement protocol
 
-**Severity:** Medium. **Status:** Open. **Evidence class:** protocol-completeness gap. **Owner:** runtime protocol and operations owners. **Resolve by:** P1's operation lifecycle; qualify in P4 and P8.
+**Severity:** Medium. **Status:** Roadmap corrected in v3; implementation pending. **Evidence class:** protocol-completeness gap. **Owner:** runtime protocol and operations owners. **Resolve by:** P1's operation lifecycle; qualify in P4 and P8.
+
+V3 correction: [implementation and evidence record](../resolutions/01-close-runtime-contracts.md). The original audited evidence below is preserved against v2.
 
 ## 1. Affected instructions
 
-The [submission procedure](../../../05-runtime-and-interop/submission-and-lifecycle.md) adds a live-session operation table and requires repeated IDs to reconcile with the original operation. The [service contract](../../../03-backend-extension-contract/implementation.md) requires resource budgets. The [production soak](../../../08-production-acceptance/ci.md) rejects unexplained growing resource leakage.
+The [submission procedure](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/05-runtime-and-interop/submission-and-lifecycle.md) adds a live-session operation table and requires repeated IDs to reconcile with the original operation. The [service contract](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/03-backend-extension-contract/implementation.md) requires resource budgets. The [production soak](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/08-production-acceptance/ci.md) rejects unexplained growing resource leakage.
 
 The [frozen submission procedure](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/05-runtime-and-interop/submission-and-lifecycle.md) does not define when a completed record can be discarded, how old retries are rejected after discarding it, or whether repeating a completed reply is observation or another ownership transfer.
 

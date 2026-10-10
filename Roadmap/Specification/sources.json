@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "inspected_on": "2026-10-10",
+  "specification_checker": {
+    "release": "https://github.com/FStarLang/FStar/releases/tag/v2026.09.27",
+    "compiler_commit": "7deb38a27c86990664c6b41e4b6093597acdebd4",
+    "archive": "https://github.com/FStarLang/FStar/releases/download/v2026.09.27/fstar-v2026.09.27-Linux-x86_64.tar.gz",
+    "archive_sha256": "cafbbb8960efeb26f5d30bc447b61ab8a507968948507a2580585afd1397781d",
+    "solver_version": "Z3 version 4.13.3 - 64 bit",
+    "solver_sha256": "cac7d29f2e42da8afcbd704bda0dd0ba2893b3ef814fcfd92a42727d0819421d"
+  },
+  "implementation_source_pins": {
+    "FStarLang/kuiper": "413219948f91911ffaf0ac37a5ff941c5d1e55c7",
+    "QuasarRay/FStar": "0eef57bef411aac090354a75c21e00b674bd420c",
+    "Rust-GPU/spirt": "e8757adba8d14068a7bf1b3bc9f24cac982f4bd3"
+  },
+  "scope": "Pure standalone model verification; project fork, Pulse exporter, SPIR-T compiler and GPU qualification are separate obligations."
+}

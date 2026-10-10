@@ -1,10 +1,12 @@
 # V2-08: the confidence recipe lacks tail-adequacy and bootstrap-resolution rules
 
-**Severity:** Medium. **Status:** Open. **Evidence class:** measurement-policy gap with an executed mathematical counterexample. **Owner:** performance and release owners. **Resolve by:** P0 performance ratification and the metric evaluator, before G-PRODUCTION uses the result.
+**Severity:** Medium. **Status:** Roadmap corrected in v3; implementation pending. **Evidence class:** measurement-policy gap with an executed mathematical counterexample. **Owner:** performance and release owners. **Resolve by:** P0 performance ratification and the metric evaluator, before G-PRODUCTION uses the result.
+
+V3 correction: [implementation and evidence record](../resolutions/03-close-tail-qualification.md). The original audited evidence below is preserved against v2.
 
 ## 1. Affected instructions
 
-The [performance procedure](../../../08-production-acceptance/performance-procedure.md) supplies ratio direction, paired blocks, at least 30 independent blocks, a seeded 10,000-replicate bootstrap, multiple-decision/repeated-look adjustment and pass/fail/inconclusive rules. These correct much of F06.
+The [performance procedure](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/08-production-acceptance/performance-procedure.md) supplies ratio direction, paired blocks, at least 30 independent blocks, a seeded 10,000-replicate bootstrap, multiple-decision/repeated-look adjustment and pass/fail/inconclusive rules. These correct much of F06.
 
 The [frozen recipe](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/08-production-acceptance/performance-procedure.md) does not fix the interval construction, quantify independent-block adequacy for p99, or impose a resolution/error rule when multiplicity pushes bootstrap tail probabilities below the available resampling precision. Calling for useful precision and pilot measurements does not supply those decision rules.
 

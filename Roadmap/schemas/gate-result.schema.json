@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Kuiper gate result envelope v1",
+  "title": "Kuiper gate result envelope v2",
   "description": "Structural result envelope. The gate definition and protected evaluator determine required input keys, evidence semantics, and admission.",
   "type": "object",
   "additionalProperties": false,
@@ -19,7 +19,7 @@
   ],
   "properties": {
     "format_version": {
-      "const": 1
+      "const": 2
     },
     "gate_id": {
       "enum": [
@@ -74,11 +74,22 @@
           "minLength": 1
         },
         "assurance": {
-          "enum": [
-            "qualified-v1",
-            "source-verified-v1",
-            "refinement-verified-v1"
-          ]
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "definition_digest"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9.-]*/[a-z][a-z0-9._-]*$"
+            },
+            "definition_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          }
         }
       }
     },

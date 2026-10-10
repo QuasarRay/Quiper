@@ -36,4 +36,4 @@ The schema membership check and statistical arithmetic were executed. Runtime ex
 
 Missing future code is not counted as a flaw. Nor are already corrected v1 issues repeated as new findings. [Rejected suspicions](05-coverage-and-evidence/not-findings.md) record checks that did not justify a finding. This is a broad, evidence-based audit; it cannot certify that no further flaws exist.
 
-All eight findings remain open. This collection documents corrections for review; it does not implement them or mark a release gate passed.
+All eight findings are now corrected in the v3 roadmap. Follow [the resolution records](resolutions/README.md) for current instructions, model evidence and required implementation closure cases. No backend implementation or release gate is marked passed.

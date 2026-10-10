@@ -1,0 +1,21 @@
+{
+  "format_version": 1,
+  "status": "proposed definitions; not an authorization registry",
+  "definitions": [
+    {
+      "name": "org.quiper/qualified-v1",
+      "definition_digest": "sha256:a32ca463fd400bc244f56ebea2a31276f499231f7e5a26c9aef7f87bfa41715e",
+      "file": "policies/qualified-v1.json"
+    },
+    {
+      "name": "org.quiper/source-verified-v1",
+      "definition_digest": "sha256:2c8f1c3a476290b20f3c87321389cc94895e06145f4e50c0d197e7309260cd3d",
+      "file": "policies/source-verified-v1.json"
+    },
+    {
+      "name": "org.quiper/refinement-verified-v1",
+      "definition_digest": "sha256:47cf965c87f389f2c10c647e3d61eacf71ecfbf4d5f398d945b94ec152548cd7",
+      "file": "policies/refinement-verified-v1.json"
+    }
+  ]
+}

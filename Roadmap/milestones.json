@@ -1,6 +1,6 @@
 {
   "document_kind": "implementation-roadmap",
-  "format_version": 2,
+  "format_version": 3,
   "prepared_on": "2026-10-09",
   "status": "proposed-not-implemented",
   "baseline": {
@@ -25,7 +25,7 @@
         2,
         4
       ],
-      "details": "07-implementation-phases/implementation.md"
+      "details": "00-current-state-and-gaps/01-freeze-the-semantic-inventory.md"
     },
     {
       "id": "P1",
@@ -42,7 +42,7 @@
         4,
         8
       ],
-      "details": "07-implementation-phases/implementation.md"
+      "details": "01-target-architecture/01-isolate-the-contract-core.md"
     },
     {
       "id": "P2",
@@ -59,7 +59,7 @@
         4,
         8
       ],
-      "details": "07-implementation-phases/implementation.md"
+      "details": "02-language-independent-extraction/02-export-a-checked-kuiper-program.md"
     },
     {
       "id": "P3",
@@ -76,7 +76,7 @@
         6,
         12
       ],
-      "details": "07-implementation-phases/implementation.md"
+      "details": "04-spirt-and-gpu-lowering/02-run-the-integer-vertical-slice.md"
     },
     {
       "id": "P4",
@@ -93,7 +93,7 @@
         8,
         16
       ],
-      "details": "07-implementation-phases/implementation.md"
+      "details": "05-runtime-and-interop/01-enforce-submission-and-failure-semantics.md"
     },
     {
       "id": "P5",
@@ -110,7 +110,7 @@
         8,
         20
       ],
-      "details": "07-implementation-phases/implementation.md"
+      "details": "04-spirt-and-gpu-lowering/04-complete-numerics-and-target-emission.md"
     },
     {
       "id": "P6",
@@ -127,7 +127,7 @@
         10,
         24
       ],
-      "details": "07-implementation-phases/implementation.md",
+      "details": "06-verification-and-trust/01-bind-source-and-transformation-evidence.md",
       "work_starts_after": "P1"
     },
     {
@@ -148,7 +148,7 @@
         6,
         14
       ],
-      "details": "07-implementation-phases/implementation.md"
+      "details": "03-backend-extension-contract/03-prove-additive-installation.md"
     },
     {
       "id": "P8",
@@ -169,7 +169,7 @@
         8,
         16
       ],
-      "details": "07-implementation-phases/implementation.md"
+      "details": "08-production-acceptance/03-qualify-performance-and-cutover.md"
     },
     {
       "id": "PX",
@@ -183,7 +183,7 @@
       ],
       "optional": true,
       "engineering_person_weeks_estimate": null,
-      "details": "07-implementation-phases/implementation.md"
+      "details": "04-spirt-and-gpu-lowering/04-complete-numerics-and-target-emission.md"
     }
   ],
   "gates": [
@@ -192,119 +192,119 @@
       "criterion": "Complete semantic/primitive inventory and reproducible baseline.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-CONTRACT",
       "criterion": "Reviewed contracts, canonical vectors, independent readers and rejection fixtures.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-EXTRACT",
       "criterion": "Declared baseline extracts through KIR without mandatory CUDA or Karamel.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-VERTICAL",
       "criterion": "Real-GPU SPIR-T/Vulkan path with correct results, errors and CUDA-free dependencies.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-CONCURRENCY",
       "criterion": "Required memory, ownership, subgroup, atomic and async relations checked on qualified devices.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-COVERAGE",
       "criterion": "All legacy inventory rows classified; all claimed features qualified for the release profile.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-TRUST",
       "criterion": "Fixed evidence policy satisfied; O1-O10 dispositions and required relations complete; no ad hoc trust waivers.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-ADD-COMPILER",
       "criterion": "Independent compiler-only substitution with unchanged runtime/bindings passes against the exact immutable candidate without existing source/build/registry edits.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-ADD-RUNTIME",
       "criterion": "Independent shared-artifact runtime substitution AND distinct real API backend pass against the exact immutable candidate without existing source/build/registry edits.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-ADD-LANGUAGE",
       "criterion": "Independent frontend and host binding reuse unchanged contracts, compiler and runtime.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-ADD-OP",
       "criterion": "Semantic extension installs additively and fails safely when its required support is absent.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-PRODUCTION",
       "criterion": "Exact-candidate hardware/workload/operational/install/rollback matrix passes; safety and required soak have no waivers; performance follows fixed pass/fail/inconclusive policy.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-CUDA-FREE",
       "criterion": "Default new path builds, installs and runs without CUDA toolkit/runtime, NVCC or mandatory Karamel.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-MESA-DECISION",
       "criterion": "Measured one-driver comparison supports an explicit promote/defer decision.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "08-production-acceptance/gate-records.md"
+      "details": "08-production-acceptance/02-implement-candidate-bound-admission.md"
     },
     {
       "id": "G-SPIRT-FEASIBILITY",
       "criterion": "Annotation, loop-triage/exclusion, QPtr eligibility and dependency decisions supported by pinned probes before enabling affected paths.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "04-spirt-and-gpu-lowering/qualification-and-upstream.md"
+      "details": "04-spirt-and-gpu-lowering/01-build-and-qualify-the-worker.md"
     },
     {
       "id": "G-REPLACEMENT",
       "criterion": "Every mandatory baseline entrypoint and reachable semantic dependency has qualified CUDA-independent coverage and required evidence; deferred or CUDA-only rows block completion.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "00-current-state-and-gaps/implementation.md"
+      "details": "00-current-state-and-gaps/01-freeze-the-semantic-inventory.md"
     },
     {
       "id": "G-HOST-CODEGEN",
       "criterion": "If native host-plan compilation is enabled, establish interpreter/compiler equivalence including callbacks, failures, cleanup and asynchronous ownership.",
       "status": "not-run",
       "definition_version": 1,
-      "details": "02-language-independent-extraction/caller-and-host-contracts.md",
+      "details": "02-language-independent-extraction/03-run-host-plans-from-two-languages.md",
       "optional": true
     }
   ],
@@ -312,52 +312,52 @@
     {
       "id": "O1",
       "status": "planned",
-      "details": "06-verification-and-trust/evidence-policy.md"
+      "details": "06-verification-and-trust/02-admit-immutable-evidence-policies.md"
     },
     {
       "id": "O2",
       "status": "planned",
-      "details": "06-verification-and-trust/evidence-policy.md"
+      "details": "06-verification-and-trust/02-admit-immutable-evidence-policies.md"
     },
     {
       "id": "O3",
       "status": "planned",
-      "details": "06-verification-and-trust/evidence-policy.md"
+      "details": "06-verification-and-trust/02-admit-immutable-evidence-policies.md"
     },
     {
       "id": "O4",
       "status": "planned",
-      "details": "06-verification-and-trust/evidence-policy.md"
+      "details": "06-verification-and-trust/02-admit-immutable-evidence-policies.md"
     },
     {
       "id": "O5",
       "status": "planned",
-      "details": "06-verification-and-trust/evidence-policy.md"
+      "details": "06-verification-and-trust/02-admit-immutable-evidence-policies.md"
     },
     {
       "id": "O6",
       "status": "planned",
-      "details": "06-verification-and-trust/evidence-policy.md"
+      "details": "06-verification-and-trust/02-admit-immutable-evidence-policies.md"
     },
     {
       "id": "O7",
       "status": "planned",
-      "details": "06-verification-and-trust/evidence-policy.md"
+      "details": "06-verification-and-trust/02-admit-immutable-evidence-policies.md"
     },
     {
       "id": "O8",
       "status": "planned",
-      "details": "06-verification-and-trust/evidence-policy.md"
+      "details": "06-verification-and-trust/02-admit-immutable-evidence-policies.md"
     },
     {
       "id": "O9",
       "status": "planned",
-      "details": "06-verification-and-trust/evidence-policy.md"
+      "details": "06-verification-and-trust/02-admit-immutable-evidence-policies.md"
     },
     {
       "id": "O10",
       "status": "planned",
-      "details": "06-verification-and-trust/evidence-policy.md"
+      "details": "06-verification-and-trust/02-admit-immutable-evidence-policies.md"
     }
   ],
   "qualification_details": "08-production-acceptance/README.md",
@@ -368,12 +368,12 @@
   "audited_roadmap_commit": "689c4528f227704df989f0f1e3eaabb8ce4b600a",
   "audit_commit": "0a3b1c23ef6773ee8c38483875b0e05e66df9abd",
   "result_schema": "schemas/gate-result.schema.json",
-  "gate_result_policy": "08-production-acceptance/gate-records.md",
+  "gate_result_policy": "08-production-acceptance/02-implement-candidate-bound-admission.md",
   "finding_resolutions": "resolutions.json",
   "completion_claims": {
     "portable_qualification": "All mandatory phase gates except G-REPLACEMENT; exact declared support/evidence profile only.",
     "full_cuda_replacement": "Portable qualification plus G-REPLACEMENT over every mandatory legacy-scope row; no mandatory deferred/CUDA-only rows.",
-    "assurance": "Fixed policy in 06-verification-and-trust/evidence-policy.md; source proofs are not end-to-end refinement evidence."
+    "assurance": "Immutable admitted policy identity and definition digest; source proofs, model proofs and concrete end-to-end refinement are distinct claims."
   },
   "conditional_gates": [
     {
@@ -381,5 +381,8 @@
       "condition": "Native host-plan compilation is offered",
       "owner": "Host-plan and verification owners"
     }
-  ]
+  ],
+  "specification": "Specification/README.md",
+  "implementation_milestones": "implementation-milestones.json",
+  "v2_resolutions": "Flaws/v2/resolutions/resolutions.json"
 }

@@ -1,14 +1,7 @@
-# 02. Language-independent extraction
+# Language independent extraction
 
+Implement these milestones in order. Each page names a concrete deliverable, its declarative F* relations, the implementation procedure and the evidence required to close it. These are implementation instructions; the backend work remains planned.
 
-## Categorized instructions
-
-- [Kir contract](kir-contract.md)
-- [Capture](capture.md)
-- [Host and languages](host-and-languages.md)
-
-## Detailed implementation and correction procedures
-
-- [Implementation](implementation.md)
-- [Typed capture procedure](typed-capture-procedure.md)
-- [Caller and host contracts](caller-and-host-contracts.md)
+- [M07: Implement the neutral kernel and host semantic boundary](01-implement-the-neutral-language.md)
+- [M08: Export a checked Kuiper program before erasure](02-export-a-checked-kuiper-program.md)
+- [M09: Run the same host plan through two language bindings](03-run-host-plans-from-two-languages.md)

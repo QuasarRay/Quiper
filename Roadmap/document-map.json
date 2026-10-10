@@ -1,150 +1,108 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "original_commit": "0a3b1c23ef6773ee8c38483875b0e05e66df9abd",
   "documents": {
     "Roadmap/README.md": {
       "folder": "Roadmap/README",
       "index": "Roadmap/README/README.md",
       "documents": [
-        "Roadmap/README/requirements.md",
-        "Roadmap/README/architecture.md",
-        "Roadmap/README/reading-order.md",
-        "Roadmap/README/completion.md",
-        "Roadmap/README/implementation-sequence.md"
+        "Roadmap/README/01-freeze-the-goal.md",
+        "Roadmap/README/02-sequence-the-implementation.md"
       ]
     },
     "Roadmap/00-current-state-and-gaps.md": {
       "folder": "Roadmap/00-current-state-and-gaps",
       "index": "Roadmap/00-current-state-and-gaps/README.md",
       "documents": [
-        "Roadmap/00-current-state-and-gaps/baseline.md",
-        "Roadmap/00-current-state-and-gaps/coupling.md",
-        "Roadmap/00-current-state-and-gaps/semantic-risks.md",
-        "Roadmap/00-current-state-and-gaps/reuse.md",
-        "Roadmap/00-current-state-and-gaps/implementation.md"
+        "Roadmap/00-current-state-and-gaps/01-freeze-the-semantic-inventory.md",
+        "Roadmap/00-current-state-and-gaps/02-classify-the-proof-boundary.md"
       ]
     },
     "Roadmap/01-target-architecture.md": {
       "folder": "Roadmap/01-target-architecture",
       "index": "Roadmap/01-target-architecture/README.md",
       "documents": [
-        "Roadmap/01-target-architecture/boundaries.md",
-        "Roadmap/01-target-architecture/artifacts.md",
-        "Roadmap/01-target-architecture/planning-and-compatibility.md",
-        "Roadmap/01-target-architecture/implementation.md"
+        "Roadmap/01-target-architecture/01-isolate-the-contract-core.md",
+        "Roadmap/01-target-architecture/02-freeze-portable-artifacts.md"
       ]
     },
     "Roadmap/02-language-independent-extraction.md": {
       "folder": "Roadmap/02-language-independent-extraction",
       "index": "Roadmap/02-language-independent-extraction/README.md",
       "documents": [
-        "Roadmap/02-language-independent-extraction/kir-contract.md",
-        "Roadmap/02-language-independent-extraction/capture.md",
-        "Roadmap/02-language-independent-extraction/host-and-languages.md",
-        "Roadmap/02-language-independent-extraction/implementation.md",
-        "Roadmap/02-language-independent-extraction/typed-capture-procedure.md",
-        "Roadmap/02-language-independent-extraction/caller-and-host-contracts.md"
+        "Roadmap/02-language-independent-extraction/01-implement-the-neutral-language.md",
+        "Roadmap/02-language-independent-extraction/02-export-a-checked-kuiper-program.md",
+        "Roadmap/02-language-independent-extraction/03-run-host-plans-from-two-languages.md"
       ]
     },
     "Roadmap/03-backend-extension-contract.md": {
       "folder": "Roadmap/03-backend-extension-contract",
       "index": "Roadmap/03-backend-extension-contract/README.md",
       "documents": [
-        "Roadmap/03-backend-extension-contract/discovery.md",
-        "Roadmap/03-backend-extension-contract/compiler-protocol.md",
-        "Roadmap/03-backend-extension-contract/runtime-abi.md",
-        "Roadmap/03-backend-extension-contract/capabilities.md",
-        "Roadmap/03-backend-extension-contract/conformance.md",
-        "Roadmap/03-backend-extension-contract/implementation.md",
-        "Roadmap/03-backend-extension-contract/addition-only-tests.md"
+        "Roadmap/03-backend-extension-contract/01-load-an-external-compiler.md",
+        "Roadmap/03-backend-extension-contract/02-match-artifacts-to-independent-runtimes.md",
+        "Roadmap/03-backend-extension-contract/03-prove-additive-installation.md"
       ]
     },
     "Roadmap/04-spirt-and-gpu-lowering.md": {
       "folder": "Roadmap/04-spirt-and-gpu-lowering",
       "index": "Roadmap/04-spirt-and-gpu-lowering/README.md",
       "documents": [
-        "Roadmap/04-spirt-and-gpu-lowering/pipeline.md",
-        "Roadmap/04-spirt-and-gpu-lowering/primitive-lowering.md",
-        "Roadmap/04-spirt-and-gpu-lowering/numeric-and-matrix.md",
-        "Roadmap/04-spirt-and-gpu-lowering/other-backends.md",
-        "Roadmap/04-spirt-and-gpu-lowering/direct-construction.md",
-        "Roadmap/04-spirt-and-gpu-lowering/control-and-pointers.md",
-        "Roadmap/04-spirt-and-gpu-lowering/emission-and-validation.md",
-        "Roadmap/04-spirt-and-gpu-lowering/qualification-and-upstream.md",
-        "Roadmap/04-spirt-and-gpu-lowering/operation-mapping.md"
+        "Roadmap/04-spirt-and-gpu-lowering/01-build-and-qualify-the-worker.md",
+        "Roadmap/04-spirt-and-gpu-lowering/03-preserve-control-memory-and-participation.md",
+        "Roadmap/04-spirt-and-gpu-lowering/04-complete-numerics-and-target-emission.md",
+        "Roadmap/04-spirt-and-gpu-lowering/02-run-the-integer-vertical-slice.md"
       ]
     },
     "Roadmap/05-runtime-and-interop.md": {
       "folder": "Roadmap/05-runtime-and-interop",
       "index": "Roadmap/05-runtime-and-interop/README.md",
       "documents": [
-        "Roadmap/05-runtime-and-interop/state-and-epochs.md",
-        "Roadmap/05-runtime-and-interop/memory-and-bindings.md",
-        "Roadmap/05-runtime-and-interop/interop.md",
-        "Roadmap/05-runtime-and-interop/deployment.md",
-        "Roadmap/05-runtime-and-interop/submission-and-lifecycle.md",
-        "Roadmap/05-runtime-and-interop/memory-and-failures.md",
-        "Roadmap/05-runtime-and-interop/vulkan-adapter.md"
+        "Roadmap/05-runtime-and-interop/01-enforce-submission-and-failure-semantics.md",
+        "Roadmap/05-runtime-and-interop/02-make-memory-and-bindings-safe.md",
+        "Roadmap/05-runtime-and-interop/03-qualify-the-vulkan-service.md"
       ]
     },
     "Roadmap/06-verification-and-trust.md": {
       "folder": "Roadmap/06-verification-and-trust",
       "index": "Roadmap/06-verification-and-trust/README.md",
       "documents": [
-        "Roadmap/06-verification-and-trust/obligations.md",
-        "Roadmap/06-verification-and-trust/source-and-extraction.md",
-        "Roadmap/06-verification-and-trust/validators.md",
-        "Roadmap/06-verification-and-trust/trust-and-reports.md",
-        "Roadmap/06-verification-and-trust/evidence-policy.md"
+        "Roadmap/06-verification-and-trust/01-bind-source-and-transformation-evidence.md",
+        "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md"
       ]
     },
     "Roadmap/07-implementation-phases.md": {
       "folder": "Roadmap/07-implementation-phases",
       "index": "Roadmap/07-implementation-phases/README.md",
       "documents": [
-        "Roadmap/07-implementation-phases/foundations.md",
-        "Roadmap/07-implementation-phases/vertical-and-concurrency.md",
-        "Roadmap/07-implementation-phases/coverage-and-proof.md",
-        "Roadmap/07-implementation-phases/extension-and-release.md",
-        "Roadmap/07-implementation-phases/research-and-effort.md",
-        "Roadmap/07-implementation-phases/implementation.md"
+        "Roadmap/07-implementation-phases/01-close-foundation-and-extraction-gates.md",
+        "Roadmap/07-implementation-phases/02-close-execution-and-proof-gates.md",
+        "Roadmap/07-implementation-phases/03-close-extension-and-release-gates.md"
       ]
     },
     "Roadmap/08-production-acceptance.md": {
       "folder": "Roadmap/08-production-acceptance",
       "index": "Roadmap/08-production-acceptance/README.md",
       "documents": [
-        "Roadmap/08-production-acceptance/profiles-and-hardware.md",
-        "Roadmap/08-production-acceptance/correctness.md",
-        "Roadmap/08-production-acceptance/performance.md",
-        "Roadmap/08-production-acceptance/ci.md",
-        "Roadmap/08-production-acceptance/rollout.md",
-        "Roadmap/08-production-acceptance/gate-records.md",
-        "Roadmap/08-production-acceptance/performance-procedure.md",
-        "Roadmap/08-production-acceptance/ci-admission.md"
+        "Roadmap/08-production-acceptance/01-qualify-the-correctness-matrix.md",
+        "Roadmap/08-production-acceptance/03-qualify-performance-and-cutover.md",
+        "Roadmap/08-production-acceptance/02-implement-candidate-bound-admission.md"
       ]
     },
     "Roadmap/09-work-packages-and-decisions.md": {
       "folder": "Roadmap/09-work-packages-and-decisions",
       "index": "Roadmap/09-work-packages-and-decisions/README.md",
       "documents": [
-        "Roadmap/09-work-packages-and-decisions/work-packages.md",
-        "Roadmap/09-work-packages-and-decisions/decisions.md",
-        "Roadmap/09-work-packages-and-decisions/risks.md",
-        "Roadmap/09-work-packages-and-decisions/traceability.md",
-        "Roadmap/09-work-packages-and-decisions/corrections.md"
+        "Roadmap/09-work-packages-and-decisions/01-assign-and-close-review-units.md",
+        "Roadmap/09-work-packages-and-decisions/02-resolve-feasibility-before-freeze.md"
       ]
     },
     "Roadmap/10-sources.md": {
       "folder": "Roadmap/10-sources",
       "index": "Roadmap/10-sources/README.md",
       "documents": [
-        "Roadmap/10-sources/kuiper.md",
-        "Roadmap/10-sources/spirt.md",
-        "Roadmap/10-sources/external.md",
-        "Roadmap/10-sources/audit-method.md",
-        "Roadmap/10-sources/claim-evidence.md",
-        "Roadmap/10-sources/upstream-decisions.md"
+        "Roadmap/10-sources/01-lock-and-reproduce-primary-sources.md",
+        "Roadmap/10-sources/02-check-each-correctness-claim.md"
       ]
     },
     "Roadmap/Flaws/01-release-and-gates.md": {
@@ -231,5 +189,81 @@
         "Roadmap/Flaws/README/resolutions.md"
       ]
     }
-  }
+  },
+  "v2_to_v3": {
+    "README/requirements.md": "README/01-freeze-the-goal.md",
+    "README/architecture.md": "README/01-freeze-the-goal.md",
+    "README/completion.md": "README/01-freeze-the-goal.md",
+    "README/implementation-sequence.md": "README/02-sequence-the-implementation.md",
+    "README/reading-order.md": "README/02-sequence-the-implementation.md",
+    "00-current-state-and-gaps/baseline.md": "00-current-state-and-gaps/01-freeze-the-semantic-inventory.md",
+    "00-current-state-and-gaps/coupling.md": "00-current-state-and-gaps/01-freeze-the-semantic-inventory.md",
+    "00-current-state-and-gaps/implementation.md": "00-current-state-and-gaps/01-freeze-the-semantic-inventory.md",
+    "00-current-state-and-gaps/semantic-risks.md": "00-current-state-and-gaps/02-classify-the-proof-boundary.md",
+    "00-current-state-and-gaps/reuse.md": "00-current-state-and-gaps/02-classify-the-proof-boundary.md",
+    "01-target-architecture/boundaries.md": "01-target-architecture/01-isolate-the-contract-core.md",
+    "01-target-architecture/implementation.md": "01-target-architecture/01-isolate-the-contract-core.md",
+    "01-target-architecture/artifacts.md": "01-target-architecture/02-freeze-portable-artifacts.md",
+    "01-target-architecture/planning-and-compatibility.md": "01-target-architecture/02-freeze-portable-artifacts.md",
+    "02-language-independent-extraction/kir-contract.md": "02-language-independent-extraction/01-implement-the-neutral-language.md",
+    "02-language-independent-extraction/implementation.md": "02-language-independent-extraction/01-implement-the-neutral-language.md",
+    "02-language-independent-extraction/capture.md": "02-language-independent-extraction/02-export-a-checked-kuiper-program.md",
+    "02-language-independent-extraction/typed-capture-procedure.md": "02-language-independent-extraction/02-export-a-checked-kuiper-program.md",
+    "02-language-independent-extraction/caller-and-host-contracts.md": "02-language-independent-extraction/03-run-host-plans-from-two-languages.md",
+    "02-language-independent-extraction/host-and-languages.md": "02-language-independent-extraction/03-run-host-plans-from-two-languages.md",
+    "03-backend-extension-contract/discovery.md": "03-backend-extension-contract/01-load-an-external-compiler.md",
+    "03-backend-extension-contract/compiler-protocol.md": "03-backend-extension-contract/01-load-an-external-compiler.md",
+    "03-backend-extension-contract/runtime-abi.md": "03-backend-extension-contract/02-match-artifacts-to-independent-runtimes.md",
+    "03-backend-extension-contract/capabilities.md": "03-backend-extension-contract/02-match-artifacts-to-independent-runtimes.md",
+    "03-backend-extension-contract/implementation.md": "03-backend-extension-contract/03-prove-additive-installation.md",
+    "03-backend-extension-contract/conformance.md": "03-backend-extension-contract/03-prove-additive-installation.md",
+    "03-backend-extension-contract/addition-only-tests.md": "03-backend-extension-contract/03-prove-additive-installation.md",
+    "04-spirt-and-gpu-lowering/pipeline.md": "04-spirt-and-gpu-lowering/01-build-and-qualify-the-worker.md",
+    "04-spirt-and-gpu-lowering/qualification-and-upstream.md": "04-spirt-and-gpu-lowering/01-build-and-qualify-the-worker.md",
+    "04-spirt-and-gpu-lowering/direct-construction.md": "04-spirt-and-gpu-lowering/01-build-and-qualify-the-worker.md",
+    "04-spirt-and-gpu-lowering/operation-mapping.md": "04-spirt-and-gpu-lowering/02-run-the-integer-vertical-slice.md",
+    "04-spirt-and-gpu-lowering/emission-and-validation.md": "04-spirt-and-gpu-lowering/02-run-the-integer-vertical-slice.md",
+    "04-spirt-and-gpu-lowering/control-and-pointers.md": "04-spirt-and-gpu-lowering/03-preserve-control-memory-and-participation.md",
+    "04-spirt-and-gpu-lowering/primitive-lowering.md": "04-spirt-and-gpu-lowering/03-preserve-control-memory-and-participation.md",
+    "04-spirt-and-gpu-lowering/numeric-and-matrix.md": "04-spirt-and-gpu-lowering/04-complete-numerics-and-target-emission.md",
+    "04-spirt-and-gpu-lowering/other-backends.md": "04-spirt-and-gpu-lowering/04-complete-numerics-and-target-emission.md",
+    "05-runtime-and-interop/state-and-epochs.md": "05-runtime-and-interop/01-enforce-submission-and-failure-semantics.md",
+    "05-runtime-and-interop/submission-and-lifecycle.md": "05-runtime-and-interop/01-enforce-submission-and-failure-semantics.md",
+    "05-runtime-and-interop/memory-and-failures.md": "05-runtime-and-interop/02-make-memory-and-bindings-safe.md",
+    "05-runtime-and-interop/memory-and-bindings.md": "05-runtime-and-interop/02-make-memory-and-bindings-safe.md",
+    "05-runtime-and-interop/vulkan-adapter.md": "05-runtime-and-interop/03-qualify-the-vulkan-service.md",
+    "05-runtime-and-interop/interop.md": "05-runtime-and-interop/03-qualify-the-vulkan-service.md",
+    "05-runtime-and-interop/deployment.md": "05-runtime-and-interop/03-qualify-the-vulkan-service.md",
+    "06-verification-and-trust/source-and-extraction.md": "06-verification-and-trust/01-bind-source-and-transformation-evidence.md",
+    "06-verification-and-trust/obligations.md": "06-verification-and-trust/01-bind-source-and-transformation-evidence.md",
+    "06-verification-and-trust/validators.md": "06-verification-and-trust/01-bind-source-and-transformation-evidence.md",
+    "06-verification-and-trust/evidence-policy.md": "06-verification-and-trust/02-admit-immutable-evidence-policies.md",
+    "06-verification-and-trust/trust-and-reports.md": "06-verification-and-trust/02-admit-immutable-evidence-policies.md",
+    "07-implementation-phases/foundations.md": "07-implementation-phases/01-close-foundation-and-extraction-gates.md",
+    "07-implementation-phases/vertical-and-concurrency.md": "07-implementation-phases/02-close-execution-and-proof-gates.md",
+    "07-implementation-phases/coverage-and-proof.md": "07-implementation-phases/02-close-execution-and-proof-gates.md",
+    "07-implementation-phases/extension-and-release.md": "07-implementation-phases/03-close-extension-and-release-gates.md",
+    "07-implementation-phases/implementation.md": "07-implementation-phases/03-close-extension-and-release-gates.md",
+    "07-implementation-phases/research-and-effort.md": "07-implementation-phases/03-close-extension-and-release-gates.md",
+    "08-production-acceptance/profiles-and-hardware.md": "08-production-acceptance/01-qualify-the-correctness-matrix.md",
+    "08-production-acceptance/correctness.md": "08-production-acceptance/01-qualify-the-correctness-matrix.md",
+    "08-production-acceptance/gate-records.md": "08-production-acceptance/02-implement-candidate-bound-admission.md",
+    "08-production-acceptance/ci-admission.md": "08-production-acceptance/02-implement-candidate-bound-admission.md",
+    "08-production-acceptance/ci.md": "08-production-acceptance/02-implement-candidate-bound-admission.md",
+    "08-production-acceptance/performance-procedure.md": "08-production-acceptance/03-qualify-performance-and-cutover.md",
+    "08-production-acceptance/performance.md": "08-production-acceptance/03-qualify-performance-and-cutover.md",
+    "08-production-acceptance/rollout.md": "08-production-acceptance/03-qualify-performance-and-cutover.md",
+    "09-work-packages-and-decisions/work-packages.md": "09-work-packages-and-decisions/01-assign-and-close-review-units.md",
+    "09-work-packages-and-decisions/traceability.md": "09-work-packages-and-decisions/01-assign-and-close-review-units.md",
+    "09-work-packages-and-decisions/corrections.md": "09-work-packages-and-decisions/01-assign-and-close-review-units.md",
+    "09-work-packages-and-decisions/decisions.md": "09-work-packages-and-decisions/02-resolve-feasibility-before-freeze.md",
+    "09-work-packages-and-decisions/risks.md": "09-work-packages-and-decisions/02-resolve-feasibility-before-freeze.md",
+    "10-sources/kuiper.md": "10-sources/01-lock-and-reproduce-primary-sources.md",
+    "10-sources/spirt.md": "10-sources/01-lock-and-reproduce-primary-sources.md",
+    "10-sources/upstream-decisions.md": "10-sources/01-lock-and-reproduce-primary-sources.md",
+    "10-sources/audit-method.md": "10-sources/01-lock-and-reproduce-primary-sources.md",
+    "10-sources/claim-evidence.md": "10-sources/02-check-each-correctness-claim.md",
+    "10-sources/external.md": "10-sources/02-check-each-correctness-claim.md"
+  },
+  "reorganization": "Meaningful implementation deliverables, retaining technical coverage and historical audit evidence."
 }

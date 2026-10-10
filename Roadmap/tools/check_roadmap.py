@@ -4,6 +4,7 @@ from pathlib import Path
 from urllib.parse import urlsplit, unquote
 import argparse
 import collections
+import hashlib
 import json
 import re
 import subprocess
@@ -157,6 +158,73 @@ for item in resolutions['findings']:
 if dict(severities) != {'High': 13, 'Medium': 8}:
     errors.append('Historical severity totals changed')
 
+# V3 checks are structural/identity checks, not substitutes for running F*.
+spec_dir = roadmap / 'Specification'
+spec_files = sorted((spec_dir / 'modules').glob('*.fst'))
+symbols = set()
+for path in spec_files:
+    module = path.stem.removeprefix('Quiper.Spec.')
+    source = path.read_text()
+    for name in re.findall(r'^(?:noeq\s+)?(?:type|let(?:\s+rec)?)\s+(\w+)', source, re.M):
+        symbols.add(module + '.' + name)
+    if re.search(r'\b(admit|assume|admit_smt_queries|unsafe_coerce)\b|--lax|#(?:push|set)-options', source):
+        errors.append('Proof bypass in specification: ' + path.name)
+implementation = json.loads((roadmap / 'implementation-milestones.json').read_text())['milestones']
+paths = {item['path'] for item in implementation}
+active = {str(p.relative_to(roadmap)) for p in roadmap.glob('*/*.md')
+          if p.parent.name not in ['Flaws', 'Specification'] and p.name != 'README.md'}
+if paths != active or len(paths) != len(implementation):
+    errors.append('Implementation milestone inventory does not cover every active instruction page exactly once')
+for item in implementation:
+    if not (roadmap / item['path']).is_file():
+        errors.append('Missing implementation milestone: ' + item['id'])
+    if not set(item['specification_symbols']) <= symbols:
+        errors.append('Unknown F* symbol in ' + item['id'])
+    if not item.get('deliverable') or not item.get('exit_gates'):
+        errors.append('Milestone lacks a deliverable or exit gate: ' + item['id'])
+implementation_ids = {x['id'] for x in implementation}
+dependency_map = {x['id']: x.get('input_milestones', []) for x in implementation}
+def check_inputs(name, ancestors):
+    if name in ancestors:
+        errors.append('Cycle in implementation milestone inputs: ' + name)
+        return
+    for dependency in dependency_map[name]:
+        if dependency not in implementation_ids:
+            errors.append('Unknown implementation milestone input: ' + dependency)
+        else:
+            check_inputs(dependency, ancestors | {name})
+for name in dependency_map:
+    check_inputs(name, set())
+v2 = json.loads((roadmap / 'Flaws/v2/resolutions/resolutions.json').read_text())['findings']
+if collections.Counter(x['id'] for x in v2) != collections.Counter(f'V2-{i:02}' for i in range(1, 9)):
+    errors.append('V2 resolution coverage differs from all eight findings')
+for item in v2:
+    if item['roadmap_status'] != 'corrected' or item['implementation_status'] != 'pending':
+        errors.append('Invalid V2 resolution status: ' + item['id'])
+    for key in ['finding', 'instructions']:
+        if not (roadmap / item[key]).is_file():
+            errors.append('Missing V2 resolution reference: ' + item['id'])
+    if not set(item['specification_symbols']) <= symbols:
+        errors.append('Unknown V2 specification symbol: ' + item['id'])
+proof = json.loads((spec_dir / 'evidence/fstar-verification.json').read_text())
+records = {x['file']: x for x in proof['modules']}
+if not proof['passed'] or set(records) != {str(p.relative_to(roadmap)) for p in spec_files}:
+    errors.append('Specification verification record is incomplete or failed')
+for path in spec_files:
+    record = records.get(str(path.relative_to(roadmap)), {})
+    if record.get('sha256') != hashlib.sha256(path.read_bytes()).hexdigest() or record.get('exit_code') != 0:
+        errors.append('Stale/failed specification proof record: ' + path.name)
+    if 'All verification conditions discharged successfully' not in record.get('output', ''):
+        errors.append('Missing explicit verification success: ' + path.name)
+policy_refs = json.loads((spec_dir / 'policies/registry.json').read_text())['definitions']
+for item in policy_refs:
+    data = (spec_dir / item['file']).read_bytes()
+    if item['definition_digest'] != 'sha256:' + hashlib.sha256(data).hexdigest():
+        errors.append('Stale policy definition digest: ' + item['name'])
+assurance = schema['properties']['profile']['properties']['assurance']
+if schema['properties']['format_version'].get('const') != 2 or assurance.get('type') != 'object' or 'enum' in assurance:
+    errors.append('V2 policy extension envelope missing')
+
 checked_sources, external_sources = 0, 0
 for url in sorted(source_links):
     u = urlsplit(url)
@@ -186,6 +254,8 @@ print(json.dumps({
     'original_documents_categorized': len(mapping['documents']),
     'markdown_links': links, 'findings': len(found), 'severity': severities,
     'phases': len(phases), 'gates_not_run': len(gates),
+    'implementation_milestones': len(implementation), 'v2_corrections': len(v2),
+    'specification_modules_with_current_proof_records': len(spec_files),
     'pinned_source_links_checked': checked_sources,
     'pinned_external_source_links_not_checked_locally': external_sources,
     'errors': errors,

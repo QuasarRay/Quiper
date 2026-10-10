@@ -1,10 +1,12 @@
 # V2-06: the Vulkan procedure needs a host-object synchronization policy
 
-**Severity:** Medium. **Status:** Open. **Evidence class:** material implementation-policy omission. **Owner:** Vulkan runtime and binding owners. **Resolve by:** W10/W14, before advertising concurrent calls on a runtime instance.
+**Severity:** Medium. **Status:** Roadmap corrected in v3; implementation pending. **Evidence class:** material implementation-policy omission. **Owner:** Vulkan runtime and binding owners. **Resolve by:** W10/W14, before advertising concurrent calls on a runtime instance.
+
+V3 correction: [implementation and evidence record](../resolutions/01-close-runtime-contracts.md). The original audited evidence below is preserved against v2.
 
 ## 1. Affected instructions
 
-The [runtime ABI](../../../03-backend-extension-contract/runtime-abi.md) assigns thread rules to the future contract, and [memory and bindings](../../../05-runtime-and-interop/memory-and-bindings.md) names thread safety and reentrancy. Those are useful requirements. The detailed [Vulkan adapter](../../../05-runtime-and-interop/vulkan-adapter.md), however, specifies device dependencies and resource lifetime without selecting a host concurrency model or assigning ownership of queues and pools.
+The [runtime ABI](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/03-backend-extension-contract/runtime-abi.md) assigns thread rules to the future contract, and [memory and bindings](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/05-runtime-and-interop/memory-and-bindings.md) names thread safety and reentrancy. Those are useful requirements. The detailed [Vulkan adapter](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/05-runtime-and-interop/vulkan-adapter.md), however, specifies device dependencies and resource lifetime without selecting a host concurrency model or assigning ownership of queues and pools.
 
 See the [frozen adapter](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/05-runtime-and-interop/vulkan-adapter.md). This is a missing concrete implementation decision, not a claim that v2 explicitly authorizes concurrent unsafe driver calls.
 

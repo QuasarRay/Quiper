@@ -1,0 +1,38 @@
+name: Roadmap specification
+
+on:
+  push:
+    branches: [main]
+    paths: ['Roadmap/**', '.github/workflows/roadmap-spec.yml']
+  pull_request:
+    paths: ['Roadmap/**', '.github/workflows/roadmap-spec.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check roadmap and regression fixtures
+        run: |
+          python3 -m venv "$RUNNER_TEMP/roadmap-venv"
+          "$RUNNER_TEMP/roadmap-venv/bin/pip" install -r Roadmap/tools/requirements-validation.txt
+          "$RUNNER_TEMP/roadmap-venv/bin/python" Roadmap/tools/check_v3_contracts.py
+          python3 Roadmap/tools/check_roadmap.py
+      - name: Download and authenticate the locked F* release
+        run: |
+          curl --fail --location --retry 3 --output "$RUNNER_TEMP/fstar.tar.gz" https://github.com/FStarLang/FStar/releases/download/v2026.09.27/fstar-v2026.09.27-Linux-x86_64.tar.gz
+          echo "cafbbb8960efeb26f5d30bc447b61ab8a507968948507a2580585afd1397781d  $RUNNER_TEMP/fstar.tar.gz" | sha256sum --check
+          mkdir "$RUNNER_TEMP/quiper-spec-toolchain"
+          tar -xzf "$RUNNER_TEMP/fstar.tar.gz" -C "$RUNNER_TEMP/quiper-spec-toolchain"
+          chmod u+x "$RUNNER_TEMP/quiper-spec-toolchain/fstar/lib/fstar/z3-4.13.3/bin/z3"
+      - name: Verify every F* module with a fresh cache
+        run: |
+          python3 Roadmap/tools/verify_spec.py --fstar "$RUNNER_TEMP/quiper-spec-toolchain/fstar/bin/fstar.exe" --report "$RUNNER_TEMP/quiper-spec-verification.json"

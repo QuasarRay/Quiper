@@ -1,15 +1,7 @@
-# 05. Runtime, host interoperability, and operations
+# Runtime and interop
 
+Implement these milestones in order. Each page names a concrete deliverable, its declarative F* relations, the implementation procedure and the evidence required to close it. These are implementation instructions; the backend work remains planned.
 
-## Categorized instructions
-
-- [State and epochs](state-and-epochs.md)
-- [Memory and bindings](memory-and-bindings.md)
-- [Interop](interop.md)
-- [Deployment](deployment.md)
-
-## Detailed implementation and correction procedures
-
-- [Submission and lifecycle](submission-and-lifecycle.md)
-- [Memory and failures](memory-and-failures.md)
-- [Vulkan adapter](vulkan-adapter.md)
+- [M17: Enforce submission, dependency failure and bounded retirement](01-enforce-submission-and-failure-semantics.md)
+- [M18: Make physical memory and asynchronous bindings safe](02-make-memory-and-bindings-safe.md)
+- [M19: Qualify Vulkan host synchronization and deployment](03-qualify-the-vulkan-service.md)

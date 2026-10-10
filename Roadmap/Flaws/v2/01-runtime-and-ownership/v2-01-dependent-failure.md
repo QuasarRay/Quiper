@@ -1,12 +1,14 @@
 # V2-01: failed producers do not have a specified execution barrier for dependent kernels
 
-**Severity:** High. **Status:** Open. **Evidence class:** contract composition gap; no GPU reproduction. **Owner:** runtime, host-plan and verification owners. **Resolve by:** P1's dependency semantics; enforce before P4 admits guarded asynchronous chains.
+**Severity:** High. **Status:** Roadmap corrected in v3; implementation pending. **Evidence class:** contract composition gap; no GPU reproduction. **Owner:** runtime, host-plan and verification owners. **Resolve by:** P1's dependency semantics; enforce before P4 admits guarded asynchronous chains.
+
+V3 correction: [implementation and evidence record](../resolutions/01-close-runtime-contracts.md). The original audited evidence below is preserved against v2.
 
 ## 1. Affected instructions
 
-The [epoch procedure](../../../05-runtime-and-interop/state-and-epochs.md) permits dependent launches without returning ownership to the host. The [Vulkan completion procedure](../../../05-runtime-and-interop/vulkan-adapter.md) checks device guard status after fence/event completion. The [guard procedure](../../../05-runtime-and-interop/memory-and-failures.md) poisons failed outputs and suppresses a successful postcondition.
+The [epoch procedure](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/05-runtime-and-interop/state-and-epochs.md) permits dependent launches without returning ownership to the host. The [Vulkan completion procedure](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/05-runtime-and-interop/vulkan-adapter.md) checks device guard status after fence/event completion. The [guard procedure](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/05-runtime-and-interop/memory-and-failures.md) poisons failed outputs and suppresses a successful postcondition.
 
-Those rules cover the failing operation and host observation. They do not specify how a consumer already submitted to the GPU is prevented from executing when its producer fails. The [submission state machine](../../../05-runtime-and-interop/submission-and-lifecycle.md) also lacks a success-dependent execution transition for such consumers. See the [frozen v2 text](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/05-runtime-and-interop/vulkan-adapter.md).
+Those rules cover the failing operation and host observation. They do not specify how a consumer already submitted to the GPU is prevented from executing when its producer fails. The [submission state machine](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/05-runtime-and-interop/submission-and-lifecycle.md) also lacks a success-dependent execution transition for such consumers. See the [frozen v2 text](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/05-runtime-and-interop/vulkan-adapter.md).
 
 ## 2. Evidence and failure case
 

@@ -1,0 +1,617 @@
+{
+  "format_version": 1,
+  "milestones": [
+    {
+      "id": "M01",
+      "path": "README/01-freeze-the-goal.md",
+      "title": "Freeze the decoupling and replacement claim",
+      "specification_symbols": [
+        "Extension.decoupled_addition",
+        "Qualification.full_replacement"
+      ],
+      "exit_gates": "P0",
+      "deliverable": "A release-scope decision separating portable qualification, full replacement and assurance.",
+      "absorbed_pages": [
+        "README/requirements.md",
+        "README/architecture.md",
+        "README/completion.md"
+      ],
+      "input_milestones": []
+    },
+    {
+      "id": "M02",
+      "path": "README/02-sequence-the-implementation.md",
+      "title": "Sequence implementation by evidence dependencies",
+      "specification_symbols": [
+        "Refinement.complete"
+      ],
+      "exit_gates": "P0\u2013P8",
+      "deliverable": "An ordered implementation plan with named exit gates and no inferred completion.",
+      "absorbed_pages": [
+        "README/implementation-sequence.md",
+        "README/reading-order.md"
+      ],
+      "input_milestones": [
+        "M01"
+      ]
+    },
+    {
+      "id": "M03",
+      "path": "00-current-state-and-gaps/01-freeze-the-semantic-inventory.md",
+      "title": "Freeze the complete legacy semantic inventory",
+      "specification_symbols": [
+        "Operations.catalog_covers",
+        "Qualification.full_replacement"
+      ],
+      "exit_gates": "G-BASELINE, G-REPLACEMENT",
+      "deliverable": "A reproducible entrypoint and transitive primitive ledger, including foreign code and generated instantiations.",
+      "absorbed_pages": [
+        "00-current-state-and-gaps/baseline.md",
+        "00-current-state-and-gaps/coupling.md",
+        "00-current-state-and-gaps/implementation.md"
+      ],
+      "input_milestones": [
+        "M02"
+      ]
+    },
+    {
+      "id": "M04",
+      "path": "00-current-state-and-gaps/02-classify-the-proof-boundary.md",
+      "title": "Classify existing assumptions before carrying them forward",
+      "specification_symbols": [
+        "Refinement.obligations",
+        "Extension.acceptable_evidence"
+      ],
+      "exit_gates": "G-BASELINE, G-TRUST",
+      "deliverable": "A per-entrypoint assumption closure, with every reused proof linked to its actual source semantics.",
+      "absorbed_pages": [
+        "00-current-state-and-gaps/semantic-risks.md",
+        "00-current-state-and-gaps/reuse.md"
+      ],
+      "input_milestones": [
+        "M03"
+      ]
+    },
+    {
+      "id": "M05",
+      "path": "01-target-architecture/01-isolate-the-contract-core.md",
+      "title": "Build a core that has no vendor or frontend dependency",
+      "specification_symbols": [
+        "Extension.decoupled_addition",
+        "Extension.composable"
+      ],
+      "exit_gates": "G-CONTRACT",
+      "deliverable": "Independently buildable contract/core packages, generic routing and a deterministic pass planner.",
+      "absorbed_pages": [
+        "01-target-architecture/boundaries.md",
+        "01-target-architecture/implementation.md"
+      ],
+      "input_milestones": [
+        "M03",
+        "M04"
+      ]
+    },
+    {
+      "id": "M06",
+      "path": "01-target-architecture/02-freeze-portable-artifacts.md",
+      "title": "Freeze portable artifact and compatibility relations",
+      "specification_symbols": [
+        "Foundation.content",
+        "Refinement.refines",
+        "Extension.evidence_bound"
+      ],
+      "exit_gates": "G-CONTRACT",
+      "deliverable": "Canonical artifact vectors, explicit semantic versions and pass correspondence records.",
+      "absorbed_pages": [
+        "01-target-architecture/artifacts.md",
+        "01-target-architecture/planning-and-compatibility.md"
+      ],
+      "input_milestones": [
+        "M05"
+      ]
+    },
+    {
+      "id": "M07",
+      "path": "02-language-independent-extraction/01-implement-the-neutral-language.md",
+      "title": "Implement the neutral kernel and host semantic boundary",
+      "specification_symbols": [
+        "Kernel.executes",
+        "Host.host_step",
+        "Refinement.contract"
+      ],
+      "exit_gates": "G-CONTRACT, G-EXTRACT",
+      "deliverable": "A KIR reader, independent reference evaluator and typed/effect-checked package fixture with no source-language dependency.",
+      "absorbed_pages": [
+        "02-language-independent-extraction/kir-contract.md",
+        "02-language-independent-extraction/implementation.md"
+      ],
+      "input_milestones": [
+        "M06"
+      ]
+    },
+    {
+      "id": "M08",
+      "path": "02-language-independent-extraction/02-export-a-checked-kuiper-program.md",
+      "title": "Export a checked Kuiper program before erasure",
+      "specification_symbols": [
+        "Refinement.obligations",
+        "Operations.catalog_covers"
+      ],
+      "exit_gates": "G-EXTRACT",
+      "deliverable": "A real entrypoint exported with typed facts, executable KIR and independently bound proof evidence.",
+      "absorbed_pages": [
+        "02-language-independent-extraction/capture.md",
+        "02-language-independent-extraction/typed-capture-procedure.md"
+      ],
+      "input_milestones": [
+        "M07"
+      ]
+    },
+    {
+      "id": "M09",
+      "path": "02-language-independent-extraction/03-run-host-plans-from-two-languages.md",
+      "title": "Run the same host plan through two language bindings",
+      "specification_symbols": [
+        "Refinement.valid_call",
+        "Host.scope_may_return",
+        "Runtime.safe_retention"
+      ],
+      "exit_gates": "G-EXTRACT, G-HOST-CODEGEN when enabled",
+      "deliverable": "A checked host interpreter and C/Rust bindings with input-version, import and exceptional-cleanup contracts.",
+      "absorbed_pages": [
+        "02-language-independent-extraction/caller-and-host-contracts.md",
+        "02-language-independent-extraction/host-and-languages.md"
+      ],
+      "input_milestones": [
+        "M07",
+        "M08"
+      ]
+    },
+    {
+      "id": "M10",
+      "path": "03-backend-extension-contract/01-load-an-external-compiler.md",
+      "title": "Load an external compiler without rebuilding the core",
+      "specification_symbols": [
+        "Extension.endpoint",
+        "Extension.additive",
+        "Extension.evidence_bound"
+      ],
+      "exit_gates": "G-CONTRACT, G-ADD-COMPILER",
+      "deliverable": "An independently packaged worker discovered through versioned data and canonical request/response vectors.",
+      "absorbed_pages": [
+        "03-backend-extension-contract/discovery.md",
+        "03-backend-extension-contract/compiler-protocol.md"
+      ],
+      "input_milestones": [
+        "M06"
+      ]
+    },
+    {
+      "id": "M11",
+      "path": "03-backend-extension-contract/02-match-artifacts-to-independent-runtimes.md",
+      "title": "Match artifacts and capability tuples to independent runtimes",
+      "specification_symbols": [
+        "Extension.capability",
+        "Extension.supports",
+        "Runtime.fresh"
+      ],
+      "exit_gates": "G-CONTRACT, G-ADD-RUNTIME",
+      "deliverable": "Compatible compiler/runtime substitution with a bounded ABI/IPC protocol and pre-dispatch capability rejection.",
+      "absorbed_pages": [
+        "03-backend-extension-contract/runtime-abi.md",
+        "03-backend-extension-contract/capabilities.md"
+      ],
+      "input_milestones": [
+        "M06"
+      ]
+    },
+    {
+      "id": "M12",
+      "path": "03-backend-extension-contract/03-prove-additive-installation.md",
+      "title": "Prove additive installation on an immutable candidate",
+      "specification_symbols": [
+        "Extension.decoupled_addition",
+        "Extension.admitted_policy"
+      ],
+      "exit_gates": "G-ADD-COMPILER, G-ADD-RUNTIME, G-ADD-LANGUAGE, G-ADD-OP",
+      "deliverable": "Before/after protected-file hashes and independent compiler, runtime, distinct-API, frontend, binding and semantic-extension exercises.",
+      "absorbed_pages": [
+        "03-backend-extension-contract/implementation.md",
+        "03-backend-extension-contract/conformance.md",
+        "03-backend-extension-contract/addition-only-tests.md"
+      ],
+      "input_milestones": [
+        "M10",
+        "M11"
+      ]
+    },
+    {
+      "id": "M13",
+      "path": "04-spirt-and-gpu-lowering/01-build-and-qualify-the-worker.md",
+      "title": "Build and qualify a pinned SPIR-T worker",
+      "specification_symbols": [
+        "Refinement.refines",
+        "Lowering.baseline_annotation_supported"
+      ],
+      "exit_gates": "G-SPIRT-FEASIBILITY",
+      "deliverable": "A compile-checked private adapter, pinned dependencies, tested annotation subset and justified loop/QPtr eligibility decisions.",
+      "absorbed_pages": [
+        "04-spirt-and-gpu-lowering/pipeline.md",
+        "04-spirt-and-gpu-lowering/qualification-and-upstream.md",
+        "04-spirt-and-gpu-lowering/direct-construction.md"
+      ],
+      "input_milestones": [
+        "M03",
+        "M06"
+      ]
+    },
+    {
+      "id": "M14",
+      "path": "04-spirt-and-gpu-lowering/02-run-the-integer-vertical-slice.md",
+      "title": "Run an integer kernel through SPIR-T and Vulkan",
+      "specification_symbols": [
+        "Kernel.executes",
+        "Foundation.well_typed",
+        "Lowering.layout_valid"
+      ],
+      "exit_gates": "G-VERTICAL",
+      "deliverable": "An emitted and validated shader, independent reflection, runtime execution and reference comparison for real Kuiper views.",
+      "absorbed_pages": [
+        "04-spirt-and-gpu-lowering/operation-mapping.md",
+        "04-spirt-and-gpu-lowering/emission-and-validation.md"
+      ],
+      "input_milestones": [
+        "M07",
+        "M08",
+        "M11",
+        "M13"
+      ]
+    },
+    {
+      "id": "M15",
+      "path": "04-spirt-and-gpu-lowering/03-preserve-control-memory-and-participation.md",
+      "title": "Preserve loop values, memory order and participation",
+      "specification_symbols": [
+        "Lowering.while_exit",
+        "Memory.admissible",
+        "Memory.convergent",
+        "Lowering.sufficient"
+      ],
+      "exit_gates": "G-CONCURRENCY, O4\u2013O6",
+      "deliverable": "Qualified loop/backedge/final-value mapping and memory/atomic/subgroup lowerings with negative fixtures.",
+      "absorbed_pages": [
+        "04-spirt-and-gpu-lowering/control-and-pointers.md",
+        "04-spirt-and-gpu-lowering/primitive-lowering.md"
+      ],
+      "input_milestones": [
+        "M14"
+      ]
+    },
+    {
+      "id": "M16",
+      "path": "04-spirt-and-gpu-lowering/04-complete-numerics-and-target-emission.md",
+      "title": "Complete numerical coverage and additional target emission",
+      "specification_symbols": [
+        "Operations.matrix_policy",
+        "Memory.float_policy",
+        "Operations.catalog_covers"
+      ],
+      "exit_gates": "G-COVERAGE, G-REPLACEMENT, optional G-MESA-DECISION",
+      "deliverable": "Per-family numerical relations and workload coverage, with every optional target route independently qualified.",
+      "absorbed_pages": [
+        "04-spirt-and-gpu-lowering/numeric-and-matrix.md",
+        "04-spirt-and-gpu-lowering/other-backends.md"
+      ],
+      "input_milestones": [
+        "M15"
+      ]
+    },
+    {
+      "id": "M17",
+      "path": "05-runtime-and-interop/01-enforce-submission-and-failure-semantics.md",
+      "title": "Enforce submission, dependency failure and bounded retirement",
+      "specification_symbols": [
+        "Runtime.safe_step",
+        "Runtime.runnable",
+        "Runtime.may_retire"
+      ],
+      "exit_gates": "G-CONCURRENCY, O8",
+      "deliverable": "A bounded session protocol that gates consumers on success, reconciles uncertain acceptance and redeems ownership once.",
+      "absorbed_pages": [
+        "05-runtime-and-interop/state-and-epochs.md",
+        "05-runtime-and-interop/submission-and-lifecycle.md"
+      ],
+      "input_milestones": [
+        "M09",
+        "M11"
+      ]
+    },
+    {
+      "id": "M18",
+      "path": "05-runtime-and-interop/02-make-memory-and-bindings-safe.md",
+      "title": "Make physical memory and asynchronous bindings safe",
+      "specification_symbols": [
+        "Foundation.subview",
+        "Memory.covers",
+        "Host.scope_may_return",
+        "Runtime.safe_retention"
+      ],
+      "exit_gates": "G-CONCURRENCY, O6, O9",
+      "deliverable": "An allocator and binding ownership argument covering noncoherent footprints, guards and forgotten completion handles.",
+      "absorbed_pages": [
+        "05-runtime-and-interop/memory-and-failures.md",
+        "05-runtime-and-interop/memory-and-bindings.md"
+      ],
+      "input_milestones": [
+        "M17"
+      ]
+    },
+    {
+      "id": "M19",
+      "path": "05-runtime-and-interop/03-qualify-the-vulkan-service.md",
+      "title": "Qualify Vulkan host synchronization and deployment",
+      "specification_symbols": [
+        "Runtime.permitted_host_call",
+        "Lowering.sufficient",
+        "Host.host_step"
+      ],
+      "exit_gates": "G-VERTICAL, G-CONCURRENCY, G-CUDA-FREE",
+      "deliverable": "A single-owner Vulkan service with checked interop, failure teardown and an independently installable CUDA-free runtime.",
+      "absorbed_pages": [
+        "05-runtime-and-interop/vulkan-adapter.md",
+        "05-runtime-and-interop/interop.md",
+        "05-runtime-and-interop/deployment.md"
+      ],
+      "input_milestones": [
+        "M14",
+        "M18"
+      ]
+    },
+    {
+      "id": "M20",
+      "path": "06-verification-and-trust/01-bind-source-and-transformation-evidence.md",
+      "title": "Bind source and transformation evidence to semantic relations",
+      "specification_symbols": [
+        "Refinement.implements",
+        "Refinement.complete",
+        "Extension.evidence_bound"
+      ],
+      "exit_gates": "O1\u2013O10, G-TRUST",
+      "deliverable": "A per-stage refinement/checker argument covering safety, progress, failures and identity, beyond format validation.",
+      "absorbed_pages": [
+        "06-verification-and-trust/source-and-extraction.md",
+        "06-verification-and-trust/obligations.md",
+        "06-verification-and-trust/validators.md"
+      ],
+      "input_milestones": [
+        "M07",
+        "M08"
+      ]
+    },
+    {
+      "id": "M21",
+      "path": "06-verification-and-trust/02-admit-immutable-evidence-policies.md",
+      "title": "Admit immutable evidence policies through protected configuration",
+      "specification_symbols": [
+        "Extension.admitted_policy",
+        "Extension.acceptable_evidence"
+      ],
+      "exit_gates": "G-TRUST, G-ADD-OP",
+      "deliverable": "Versioned policy definitions and checker admission that accept new identities without weakening old meanings.",
+      "absorbed_pages": [
+        "06-verification-and-trust/evidence-policy.md",
+        "06-verification-and-trust/trust-and-reports.md"
+      ],
+      "input_milestones": [
+        "M06",
+        "M20"
+      ]
+    },
+    {
+      "id": "M22",
+      "path": "07-implementation-phases/01-close-foundation-and-extraction-gates.md",
+      "title": "Close foundation and extraction gates",
+      "specification_symbols": [
+        "Kernel.executes",
+        "Refinement.contract",
+        "Extension.additive"
+      ],
+      "exit_gates": "P0\u2013P2",
+      "deliverable": "The reviewed inventory, provisional contracts and a real source-independent extraction path.",
+      "absorbed_pages": [
+        "07-implementation-phases/foundations.md"
+      ],
+      "input_milestones": [
+        "M03",
+        "M04",
+        "M06",
+        "M08"
+      ]
+    },
+    {
+      "id": "M23",
+      "path": "07-implementation-phases/02-close-execution-and-proof-gates.md",
+      "title": "Close execution, coverage and proof gates",
+      "specification_symbols": [
+        "Memory.admissible",
+        "Runtime.safe_step",
+        "Refinement.complete"
+      ],
+      "exit_gates": "P3\u2013P6",
+      "deliverable": "A real GPU vertical path, concurrency/numerical qualification and complete evidence for the requested assurance policy.",
+      "absorbed_pages": [
+        "07-implementation-phases/vertical-and-concurrency.md",
+        "07-implementation-phases/coverage-and-proof.md"
+      ],
+      "input_milestones": [
+        "M14",
+        "M15",
+        "M16",
+        "M19",
+        "M20",
+        "M21"
+      ]
+    },
+    {
+      "id": "M24",
+      "path": "07-implementation-phases/03-close-extension-and-release-gates.md",
+      "title": "Close independent-extension and release gates",
+      "specification_symbols": [
+        "Extension.decoupled_addition",
+        "Qualification.full_replacement"
+      ],
+      "exit_gates": "P7\u2013P8, optional PX",
+      "deliverable": "Independent additions rerun on the final candidate, complete replacement coverage and a defensible release decision.",
+      "absorbed_pages": [
+        "07-implementation-phases/extension-and-release.md",
+        "07-implementation-phases/implementation.md",
+        "07-implementation-phases/research-and-effort.md"
+      ],
+      "input_milestones": [
+        "M12",
+        "M23",
+        "M26",
+        "M27"
+      ]
+    },
+    {
+      "id": "M25",
+      "path": "08-production-acceptance/01-qualify-the-correctness-matrix.md",
+      "title": "Qualify the declared hardware and correctness matrix",
+      "specification_symbols": [
+        "Operations.catalog_covers",
+        "Memory.admissible",
+        "Qualification.qualified"
+      ],
+      "exit_gates": "G-COVERAGE, G-CONCURRENCY, G-PRODUCTION",
+      "deliverable": "A complete claimed feature/device matrix, adversarial failure suite and nonwaivable operational evidence.",
+      "absorbed_pages": [
+        "08-production-acceptance/profiles-and-hardware.md",
+        "08-production-acceptance/correctness.md"
+      ],
+      "input_milestones": [
+        "M16",
+        "M19"
+      ]
+    },
+    {
+      "id": "M26",
+      "path": "08-production-acceptance/02-implement-candidate-bound-admission.md",
+      "title": "Implement candidate-bound CI and release admission",
+      "specification_symbols": [
+        "Extension.admitted_policy",
+        "Extension.acceptable_evidence",
+        "Qualification.qualified"
+      ],
+      "exit_gates": "G-TRUST, G-PRODUCTION",
+      "deliverable": "A protected evaluator that rejects stale, missing, self-authorized, skipped or mismatched evidence.",
+      "absorbed_pages": [
+        "08-production-acceptance/gate-records.md",
+        "08-production-acceptance/ci-admission.md",
+        "08-production-acceptance/ci.md"
+      ],
+      "input_milestones": [
+        "M21",
+        "M25"
+      ]
+    },
+    {
+      "id": "M27",
+      "path": "08-production-acceptance/03-qualify-performance-and-cutover.md",
+      "title": "Qualify performance uncertainty and complete cutover",
+      "specification_symbols": [
+        "Qualification.classify",
+        "Qualification.full_replacement"
+      ],
+      "exit_gates": "G-PRODUCTION, G-REPLACEMENT",
+      "deliverable": "Prespecified performance decisions with adequate tail evidence, bounded waivers, tested rollout and rollback.",
+      "absorbed_pages": [
+        "08-production-acceptance/performance-procedure.md",
+        "08-production-acceptance/performance.md",
+        "08-production-acceptance/rollout.md"
+      ],
+      "input_milestones": [
+        "M25",
+        "M26"
+      ]
+    },
+    {
+      "id": "M28",
+      "path": "09-work-packages-and-decisions/01-assign-and-close-review-units.md",
+      "title": "Assign and close implementation review units",
+      "specification_symbols": [
+        "Refinement.obligations",
+        "Qualification.qualified"
+      ],
+      "exit_gates": "All phase gates",
+      "deliverable": "Review units with exact inputs, proof symbols, implementation owner, evidence and rejection cases.",
+      "absorbed_pages": [
+        "09-work-packages-and-decisions/work-packages.md",
+        "09-work-packages-and-decisions/traceability.md",
+        "09-work-packages-and-decisions/corrections.md"
+      ],
+      "input_milestones": [
+        "M02",
+        "M04"
+      ]
+    },
+    {
+      "id": "M29",
+      "path": "09-work-packages-and-decisions/02-resolve-feasibility-before-freeze.md",
+      "title": "Resolve feasibility and risk before contract freeze",
+      "specification_symbols": [
+        "Extension.decoupled_addition",
+        "Lowering.sufficient"
+      ],
+      "exit_gates": "G-BASELINE, G-SPIRT-FEASIBILITY, G-CONTRACT",
+      "deliverable": "Recorded decisions for target features, upstream restrictions, hardware, trust and migration blockers.",
+      "absorbed_pages": [
+        "09-work-packages-and-decisions/decisions.md",
+        "09-work-packages-and-decisions/risks.md"
+      ],
+      "input_milestones": [
+        "M03"
+      ]
+    },
+    {
+      "id": "M30",
+      "path": "10-sources/01-lock-and-reproduce-primary-sources.md",
+      "title": "Lock and reproduce the primary-source evidence",
+      "specification_symbols": [
+        "Operations.catalog_covers",
+        "Extension.evidence_bound"
+      ],
+      "exit_gates": "G-BASELINE, G-SPIRT-FEASIBILITY",
+      "deliverable": "A source lock and reproducible upstream probes tied to exact claims and revisions.",
+      "absorbed_pages": [
+        "10-sources/kuiper.md",
+        "10-sources/spirt.md",
+        "10-sources/upstream-decisions.md",
+        "10-sources/audit-method.md"
+      ],
+      "input_milestones": [
+        "M01"
+      ]
+    },
+    {
+      "id": "M31",
+      "path": "10-sources/02-check-each-correctness-claim.md",
+      "title": "Check each correctness claim against its evidence",
+      "specification_symbols": [
+        "Refinement.complete",
+        "Qualification.qualified"
+      ],
+      "exit_gates": "G-TRUST",
+      "deliverable": "A claim-to-definition-to-source-to-evidence matrix that distinguishes model proofs from backend qualification.",
+      "absorbed_pages": [
+        "10-sources/claim-evidence.md",
+        "10-sources/external.md"
+      ],
+      "input_milestones": [
+        "M20",
+        "M21",
+        "M30"
+      ]
+    }
+  ]
+}

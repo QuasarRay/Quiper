@@ -1,10 +1,12 @@
 # V2-05: the Vulkan memory-model profile omits availability and visibility chain support
 
-**Severity:** High for profiles whose proof uses multi-element availability/visibility chains; not a blocker to a chain-free integer probe. **Status:** Open. **Evidence class:** target-feature and semantic-requirement gap. **Owner:** concurrency, compiler and Vulkan runtime owners. **Resolve by:** target-profile definition, before P4 enables the affected synchronization patterns.
+**Severity:** High for profiles whose proof uses multi-element availability/visibility chains; not a blocker to a chain-free integer probe. **Status:** Roadmap corrected in v3; implementation pending. **Evidence class:** target-feature and semantic-requirement gap. **Owner:** concurrency, compiler and Vulkan runtime owners. **Resolve by:** target-profile definition, before P4 enables the affected synchronization patterns.
+
+V3 correction: [implementation and evidence record](../resolutions/02-close-lowering-and-policy-contracts.md). The original audited evidence below is preserved against v2.
 
 ## 1. Affected instructions
 
-The [direct-construction profile](../../../04-spirt-and-gpu-lowering/direct-construction.md) explicitly requires `vulkanMemoryModel` and conditionally requires `vulkanMemoryModelDeviceScope`. The [primitive procedure](../../../04-spirt-and-gpu-lowering/control-and-pointers.md) preserves atomic and barrier tuples. The [emission procedure](../../../04-spirt-and-gpu-lowering/emission-and-validation.md) derives final requirements.
+The [direct-construction profile](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/04-spirt-and-gpu-lowering/direct-construction.md) explicitly requires `vulkanMemoryModel` and conditionally requires `vulkanMemoryModelDeviceScope`. The [primitive procedure](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/04-spirt-and-gpu-lowering/control-and-pointers.md) preserves atomic and barrier tuples. The [emission procedure](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/04-spirt-and-gpu-lowering/emission-and-validation.md) derives final requirements.
 
 None identifies `vulkanMemoryModelAvailabilityVisibilityChains` or specifies a chain-free restriction when it is unavailable. See the [frozen target profile](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/04-spirt-and-gpu-lowering/direct-construction.md).
 

@@ -1,0 +1,20 @@
+{
+  "format_version": 1,
+  "name": "org.quiper/source-verified-v1",
+  "definition_version": 1,
+  "mandatory_evidence": [
+    "strict-source-closure",
+    "no-development-bypasses",
+    "source-tool-solver-identity",
+    "O1-O10-dispositions"
+  ],
+  "meaning_source": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md",
+  "allowed_trust_categories": [
+    "identified-proof-foundations",
+    "identified-build-compiler",
+    "identified-platform-api-implementation"
+  ],
+  "forbidden_algorithm_trust_waivers": [],
+  "production_requires_qualification": true,
+  "admission_status": "proposed-not-admitted"
+}

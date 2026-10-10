@@ -1,0 +1,19 @@
+{
+  "format_version": 1,
+  "name": "org.quiper/qualified-v1",
+  "definition_version": 1,
+  "mandatory_evidence": [
+    "qualification",
+    "structural-abi-capability",
+    "complete-assumptions"
+  ],
+  "meaning_source": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md",
+  "allowed_trust_categories": [
+    "identified-proof-foundations",
+    "identified-build-compiler",
+    "identified-platform-api-implementation"
+  ],
+  "forbidden_algorithm_trust_waivers": [],
+  "production_requires_qualification": true,
+  "admission_status": "proposed-not-admitted"
+}

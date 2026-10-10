@@ -1,10 +1,12 @@
 # V2-07: the result schema blocks the promised additive assurance-policy extension
 
-**Severity:** Medium. **Status:** Open. **Evidence class:** reproducible schema/prose contradiction. **Owner:** contracts, assurance and release-tooling owners. **Resolve by:** P1, before freezing the result reader used by extension qualification.
+**Severity:** Medium. **Status:** Roadmap corrected in v3; implementation pending. **Evidence class:** reproducible schema/prose contradiction. **Owner:** contracts, assurance and release-tooling owners. **Resolve by:** P1, before freezing the result reader used by extension qualification.
+
+V3 correction: [implementation and evidence record](../resolutions/02-close-lowering-and-policy-contracts.md). The original audited evidence below is preserved against v2.
 
 ## 1. Affected instructions
 
-[Capabilities](../../../03-backend-extension-contract/capabilities.md) allows a semantic extension requiring a new assumption to be deployed additively under a changed assurance claim. The [package contract](../../../03-backend-extension-contract/implementation.md) and [evidence policy](../../../06-verification-and-trust/evidence-policy.md) require a new policy identity. The [no-edit exercise](../../../03-backend-extension-contract/addition-only-tests.md) freezes contract readers and built-in validators.
+[Capabilities](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/03-backend-extension-contract/capabilities.md) allows a semantic extension requiring a new assumption to be deployed additively under a changed assurance claim. The [package contract](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/03-backend-extension-contract/implementation.md) and [evidence policy](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/06-verification-and-trust/evidence-policy.md) require a new policy identity. The [no-edit exercise](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/03-backend-extension-contract/addition-only-tests.md) freezes contract readers and built-in validators.
 
 The [gate-result schema](../../../schemas/gate-result.schema.json), at `/properties/profile/properties/assurance/enum`, permits exactly three strings. Its [pinned v2 version](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/schemas/gate-result.schema.json) has no policy-reference or extension alternative.
 

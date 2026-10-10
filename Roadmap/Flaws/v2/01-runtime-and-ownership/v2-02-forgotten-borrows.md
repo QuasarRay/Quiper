@@ -1,10 +1,12 @@
 # V2-02: a completion-token lifetime is not a leak-safe Rust ownership design
 
-**Severity:** High. **Status:** Open. **Evidence class:** binding-contract gap established against Rust's documented safety rules; no binding implementation exists to test. **Owner:** Rust binding, runtime and verification owners. **Resolve by:** G-CONTRACT and W14, before exposing safe borrowed asynchronous transfers.
+**Severity:** High. **Status:** Roadmap corrected in v3; implementation pending. **Evidence class:** binding-contract gap established against Rust's documented safety rules; no binding implementation exists to test. **Owner:** Rust binding, runtime and verification owners. **Resolve by:** G-CONTRACT and W14, before exposing safe borrowed asynchronous transfers.
+
+V3 correction: [implementation and evidence record](../resolutions/01-close-runtime-contracts.md). The original audited evidence below is preserved against v2.
 
 ## 1. Affected instructions
 
-The [caller procedure](../../../02-language-independent-extraction/caller-and-host-contracts.md) tells implementers to retain a borrow and preserve asynchronous lifetimes through a completion token. [Memory and bindings](../../../05-runtime-and-interop/memory-and-bindings.md) requires borrowed buffers to remain alive and proposes safe Rust ownership wrappers. Neither procedure specifies what happens when safe application code forgets that token or abandons a future whose GPU work has already begun.
+The [caller procedure](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/02-language-independent-extraction/caller-and-host-contracts.md) tells implementers to retain a borrow and preserve asynchronous lifetimes through a completion token. [Memory and bindings](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/05-runtime-and-interop/memory-and-bindings.md) requires borrowed buffers to remain alive and proposes safe Rust ownership wrappers. Neither procedure specifies what happens when safe application code forgets that token or abandons a future whose GPU work has already begun.
 
 See the [frozen caller procedure](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/02-language-independent-extraction/caller-and-host-contracts.md). The problem is the missing leak-safety rule, not a claim that all token APIs are unsound.
 

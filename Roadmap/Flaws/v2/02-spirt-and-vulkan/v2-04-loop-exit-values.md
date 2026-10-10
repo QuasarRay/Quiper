@@ -1,10 +1,12 @@
 # V2-04: the loop mapping omits the pinned SPIR-T exit-value convention
 
-**Severity:** Medium. **Status:** Open. **Evidence class:** confirmed dependency constraint missing from the detailed mapping. **Owner:** SPIR-T adapter and extraction owners. **Resolve by:** the P0 construction probe and W08, before accepting general loop results.
+**Severity:** Medium. **Status:** Roadmap corrected in v3; implementation pending. **Evidence class:** confirmed dependency constraint missing from the detailed mapping. **Owner:** SPIR-T adapter and extraction owners. **Resolve by:** the P0 construction probe and W08, before accepting general loop results.
+
+V3 correction: [implementation and evidence record](../resolutions/02-close-lowering-and-policy-contracts.md). The original audited evidence below is preserved against v2.
 
 ## 1. Affected instructions
 
-V2 correctly identifies tail-controlled loops and the need to preserve zero iterations in [control and pointers](../../../04-spirt-and-gpu-lowering/control-and-pointers.md). The [operation mapping](../../../04-spirt-and-gpu-lowering/operation-mapping.md) names `NodeKind::Loop`, region outputs and carried values. It does not distinguish backedge values from values exported after the loop at the selected SPIR-T revision.
+V2 correctly identifies tail-controlled loops and the need to preserve zero iterations in [control and pointers](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/04-spirt-and-gpu-lowering/control-and-pointers.md). The [operation mapping](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/04-spirt-and-gpu-lowering/operation-mapping.md) names `NodeKind::Loop`, region outputs and carried values. It does not distinguish backedge values from values exported after the loop at the selected SPIR-T revision.
 
 See the [frozen mapping](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/04-spirt-and-gpu-lowering/operation-mapping.md). This finding does not reopen the corrected tail-control explanation or assert that issue #31 has been reproduced.
 

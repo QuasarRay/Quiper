@@ -1,0 +1,106 @@
+{
+  "format_version": 1,
+  "audited_commit": "9dceaf274b46f295f7fc312fb3396d5729d7d97d",
+  "findings": [
+    {
+      "id": "V2-01",
+      "finding": "Flaws/v2/01-runtime-and-ownership/v2-01-dependent-failure.md",
+      "instructions": "05-runtime-and-interop/01-enforce-submission-and-failure-semantics.md",
+      "specification_symbols": [
+        "Runtime.failed_dependency_blocks"
+      ],
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "correction": "Consumers remain unsubmitted until all semantic predecessors succeed; failure propagates through joins while accepted resources remain retained.",
+      "closure_cases": "Fail A before B uses its output as an index; repeat for joins, cross-queue graphs, partial acceptance and collective consumers."
+    },
+    {
+      "id": "V2-02",
+      "finding": "Flaws/v2/01-runtime-and-ownership/v2-02-forgotten-borrows.md",
+      "instructions": "05-runtime-and-interop/02-make-memory-and-bindings-safe.md",
+      "specification_symbols": [
+        "Host.pending_blocks_scope_exit",
+        "Runtime.forgotten_handle_retains"
+      ],
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "correction": "Safe APIs transfer storage to a runtime registry or use a non-escaping supervisor scope; forgetting a handle cannot end retention.",
+      "closure_cases": "Forget futures, attempt scope escape, panic/cancel/timeout and lose replies without allowing caller reuse before quiescence."
+    },
+    {
+      "id": "V2-03",
+      "finding": "Flaws/v2/01-runtime-and-ownership/v2-03-operation-retirement.md",
+      "instructions": "05-runtime-and-interop/01-enforce-submission-and-failure-semantics.md",
+      "specification_symbols": [
+        "Runtime.retired_never_fresh",
+        "Runtime.redeemed_once"
+      ],
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "correction": "A bounded acceptance window and contiguous retirement watermark distinguish new out-of-order IDs from permanently retired ones; queries never remint ownership.",
+      "closure_cases": "Test stalled holes, replay after retirement, live dependents, duplicate redemption, quotas and generation rollover."
+    },
+    {
+      "id": "V2-04",
+      "finding": "Flaws/v2/02-spirt-and-vulkan/v2-04-loop-exit-values.md",
+      "instructions": "04-spirt-and-gpu-lowering/03-preserve-control-memory-and-participation.md",
+      "specification_symbols": [
+        "Lowering.zero_iteration_values",
+        "Lowering.positive_iteration_values",
+        "Lowering.typed_values_arity"
+      ],
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "correction": "Initial inputs, body inputs, backedge outputs and final body-defined values have separate mappings; outer Select supplies source while results.",
+      "closure_cases": "Compile and execute 0/1/multiple/nested/early-exit accumulator fixtures and reject fictitious Loop node-output references."
+    },
+    {
+      "id": "V2-05",
+      "finding": "Flaws/v2/02-spirt-and-vulkan/v2-05-memory-model-chains.md",
+      "instructions": "04-spirt-and-gpu-lowering/03-preserve-control-memory-and-participation.md",
+      "specification_symbols": [
+        "Lowering.chains_require_feature"
+      ],
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "correction": "Chain-dependent semantics require supported and enabled availability/visibility chains, or a separately proved/enforced chain-free restriction.",
+      "closure_cases": "Reject missing-chain-feature capability fixtures before dispatch and qualify direct/multi-hop publication litmus cases."
+    },
+    {
+      "id": "V2-06",
+      "finding": "Flaws/v2/02-spirt-and-vulkan/v2-06-host-object-synchronization.md",
+      "instructions": "05-runtime-and-interop/03-qualify-the-vulkan-service.md",
+      "specification_symbols": [
+        "Runtime.exclusive_owner"
+      ],
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "correction": "One session owner serializes Vulkan queue, pool, descriptor, mapping and lifetime operations; callbacks use a specified reentrancy path.",
+      "closure_cases": "Exercise concurrent record/submit/reset/free, callback reentry, shutdown races and error unwinding with host/API diagnostics."
+    },
+    {
+      "id": "V2-07",
+      "finding": "Flaws/v2/03-contracts-and-evidence/v2-07-policy-extensibility.md",
+      "instructions": "06-verification-and-trust/02-admit-immutable-evidence-policies.md",
+      "specification_symbols": [
+        "Extension.unknown_policy_rejected"
+      ],
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "correction": "Result schema v2 carries namespaced policy identity plus definition digest; protected admission retains immutable old meanings.",
+      "closure_cases": "An unchanged reader accepts an admitted fourth policy and rejects unadmitted identities, wrong digests and self-admission; preserve v1 decoding."
+    },
+    {
+      "id": "V2-08",
+      "finding": "Flaws/v2/04-release-measurement/v2-08-tail-confidence.md",
+      "instructions": "08-production-acceptance/03-qualify-performance-and-cutover.md",
+      "specification_symbols": [
+        "Qualification.uncertain_cannot_pass"
+      ],
+      "roadmap_status": "corrected",
+      "implementation_status": "pending",
+      "correction": "Tail estimands, independent sampling units, exact order-statistic bounds, multiplicity/looks and inadequate-data rejection are specified.",
+      "closure_cases": "Reject the 30-block fast-only sample as inadequate; validate binomial rank bounds, ties, zero denominators, confidence allocation and cumulative looks."
+    }
+  ]
+}

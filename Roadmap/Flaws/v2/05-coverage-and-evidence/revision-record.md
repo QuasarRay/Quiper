@@ -29,7 +29,7 @@ Run the existing documentation checker against the pinned SPIR-T clone. Execute 
 
 The GitHub inventory returned 21 open SPIR-T pull requests at inspection. PR #30 remained a draft at `0e40966f27468d4896b51e28ea0e9080a8300bbe`; #48 remained open at `94f5c19c3d3ad258bc628857a350719561d64b44`. The interpreter proposal #46 had advanced to `343a7ec3cf70cf52814f1c22bafa6f5c0006ba49`.
 
-This does not make v2's older #46 head a false current claim: its [decision record](../../../10-sources/upstream-decisions.md) explicitly labels the preserved inventory and requires rechecking before adoption. Metadata refresh is not code qualification. No whole unmerged stack was adopted or built, and the inventory does not establish that all external prototypes were found.
+This does not make v2's older #46 head a false current claim: its [decision record](https://github.com/QuasarRay/Quiper/blob/9dceaf274b46f295f7fc312fb3396d5729d7d97d/Roadmap/10-sources/upstream-decisions.md) explicitly labels the preserved inventory and requires rechecking before adoption. Metadata refresh is not code qualification. No whole unmerged stack was adopted or built, and the inventory does not establish that all external prototypes were found.
 
 ## 4. Unexecuted work
 
