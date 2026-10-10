@@ -1,0 +1,706 @@
+{
+  "schema": "kuiper.source-integration/1",
+  "status": "passed",
+  "assurance": "kuiper.experimental-tested/1",
+  "production_ready": false,
+  "source_to_kir_refinement": false,
+  "per_lane_lifting_proved": false,
+  "proof_dependency_closure_checked": false,
+  "dependency_closure_replayed_freshly": false,
+  "physical_gpu_qualification": false,
+  "devices": [
+    "llvmpipe (LLVM 20.1.2, 256 bits)"
+  ],
+  "vulkan_validation_layer": "VK_LAYER_KHRONOS_validation",
+  "validation_errors": 0,
+  "vulkaninfo_summary": "==========\nVULKANINFO\n==========\n\nVulkan Instance Version: 1.3.275\n\n\nInstance Extensions: count = 24\n-------------------------------\nVK_EXT_acquire_drm_display             : extension revision 1\nVK_EXT_acquire_xlib_display            : extension revision 1\nVK_EXT_debug_report                    : extension revision 10\nVK_EXT_debug_utils                     : extension revision 2\nVK_EXT_direct_mode_display             : extension revision 1\nVK_EXT_display_surface_counter         : extension revision 1\nVK_EXT_headless_surface                : extension revision 1\nVK_EXT_surface_maintenance1            : extension revision 1\nVK_EXT_swapchain_colorspace            : extension revision 5\nVK_KHR_device_group_creation           : extension revision 1\nVK_KHR_display                         : extension revision 23\nVK_KHR_external_fence_capabilities     : extension revision 1\nVK_KHR_external_memory_capabilities    : extension revision 1\nVK_KHR_external_semaphore_capabilities : extension revision 1\nVK_KHR_get_display_properties2         : extension revision 1\nVK_KHR_get_physical_device_properties2 : extension revision 2\nVK_KHR_get_surface_capabilities2       : extension revision 1\nVK_KHR_portability_enumeration         : extension revision 1\nVK_KHR_surface                         : extension revision 25\nVK_KHR_surface_protected_capabilities  : extension revision 1\nVK_KHR_wayland_surface                 : extension revision 6\nVK_KHR_xcb_surface                     : extension revision 6\nVK_KHR_xlib_surface                    : extension revision 6\nVK_LUNARG_direct_driver_loading        : extension revision 1\n\nInstance Layers: count = 4\n--------------------------\nVK_LAYER_INTEL_nullhw       INTEL NULL HW                1.1.73   version 1\nVK_LAYER_KHRONOS_validation Khronos Validation Layer     1.3.275  version 1\nVK_LAYER_MESA_device_select Linux device selection layer 1.4.303  version 1\nVK_LAYER_MESA_overlay       Mesa Overlay layer           1.4.303  version 1\n\nDevices:\n========\nGPU0:\n\tapiVersion         = 1.4.318\n\tdriverVersion      = 25.2.8\n\tvendorID           = 0x10005\n\tdeviceID           = 0x0000\n\tdeviceType         = PHYSICAL_DEVICE_TYPE_CPU\n\tdeviceName         = llvmpipe (LLVM 20.1.2, 256 bits)\n\tdriverID           = DRIVER_ID_MESA_LLVMPIPE\n\tdriverName         = llvmpipe\n\tdriverInfo         = Mesa 25.2.8-0ubuntu0.24.04.2 (LLVM 20.1.2)\n\tconformanceVersion = 1.3.1.1\n\tdeviceUUID         = 6d657361-3235-2e32-2e38-2d3075627500\n\tdriverUUID         = 6c6c766d-7069-7065-5555-494400000000\n",
+  "case_count": 13,
+  "cases": [
+    {
+      "name": "additive-worker-installation",
+      "category": "installation",
+      "status": "passed",
+      "workers": [
+        {
+          "endpoints": [
+            {
+              "consumes": [
+                "kuiper.kir/1",
+                "kuiper.integer32/1"
+              ],
+              "produces": [
+                "kuiper.artifact/1",
+                "khronos.spirv.vulkan1.2/1",
+                "kuiper.storage-words32/1"
+              ],
+              "role": "compiler"
+            }
+          ],
+          "executable": "worker",
+          "executable_digest": "a2d72e2c40dd7663a54630d899ec83004e09de1864f274a76b44b45d8873651a",
+          "id": "kuiper.spirt.integer32/0.1.0",
+          "protocol": "kuiper.worker/1"
+        },
+        {
+          "endpoints": [
+            {
+              "consumes": [
+                "kuiper.artifact/1",
+                "khronos.spirv.vulkan1.2/1",
+                "kuiper.storage-words32/1"
+              ],
+              "produces": [
+                "kuiper.storage-words32/1",
+                "kuiper.execution/1"
+              ],
+              "role": "runtime"
+            }
+          ],
+          "executable": "worker",
+          "executable_digest": "de6c5cbcac02f9a3f5e0f9490a90eb4a6b2d7ac5f99dd94c5b0a69d6d00c4804",
+          "id": "kuiper.vulkan.integer32/0.1.0",
+          "protocol": "kuiper.worker/1"
+        }
+      ]
+    },
+    {
+      "name": "checked-source-increment",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "52b183a38a8299437f13966bb8636c6cb99189f529c367d2555ba6a5246fc5ac",
+      "invocation_digest": "5c62db71e1f322b49aa2c5ed4e122de0505f3ea47365f267bfecd61c1203fea3",
+      "output_digest": "bd7826ea19f569cbe11bc9c7d8985faae05832b3143f1be8e87647d26c8525d0",
+      "literal_expected_digest": "099e5599f6f39803c9a64d7c5a2e84054da1fcc4cb065487f56a0d4caa2ec32c",
+      "interfaces": [
+        "core",
+        "c"
+      ]
+    },
+    {
+      "name": "checked-source-short-view-increment",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "52b183a38a8299437f13966bb8636c6cb99189f529c367d2555ba6a5246fc5ac",
+      "invocation_digest": "0e957270c4284f49cc130fe4902e7ba53922c54390ebbdd1d8c0eb2ea56a98cc",
+      "guard_mask": 1,
+      "interfaces": [
+        "core",
+        "c"
+      ]
+    },
+    {
+      "name": "checked-source-copy_add",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "a5bf8a96dec9751dd9c38aa08435e9a98968b794034ef371b16cd346f10779c6",
+      "invocation_digest": "4ef1d6fc779fc9a2625659f6f4614d3d0da4aba22f72b0213357ba6cbd78a272",
+      "output_digest": "5b20b4d2ea68b69914b6557265a33fbd5b5bf42663b5466d4b7c14d65c9f1a26",
+      "literal_expected_digest": "d3aa45327d7cb865e53a0eb7aae74a126f8a08e9642b238acac5f11365bb9c63",
+      "interfaces": [
+        "core",
+        "c"
+      ]
+    },
+    {
+      "name": "checked-source-short-view-copy_add",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "a5bf8a96dec9751dd9c38aa08435e9a98968b794034ef371b16cd346f10779c6",
+      "invocation_digest": "4839cb0f89e52bbb1f42a33b3864fdba688d34b9fb2eff634bf229dc908d8622",
+      "guard_mask": 1,
+      "interfaces": [
+        "core",
+        "c"
+      ]
+    },
+    {
+      "name": "checked-source-early_increment",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "16b0c8601d2dff62343af39537b837a138e74a41d1ff4ad8bccfada485502fc8",
+      "invocation_digest": "4d61357819af81c327e4fdbe3dbb283475e92399e309310bc30b43677bb932b7",
+      "output_digest": "e7377a987d9003588ebaef86353bc2b9917a40bec93c83283bf1f4b4292332b1",
+      "literal_expected_digest": "a21f6190c366ffa22f48029ee14150e869b8bd287aed00755e6f3cb996f6f335",
+      "interfaces": [
+        "core",
+        "c"
+      ]
+    },
+    {
+      "name": "checked-source-short-view-early_increment",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "16b0c8601d2dff62343af39537b837a138e74a41d1ff4ad8bccfada485502fc8",
+      "invocation_digest": "c9641573ee9b05e161169387aa1dd3ae5bc132060bcbf77754e1e6950131b14d",
+      "guard_mask": 1,
+      "interfaces": [
+        "core",
+        "c"
+      ]
+    },
+    {
+      "name": "reject-source-increment_u64",
+      "category": "source-admission-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "source-rejected",
+        "message": "unsupported kernel parameter type"
+      }
+    },
+    {
+      "name": "reject-source-admitted",
+      "category": "source-admission-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "source-rejected",
+        "message": "capture contains admit: "
+      }
+    },
+    {
+      "name": "reject-source-fractional_reads",
+      "category": "source-admission-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "source-rejected",
+        "message": "entrypoint needs static/effect specialization"
+      }
+    },
+    {
+      "name": "reject-source-RejectAssume",
+      "category": "source-admission-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "source-rejected",
+        "message": "source verification failed: proof-state: State dump @ depth 0 (at the time of failure):\nLocation: Kuiper.Portable.RejectAssume.fst:10.1-14.2\n\n\n* Error 228 at /workspace/scratch/c166a8b985e1/Quiper-spirt/frontend/kuiper/examples/Kuiper.Portable.RejectAssume.fst:10.1-14.2:\n  - Tactic failed\n  - Failure(\"Explicit proof bypass in checked source\")\n\n1 error was reported (see above)\n"
+      }
+    },
+    {
+      "name": "reject-source-RejectNested",
+      "category": "source-admission-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "source-rejected",
+        "message": "source verification failed: proof-state: State dump @ depth 0 (at the time of failure):\nLocation: Kuiper.Portable.RejectNested.fst:11.1-16.2\n\n\n* Error 228 at /workspace/scratch/c166a8b985e1/Quiper-spirt/frontend/kuiper/examples/Kuiper.Portable.RejectNested.fst:11.1-16.2:\n  - Tactic failed\n  - Failure(\"Explicit proof bypass in checked source\")\n\n1 error was reported (see above)\n"
+      }
+    },
+    {
+      "name": "reject-failure-after-live-capture",
+      "category": "source-admission-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "source-rejected",
+        "message": "source verification failed: * Error 189 at /tmp/kuiper-source-integration-w18b1yo8/Kuiper.Portable.Int32.fst:66.35-66.39:\n  - Expected expression of type Prims.int got expression true of type Prims.bool\n\n1 error was reported (see above)\n"
+      }
+    }
+  ],
+  "source_exports": [
+    {
+      "schema": "kuiper.experimental-source/1",
+      "status": "passed",
+      "entry": "Kuiper.Portable.Int32.increment",
+      "package_digest": "52b183a38a8299437f13966bb8636c6cb99189f529c367d2555ba6a5246fc5ac",
+      "source_sha256": "42b5660b3f57f1b8b319f4172c5ef3180dab93ef51c7ed62202fdcc5fb0214de",
+      "toolchain": {
+        "schema": "kuiper.source-toolchain/1",
+        "fstar": "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/out/bin/fstar.exe",
+        "fstar_source_commit": "32822af9504e97e560315109c595f3d444583a16",
+        "fstar_sha256": "858c9f0c8fdc6f7a2fb87722ba81746c39d67c07caa7afe75c68faa715e2041e",
+        "fstar_version": "F* 2026.09.27~dev\nplatform=Linux_x86_64\nsystem=Unix\ncompiler=OCaml 5.3.0\ndate=2026-10-02 11:47:12 -0700\ncommit=0eef57bef411aac090354a75c21e00b674bd420c-dirty\n",
+        "plugin_sha256": "4bbde7ac9a9638ffd02f41a2ebdf72678c48bc35b8d0a5599184fe37993ce37d",
+        "capture_source_sha256": "c0331dc2a04c6ce549cc478a2f3c929e33674f1e2703d64487ce9a2dae0da395",
+        "interfaces": {
+          "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/dune/_build/default/fstar-guts/.fstarcompiler.objs/byte/fStarC_Syntax_Syntax.cmi": "cfcf073330e66fabeb8bd74cc72e7d48e7ce899b897126be3c8c794785b03879",
+          "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/dune/_build/default/pulse-plugin/.pulse_plugin.objs/byte/pulse_Syntax_Base.cmi": "ee9647022ab17b8ee8c598df3bbee8740984174f5b6eccc7e371dcfbaa75adbf",
+          "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/dune/_build/default/pulse-plugin/.pulse_plugin.objs/byte/pulse_RuntimeUtils.cmi": "d0c9d6f4d5fbc54841e2a70a5bd02cd16a49aa72569ed114f1beb7055672f81e"
+        },
+        "hook_sources": {
+          "pulse/src/checker/Pulse.Main.fst": "c1067dc4eb1518fcb43be8f7109d24960276ed0b09e774defe8243e2e4df389f",
+          "pulse/src/checker/Pulse.RuntimeUtils.fsti": "cdd94d1fcff74a897fde12cea64c5e0a3ae1f1b107f205aef133ba9b71eb18fc",
+          "pulse/src/ml/Pulse_RuntimeUtils.ml": "1911a8ca7da2b350bf7b6945c41f0eb4c36c460573cfab0310dd354364b6ddec"
+        }
+      },
+      "checker_sha256": "d25fd89106cfbf0a184953d8d5a646841826b2999c98782748a0702e7026fe08",
+      "frontend_sources": {
+        "capture.ml": "c0331dc2a04c6ce549cc478a2f3c929e33674f1e2703d64487ce9a2dae0da395",
+        "translate.py": "b1fdaaf098f854fec08d1c08cbf01cb6d11c97b1dfa2b42e8d0769193dc979ac",
+        "export_source.py": "2a0cee3841c99c3bb3c195597c54ef3f37eee69af7182b24b7b1c294632ef6d6",
+        "build_capture.py": "2cd976ec1194eba91c9e8220dfab6e29e4f10d0c32bb5fde2fae7304051c7616",
+        "source-options.json": "e50a0775508d5dd2bd92ccf2f1bcf5d2785dfeacf2325e7601e6b457c102410d"
+      },
+      "verification": "Verified module: Kuiper.Portable.Int32\nAll verification conditions discharged successfully\n",
+      "options": [
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/out/bin/fstar.exe",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/src",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/obj",
+        "--warn_error",
+        "-274",
+        "--warn_error",
+        "-291",
+        "--warn_error",
+        "-249-321",
+        "--warn_error",
+        "@242@250",
+        "--z3version",
+        "4.13.3",
+        "--ext",
+        "kuiper",
+        "--ext",
+        "__unrefine",
+        "--ext",
+        "no_krml_private",
+        "--ext",
+        "pulse:extra_simplify",
+        "--warn_error",
+        "-288",
+        "--warn_error",
+        "-271",
+        "--ext",
+        "context_pruning_no_ambients",
+        "--ext",
+        "freshen",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/pulse/lib/common",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/pulse/lib/pulse",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/pulse/build/lib.common.checked",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/pulse/build/lib.pulse.checked",
+        "--cache_dir",
+        "/tmp/kuiper-source-sz9qac0y",
+        "--odir",
+        "/tmp/kuiper-source-sz9qac0y",
+        "--already_cached",
+        "*",
+        "--cache_checked_modules",
+        "--admit_smt_queries",
+        "false",
+        "--load_cmxs",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/frontend/kuiper/_build/kuiper_capture",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/frontend/kuiper/examples/Kuiper.Portable.Int32.fst"
+      ],
+      "source_entry_checked_strictly": true,
+      "dependency_closure_replayed_freshly": false,
+      "proof_dependency_closure_checked": false,
+      "source_to_kir_refinement": false,
+      "per_lane_lifting_proved": false,
+      "policy": "kuiper.experimental-tested/1",
+      "primitive_mappings": {
+        "Kuiper.Ref.read": "per-lane checked word load",
+        "Kuiper.Ref.write": "per-lane checked word store",
+        "FStar.UInt32.add_mod/sub_mod/mul_mod": "wrapping U32 arithmetic"
+      },
+      "instructions": [
+        {
+          "instruction": 0,
+          "function": "Kuiper.Portable.Int32.increment",
+          "source_range": "dummy:0.0-0.0",
+          "source": false
+        },
+        {
+          "instruction": 1,
+          "function": "Kuiper.Portable.Int32.increment",
+          "source_range": "Kuiper.Portable.Int32.fst:21.11-21.28",
+          "source": false
+        },
+        {
+          "instruction": 2,
+          "function": "Kuiper.Portable.Int32.add_one",
+          "source_range": "dummy:0.0-0.0",
+          "source": false
+        },
+        {
+          "instruction": 3,
+          "function": "Kuiper.Portable.Int32.add_one",
+          "source_range": "dummy:0.0-0.0",
+          "source": false
+        },
+        {
+          "instruction": 4,
+          "function": "Kuiper.Portable.Int32.increment",
+          "source_range": "Kuiper.Portable.Int32.fst:23.3-23.23",
+          "source": true
+        }
+      ]
+    },
+    {
+      "schema": "kuiper.experimental-source/1",
+      "status": "passed",
+      "entry": "Kuiper.Portable.Int32.copy_add",
+      "package_digest": "a5bf8a96dec9751dd9c38aa08435e9a98968b794034ef371b16cd346f10779c6",
+      "source_sha256": "42b5660b3f57f1b8b319f4172c5ef3180dab93ef51c7ed62202fdcc5fb0214de",
+      "toolchain": {
+        "schema": "kuiper.source-toolchain/1",
+        "fstar": "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/out/bin/fstar.exe",
+        "fstar_source_commit": "32822af9504e97e560315109c595f3d444583a16",
+        "fstar_sha256": "858c9f0c8fdc6f7a2fb87722ba81746c39d67c07caa7afe75c68faa715e2041e",
+        "fstar_version": "F* 2026.09.27~dev\nplatform=Linux_x86_64\nsystem=Unix\ncompiler=OCaml 5.3.0\ndate=2026-10-02 11:47:12 -0700\ncommit=0eef57bef411aac090354a75c21e00b674bd420c-dirty\n",
+        "plugin_sha256": "4bbde7ac9a9638ffd02f41a2ebdf72678c48bc35b8d0a5599184fe37993ce37d",
+        "capture_source_sha256": "c0331dc2a04c6ce549cc478a2f3c929e33674f1e2703d64487ce9a2dae0da395",
+        "interfaces": {
+          "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/dune/_build/default/fstar-guts/.fstarcompiler.objs/byte/fStarC_Syntax_Syntax.cmi": "cfcf073330e66fabeb8bd74cc72e7d48e7ce899b897126be3c8c794785b03879",
+          "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/dune/_build/default/pulse-plugin/.pulse_plugin.objs/byte/pulse_Syntax_Base.cmi": "ee9647022ab17b8ee8c598df3bbee8740984174f5b6eccc7e371dcfbaa75adbf",
+          "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/dune/_build/default/pulse-plugin/.pulse_plugin.objs/byte/pulse_RuntimeUtils.cmi": "d0c9d6f4d5fbc54841e2a70a5bd02cd16a49aa72569ed114f1beb7055672f81e"
+        },
+        "hook_sources": {
+          "pulse/src/checker/Pulse.Main.fst": "c1067dc4eb1518fcb43be8f7109d24960276ed0b09e774defe8243e2e4df389f",
+          "pulse/src/checker/Pulse.RuntimeUtils.fsti": "cdd94d1fcff74a897fde12cea64c5e0a3ae1f1b107f205aef133ba9b71eb18fc",
+          "pulse/src/ml/Pulse_RuntimeUtils.ml": "1911a8ca7da2b350bf7b6945c41f0eb4c36c460573cfab0310dd354364b6ddec"
+        }
+      },
+      "checker_sha256": "d25fd89106cfbf0a184953d8d5a646841826b2999c98782748a0702e7026fe08",
+      "frontend_sources": {
+        "capture.ml": "c0331dc2a04c6ce549cc478a2f3c929e33674f1e2703d64487ce9a2dae0da395",
+        "translate.py": "b1fdaaf098f854fec08d1c08cbf01cb6d11c97b1dfa2b42e8d0769193dc979ac",
+        "export_source.py": "2a0cee3841c99c3bb3c195597c54ef3f37eee69af7182b24b7b1c294632ef6d6",
+        "build_capture.py": "2cd976ec1194eba91c9e8220dfab6e29e4f10d0c32bb5fde2fae7304051c7616",
+        "source-options.json": "e50a0775508d5dd2bd92ccf2f1bcf5d2785dfeacf2325e7601e6b457c102410d"
+      },
+      "verification": "Verified module: Kuiper.Portable.Int32\nAll verification conditions discharged successfully\n",
+      "options": [
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/out/bin/fstar.exe",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/src",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/obj",
+        "--warn_error",
+        "-274",
+        "--warn_error",
+        "-291",
+        "--warn_error",
+        "-249-321",
+        "--warn_error",
+        "@242@250",
+        "--z3version",
+        "4.13.3",
+        "--ext",
+        "kuiper",
+        "--ext",
+        "__unrefine",
+        "--ext",
+        "no_krml_private",
+        "--ext",
+        "pulse:extra_simplify",
+        "--warn_error",
+        "-288",
+        "--warn_error",
+        "-271",
+        "--ext",
+        "context_pruning_no_ambients",
+        "--ext",
+        "freshen",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/pulse/lib/common",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/pulse/lib/pulse",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/pulse/build/lib.common.checked",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/pulse/build/lib.pulse.checked",
+        "--cache_dir",
+        "/tmp/kuiper-source-w7r0stml",
+        "--odir",
+        "/tmp/kuiper-source-w7r0stml",
+        "--already_cached",
+        "*",
+        "--cache_checked_modules",
+        "--admit_smt_queries",
+        "false",
+        "--load_cmxs",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/frontend/kuiper/_build/kuiper_capture",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/frontend/kuiper/examples/Kuiper.Portable.Int32.fst"
+      ],
+      "source_entry_checked_strictly": true,
+      "dependency_closure_replayed_freshly": false,
+      "proof_dependency_closure_checked": false,
+      "source_to_kir_refinement": false,
+      "per_lane_lifting_proved": false,
+      "policy": "kuiper.experimental-tested/1",
+      "primitive_mappings": {
+        "Kuiper.Ref.read": "per-lane checked word load",
+        "Kuiper.Ref.write": "per-lane checked word store",
+        "FStar.UInt32.add_mod/sub_mod/mul_mod": "wrapping U32 arithmetic"
+      },
+      "instructions": [
+        {
+          "instruction": 0,
+          "function": "Kuiper.Portable.Int32.copy_add",
+          "source_range": "dummy:0.0-0.0",
+          "source": false
+        },
+        {
+          "instruction": 1,
+          "function": "Kuiper.Portable.Int32.copy_add",
+          "source_range": "dummy:0.0-0.0",
+          "source": false
+        },
+        {
+          "instruction": 2,
+          "function": "Kuiper.Portable.Int32.copy_add",
+          "source_range": "Kuiper.Portable.Int32.fst:41.11-41.32",
+          "source": false
+        },
+        {
+          "instruction": 3,
+          "function": "Kuiper.Portable.Int32.add_delta",
+          "source_range": "dummy:0.0-0.0",
+          "source": false
+        },
+        {
+          "instruction": 4,
+          "function": "Kuiper.Portable.Int32.copy_add",
+          "source_range": "Kuiper.Portable.Int32.fst:43.3-43.28",
+          "source": true
+        }
+      ]
+    },
+    {
+      "schema": "kuiper.experimental-source/1",
+      "status": "passed",
+      "entry": "Kuiper.Portable.Int32.early_increment",
+      "package_digest": "16b0c8601d2dff62343af39537b837a138e74a41d1ff4ad8bccfada485502fc8",
+      "source_sha256": "42b5660b3f57f1b8b319f4172c5ef3180dab93ef51c7ed62202fdcc5fb0214de",
+      "toolchain": {
+        "schema": "kuiper.source-toolchain/1",
+        "fstar": "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/out/bin/fstar.exe",
+        "fstar_source_commit": "32822af9504e97e560315109c595f3d444583a16",
+        "fstar_sha256": "858c9f0c8fdc6f7a2fb87722ba81746c39d67c07caa7afe75c68faa715e2041e",
+        "fstar_version": "F* 2026.09.27~dev\nplatform=Linux_x86_64\nsystem=Unix\ncompiler=OCaml 5.3.0\ndate=2026-10-02 11:47:12 -0700\ncommit=0eef57bef411aac090354a75c21e00b674bd420c-dirty\n",
+        "plugin_sha256": "4bbde7ac9a9638ffd02f41a2ebdf72678c48bc35b8d0a5599184fe37993ce37d",
+        "capture_source_sha256": "c0331dc2a04c6ce549cc478a2f3c929e33674f1e2703d64487ce9a2dae0da395",
+        "interfaces": {
+          "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/dune/_build/default/fstar-guts/.fstarcompiler.objs/byte/fStarC_Syntax_Syntax.cmi": "cfcf073330e66fabeb8bd74cc72e7d48e7ce899b897126be3c8c794785b03879",
+          "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/dune/_build/default/pulse-plugin/.pulse_plugin.objs/byte/pulse_Syntax_Base.cmi": "ee9647022ab17b8ee8c598df3bbee8740984174f5b6eccc7e371dcfbaa75adbf",
+          "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/dune/_build/default/pulse-plugin/.pulse_plugin.objs/byte/pulse_RuntimeUtils.cmi": "d0c9d6f4d5fbc54841e2a70a5bd02cd16a49aa72569ed114f1beb7055672f81e"
+        },
+        "hook_sources": {
+          "pulse/src/checker/Pulse.Main.fst": "c1067dc4eb1518fcb43be8f7109d24960276ed0b09e774defe8243e2e4df389f",
+          "pulse/src/checker/Pulse.RuntimeUtils.fsti": "cdd94d1fcff74a897fde12cea64c5e0a3ae1f1b107f205aef133ba9b71eb18fc",
+          "pulse/src/ml/Pulse_RuntimeUtils.ml": "1911a8ca7da2b350bf7b6945c41f0eb4c36c460573cfab0310dd354364b6ddec"
+        }
+      },
+      "checker_sha256": "d25fd89106cfbf0a184953d8d5a646841826b2999c98782748a0702e7026fe08",
+      "frontend_sources": {
+        "capture.ml": "c0331dc2a04c6ce549cc478a2f3c929e33674f1e2703d64487ce9a2dae0da395",
+        "translate.py": "b1fdaaf098f854fec08d1c08cbf01cb6d11c97b1dfa2b42e8d0769193dc979ac",
+        "export_source.py": "2a0cee3841c99c3bb3c195597c54ef3f37eee69af7182b24b7b1c294632ef6d6",
+        "build_capture.py": "2cd976ec1194eba91c9e8220dfab6e29e4f10d0c32bb5fde2fae7304051c7616",
+        "source-options.json": "e50a0775508d5dd2bd92ccf2f1bcf5d2785dfeacf2325e7601e6b457c102410d"
+      },
+      "verification": "Verified module: Kuiper.Portable.Int32\nAll verification conditions discharged successfully\n",
+      "options": [
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/stage3/out/bin/fstar.exe",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/src",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/obj",
+        "--warn_error",
+        "-274",
+        "--warn_error",
+        "-291",
+        "--warn_error",
+        "-249-321",
+        "--warn_error",
+        "@242@250",
+        "--z3version",
+        "4.13.3",
+        "--ext",
+        "kuiper",
+        "--ext",
+        "__unrefine",
+        "--ext",
+        "no_krml_private",
+        "--ext",
+        "pulse:extra_simplify",
+        "--warn_error",
+        "-288",
+        "--warn_error",
+        "-271",
+        "--ext",
+        "context_pruning_no_ambients",
+        "--ext",
+        "freshen",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/pulse/lib/common",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/pulse/lib/pulse",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/pulse/build/lib.common.checked",
+        "--include",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/FStar/pulse/build/lib.pulse.checked",
+        "--cache_dir",
+        "/tmp/kuiper-source-ftslkqpn",
+        "--odir",
+        "/tmp/kuiper-source-ftslkqpn",
+        "--already_cached",
+        "*",
+        "--cache_checked_modules",
+        "--admit_smt_queries",
+        "false",
+        "--load_cmxs",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/frontend/kuiper/_build/kuiper_capture",
+        "/workspace/scratch/c166a8b985e1/Quiper-spirt/frontend/kuiper/examples/Kuiper.Portable.Int32.fst"
+      ],
+      "source_entry_checked_strictly": true,
+      "dependency_closure_replayed_freshly": false,
+      "proof_dependency_closure_checked": false,
+      "source_to_kir_refinement": false,
+      "per_lane_lifting_proved": false,
+      "policy": "kuiper.experimental-tested/1",
+      "primitive_mappings": {
+        "Kuiper.Ref.read": "per-lane checked word load",
+        "Kuiper.Ref.write": "per-lane checked word store",
+        "FStar.UInt32.add_mod/sub_mod/mul_mod": "wrapping U32 arithmetic"
+      },
+      "instructions": [
+        {
+          "instruction": 0,
+          "function": "Kuiper.Portable.Int32.early_increment",
+          "source_range": "dummy:0.0-0.0",
+          "source": false
+        },
+        {
+          "instruction": 1,
+          "function": "Kuiper.Portable.Int32.early_increment",
+          "source_range": "Kuiper.Portable.Int32.fst:60.11-60.28",
+          "source": false
+        },
+        {
+          "instruction": 2,
+          "function": "Kuiper.Portable.Int32.early_add_three",
+          "source_range": "dummy:0.0-0.0",
+          "source": false
+        },
+        {
+          "instruction": 3,
+          "function": "Kuiper.Portable.Int32.early_add_three",
+          "source_range": "dummy:0.0-0.0",
+          "source": false
+        },
+        {
+          "instruction": 4,
+          "function": "Kuiper.Portable.Int32.early_increment",
+          "source_range": "Kuiper.Portable.Int32.fst:62.3-62.23",
+          "source": false
+        }
+      ]
+    }
+  ],
+  "workers": [
+    {
+      "endpoints": [
+        {
+          "consumes": [
+            "kuiper.kir/1",
+            "kuiper.integer32/1"
+          ],
+          "produces": [
+            "kuiper.artifact/1",
+            "khronos.spirv.vulkan1.2/1",
+            "kuiper.storage-words32/1"
+          ],
+          "role": "compiler"
+        }
+      ],
+      "executable": "worker",
+      "executable_digest": "a2d72e2c40dd7663a54630d899ec83004e09de1864f274a76b44b45d8873651a",
+      "id": "kuiper.spirt.integer32/0.1.0",
+      "protocol": "kuiper.worker/1"
+    },
+    {
+      "endpoints": [
+        {
+          "consumes": [
+            "kuiper.artifact/1",
+            "khronos.spirv.vulkan1.2/1",
+            "kuiper.storage-words32/1"
+          ],
+          "produces": [
+            "kuiper.storage-words32/1",
+            "kuiper.execution/1"
+          ],
+          "role": "runtime"
+        }
+      ],
+      "executable": "worker",
+      "executable_digest": "de6c5cbcac02f9a3f5e0f9490a90eb4a6b2d7ac5f99dd94c5b0a69d6d00c4804",
+      "id": "kuiper.vulkan.integer32/0.1.0",
+      "protocol": "kuiper.worker/1"
+    }
+  ],
+  "elapsed_seconds": 18.31,
+  "sources": {
+    "backends/spirt/Cargo.lock": "49ee9c715aa067e5f52d09f425e47e5e2ec370dc273af296cdab086923b4b8d8",
+    "backends/spirt/Cargo.toml": "983624b2dd06ba7049b2e92a81a50d7f4f58b1e13b9b0b853ce17a38519835af",
+    "backends/spirt/src/inspect.rs": "e577614e8a0838d031fbe09c7f35d4d7b5b8052108d5776b31dc25390e927cd4",
+    "backends/spirt/src/lib.rs": "7293426a342c5e89fcf581b9d267036e10143bd3867ff1e81466e4fd39e54a09",
+    "backends/spirt/src/lower.rs": "193be1456b97027ccddd120bd1d7284fd4ff97f996514cc15311b8eb3821d29b",
+    "backends/spirt/src/main.rs": "068398a517b0163b3ffa3bfdc1fff041e658abb9b53caccd767ccc0902f01439",
+    "backends/spirt/src/spirv_values.rs": "43dee4ba2763d0be26d46651b7b70f1aa09a2500b826645999dc4aea6731efd0",
+    "backends/spirt/src/tests.rs": "1ab95cdb96df2e4251dc28c28be3f38fd3249c1d43d68f5344666c7c3d617753",
+    "backends/spirt/src/tool.rs": "075c2e1ac97fef9433a167de269c3fb889b284464ce603793be76eb234d0d89a",
+    "backends/spirt/tests/fixtures/atomic-add.json": "83430c84f1f587d76241506471ece8a2bc99036f0e45e6fb0076e751a4b33550",
+    "backends/spirt/tests/fixtures/checked-load.json": "f7e66b9b83fbc7aa7d61edda653d4b8cc7c01d8efda1f03ecfce3a3eae4611c4",
+    "backends/spirt/tests/fixtures/condition-effects.json": "64e7d19d7d2bc45ce6016fecd83bbe6a053b32376ee3980d988ede9c271593c1",
+    "backends/spirt/tests/fixtures/guarded-vector-add.json": "7e85bf28df87b71c9f1c479b5de26bff41fbe973ffc86eba3c1b7407284a3ba0",
+    "backends/spirt/tests/fixtures/nested-loops.json": "9a70e4b4fb557690a67ddda5109175661f77c82437978b4552c94bd4041d85f3",
+    "backends/spirt/tests/fixtures/pretested-loop.json": "cc41b8f45cb094c952e89f9fc76d8e81d87ad6226773049d3dbf17b9c9af7980",
+    "backends/spirt/tests/worker.rs": "cce3a53f337d694bdeb64b00c6ca511f6abbf22d2d33a06c4105a7bff4fab58e",
+    "backends/vulkan/Cargo.lock": "e7a1f7cb0ccd28db54c2b348a8f32a241e80cd04b080a2fe82281a1129ba11aa",
+    "backends/vulkan/Cargo.toml": "89922fe6f08b8599e49a448ec7a126aa023111e43d685a233cdc5589abd89430",
+    "backends/vulkan/src/driver.rs": "82680252885444f45c7b9ef6f781e0125079c5d3c4b1ffcfeec789afde86643d",
+    "backends/vulkan/src/inspect.rs": "2de76409d101e2480800b9e07eb2a7565278dc74098e3399f4ff4b785bf55950",
+    "backends/vulkan/src/lib.rs": "78b3edc73b30913cb9787c8010b1272e83dbe26e6c863fce1225b8b447f7f7d4",
+    "backends/vulkan/src/main.rs": "24e7df777b403fa9fe4136f474dd6bb4f6f92b8d55559c755def4c1451784cd4",
+    "backends/vulkan/src/tool.rs": "71b38a37ee1b431f388a48fded1554d9eb161c8f036b7499e9c4f8ec843d7706",
+    "backends/vulkan/tests/admission.rs": "02ed7bef6172f043f131458578deaf07a511b18879f42a3bacad515d504993c7",
+    "backends/vulkan/tests/fixtures/atomic-add.json": "633045085b4e60a190524be4198d5d7f8dee4bac4a403b4f57b89c8c161e81b8",
+    "backends/vulkan/tests/fixtures/binary_add.json": "326ede939cc4efb64c4a1a30195383b386ad000bfd436183cc3b38997628095a",
+    "backends/vulkan/tests/fixtures/binary_div.json": "5b37027a35ced97511b50babc7893ea3ecdeafaf28343a4ffd58315f2cdc7968",
+    "backends/vulkan/tests/fixtures/binary_ne.json": "ba4f771a40b064c833969774e15685657f243b3d15f426df64750e322011d093",
+    "backends/vulkan/tests/fixtures/binary_rem.json": "87d2b6cbc5b345a33d3e3a3a2d29f3130b09f3b8525178703fc515bcb6238840",
+    "backends/vulkan/tests/fixtures/binary_shift_right.json": "8c253c1df4eb708d3598018c4223f49289306afc7283c84a76c0b966be20a5d2",
+    "backends/vulkan/tests/fixtures/checked-load.json": "80308463e919e02a1ccb7dd83b756b2ef55d4efb57065950d166e60df1d74ce4",
+    "backends/vulkan/tests/fixtures/condition-effects.json": "56c0c9e3980ceb156e96ed81a86d5ae39dbf0a8636a57d7a8d3a7eb3dce7ef03",
+    "backends/vulkan/tests/fixtures/guarded-vector-add.json": "5350723864b36099329b683e5c6ac59c1bde7cdb5d8383d81700f17a7bb0957c",
+    "backends/vulkan/tests/fixtures/nested-loops.json": "914e996680cd9929dd256ba4c20db991c6669185797b2cbf79dd5aaf37dd074e",
+    "backends/vulkan/tests/fixtures/pretested-loop.json": "e0fc925c1368075e487939c7203e6b38524c5f04bb4dff27663c792785d753cf",
+    "backends/vulkan/tests/software_vulkan.rs": "0b7e4034e0fd636d5d11ab36c4beb3b1a16575c659d316957338cb0ee8bdeb27",
+    "backends/vulkan/tests/worker.rs": "30f23c7776272ee8fcfe78661722ec87dd1b2768ae11eccb253cb926536ec6a2",
+    "bindings/c/Cargo.lock": "2ab8554fcd985fbb4f454d6a951d80cdf39267c8e04fb3456fb063d36bafa161",
+    "bindings/c/Cargo.toml": "bd176fbeb52038e3804f4a1e31cd577c43652cc0d4e3bfd7c82734a46588883f",
+    "bindings/c/include/kuiper_portable.h": "74737e097ded579621659153898b690e579b8111b96be4fce435cdbbc262d88c",
+    "bindings/c/src/lib.rs": "0fa69caff90cc21660952533fa17d04dcf004f07d8eb494122c0b0817a7f4fb0",
+    "bindings/c/test/driver.c": "cafdab9409873d9991a0de80ec009b331ffbabfcabafbca8ed0fc46ef673c206",
+    "frontend/kuiper/Cargo.lock": "18d3ae55b13effcb4bf716c7d13bf98594e2ecd9d5f87109c09192b3ed060c14",
+    "frontend/kuiper/Cargo.toml": "27f22abe8e6a1d19b990c8d70dfa1b12f2da49bd7b8d4e5f129f8cdaf4ccb8d5",
+    "frontend/kuiper/build_capture.py": "2cd976ec1194eba91c9e8220dfab6e29e4f10d0c32bb5fde2fae7304051c7616",
+    "frontend/kuiper/capture.ml": "c0331dc2a04c6ce549cc478a2f3c929e33674f1e2703d64487ce9a2dae0da395",
+    "frontend/kuiper/examples/Kuiper.Portable.Int32.fst": "42b5660b3f57f1b8b319f4172c5ef3180dab93ef51c7ed62202fdcc5fb0214de",
+    "frontend/kuiper/examples/Kuiper.Portable.Reject.fst": "0c67395da2f63384228fa99336e0e40fdab35def62d8ed09e25580572ed19f83",
+    "frontend/kuiper/examples/Kuiper.Portable.RejectAssume.fst": "1f5f9d368b45bd67db5cedf3285e1ef39384538cb2aad15d23a4b3e7f5168882",
+    "frontend/kuiper/examples/Kuiper.Portable.RejectNested.fst": "7d5e7f2682ed94a33c6c351593f3af64c27d2746c9553d1022096aeb51647642",
+    "frontend/kuiper/export_source.py": "2a0cee3841c99c3bb3c195597c54ef3f37eee69af7182b24b7b1c294632ef6d6",
+    "frontend/kuiper/source-options.json": "e50a0775508d5dd2bd92ccf2f1bcf5d2785dfeacf2325e7601e6b457c102410d",
+    "frontend/kuiper/src/main.rs": "0af883bb8a5ea0ff6e5bbb1d4fe76cbe0a299dd9fea388a0515158470e88029f",
+    "frontend/kuiper/translate.py": "b1fdaaf098f854fec08d1c08cbf01cb6d11c97b1dfa2b42e8d0769193dc979ac",
+    "portable/contracts/Cargo.lock": "93cb21d4d2f511a0c5e752dd231a8159599496cea0f319795e36f8b5922428ed",
+    "portable/contracts/Cargo.toml": "6d31759fb08be07420e90f104a47b05a9dc5b992bad31b14be42b013a540191d",
+    "portable/contracts/src/canonical.rs": "3b6c9dd738efeddef54b37eb15ed998eaa6c2e2a90ec5ddb3080b912c50eb6a2",
+    "portable/contracts/src/lib.rs": "f5e936533cf4be02c0804fb3c5462c247592a744f7cd54d69edf6cbf4933b00c",
+    "portable/contracts/src/validate.rs": "8092d7dfbd26cc1b5c8aca8c01a18e2ddd2dd1ba37b411522d994462bb58dac2",
+    "portable/contracts/tests/rejections.rs": "975f4f376adb085c269b0d940a8f7cfe1306260c5112b24c2e50655a92e9c5ab",
+    "portable/core/Cargo.lock": "77d2b0c942606b4d84d181c12a6fa6feb37a1161514c910d6bfc08a9429dc608",
+    "portable/core/Cargo.toml": "55b2ff828e3e884264bd89d4a076ad08ae56ccd7d8522164ee7d2485d887fcb3",
+    "portable/core/src/host.rs": "82931e68bfd2debfa989f1ef02612ed654f5a7494f5ff7d6adf6f113526b279c",
+    "portable/core/src/lib.rs": "06ea13e5720a91e55392b2ebfd7dee17f21c5daa83c7a092c81b2ae399493d13",
+    "portable/core/src/main.rs": "4236515222d0467397ff7904e99032ad17fb56e851a5576779929489c295d9c6",
+    "portable/core/src/reference.rs": "6b04e0fd1e0dc370aeef3708357f3c435885a20027c265db7ba8046a18b6282e",
+    "portable/core/src/session.rs": "400156074cd75090b451e2bbbe786fc362e50568345cdbd8c395194f269877e0",
+    "portable/core/src/worker.rs": "9e6b4d1859f78fea80cc39c4ce5b9749e03bc35562fbab891eb4ab956b6c0e2d",
+    "portable/core/tests/semantics.rs": "140e68218da4c1b603b579abaeda4c3377318fa85ed84c7258fd3f35c5c75986"
+  },
+  "harness_sha256": "22cd2a95740fed387c5d6baadd8aee841197202b7221fc04b8cf5daacd8bd9c7"
+}

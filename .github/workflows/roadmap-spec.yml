@@ -3,9 +3,9 @@ name: Roadmap specification
 on:
   push:
     branches: [main]
-    paths: ['Roadmap/**', '.github/workflows/roadmap-spec.yml']
+    paths: ['Roadmap/**', 'portable/proofs/**', 'validation/verify_bridges.py', '.github/workflows/roadmap-spec.yml']
   pull_request:
-    paths: ['Roadmap/**', '.github/workflows/roadmap-spec.yml']
+    paths: ['Roadmap/**', 'portable/proofs/**', 'validation/verify_bridges.py', '.github/workflows/roadmap-spec.yml']
   workflow_dispatch:
 
 permissions:
@@ -36,3 +36,11 @@ jobs:
       - name: Verify every F* module with a fresh cache
         run: |
           python3 Roadmap/tools/verify_spec.py --fstar "$RUNNER_TEMP/quiper-spec-toolchain/fstar/bin/fstar.exe" --report "$RUNNER_TEMP/quiper-spec-verification.json"
+          python3 validation/verify_bridges.py --fstar "$RUNNER_TEMP/quiper-spec-toolchain/fstar/bin/fstar.exe" --report "$RUNNER_TEMP/quiper-abi-verification.json"
+      - name: Upload strict model verification evidence
+        uses: actions/upload-artifact@v6
+        with:
+          name: strict-declarative-model-evidence
+          path: |
+            ${{ runner.temp }}/quiper-spec-verification.json
+            ${{ runner.temp }}/quiper-abi-verification.json

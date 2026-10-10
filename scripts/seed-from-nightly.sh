@@ -77,7 +77,7 @@ elif [ -n "$TARBALL" ]; then
   PKG="$WORK/pkg"
   mkdir -p "$PKG"
   msg "Extracting $TARBALL"
-  tar xzf "$TARBALL" --strip-components=1 -C "$PKG"
+  tar --no-same-owner -xzf "$TARBALL" --strip-components=1 -C "$PKG"
 else
   PKG="$WORK/pkg"
   msg "Downloading latest $SOURCE package via install-kuiper.sh"
