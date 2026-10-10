@@ -6,6 +6,9 @@ open Kuiper.Base
 open Kuiper.Ref
 module U32 = FStar.UInt32
 
+// Keep arithmetic proof search independent of unrelated Kuiper/Pulse facts.
+#push-options "--using_facts_from '-* +Prims +FStar.Pervasives +FStar.UInt +FStar.UInt32 +FStar.Math.Lemmas +Kuiper.Portable.Control'"
+
 // Replaying the Pure call exposes the documented UInt32 projection contract
 // when its result is used in a Pulse ghost arithmetic proof.
 let add_mod_projection (a b:U32.t)
@@ -42,6 +45,8 @@ let increment_three_math (original first last:U32.t)
     FStar.Math.Lemmas.lemma_mod_add_distr 2 (U32.v original + 1) 4294967296;
     assert (U32.v last == U32.v (U32.add_mod original 3ul));
     U32.v_inj last (U32.add_mod original 3ul)
+
+#pop-options
 
 ghost fn prove_zero_increment (original:erased U32.t) (first last:U32.t)
   requires pure (U32.eq (FStar.Ghost.reveal original) 0ul /\
