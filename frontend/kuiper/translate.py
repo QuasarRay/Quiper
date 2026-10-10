@@ -168,7 +168,10 @@ class Translator:
                   'FStar.UInt32.lt': 'lt', 'FStar.UInt32.lte': 'le'}
         if fn in binary:
             if len(args) != 2 or any(a['implicit'] for a in raw_args):
-                raise Unsupported('unexpected integer primitive signature')
+                raise Unsupported('unexpected integer primitive signature: ' + str(fn)
+                                  + ' values=' + str([a.category for a in args])
+                                  + ' qualifiers=' + str([a['implicit'] for a in raw_args])
+                                  + ' call=' + str(origin.get('function', {}))[:1800])
             left, right = [self.expect(a, 'u32') for a in args]
             n = self.result()
             self.emit('binary', origin, result=n, op=binary[fn], left=left, right=right)
