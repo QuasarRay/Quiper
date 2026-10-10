@@ -49,13 +49,13 @@
       "id": "M08",
       "roadmap": "Roadmap/02-language-independent-extraction/02-export-a-checked-kuiper-program.md",
       "status": "partial",
-      "details": "Live checked Pulse observer and closed linear U32/ref exporter implemented; three actual source entrypoints execute through core/C/SPIR-T/Vulkan. Static shapes, arrays, loops, dependency proof closure, per-lane lifting and O1/O2 remain unfinished."
+      "details": "Live checked Pulse observer and closed U32/ref exporter implemented; structured selections, typed joins and scoped return continuations added with an expanded real-source regression. Arrays, loops, static shapes, dependency proof closure, per-lane lifting and O1/O2 remain unfinished. Candidate-bound source CI must pass before treating the new regression as measured evidence."
     },
     {
       "id": "M09",
       "roadmap": "Roadmap/02-language-independent-extraction/03-run-host-plans-from-two-languages.md",
       "status": "partial",
-      "details": "Core and C execute owned KIR plans and three actual source-derived kernels. General source host-plan export, async/native host semantics and an independent second source frontend remain unfinished."
+      "details": "Core and C execute owned KIR plans and actual source-derived kernels. General source host-plan export, async/native host semantics and an independent second source frontend remain unfinished."
     },
     {
       "id": "M10",
@@ -85,7 +85,7 @@
       "id": "M14",
       "roadmap": "Roadmap/04-spirt-and-gpu-lowering/02-run-the-integer-vertical-slice.md",
       "status": "partial",
-      "details": "Actual checked linear U32/ref source and independent KIR fixtures execute through direct SPIR-T on CPU Vulkan. Source refinement and physical GPU qualification remain unfinished."
+      "details": "Actual checked U32/ref source and independent KIR fixtures execute through direct SPIR-T on software Vulkan; expanded control-flow regression requires candidate-bound replay. Source refinement and physical GPU qualification remain unfinished."
     },
     {
       "id": "M15",
@@ -181,7 +181,7 @@
       "id": "M30",
       "roadmap": "Roadmap/10-sources/01-lock-and-reproduce-primary-sources.md",
       "status": "partial",
-      "details": "Official pinned source references, locks and strict model replay available; coherent source-exporter toolchain still required."
+      "details": "Official pinned source references, exact tested OPAM package versions, coherent compiler/Pulse/plugin records and measured solver/library/source inputs are available; authenticated reproducible release packaging and fresh dependency-proof closure remain unfinished."
     },
     {
       "id": "M31",
@@ -195,7 +195,7 @@
       "id": "G-BASELINE",
       "status": "not-qualified",
       "criterion": "Complete semantic/primitive inventory and reproducible baseline.",
-      "reason": "File inventory exists; per-entrypoint semantic/assumption closure and complete strict legacy regression still required."
+      "reason": "File inventory and local strict-option legacy verification/extraction exist; the generated 146 CUDA/header files match dist. Per-entrypoint semantic/assumption closure, fresh full-candidate regression and physical GPU compatibility qualification remain required."
     },
     {
       "id": "G-CONTRACT",
@@ -207,13 +207,13 @@
       "id": "G-EXTRACT",
       "status": "not-qualified",
       "criterion": "Declared baseline extracts through KIR without mandatory CUDA or Karamel.",
-      "reason": "No actual checked Kuiper/Pulse source export to executable KIR."
+      "reason": "Actual checked U32/ref source exports to executable KIR without invoking CUDA or Karamel. Declared legacy entrypoint coverage, source predicates/static data, source-to-KIR refinement and per-lane lifting remain unfinished."
     },
     {
       "id": "G-VERTICAL",
       "status": "not-qualified",
       "criterion": "Real-GPU SPIR-T/Vulkan path with correct results, errors and CUDA-free dependencies.",
-      "reason": "Frontend-free integer path tested; real exported Kuiper kernel and its proof binding missing."
+      "reason": "Actual checked-source and independent integer KIR paths execute through SPIR-T on software Vulkan. Physical GPU qualification and the source/implementation proof binding remain missing."
     },
     {
       "id": "G-CONCURRENCY",
@@ -231,7 +231,7 @@
       "id": "G-TRUST",
       "status": "not-qualified",
       "criterion": "Fixed evidence policy satisfied; O1-O10 dispositions and required relations complete; no ad hoc trust waivers.",
-      "reason": "O1\u2013O10 and prefix/progress implementation proofs remain open; ABI lemmas only prove model facts."
+      "reason": "O1–O10 and prefix/progress implementation proofs remain open; ABI lemmas only prove model facts."
     },
     {
       "id": "G-ADD-COMPILER",
@@ -267,7 +267,7 @@
       "id": "G-CUDA-FREE",
       "status": "not-qualified",
       "criterion": "Default new path builds, installs and runs without CUDA toolkit/runtime, NVCC or mandatory Karamel.",
-      "reason": "Portable Rust/KIR path builds without CUDA; source frontend path remains incomplete."
+      "reason": "Integer packages build and source export runs without NVCC/CUDA or Karamel extraction. Compiler bootstrap still includes Karamel, and complete installed legacy-source coverage and CUDA-free release packaging remain unfinished."
     },
     {
       "id": "G-MESA-DECISION",
@@ -285,7 +285,7 @@
       "id": "G-REPLACEMENT",
       "status": "not-qualified",
       "criterion": "Every mandatory baseline entrypoint and reachable semantic dependency has qualified CUDA-independent coverage and required evidence; deferred or CUDA-only rows block completion.",
-      "reason": "Legacy scope is not covered by the limited integer source-free path."
+      "reason": "Actual U32/ref source is supported by the limited integer profile. Mandatory legacy entrypoints and their floating-point, memory, concurrency, host and matrix dependencies are not covered."
     },
     {
       "id": "G-HOST-CODEGEN",
@@ -360,7 +360,8 @@
     "validation/results/abi-bridge.json",
     "validation/results/integer-vulkan.json",
     "validation/results/declarative-model.json",
-    "validation/results/package-checks.json"
+    "validation/results/package-checks.json",
+    "validation/results/source-vulkan.json"
   ],
   "evidence_rule": "Add only reports produced by successful real runs. Each report identifies its own sources, binary/tool identities and limited scope.",
   "source_frontend": "frontend/kuiper/README.md",

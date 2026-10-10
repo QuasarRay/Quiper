@@ -32,32 +32,73 @@ def main():
     manifests = []
     with tempfile.TemporaryDirectory(prefix='kuiper-source-integration-') as directory:
         h = Harness(directory, True)
-        for entry, inputs, params, expected in (
-            ('increment', [buffer(0, [0xdeadbeef, 0, 1, 0xfffffffe, 0xffffffff, 0xabcdefab], 1, 4)], [],
+        packages = {}
+        for case, module, entry, inputs, params, groups, expected in (
+            ('increment', 'Int32', 'increment', [buffer(0, [0xdeadbeef, 0, 1, 0xfffffffe, 0xffffffff, 0xabcdefab], 1, 4)], [], 1,
              [[0xdeadbeef, 1, 2, 0xffffffff, 0, 0xabcdefab]]),
-            ('copy_add', [buffer(0, [91, 0, 1, 0xfffffffe, 0xffffffff, 92], 1, 4),
-                          buffer(1, [81, 80, 79, 78, 77, 76, 75], 2, 4)], [2],
+            ('copy_add', 'Int32', 'copy_add', [buffer(0, [91, 0, 1, 0xfffffffe, 0xffffffff, 92], 1, 4),
+                                    buffer(1, [81, 80, 79, 78, 77, 76, 75], 2, 4)], [2], 1,
              [[91, 0, 1, 0xfffffffe, 0xffffffff, 92], [81, 80, 2, 3, 0, 1, 75]]),
-            ('early_increment', [buffer(0, [51, 0, 1, 0xfffffffe, 0xffffffff, 52], 1, 4)], [],
+            ('early_increment', 'Int32', 'early_increment', [buffer(0, [51, 0, 1, 0xfffffffe, 0xffffffff, 52], 1, 4)], [], 1,
              [[51, 3, 4, 1, 2, 52]]),
+            ('max_assign', 'Int32', 'max_assign', [buffer(0, [33, 0, 7, 0x80000000, 0xffffffff, 34], 1, 4)], [7], 1,
+             [[33, 7, 7, 0x80000000, 0xffffffff, 34]]),
+            ('conditional_left', 'Int32', 'conditional_increment',
+             [buffer(0, [99, 0, 1, 0xfffffffe, 0xffffffff, 98], 1, 4),
+              buffer(1, [88, 7, 8, 0xfffffffe, 0xffffffff, 87], 1, 4)], [0], 1,
+             [[99, 1, 2, 0xffffffff, 0, 98], [88, 7, 8, 0xfffffffe, 0xffffffff, 87]]),
+            ('conditional_right', 'Int32', 'conditional_increment',
+             [buffer(0, [99, 0, 1, 0xfffffffe, 0xffffffff, 98], 1, 4),
+              buffer(1, [88, 7, 8, 0xfffffffe, 0xffffffff, 87], 1, 4)], [1], 1,
+             [[99, 0, 1, 0xfffffffe, 0xffffffff, 98], [88, 9, 10, 0, 1, 87]]),
+            ('nested_increment', 'Int32', 'nested_increment',
+             [buffer(0, [55, 0, 9, 10, 19, 20, 0x7fffffff, 0xfffffffe, 0xffffffff, 56], 1, 8)], [], 2,
+             [[55, 1, 10, 12, 21, 23, 0x80000002, 1, 2, 56]]),
+            ('condition_once', 'Control', 'condition_once',
+             [buffer(0, [41, 0, 1, 0xfffffffe, 0xffffffff, 42], 1, 4)], [], 1,
+             [[41, 2, 4, 1, 2, 42]]),
+            ('matching_returns', 'Control', 'matching_returns',
+             [buffer(0, [61, 0, 1, 0x80000000, 0xffffffff, 62], 1, 4)], [], 1,
+             [[61, 7, 9, 9, 9, 62]]),
+            ('asymmetric_return_skip', 'Control', 'asymmetric_return',
+             [buffer(0, [71, 0, 1, 0xfffffffe, 0xffffffff, 72], 1, 4)], [0], 1,
+             [[71, 0, 1, 0xfffffffe, 0xffffffff, 72]]),
+            ('asymmetric_return_continue', 'Control', 'asymmetric_return',
+             [buffer(0, [71, 0, 1, 0xfffffffe, 0xffffffff, 72], 1, 4)], [1], 1,
+             [[71, 5, 6, 3, 4, 72]]),
         ):
-            output = Path(directory) / entry
-            export(h, EXAMPLES / 'Kuiper.Portable.Int32.fst', entry, output)
-            package = json.loads((output / 'package.json').read_text())
-            manifest = json.loads((output / 'source.json').read_text())
-            assert manifest['source_entry_checked_strictly']
-            assert manifest['policy'] == 'kuiper.experimental-tested/1'
-            assert not manifest['source_to_kir_refinement']
-            assert not manifest['per_lane_lifting_proved']
-            assert not manifest['proof_dependency_closure_checked']
-            manifests.append(manifest)
-            h.success('checked-source-' + entry, package, invocation(package, inputs, params), expected, c=True)
-            h.guard('checked-source-short-view-' + entry, package,
-                    invocation(package, [buffer(b['resource'], b['words'], b['offset'], 3) for b in inputs], params),
-                    1, c=True)
-            if entry == 'increment' and args.fixture_output:
+            key = (module, entry)
+            if key not in packages:
+                output = Path(directory) / (module + '-' + entry)
+                export(h, EXAMPLES / ('Kuiper.Portable.' + module + '.fst'), entry, output)
+                packages[key] = json.loads((output / 'package.json').read_text())
+                manifest = json.loads((output / 'source.json').read_text())
+                assert manifest['source_entry_checked_strictly']
+                assert manifest['policy'] == 'kuiper.experimental-tested/1'
+                assert not manifest['source_to_kir_refinement']
+                assert not manifest['per_lane_lifting_proved']
+                assert not manifest['proof_dependency_closure_checked']
+                assert manifest['project_dependency_types_loaded_freshly']
+                assert manifest['toolchain']['schema'] == 'kuiper.source-toolchain/2'
+                assert 'Z3 version 4.13.3 ' in manifest['toolchain']['solver']['version']
+                manifests.append(manifest)
+            package = packages[key]
+            h.success('checked-source-' + case, package, invocation(package, inputs, params, groups), expected, c=True)
+            short = invocation(package, [buffer(b['resource'], b['words'], b['offset'], groups * 4 - 1)
+                                         for b in inputs], params, groups)
+            if case == 'asymmetric_return_skip':
+                # The selected early return performs no access. An inaccessible
+                # lane must not guard against an unselected continuation.
+                h.success('checked-source-short-view-' + case, package, short, expected, c=True)
+            else:
+                h.guard('checked-source-short-view-' + case, package, short, 1, c=True)
+            if module == 'Int32' and entry == 'increment' and args.fixture_output:
                 args.fixture_output.parent.mkdir(parents=True, exist_ok=True)
-                args.fixture_output.write_bytes((output / 'capture.json').read_bytes())
+                captures = json.loads((output / 'capture.json').read_text())
+                minimal = [r for r in captures if r['name'].rsplit('.', 1)[1]
+                           in ('increment', 'add_one', 'early_increment', 'early_add_three')]
+                assert len(minimal) == 4
+                args.fixture_output.write_text(json.dumps(minimal, indent=2) + '\n')
         rejected = {
             'increment_u64': 'unsupported kernel parameter type',
             'admitted': 'capture contains admit',

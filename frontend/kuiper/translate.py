@@ -20,9 +20,8 @@ UNIT = Value('unit')
 PROOF = Value('proof')
 
 
-class Jump(Exception):
-    def __init__(self, label, value):
-        self.label, self.value = label, value
+def identity(value):
+    return value
 
 
 def symbol(node):
@@ -85,6 +84,7 @@ class Translator:
         self.call_stack = []
         self.global_id = None
         self.next_label = 0
+        self.labels = {}
 
     def emit(self, kind, origin, **fields):
         if len(self.mapping) >= 16384:
@@ -165,19 +165,62 @@ class Translator:
                       value=self.expect(args[1], 'u32'))
             return UNIT
         if fn in self.declarations:
-            if any(a['implicit'] for a in raw_args):
-                raise Unsupported('implicit helper arguments require specialization')
+            # The checked callee decides which implicit arguments may erase.
+            # Keep their binder slots as PROOF in function(); dropping raw
+            # arguments alone would also drop arbitrary static/type arguments.
+            qualifiers = [a['implicit'] for a in raw_args]
+            qualifiers += [False] * (len(args) - sum(not a['implicit'] for a in raw_args))
+            body = self.declarations[fn]['body']
+            for implicit in qualifiers:
+                if body['tag'] != 'abstract' or body['implicit'] != implicit:
+                    raise Unsupported('helper argument qualifiers disagree with the checked signature')
+                if implicit and not erased_type(body['binder']['type']):
+                    raise Unsupported('implicit helper arguments require specialization')
+                body = body['body']
+            if body['tag'] == 'abstract':
+                raise Unsupported('incomplete helper application')
             return self.function(fn, args)
         raise Unsupported('unsupported primitive or unresolved helper: ' + str(fn)
                           + ' ' + str(origin.get('effect'))
                           + ' ' + str(origin.get('function', {}))[:1500])
 
-    def stateful(self, node, env):
+    def branch(self, node, env, continuation):
+        parent = self.instructions
+        self.instructions = []
+        try:
+            value = self.stateful(node, env, continuation)
+            return {'instructions': self.instructions, 'outputs': []}, value
+        finally:
+            self.instructions = parent
+
+    def conditional(self, node, env, continuation, condition):
+        # The condition has already run once in the parent region. Finish each
+        # arm through its own continuation: an early return invokes the label's
+        # continuation and skips the remaining statements in that arm. Arm
+        # locals reach the parent only through declared result tuples. Expansion
+        # and nesting remain subject to instruction/neutral-contract budgets.
+        condition = self.expect(condition, 'bool')
+        yes, left = self.branch(node['then'], env, continuation)
+        no, right = self.branch(node['else'], env, continuation)
+        if left.category != right.category or left.category not in ('unit', 'u32', 'bool'):
+            raise Unsupported('conditional branches need matching executable scalar/unit results')
+        results = []
+        value = UNIT
+        if left.category != 'unit':
+            n = self.result()
+            yes['outputs'], no['outputs'] = [left.number], [right.number]
+            results.append({'id': n, 'ty': left.category})
+            value = Value(left.category, n)
+        self.emit('select', node, condition=condition, then_region=yes, else_region=no,
+                  results=results)
+        return value
+
+    def stateful(self, node, env, continuation=identity):
         tag = node['tag']
         if node['effect'] == 'ghost':
-            return PROOF
+            return continuation(PROOF)
         if tag in ('introduce_pure', 'introduce_exists', 'eliminate_exists', 'rewrite'):
-            return PROOF
+            return continuation(PROOF)
         if node['effect'] == 'divergent':
             raise Unsupported('source computation is outside the U32/ref profile')
         if tag == 'return':
@@ -190,14 +233,19 @@ class Translator:
                 value = UNIT
             if not inferred_return and value.category != scalar_type(node['type']):
                 raise Unsupported('return type disagrees with executable value')
-            return value
+            return continuation(value)
         if tag in ('bind', 'pure_bind'):
-            value = (self.stateful(node['head'], env) if tag == 'bind'
-                     else self.pure(node['head'], env, node))
-            ty = scalar_type(node['binder']['type'])
-            if value not in (UNIT, PROOF) and ty != value.category:
-                raise Unsupported('binding type disagrees with executable value')
-            return self.stateful(node['body'], [value, *env])
+            def bound(value):
+                ty = scalar_type(node['binder']['type'])
+                if value not in (UNIT, PROOF) and ty != value.category:
+                    raise Unsupported('binding type disagrees with executable value')
+                return self.stateful(node['body'], [value, *env], continuation)
+            if tag == 'bind':
+                return self.stateful(node['head'], env, bound)
+            return bound(self.pure(node['head'], env, node))
+        if tag == 'if':
+            return self.stateful(node['condition'], env,
+                lambda condition: self.conditional(node, env, continuation, condition))
         if tag == 'stateful_apply':
             call = node['function']
             if call['tag'] == 'apply':
@@ -205,25 +253,31 @@ class Translator:
             else:
                 fn, raw = symbol(call), []
             values = [self.pure(a['value'], env, node) for a in raw if not a['implicit']]
-            values += [self.stateful(a, env) for a in node['arguments']]
-            return self.call(fn, raw, values, node)
+            def arguments(index, values):
+                if index == len(node['arguments']):
+                    return continuation(self.call(fn, raw, values, node))
+                return self.stateful(node['arguments'][index], env,
+                    lambda value: arguments(index + 1, [*values, value]))
+            return arguments(0, values)
         if tag == 'label':
             label = self.next_label
             self.next_label += 1
+            def finish(value):
+                if value == PROOF and scalar_type(node['result_type']) == 'unit':
+                    value = UNIT
+                if scalar_type(node['result_type']) != value.category:
+                    raise Unsupported('label result type disagrees with the returned value')
+                return continuation(value)
+            self.labels[label] = finish
             try:
-                value = self.stateful(node['body'], [Value('label', label), *env])
-            except Jump as jump:
-                if jump.label != label:
-                    raise
-                value = jump.value
-            if value == PROOF and scalar_type(node['result_type']) == 'unit':
-                value = UNIT
-            if scalar_type(node['result_type']) != value.category:
-                raise Unsupported('label result type disagrees with the returned value')
-            return value
+                return self.stateful(node['body'], [Value('label', label), *env], finish)
+            finally:
+                del self.labels[label]
         if tag == 'jump':
             label = self.expect(self.pure(node['label'], env, node), 'label')
-            raise Jump(label, self.pure(node['argument'], env, node))
+            if label not in self.labels:
+                raise Unsupported('jump target is outside its checked label scope')
+            return self.labels[label](self.pure(node['argument'], env, node))
         raise Unsupported('unsupported executable stateful expression: ' + tag)
 
     def function(self, fn, args):

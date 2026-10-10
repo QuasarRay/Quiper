@@ -9,10 +9,23 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
+LIBRARY_PATHS = ('stage3/out/lib/fstar/ulib', 'stage3/out/lib/fstar/ulib.checked',
+                 'pulse/lib/common', 'pulse/build/lib.common.checked',
+                 'pulse/lib/pulse', 'pulse/build/lib.pulse.checked')
 
 
 def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def tree_identity(path, suffixes=None):
+    path = Path(path).resolve(strict=True)
+    files = {str(p.relative_to(path)): digest(p) for p in sorted(path.rglob('*'))
+             if p.is_file() and (suffixes is None or p.suffix in suffixes)}
+    if not files:
+        raise ValueError('empty source/library input tree: ' + str(path))
+    data = json.dumps(files, sort_keys=True, separators=(',', ':')).encode()
+    return {'file_count': len(files), 'sha256': hashlib.sha256(data).hexdigest()}
 
 
 def main():
@@ -41,13 +54,22 @@ def main():
         command += ['-I', str(path)]
     command += [str(source), '-o', str(output / 'kuiper_capture.cmxs')]
     subprocess.run(command, cwd=output, timeout=120, check=True)
-    report = {'schema': 'kuiper.source-toolchain/1', 'fstar': str(binary),
+    solver_name = subprocess.check_output([str(binary), '--locate_z3', '4.13.3'],
+                                          text=True, timeout=30).strip()
+    solver = Path(shutil.which(solver_name) or solver_name).resolve(strict=True)
+    solver_version = subprocess.check_output([str(solver), '-version'], text=True, timeout=30).strip()
+    if not solver_version.startswith('Z3 version 4.13.3 '):
+        raise ValueError('source toolchain requires measured Z3 4.13.3')
+    report = {'schema': 'kuiper.source-toolchain/2', 'fstar': str(binary),
               'fstar_source_commit': subprocess.check_output(
                   ['git', 'rev-parse', 'HEAD'], cwd=tree, text=True).strip(),
               'fstar_sha256': digest(binary),
               'fstar_version': subprocess.check_output([str(binary), '--version'], text=True),
               'plugin_sha256': digest(output / 'kuiper_capture.cmxs'),
               'capture_source_sha256': digest(HERE / 'capture.ml'),
+              'solver': {'path': str(solver), 'sha256': digest(solver), 'version': solver_version},
+              'library_inputs': {p: tree_identity(tree / p) for p in LIBRARY_PATHS},
+              'library_dependency_proofs_replayed_freshly': False,
               'interfaces': {str(p): digest(p) for p in interfaces},
               'hook_sources': {str(p.relative_to(tree)): digest(p) for p in [
                   tree / 'pulse/src/checker/Pulse.Main.fst',

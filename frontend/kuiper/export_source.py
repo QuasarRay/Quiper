@@ -12,7 +12,7 @@ import subprocess
 import tempfile
 import time
 
-from build_capture import HERE, ROOT, digest
+from build_capture import HERE, LIBRARY_PATHS, ROOT, digest, tree_identity
 from translate import Translator
 
 MAX_BYTES = 16 * 1024 * 1024
@@ -111,7 +111,7 @@ def main():
     if target.exists():
         raise ValueError('use a fresh output directory; source admission never reuses prior evidence')
     data = read_json(args.toolchain, 1048576)
-    if data['schema'] != 'kuiper.source-toolchain/1':
+    if data['schema'] != 'kuiper.source-toolchain/2':
         raise ValueError('incompatible coherent toolchain record')
     fstar = Path(data['fstar']).resolve(strict=True)
     plugin = args.toolchain.resolve().parent / 'kuiper_capture.cmxs'
@@ -123,6 +123,17 @@ def main():
     if digest(HERE / 'capture.ml') != data['capture_source_sha256']:
         raise ValueError('capture source differs from the compiled plugin record')
     tree = fstar.parents[3]
+    solver = Path(data['solver']['path']).resolve(strict=True)
+    if digest(solver) != data['solver']['sha256']:
+        raise ValueError('solver bytes differ from the coherent build record')
+    before[solver] = data['solver']['sha256']
+    libraries = data['library_inputs']
+    if set(libraries) != set(LIBRARY_PATHS):
+        raise ValueError('coherent build record must identify every required library input tree')
+    for relative, expected in libraries.items():
+        if tree_identity(tree / relative) != expected:
+            raise ValueError('source library inputs differ from the coherent build record')
+    project_identity = tree_identity(ROOT / 'src', ('.fst', '.fsti'))
     for relative, expected in data['hook_sources'].items():
         if digest(tree / relative) != expected:
             raise ValueError('Pulse hook sources changed after the coherent build')
@@ -134,13 +145,20 @@ def main():
     source_options = read_json(HERE / 'source-options.json', 65536)
     if source_options['schema'] != 'kuiper.source-options/1':
         raise ValueError('incompatible strict source option record')
-    flags = [str(fstar), '--include', str(ROOT / 'src'), '--include', str(ROOT / 'obj'),
+    flags = [str(fstar), '--include', str(ROOT / 'src'), '--smt', str(solver),
              *source_options['options']]
     with tempfile.TemporaryDirectory(prefix='kuiper-source-') as scratch:
         temporary = Path(scratch)
         for path in ('lib/common', 'lib/pulse', 'build/lib.common.checked', 'build/lib.pulse.checked'):
             flags += ['--include', str(tree / 'pulse' / path)]
-        flags += ['--cache_dir', scratch, '--odir', scratch, '--already_cached', '*',
+        # The coherent compiler supplies its standard and Pulse libraries.
+        # Project dependency types must be loaded in the fresh cache: a clean
+        # checkout has no legacy obj/ cache, and stale project cache entries
+        # must not silently replace changed Kuiper dependency source.
+        # F* verifies explicit roots, not every automatically loaded import.
+        # This does not constitute dependency proof replay or trust closure.
+        flags += ['--cache_dir', scratch, '--odir', scratch,
+                  '--already_cached', 'Prims,FStar,LowStar,Pulse,PulseCore,Steel',
                   '--cache_checked_modules', '--admit_smt_queries', 'false',
                   '--load_cmxs', str(plugin.with_suffix('')), str(source)]
         env = dict(os.environ, KUIPER_CAPTURE_MODULE=source.stem, KUIPER_CAPTURE_DIRECTORY=scratch)
@@ -172,11 +190,16 @@ def main():
             raise ValueError('neutral admission digest does not bind this package')
         if any(digest(path) != expected for path, expected in before.items()):
             raise ValueError('source or tools changed during source admission')
+        if (tree_identity(ROOT / 'src', ('.fst', '.fsti')) != project_identity
+                or any(tree_identity(tree / p) != expected for p, expected in libraries.items())):
+            raise ValueError('project or library inputs changed during source admission')
         manifest = {'schema': 'kuiper.experimental-source/1', 'status': 'passed',
                     'entry': name, 'package_digest': package_digest,
                     'source_sha256': before[source], 'toolchain': data,
                     'checker_sha256': before[args.checker.resolve()],
                     'frontend_sources': {p.name: before[p] for p in frontend},
+                    'project_source_inputs': project_identity,
+                    'project_dependency_types_loaded_freshly': True,
                     'verification': log.read_text(), 'options': flags,
                     'source_entry_checked_strictly': True,
                     'dependency_closure_replayed_freshly': False,
@@ -185,7 +208,8 @@ def main():
                     'policy': 'kuiper.experimental-tested/1',
                     'primitive_mappings': {'Kuiper.Ref.read': 'per-lane checked word load',
                         'Kuiper.Ref.write': 'per-lane checked word store',
-                        'FStar.UInt32.add_mod/sub_mod/mul_mod': 'wrapping U32 arithmetic'},
+                        'FStar.UInt32.add_mod/sub_mod/mul_mod': 'wrapping U32 arithmetic',
+                        'Pulse if': 'one condition evaluation, exclusive regions and typed result joins'},
                     'instructions': translator.mapping}
         target.parent.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='.kuiper-source-', dir=target.parent) as staging:

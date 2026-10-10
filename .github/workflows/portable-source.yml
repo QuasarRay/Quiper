@@ -2,10 +2,10 @@ name: Checked Pulse integer source
 
 on:
   pull_request:
-    paths: ['FStar', 'frontend/**', 'portable/**', 'backends/**', 'bindings/**', 'validation/**', 'verify.mk', '.github/workflows/portable-source.yml']
+    paths: ['FStar', 'src/**', 'frontend/**', 'portable/**', 'backends/**', 'bindings/**', 'validation/**', 'verify.mk', '.github/workflows/portable-source.yml']
   push:
     branches: [main]
-    paths: ['FStar', 'frontend/**', 'validation/run_source.py', '.github/workflows/portable-source.yml']
+    paths: ['FStar', 'src/**', 'frontend/**', 'portable/**', 'backends/**', 'bindings/**', 'validation/**', 'verify.mk', '.github/workflows/portable-source.yml']
   workflow_dispatch:
 
 permissions:

@@ -6,7 +6,7 @@ The target is a fully decoupled Kuiper with language-independent kernel/host con
 
 **V3 status:** all eight v2 documentation flaws are corrected. The executable F* model and its verification record are in [Specification](../Specification/README.md). Production implementation, refinement of concrete code and GPU qualification remain outstanding.
 
-[The experimental implementation](../../portable/README.md) now executes checked linear U32/ref source through SPIR-T and software Vulkan. [Implementation status](../../validation/implementation-status.json) and [implementation findings](../Flaws/implementation/README.md) record its measured scope and unresolved gates separately from this declarative roadmap.
+[The experimental implementation](../../portable/README.md) now executes checked U32/ref source through SPIR-T and software Vulkan. [Implementation status](../../validation/implementation-status.json) and [implementation findings](../Flaws/implementation/README.md) record its measured scope and unresolved gates separately from this declarative roadmap.
 
 ## Begin here
 

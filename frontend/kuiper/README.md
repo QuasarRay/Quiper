@@ -24,7 +24,7 @@ For the tested dependency versions, create an OCaml 5.3.0 switch and install `op
 
 F*'s own build currently includes Karamel in its toolchain build dependencies. The **source export operation** below invokes neither Karamel nor CUDA extraction. The tested local build reused a compatible `inst/bin/krml` with `FSTAR_USE_KRML_EXE=1`; that is a bootstrap choice, not a backend dependency. Bootstrap extraction uses the compiler's normal bootstrap trust boundary. Entry source checking runs strictly.
 
-The plugin build records the compiler, source commit, three relevant interface hashes, observer source hashes and plugin hash in `_build/toolchain.json`. A binary built before the Git checkpoint may print the baseline commit with `-dirty`; its measured bytes and hook source hashes remain explicit in the record. Do not replace it by an unmeasured nightly executable. The nightly package used during development omitted native Pulse interfaces and had incompatible OCaml Stdlib interface checksums.
+The version-2 private toolchain record in `_build/toolchain.json` identifies the compiler, source commit, three relevant interface hashes, observer sources, plugin, Z3 4.13.3 and six source/checked library trees. A binary built before the Git checkpoint may print the baseline commit with `-dirty`; its measured bytes and hook source hashes remain explicit in the record. Do not replace it by an unmeasured nightly executable. Version-1 records reject and must be rebuilt. The nightly package used during development omitted native Pulse interfaces and had incompatible OCaml Stdlib interface checksums.
 
 ## Export a source entrypoint
 
@@ -36,9 +36,9 @@ python3 frontend/kuiper/export_source.py \
   --entry increment --local-size 4 --output /tmp/kuiper-increment
 ```
 
-The exporter checks the selected module in a fresh entry cache, captures its checked declarations, translates the selected helper closure, and asks `kuiper-source-check` to validate and hash the canonical package. It publishes `package.json`, `source.json` and `capture.json` together only after successful compiler completion and neutral admission. Existing dependency caches may be reused; the manifest records that this is **not** a fresh proof replay of the dependency closure.
+The exporter checks the selected module in a fresh cache, captures its checked declarations, translates the selected helper closure, and asks `kuiper-source-check` to validate and hash the canonical package. It publishes `package.json`, `source.json` and `capture.json` together only after successful compiler completion and neutral admission. It loads project dependency types from source without the legacy `obj` cache. F* verifies explicit roots; automatically loaded imports and the measured standard/Pulse caches do **not** constitute fresh dependency proof replay. Both proof-closure flags remain false.
 
-The source/compiler/plugin/checker/frontend bytes are checked before and after admission. Compiler output, source size, capture size, declaration count, syntax depth, instruction count and helper depth are bounded. The CPU compiler's process group is terminated before its leader is reaped, including on failure or timeout. This deadline does not apply to a submitted GPU runtime process.
+The source/compiler/plugin/checker/frontend/solver bytes, library trees and name-sensitive project source identity are checked before and after admission. The measured solver is passed explicitly with `--smt`. Compiler output, source size, capture size, declaration count, syntax depth, instruction count and helper depth are bounded. The CPU compiler's process group is terminated before its leader is reaped, including on failure or timeout. This deadline does not apply to a submitted GPU runtime process.
 
 `source-options.json` supplies the frontend's versioned verification options directly. Export does not invoke the legacy make/configure path, which can probe NVCC on machines that have CUDA installed. The option file's bytes are bound into each source admission record.
 
@@ -52,13 +52,17 @@ The source/compiler/plugin/checker/frontend bytes are checked before and after a
 | `add_mod`, `sub_mod`, `mul_mod` | Wrapping U32 arithmetic |
 | `eq`, `lt`, `lte` | U32 comparison producing Bool |
 | `Kuiper.Ref.read` / `write` | Guarded per-lane load/store; access mode derived from actual uses |
-| Module-local helpers | Bounded inlining with checked parameter representations |
+| Module-local helpers | Bounded inlining with checked parameter representations and argument qualifiers; only known erased scalar implicit binders may erase |
 | Erased U32/Bool/Unit arguments and generated ghost witnesses | Proof slots retained during de Bruijn traversal and barred from executable words |
-| Linear labels and explicit returns | Checked return representation and matching label resolution |
+| Scoped labels and explicit returns | Checked return representation and resolution through the active label continuation |
+| Pulse `if` | One condition evaluation followed by one selected arm; isolated regions with matching U32/Bool/Unit result joins |
+| Early return from one or both arms | Invoke the target label continuation; skip intervening statements in the returning arm while the other arm continues |
 
-The examples exercise helper calls, preserved input ownership, a uniform parameter, wrapping arithmetic, generated erased witnesses, and actual Label/Goto returns. Replicating a scalar reference contract across a view is an **experimental lifting convention**. The adapter has not proved that the source heap, permissions and postcondition relate to the parallel invocation. Resource roles and guard checks establish concrete KIR behavior, not that missing lifting proof.
+The examples exercise helper calls, preserved input ownership, uniform parameters, wrapping arithmetic, generated erased witnesses, Label/Goto returns, branch-dependent values and memory effects, and nested selections. A stateful condition runs once before the choice. Each arm is translated through its remaining continuation, so a return can skip the statements after an `if` in that arm. Branch-local values reach their enclosing region through declared result tuples. Continuations can duplicate instruction sequences across arms; the existing instruction and neutral-region depth budgets still apply. The [official Pulse conditional tutorial](https://fstar-lang.org/tutorial/book/pulse/pulse_conditionals.html) defines the source constructs and postcondition style; [the pinned SPIR-T region API](https://github.com/Rust-GPU/spirt/blob/e8757adba8d14068a7bf1b3bc9f24cac982f4bd3/src/lib.rs#L779-L920) defines the backend region outputs. These are the source/API basis, not an implementation-refinement proof.
 
-U64/SizeT, symbolic fractional permissions, arrays/shapes, static layout specialization, branches, loops, locals, residual proof hints, shared memory, barriers, subgroup operations, floating-point policies and tensor operations are outside this source profile. Unsupported executable constructs stop admission. Known local proof bypasses are rejected before erasure, including the pinned library's actual assume/admit/magic/coercion symbols and bypasses inside pure lambdas. This syntax inspection does not analyze imported symbols' transitive proof closure.
+Replicating a scalar reference contract across a view is an **experimental lifting convention**. The adapter has not proved that the source heap, permissions and postcondition relate to the parallel invocation. Resource roles and guard checks establish concrete KIR behavior, not that missing lifting proof.
+
+U64/SizeT, symbolic fractional permissions, arrays/shapes, static layout specialization, loops, locals, residual proof hints, shared memory, barriers, subgroup operations, floating-point policies and tensor operations are outside this source profile. Unsupported executable constructs stop admission. Known local proof bypasses are rejected before erasure, including the pinned library's actual assume/admit/magic/coercion symbols and bypasses inside pure lambdas. This syntax inspection does not analyze imported symbols' transitive proof closure.
 
 ## Execute and replay the evidence
 
@@ -69,7 +73,7 @@ python3 validation/run_source.py --output validation/results/source-vulkan.json
 python3 -m unittest discover -s validation -p test_source_frontend.py -v
 ```
 
-The integration harness checks three real source entrypoints through strict source admission, the independent evaluator, SPIR-T, installed Vulkan and C. It checks literal results and preserved padding, rejects short views without publishing failed buffers, rejects U64/fractional/admitted/assumed/nested-bypass source, and rejects a module that fails after live capture. The recorded device is software Vulkan; physical GPU qualification remains open.
+The integration harness checks actual source entrypoints through strict source admission, the independent evaluator, SPIR-T, installed Vulkan and C. It checks literal results, unsigned/equality boundaries, wrapping, branch-specific memory, conditions with side effects, early-return continuations and preserved padding. An executed out-of-view access guards without publishing failed buffers; a selected early return that skips every access succeeds with the shorter view. It rejects U64/fractional/admitted/assumed/nested-bypass source and a module that fails after live capture. Mutation tests reject malformed label targets, mismatched return representations and attempts to use erased input as a runtime word. [The execution report](../../validation/results/source-vulkan.json) records its own successful case and entrypoint counts and source hashes; an older report does not qualify this newer candidate. The recorded device is software Vulkan; physical GPU qualification remains open.
 
 The checked-body fixture in `validation/fixtures` is a mutation regression input. It is not a proof certificate. Regenerate it only through a successful `validation/run_source.py --fixture-output validation/fixtures/source-increment-capture.json` run.
 
