@@ -1,0 +1,5209 @@
+{
+  "schema": "kuiper.legacy-file-inventory/1",
+  "source_files": 430,
+  "source_modules": 421,
+  "scope": "File coverage only; lexical markers include comments and do not establish per-entrypoint transitive proof or primitive closure.",
+  "files": [
+    {
+      "path": "src/examples/Kuiper.Example.Add.fst",
+      "sha256": "98e52c1247efcce49b698114aa49dfa5bdad607e3ce51fc2bf62fc3081d9c654",
+      "lines": 46,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Add2.fst",
+      "sha256": "bf1df50e7fade3c020ae3a839ce33125cfa5b89fadee64d7ec56b42f28b7961e",
+      "lines": 49,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Array.VectorizedAccess.fst",
+      "sha256": "6c684aa7170f0c44c2298e34a27456bd5e96d24b3763745c7c665ec0648ed20d",
+      "lines": 134,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 75,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Array1.fst",
+      "sha256": "119ea5146a5d0f501e6dca5377123d3460a1bf0bed3ad19903141769250a934a",
+      "lines": 26,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Array2.fst",
+      "sha256": "f67af9c559071db9499706f3c6ac510f4a536faff3ee6c5dff768eb095f27088",
+      "lines": 48,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Array3.fst",
+      "sha256": "d7256b81612d0aa98106603f37538c0ddb77c2b590766964878132386aab6426",
+      "lines": 50,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Array4.fst",
+      "sha256": "61e8d75cc5aeb15cc292cabe69df959f04f4be817c23674bde0d02b37262c820",
+      "lines": 52,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.ArrayReversal.fst",
+      "sha256": "3f8b70de4fabde3ce0ee1f95ba1ec8f1cea95ad7ee5d2f2532490575c862c98f",
+      "lines": 339,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.ArraySlices.fst",
+      "sha256": "bbf0198d357485829d2bd77d6a1994f19b308d796083aacdc9d412a38485dec2",
+      "lines": 267,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.ArrayView.Test.EvenOdds.fst",
+      "sha256": "48debd17ff01eff95f84c9a537ca604c401c1e33fb2849de494d75874d4db00d",
+      "lines": 102,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.ArrayView.Test.EvenOdds2.fst",
+      "sha256": "023b2135f332e48801fa3de269a0c818142a4ae10f98bc98053265444bac913a",
+      "lines": 257,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.ArrayView.Test.EvenOdds3.fst",
+      "sha256": "a045688eaa490a57d20491aea5e339b2b8bc7362b225121a64c77de9dd02882c",
+      "lines": 257,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.ArrayView.Test.EvenOdds4.fst",
+      "sha256": "75e911f27305bbb14516cf0008c003249a8eb1a2d657928c5630173342aff9db",
+      "lines": 226,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.ArrayView.Test.Modulo.fst",
+      "sha256": "8a1a52400c318460c4a1e610b2fab787dc950572050cd72341cb5d0afe7667d8",
+      "lines": 52,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.ArrayView.Test1.fst",
+      "sha256": "2088575d931f10995793149edc56b6b2e3e002ad4fc5bfe28d90c8684cc5d8fa",
+      "lines": 188,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Async.Chain.fst",
+      "sha256": "997799ba2e885a005f27a913c2e935d81851f07f1c84e8182d31544993d26249",
+      "lines": 84,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Async.GEMM.fst",
+      "sha256": "2e89d1150b8734d83e68cb2666917eb5599a4144ae184ee0a73926ae21af10d2",
+      "lines": 94,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Async1.fst",
+      "sha256": "307799518dcbe1170da606908a2a9f6c3b00782ed0ef5a2cb6892c85a4b07029",
+      "lines": 151,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.BasicFloat.fst",
+      "sha256": "a982e608ea4a1a78a2abe873df020255b3bd5a94b68919dd93a89962fe0fcfff",
+      "lines": 33,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.CellRef.fst",
+      "sha256": "dc7df406a56c8806661af45856c7556571c27fe37d89b21787dd5363131fcfef",
+      "lines": 70,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.DotProd.fst",
+      "sha256": "92183e15440d7560580cf0e72b94163b82410aaf94de6560bf36223a21946bd5",
+      "lines": 38,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.DotProduct.Poly.fst",
+      "sha256": "bcef983065b6b52babb2a243f14c23ea65f336991f2be6c8b47cebdc6fd887af",
+      "lines": 235,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.EvenOdds.fst",
+      "sha256": "ca1ce2a2466b110352d97b748eea93e5fc53a204d794cb99bd8de624000aae44",
+      "lines": 23,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.EvenOdds.fsti",
+      "sha256": "4b08b2f83e5b5f40f270bcf96fb8b12a1ca8110fc2e31ad0be55212d8a388535",
+      "lines": 60,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Float32FastMath.fst",
+      "sha256": "11f0b7f7e08edf5b413f68068bef92da9c02d96bca3ffed8bcdb61d4a8c527e1",
+      "lines": 152,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Float32GPU.fst",
+      "sha256": "0dcabd1c1d322769164d09d963e7ce53898f6a3665dc03648b66839f64d4a388",
+      "lines": 259,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Float32NativeLog.fst",
+      "sha256": "c0fa63888a856359366fa75f9aa89363339613b5acda5e5da3023e95c4f84cdf",
+      "lines": 72,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Float32Order.fst",
+      "sha256": "cfdc0dadeaaf383d3b63ef8eb7ee0b2e70f601be454cb3825a44dcde542ce6d1",
+      "lines": 46,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Float32Trigonometry.fst",
+      "sha256": "f9dd63a60d6a9141a68372a9c3a597c3554b3a2c5271666ac10cc13ea184f968",
+      "lines": 104,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.FloatCasts.fst",
+      "sha256": "9301cf47a0fc59af5894cf83a0bc678ac7ff4372322b6d713136461cf8e4d9b8",
+      "lines": 30,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.FloatEquality.fst",
+      "sha256": "3fdc6bcfc2c07fb2b29d2436d902c9d5d631138441215020d47fddf8ac4cf8be",
+      "lines": 28,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.FloatTests.fst",
+      "sha256": "23df860c296712bc5fcbf9249b39c788cdd13b4acbdebcf861382f7ff0d4fbc4",
+      "lines": 116,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Fused.GEMM.fst",
+      "sha256": "ac6d999752fa2f8cbc6fb1a3db9c2feb685faf30d49ef0250121de26fe999a5d",
+      "lines": 77,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.IntApprox.fst",
+      "sha256": "b37c0d427eec369d27921525239437df78416ea92bc20ab57a14a940a4f5b15a",
+      "lines": 70,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.LaunchBounds.fst",
+      "sha256": "7dfa29f3e28b3c09761e2d1f2c2e245b9ce5ca4d5a32e3cfc73eee6e76c8fe1c",
+      "lines": 59,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.MatMulTranspose.fst",
+      "sha256": "70446d28dc9c3a68b9a74ed191fddc7479e74105e7ca215fc4a36c5ee00550ae",
+      "lines": 47,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.MathPrimitives.fst",
+      "sha256": "1511dcbe4873c1e8a4830dd3aff75a3e07f9051a86de0d50e18b9be3d771b41b",
+      "lines": 116,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Mul.fst",
+      "sha256": "a416fecdfc9794acfd4b136c6a70da837ae8cf75aa65bf4249153fcf6d4bbece",
+      "lines": 34,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.OffsetMemcpy.fst",
+      "sha256": "30ddce0798b28eacf8264a7e78c6374b2319392c4802cec96c508b1ed5fb26b9",
+      "lines": 53,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.OnlineSoftmax.fst",
+      "sha256": "b37c9313d3eec0dfcbdee4c1d91b6e62e07d94c959dab0bdef58a4c68199cd02",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Polymorphism0.fst",
+      "sha256": "16af2511754f2601e77ec0ade17d3cf8a1d1e7439213cefe11f460207b6959f7",
+      "lines": 39,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Polymorphism1.fst",
+      "sha256": "18b3d34ee34030b4ee263e155efdff97fbdf047beea504e286397ef876a9afcd",
+      "lines": 90,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Sparse.Example.fst",
+      "sha256": "523036ab27a613a98aaa95fc95f803bee8f9d9363f4d25e76326826fcf0cf39d",
+      "lines": 119,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Sparse.GEMM.fst",
+      "sha256": "c72ee28ad015d43450edb428292e47d3c03c3ceec500b94f9fc7a5582f4aa9ee",
+      "lines": 472,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Sparse.MM.fst",
+      "sha256": "0cf3b8084c1b058206ee8d80026c0d83f09d740c196ac0c0f4f07a75df945deb",
+      "lines": 99,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Stencil.fst",
+      "sha256": "e5960a20dd208715493901108d1209b26d302955cf6455a5d73a376fef17bbc3",
+      "lines": 27,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.TMap.fst",
+      "sha256": "cad6e9e2037acffe094ee7e5f16a83eb7f2c6b91dca57aaa962a9c31884f21db",
+      "lines": 39,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.Tensor.fst",
+      "sha256": "adbe6b11349d69d89f5e7ef41e5c02631490439326ea6f2139674561df5dc15e",
+      "lines": 34,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.TensorCore.WGMMA.fst",
+      "sha256": "b890e4fdc8ddecd0e24f5098034c6ee17b621b90c3d51485f1586810d69e0a4f",
+      "lines": 65,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.TensorCore.fst",
+      "sha256": "16ff40b37b2187ade5cfeed4be6efa7463a4ceb2cb2964171aaf5ab062a20794",
+      "lines": 150,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.TensorRO.fst",
+      "sha256": "2177417af242e9b683d6979e0ab1b81a1d95aca0c2e6e38c7ce386327adaf80a",
+      "lines": 87,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.TestFor.fst",
+      "sha256": "3a1baf65927e198ad0ab7d54ac7a802a5f2f684714e7057d250f419dade64df6",
+      "lines": 72,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.UnusedLocal.fst",
+      "sha256": "939672056d60264c6134f2621cef968a822575e6460b32df3672b4de25289867",
+      "lines": 23,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example.ZeroKernel.fst",
+      "sha256": "26383107ba61434489f8676b884e54d0c68be866e471540b1081eb1a0a8a6aa4",
+      "lines": 60,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example1.fst",
+      "sha256": "bf6fa8cf31f39f635877d9ca79e65c7fa4024863642f2177fe2ed4e442ce29df",
+      "lines": 40,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/examples/Kuiper.Example2.fst",
+      "sha256": "2f938700fb6fe0fdfa59e580320f7983bf5d42264a60854824de498386fbac2c",
+      "lines": 27,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/fstar.include",
+      "sha256": "f26a8f14cae58d5b2646b41b4e17ebae48120d241c0d1389cb932c30612ee756",
+      "lines": 4,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.AtomicReduce.fst",
+      "sha256": "a290e42e83e4e4e371e1c3f7f786ac3e7c1483a21c940876effddd3a3d8d66ab",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.AtomicReduce.fsti",
+      "sha256": "7c1b2c6170b439c04268c3b45dce99b2e35583ab41706ad1ef1fc3d88439d164",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.BlockTiling1D.fst",
+      "sha256": "201f2de269ce8e972d4e09559f49594131c0b6a0c524c452a0058f1033d30cb3",
+      "lines": 99,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.BlockTiling2D.Inst.fst",
+      "sha256": "2840367753cfe299d7099f9beb13f9d8e55266015af53e7f98d33b980b4911d4",
+      "lines": 100,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.BlockTiling2D.Inst.fsti",
+      "sha256": "9d724a9bd91d69f8eb105d236b789377bcc635b47da20a4f94d0d0af4303a8fd",
+      "lines": 50,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.BlockTiling2D.fst.sh",
+      "sha256": "5cc0c2b558e9bb36d4f6a55b46a757a4d9e39d2284f5503ec6391fac68e98a46",
+      "lines": 45,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.BlockTiling2D.fsti",
+      "sha256": "d266c0b2808bbca701af51f3df67b5a490673955c39385331feb048779b89b86",
+      "lines": 6,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.Naive1.fst",
+      "sha256": "34c67b8a20e06e0fdd9e1e456ee9943fe076a48e333e6722509362060cb23ef6",
+      "lines": 135,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.Naive2.fst",
+      "sha256": "8920ccf2a1023a69a371e0bfd4a7cb2e424c40b7c0984a2a37489c938c230a89",
+      "lines": 135,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.Naive3.fst",
+      "sha256": "2e8e52d47c9b6f4ce0084b5d3441810158ecff872a2484256e2f117b084b41e7",
+      "lines": 50,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.SHMem.fst",
+      "sha256": "cd871cec8c9ac69aef7ce8e2763d65202575da149956ee0977653e85fa93d98c",
+      "lines": 107,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.TensorCore.Inst.fst",
+      "sha256": "697f7f61f656641cba3d91538597c85a81aeb1e2a2d0b8ab6b5d671b41cc1161",
+      "lines": 103,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.TensorCore.Inst.fsti",
+      "sha256": "f5f5870c58ef499b2dd4a1fff12a5e58614cc017765a7321f09bcd4230d7df2c",
+      "lines": 65,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.TensorCore.fst",
+      "sha256": "1b85e624149f8980f70b33c6ccaa20f5d9ee3360add67dd3e1ed084e9b5d9abf",
+      "lines": 26,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.TensorCore.fsti",
+      "sha256": "7461b72bdc9a9313cda0074bae2a363a362e2867f152494b76831a101ad1f868",
+      "lines": 2,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.TensorCore2D.Inst.fst",
+      "sha256": "8699d6c9336775ca49144ff43c8089278f5d053a2147121fcdd52a09e0b03c46",
+      "lines": 132,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.TensorCore2D.Inst.fsti",
+      "sha256": "599efe680ff558f5e75ea9d9e1a4b06178cf7e31c61abca4e7956c1bc99384e8",
+      "lines": 65,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.TensorCore2D.To.Inst.fst",
+      "sha256": "7a3160bd182f895da533b6d16449a6bc8a9d7d4e097428a12bd669caa721d4b3",
+      "lines": 136,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.TensorCore2D.To.Inst.fsti",
+      "sha256": "36b716effed80930081a5793c782372471d4c1338cf11cf72527a31c1ac25a2a",
+      "lines": 75,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.TensorCore2D.To.fst.sh",
+      "sha256": "9f4c420b33f0a21a4c574b711f41e59e938056885844630546c7d33b4200ac62",
+      "lines": 63,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.TensorCore2D.To.fsti",
+      "sha256": "09046d9d81a7e61832cfbe3a96fd74fbd679f2c31e716d5e69f3a5d77646bab0",
+      "lines": 2,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.TensorCore2D.fst.sh",
+      "sha256": "49fe7f6ab3d72ce903ee2204096d5a659f535addad75119b5d8b65caebc00f56",
+      "lines": 59,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.TensorCore2D.fsti",
+      "sha256": "bf06bbac260dd0ec4be6c700b00205db29bf6c5470520e07285c55c85f360330",
+      "lines": 2,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.GEMM.Tiled.fst",
+      "sha256": "e64cf956e13e38f8b3df44f9f0e0ef10b737bf138bc94c9261537087b4b09ec9",
+      "lines": 107,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.HReduce.fst",
+      "sha256": "4ba46af1c319917edef2ed713161d2995b908ceac16878289b01b3d3a9ddc518",
+      "lines": 44,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.HReduce.fsti",
+      "sha256": "4a75b83422012d886a7efad8a699de600673e3106ac7d70a02126ee15c727617",
+      "lines": 36,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.LogSoftmax.fst",
+      "sha256": "aa4dd290614edfa9720e5bd6709913cc924184c80d53e6e1439e9eba7614e10b",
+      "lines": 27,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.RowScale.fst",
+      "sha256": "840d14f347fd39e097d0708cb9a2c9c2611c736e49e44daa58827e79263f4e7f",
+      "lines": 42,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.RowSoftmax.fst",
+      "sha256": "35c05f15f5011fdc7e55ab9df6b83f7b2eab31141da3457501e905d8829fba52",
+      "lines": 33,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.SPMM.Inst.fst",
+      "sha256": "96c16200c6dc635e0743bd48cfa686216abc0949fb0b4fa5f9bec2a31e33557d",
+      "lines": 157,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.SPMM.Inst.fsti",
+      "sha256": "ac6af3324cdeb9696e46e04143c52780926f23a4a19d08feb72b2276c7041c04",
+      "lines": 114,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.SPMM.fst.sh",
+      "sha256": "18a3c78e96ce90fba019db822489f7ea13e74527d3c8a7c9e9b5d529a8e0bd74",
+      "lines": 128,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.Softmax.fst",
+      "sha256": "252e59f51c0321bba3721f64e6ece3b93dbdf5d28dc16cbf58bd168c9911e90b",
+      "lines": 119,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/klas/Klas.Softmax.fsti",
+      "sha256": "ebd3a0f18b55ef95661fbd613f490778137168785665fee684304853d25efa3c",
+      "lines": 52,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/Kuiper.fst",
+      "sha256": "f47dc1c08ad7f442d0be8a6f49e3b15a0bfb833467b4c23c663b0f7f23016a06",
+      "lines": 68,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/algo/Kuiper.DotProd.fst",
+      "sha256": "c6c42108f508cefb7e48d05e6ef7107a415712675d4f3b8af90a7427583b2c2a",
+      "lines": 290,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/algo/Kuiper.DotProd.fsti",
+      "sha256": "b3fd0ab4d61107cf7721322e572ce9de772bd27da6220aeebbee31464ccff5fb",
+      "lines": 234,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/algo/Kuiper.Kahan.fst",
+      "sha256": "f93f1f05a1f45707afdea0f1ca2466907806d97f58f675dfb449e7fdc0280223",
+      "lines": 77,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/algo/Kuiper.Kahan.fsti",
+      "sha256": "f89a8c7af4fc99c612c0f71906964f00dd279b4292dac12afed68725ff7296e7",
+      "lines": 24,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Array.Vectorized.fsti",
+      "sha256": "9e88d49abe60ea8977cf5530725fd3a4e908ec5f236260765b461e2c61abb603",
+      "lines": 87,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Array2.Strided.Slice.fst",
+      "sha256": "ddd6af25e278102a9eef98c1191a45ad5bb1feec45274c562bc5443e9f1efd47",
+      "lines": 151,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Array2.Strided.Slice.fsti",
+      "sha256": "50ea943c6ee17760d95aa40431e16c2afe86174638cbaf2a16b6becee2cf69a4",
+      "lines": 109,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Array2.Strided.fst",
+      "sha256": "fe060bf384da7ad79409c04409d5c3ed6751d649b032d32218cb9977720f92d5",
+      "lines": 271,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Array2.Strided.fsti",
+      "sha256": "80dc6dda1fd2a40aa07b6c3ee713dc51bb1df84eca5c81a5fdaaec6bb95fc490",
+      "lines": 190,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Array2.Vectorized.fst",
+      "sha256": "6f3eb0c970018d594331698e9ec2899f9103133dc76d07455ef51483b1881d2a",
+      "lines": 390,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Array2.Vectorized.fsti",
+      "sha256": "7b6ae9a2e870547f50322bc71c2e1bf0598e733ef807cec90001bf925b6f5a78",
+      "lines": 32,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Bitmask.fst",
+      "sha256": "edd559980daf04e0c8503d590fbb908e393bcdbe1085e3a2f9f8e078ecc5ed41",
+      "lines": 291,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Bitmask.fsti",
+      "sha256": "437396f43597a7c26d135d351fce8e5425efb98fb71bb540a57d1fafec4502a6",
+      "lines": 56,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Chest.fst",
+      "sha256": "3ef0548543f5ce2b78af439ca01aabfb9538a25a9c2227b93deb884638ab9cc5",
+      "lines": 57,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Chest.fsti",
+      "sha256": "17e5b83d9fc8f4c748d562c6e5969bfc38f3402befbc5cd6b6e5867be44bee62",
+      "lines": 348,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Chest1.Helpers.fst",
+      "sha256": "196872cc3acd4e791bd829bb6687da610e1415231bb175144ef215bf2e89fbe0",
+      "lines": 147,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.EMatrix.Tiling.fst",
+      "sha256": "b7797ebb661b6ea3bc387bbe7f7901a2d5675a15da12ec93e3039870e60e906d",
+      "lines": 126,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.EMatrix.Tiling.fsti",
+      "sha256": "237bff78999af610f5c117c42245054e687b5e1722bc456686dce0da292d7703",
+      "lines": 152,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.EMatrix.fst",
+      "sha256": "374e7a91674b15f27f31a47066298bf80e72f69a0544227dd62125863b061ba1",
+      "lines": 37,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.EMatrix.fsti",
+      "sha256": "d718b4613427e5411ff21c347715a9e2d55268f81577d6da94d1f425abbd88dd",
+      "lines": 105,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Matrix.Casts.fst",
+      "sha256": "e647479846efe1db9d48160a83f9c90d3b2b1072f0ac19819c628cb4be3d0c14",
+      "lines": 315,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Matrix.Casts.fsti",
+      "sha256": "6138f36cdb5eec5d9bafeb5fe6f734d15847f65e8bce91b4428f39072dddd9fc",
+      "lines": 388,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Shape.fst",
+      "sha256": "12373cb9ba9d583dc3d999f1e55f934837c216ddb94362d5bf8ae98965f88af3",
+      "lines": 320,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Shape.fsti",
+      "sha256": "8048df1d13c4a20cfc33ed68fd96a3711adfc42a852eb0c3399930d6085ad1f1",
+      "lines": 526,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.Layout.Alg.fst",
+      "sha256": "7371edc51511206da557fb3c4bc253c908392bce060f431d8ed2fa703be9aecb",
+      "lines": 313,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.Layout.Alg.fsti",
+      "sha256": "81594640d21c1dab9c9bd2fec8073b65eabfe074fec3a49aaff763cbfc71b8f0",
+      "lines": 242,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.Layout.Bijection.fst",
+      "sha256": "96db011d77cd7caf34d1829932e23a8e97d15091fb57711c3989379d1b44362d",
+      "lines": 640,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.Layout.Bijection.fsti",
+      "sha256": "497ce3b10b5099c62a1985f35ef3838b5253f00ee9387cc5d42dc9058e4d530b",
+      "lines": 282,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.Layout.Slice.fst",
+      "sha256": "7df5620acb81839c12db79d341553d0be786d37d018bc52cd9999fb5ea9650a6",
+      "lines": 302,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.Layout.Slice.fsti",
+      "sha256": "d90fcc6b82c0aed29fcb2f7ccba7da463999260086a6911e93147603c6190ec4",
+      "lines": 127,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.Layout.fst",
+      "sha256": "5b72956ceb60dd939f9e99caf76861adacb7697d65fa62ecf5843334cc94e3af",
+      "lines": 87,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.Layout.fsti",
+      "sha256": "f2fc40f547e94f3fa5216bd32e2b7967cc6b50a8af00d4556786e87a81f665ae",
+      "lines": 157,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.Tiling.CollectApprox.fst",
+      "sha256": "cd83b7e1817ded764173df2b5051b8c338b5c87e1d9d87b0ec9d5a38b8e4a615",
+      "lines": 149,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 9,
+          "marker": "admit_smt_queries"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.Tiling.CollectApprox.fsti",
+      "sha256": "2d99ef75bfd09fb20ac17adf5126a86c7f331aa93ce7afc67f7c380a6e39950a",
+      "lines": 47,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 10,
+          "marker": "admit_smt_queries"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.Tiling.fst",
+      "sha256": "89bb703bc32df4b8bf38031a8a544264a64733d5c5c09ce554b833b9b75782ce",
+      "lines": 616,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.Tiling.fsti",
+      "sha256": "3025fb217ea8cce55fd61adb935237beee95ed8716a2ba2f20e130ebcd9c860f",
+      "lines": 404,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.fst",
+      "sha256": "d0fcf8c193f8519a0455512b3940656e50fdace7d78f9a58ba0cec6b694b0dfa",
+      "lines": 817,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.Tensor.fsti",
+      "sha256": "5cf3cd45071801c2b79596c93dea7c6808ac2f6c1647b6b3d3b0c0e136e5900e",
+      "lines": 625,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.TensorRO.fst",
+      "sha256": "421621ddd840da654ade11425d8e7ecaffdcca6fd8c3ae369dba47a4676983d2",
+      "lines": 856,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/Kuiper.TensorRO.fsti",
+      "sha256": "6051aff0965ce49485d58b67d131b943e2c47ec5978f06848e863841f3729cea",
+      "lines": 668,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/array/Kuiper.IArray.fst",
+      "sha256": "363361ffd5db4c16c1f6706078b227de4198771bbce8199355a50791e8d2cb93",
+      "lines": 840,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/array/Kuiper.IArray.fsti",
+      "sha256": "4664cb489b190a5d98bf16407447706bbfcd0ba30edbc306c08800f611b6f3d5",
+      "lines": 492,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/array/Kuiper.VArray.fst",
+      "sha256": "65f5b69db3faa85069ae2816937923fa066c52a3f4b365b54d32c75b7cb55455",
+      "lines": 1253,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/array/Kuiper.VArray.fsti",
+      "sha256": "4b096a0ab75432a0e2580da9fcbd6005a80b96cb814438c2d9b772209db6e43d",
+      "lines": 714,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/data/fstar.include",
+      "sha256": "04b44e932c2eb365d84908d1a73cfebc64805dc250381829212620e675408dce",
+      "lines": 1,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/fstar.include",
+      "sha256": "8602df3b055539b7636cc125615c49a7f38cac498ba5533c65125845bb89b18f",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/ghost/Kuiper.Ghost.TensorTranspose.fst",
+      "sha256": "66062c9c09445ffaaedbc6256777bfb922e94ba4db1a6b49348e0711908be3fb",
+      "lines": 167,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/ghost/Kuiper.Ghost.TensorTranspose.fsti",
+      "sha256": "18c74b0bc09d9789fb148fad4f0c5ed0ee3a9677cbc14d0c826b1119ffdc7f66",
+      "lines": 68,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/graph/Kuiper.GraphDist.fst",
+      "sha256": "cfab474ab1770a9f940c250c0f337d026342695699809e61bc316ee303368c81",
+      "lines": 135,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 67,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.AtomicReduce.fst",
+      "sha256": "0c65ef7b2ba12ff1f2ac3bc10ae71321bb6944a8de4ac81c167ff48a920ec709",
+      "lines": 812,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.AtomicReduce.fsti",
+      "sha256": "4683c4eb9fe4b5a0a2a427b45ad756fbc48e65775204c5ae7ec0e1452fa12dd2",
+      "lines": 38,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Cat.fst",
+      "sha256": "2e80f443cc72a270a979a2f4683d52ab79b3ac9611682a8063e1d0110bb61cbe",
+      "lines": 283,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Cat.fsti",
+      "sha256": "d41c06fe203ebf0d0700fb94731ee3d7ef041577783de51c9e78694dcda51142",
+      "lines": 92,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.FlashAttention.KernelDesc.fst",
+      "sha256": "5530f4f4f20a05629903caf3bd35463a989cc6d510f575cec22547aa14e2974f",
+      "lines": 1347,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.FlashAttention.KernelDesc.fsti",
+      "sha256": "5fcb7b64149280fbbf10b536b6d48baf26a5706092eeff4c42490efe11e27384",
+      "lines": 869,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.FlashAttention.fst",
+      "sha256": "d465c2780fc5403f0a12a2ec439ef9bdc022428f1c8b23c2a511500c5221bbdf",
+      "lines": 1065,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Gather.fst",
+      "sha256": "8f89a680cea9a76290faea9b11647be379c6d2715e1fdfd10ed5ed92322a69c1",
+      "lines": 188,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Gather.fsti",
+      "sha256": "c0205db1d847390563d913620836004cbe6941e56acbe6362b7f6f9ea68fba87",
+      "lines": 58,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.HReduce.Block.Max.fst",
+      "sha256": "ba2c4e11661726f67321c20a299b158911245b9bd782197f477eb4a4d6024dbf",
+      "lines": 834,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.HReduce.Block.Max.fsti",
+      "sha256": "715d0399a512bbd8089685e6f193ab39aacbb6ebf7d519a567af9f619e6b0dc5",
+      "lines": 44,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.HReduce.Max.fst",
+      "sha256": "ca0b54c32948aec3024716597bd8d576f60ae1b470420199d114fb0d61d8ce07",
+      "lines": 1235,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.HReduce.Max.fsti",
+      "sha256": "497884e15d63ff06032c315d446f36da4dc3f158170553d9e1f67b2a92e9b5e3",
+      "lines": 39,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.LogSoftmax.fst",
+      "sha256": "9b240c8634b520357932c99d1d9460164a3cc86dc996c0095c75575f0b4991f7",
+      "lines": 124,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.LogSoftmax.fsti",
+      "sha256": "af5ec50dc2b2d85ec1df0e40e9c379f1e02bd64ffe41b816f216b50b602b9824",
+      "lines": 77,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Map.fst",
+      "sha256": "b5197235e1e60bac18925c41e89c579302dd1fa64eb4dea0f8433848c7cd7d60",
+      "lines": 559,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Map.fsti",
+      "sha256": "3a7c6cbbbb41588aa9b33aaf4001edc607c110e58ccc48d710d566b4d0a49a48",
+      "lines": 230,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.OnlineSoftmax.fst",
+      "sha256": "586f336d6344c3fcb14b673cbb6f8fc0424212ea22a7e25d6c13b8729e675347",
+      "lines": 424,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.OnlineSoftmax.fsti",
+      "sha256": "ad5db08b08d2f7bdf3f669e8c022b3c4cc223d94cfd5665fa8b2eb2341a16f40",
+      "lines": 54,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.OnlineSoftmaxDotprod.fst",
+      "sha256": "539bc470251e791ae94e9652c5f64fa60d06da59a39bd6778715cbfa5a892939",
+      "lines": 583,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.OnlineSoftmaxDotprod.fsti",
+      "sha256": "43c39b171a7881dd7e5c9fc9b015431e8d4f1a70e9ce2f5f9fc9300d4dff1da2",
+      "lines": 30,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.OnlineSoftmaxGeneric.fst",
+      "sha256": "cf24a647258f017eda7a1d77fa950dd853af8924215ca150c9dafab855eac25e",
+      "lines": 342,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 215,
+          "marker": "assume"
+        },
+        {
+          "line": 309,
+          "marker": "assume"
+        },
+        {
+          "line": 312,
+          "marker": "assume"
+        },
+        {
+          "line": 319,
+          "marker": "assume"
+        },
+        {
+          "line": 320,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Reduce.fst",
+      "sha256": "44295fa9f01c7589d879f62119a8801bae279e61132c07bbba027e0769bed363",
+      "lines": 91,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Reduce.fsti",
+      "sha256": "c2a0c9559ab32ce851118eede57b40da5b13fc8e0b9005aae8a95598ede2bcca",
+      "lines": 29,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.RowBroadcast.fst",
+      "sha256": "21c772b4ab652ce8905f90011531187344c4359031577414b13cfb9e049cb2fe",
+      "lines": 215,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.RowBroadcast.fsti",
+      "sha256": "245cd2636c575cf3fe7c70eb50f824e9be9bb1864f7d9a16ff6a77d6ca447fd2",
+      "lines": 41,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.RowReduce.fst",
+      "sha256": "fb782db64b525ff92b2281890dbed6816f0a331c4af7de858e4894732e122bfd",
+      "lines": 1324,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.RowReduce.fsti",
+      "sha256": "f8d6e541ce586beaad668759c40409a78a09b8ba2d126d556738ffb95a820657",
+      "lines": 58,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.RowScale.fst",
+      "sha256": "996f802924ba815733e422a20b7909b600c9f58ac3df450283aa1fae1400adbf",
+      "lines": 34,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.RowScale.fsti",
+      "sha256": "e589f723c817d5ba61f70d2b6af1c604488310dd2b750fe063831b796a993aa6",
+      "lines": 38,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.RowSoftmax.fst",
+      "sha256": "eb390a0d95bf645e8043a403bbef982e94f27db7276a06f36e29a901b9aadc9c",
+      "lines": 407,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.RowSoftmax.fsti",
+      "sha256": "2e603bc6de1953167010ec754c734ac91dcbb64e41905da3f02204567214f52a",
+      "lines": 74,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.SDPA.Naive.fst",
+      "sha256": "aa6a834673055bbe882f9de88816b783d071bb6be50fa3b1f87280cd48c24e5c",
+      "lines": 618,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Scatter.fst",
+      "sha256": "da4c0dd809dbc62dd0abf615daee32c522dae474bb455bc44236dc9b5904de20",
+      "lines": 506,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Scatter.fsti",
+      "sha256": "57dfadbf79f1bdf05b8a14aec7d27450a471da5da01598de47ce77588bba1489",
+      "lines": 81,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Softmax.fst",
+      "sha256": "47cc484c1294f4d7d7458b2811c5882194420f0427d7f84e1a8c5cbfe825ae04",
+      "lines": 70,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Softmax.fsti",
+      "sha256": "c1243c35986f53e0d7af91c25ff05994fffd07a6adbee976cafcadcc7251b06e",
+      "lines": 26,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Stencil.fst",
+      "sha256": "0d54b1cfff4a60194b54dd21cfb8e87aa310c27c3fda5274d6a297a249690238",
+      "lines": 289,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.Stencil.fsti",
+      "sha256": "489e05c63932753077cf228845e93ad9b573240bae6a5edbedd8b41740377f0c",
+      "lines": 29,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.TMap.fst",
+      "sha256": "eeaa7857a1397fc4380a787dbfee5ef43139656e111a54c83e210a56aedd4859",
+      "lines": 244,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/Kuiper.Kernel.TMap.fsti",
+      "sha256": "8b01d19e44f648af921d859953d8416b5d1231c853e2ec42e4ceffc41209f29b",
+      "lines": 59,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/fstar.include",
+      "sha256": "08de930ee84eda990cdb2839745271140e31f1654d09c1999c82461f47ff15b9",
+      "lines": 1,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.BlockTiling1D.Compute.fst",
+      "sha256": "be3e509bd562292ff8ab2effae4111144e94be44218642d4dbbd342cc4f2848e",
+      "lines": 279,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.BlockTiling1D.Compute.fsti",
+      "sha256": "d6cc7b329138d3056c163abe2ee43dad49741d93554e74530ceabd94e191f622",
+      "lines": 99,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.BlockTiling1D.fst",
+      "sha256": "5fc58c63874bdf5ab1ee5e0f306a76ab69f83cec2c81add00ba1a1ccc5ee5ee6",
+      "lines": 1548,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.BlockTiling1D.fsti",
+      "sha256": "69d038362370e8d0965d36011a3182711b64bd2212ee94771fa844f1542d00d0",
+      "lines": 144,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.BlockTiling2D.fst",
+      "sha256": "5561896fe7fc475711afdc40319f7de98878cc4fc14ff1c42e03c00aff19a817",
+      "lines": 3399,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.BlockTiling2D.fsti",
+      "sha256": "fc1fd85a033f8e53f6dee02cfc5c69c04225ee6e83dfdb83100b56a2b5ca6b75",
+      "lines": 545,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Copy.Vec2.fst",
+      "sha256": "35925b1821a0322351dae27063ae2e80d807a73e73a95d470bc5ec990a2c1980",
+      "lines": 602,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 501,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Copy.Vec2.fsti",
+      "sha256": "302a594ddf8aaec9bb0a201db75a6a1a68fc13982f592e8089d447caf396e8ff",
+      "lines": 144,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.FlipFlopBarrier2.fst",
+      "sha256": "bdf8322b2061572adcac8a798347ea0ccc162e30c672e7a848d46b156c832e6f",
+      "lines": 670,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.FlipFlopBarrier2.fsti",
+      "sha256": "1064331e76322e6d245e668fbff1b0e829279f5ca04f25e26130b6e6d7015692",
+      "lines": 354,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.FlipFlopColumns.fst",
+      "sha256": "123d2d79be9b51869754ffb16b37666c291151f6499974ba1d10816f291e35b4",
+      "lines": 357,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Naive1.fst",
+      "sha256": "31c5a42500607ed4d66fdd43064a29b540f2834a70b3e7dc64c394c1d669a1cb",
+      "lines": 630,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Naive1.fsti",
+      "sha256": "bfea2ced366f70fbe445c7521c62821c6cb9cf00fbcc9242239e62bb618ec0a2",
+      "lines": 75,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Naive2.fst",
+      "sha256": "7c3ab9dee616ac99b8e9f89d191b0400a6aae6d7bcaffa09055645ffae0a6c64",
+      "lines": 962,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Naive2.fsti",
+      "sha256": "08a4bd97d2c688e2937fe13c21b66997f8b95a630d143840bffb241fc4c7b84c",
+      "lines": 228,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Naive3.fst",
+      "sha256": "4eda525201fad7e950f26bceb5232c04489a1cf1de034f5876f4eeed3b10b058",
+      "lines": 334,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Naive3.fsti",
+      "sha256": "26ef2b4b4950b375354691cb5d912502dded1708c9c917d683a4a611d27dca6d",
+      "lines": 49,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.SHMem.fst",
+      "sha256": "cfe478088b5700e45a0379c8c2ce496eb2bf9903cd49bd2cc2daee6fb279418a",
+      "lines": 1794,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.SHMem.fsti",
+      "sha256": "22180dcfd05f6f9b66a7d7552d6d5c18652884891021c3fd6328c98d6e8d7c9a",
+      "lines": 144,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore.fst",
+      "sha256": "7ce46e867cd493d1feac46077fd93a66c5564e99d31246f25c8fded0a2b4c3a0",
+      "lines": 1167,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore.fsti",
+      "sha256": "ff9004b966482abcb5eeb1ed47ce6a6c8db94083f11c5652d9b258b71be2e87c",
+      "lines": 66,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.Epilogue.fst",
+      "sha256": "473cff1d5ddd5ed09c3419a37e20190572c403abc9356cbc90b5dd22e716cce0",
+      "lines": 214,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.Epilogue.fsti",
+      "sha256": "dc4e599d511701f4bd94e8bd31abbbc51f76eb02b13d8f7dc3188d34443078f0",
+      "lines": 80,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.Fade.fst",
+      "sha256": "690cf7042ace327a4c566fae854da077e015abda0ded633b9c91df4669114d3f",
+      "lines": 161,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.Fade.fsti",
+      "sha256": "d9725c73b049cdb680cf7ff341af640cf38d38ff37041618e5ae672ce0a280fd",
+      "lines": 82,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.FadeUpdate.fst",
+      "sha256": "4cd015d9f0da44790ba71d5a2cf1600f107eb9dc0abba22dea20b7724d4c3811",
+      "lines": 109,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.FadeUpdate.fsti",
+      "sha256": "3bfb468af789e42862d4eb57320b8ffb427f42fdae80d6f48856a0e9c5eded4b",
+      "lines": 46,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.FragmentAcc.fst",
+      "sha256": "7a65c737c5a276491e733a445fd42a13b072db21e324d41ced36cf88589b933a",
+      "lines": 77,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.FragmentAcc.fsti",
+      "sha256": "797d89f3a75f4104fcb01d21b353a64407a4511616945936010d87755ec8f5c6",
+      "lines": 73,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.FragmentMMA.fst",
+      "sha256": "01bcbded9545bcdeb4124df2eaae1d8e2a4e8afcbf2bf8bfcee83ad92a47a0ec",
+      "lines": 169,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.FragmentMMA.fsti",
+      "sha256": "aa666bd52a0286ca7e4f79e93645240a2863ba93e58a8749746c3de9539e01aa",
+      "lines": 51,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.KLoop.fst",
+      "sha256": "d53a9553ff44a3bba8f25f1da8353d3bc3b0bcd515c4b1846ae0085fe09ad599",
+      "lines": 332,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.KLoop.fsti",
+      "sha256": "4471c7972f3d5c82b47ab81e84975fd06c6c8b4ef1bbb540e91149102fd977b2",
+      "lines": 198,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.KernelDesc.fst",
+      "sha256": "9b7daaceb3f9604bd0f15b25d789ce31cde322a829a678ef27b6a1d220919bc5",
+      "lines": 1169,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.KernelDesc.fsti",
+      "sha256": "f55f794cfd1c67260d3b6311413b5681a25d8a5c18a1fe678e84611d8df55556",
+      "lines": 548,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.KernelLoop.fst",
+      "sha256": "3d005b0d866fe9e7e0d4a31a7801822e9fbde60c30fce8a8ab4d3e431ead7fc8",
+      "lines": 288,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.KernelLoop.fsti",
+      "sha256": "ed65baf8530884acb8e7d1989992cb3fd9d60a08b8ffbea5b2c514e7c49d3307",
+      "lines": 141,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.Populate.fst",
+      "sha256": "571f49f6247d0602aaa2de0b2d0e199f3197a7a3aa7ba96301e5b5776f2d68ec",
+      "lines": 191,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.Populate.fsti",
+      "sha256": "10bd98f7153df8c7905dba4e820c2cef826c04cc8c30992bbbcfcb98fa0a7b86",
+      "lines": 84,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.ProofSupport.fst",
+      "sha256": "25f9b98358f299c6a12da0eda4b704495468b5b8d14527699d7c6cafc04e62ed",
+      "lines": 12,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.ProofSupport.fsti",
+      "sha256": "f983d75112239e1e172ebedc8fa5744da9d03ac32088d427fa980d0662a2ce45",
+      "lines": 40,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.Subproducts.fst",
+      "sha256": "d871224701cffa1149ecac9bd6ed43d6d69db784a250388445231dbdfbd643c5",
+      "lines": 270,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.Subproducts.fsti",
+      "sha256": "274be4d2dc4486843424627374896df89d75db96dd1fc7795af210709d7a4676",
+      "lines": 87,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.BaseSendable.fst",
+      "sha256": "70549bd6c0a91f664873ad3f0968650bfaf2a10bfcf8b70dcdcaaa00f4626254",
+      "lines": 284,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.BaseSendable.fsti",
+      "sha256": "f196bd55a58b13e19b58eadcbe5b2d81807ae318fe73e908adc6dad1913df659",
+      "lines": 74,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.Epilogue.fst",
+      "sha256": "0ed199f5d240f13267c1abed74fd45d30a25b0f3489995a408cf77cf0e69033c",
+      "lines": 387,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.Epilogue.fsti",
+      "sha256": "4028345175e6b262cb45098f8a364976d849d38e06fa74876b0edf6d0dcafa37",
+      "lines": 57,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.EpilogueLoopStep.fst",
+      "sha256": "96f4b9732deb5715e194e8a6e0032819de81ae3d6c1dc35065aedb88eeeabc94",
+      "lines": 371,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.EpilogueLoopStep.fsti",
+      "sha256": "c58a1b1b8cfe9f8b5bf8712e7876281fbc1fa845774f8074507a4caedd221550",
+      "lines": 84,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.EpilogueState.fst",
+      "sha256": "6ae1fe069136146724565ef269980b98a688cad80f23d987fcd6092a84d97e4a",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.EpilogueState.fsti",
+      "sha256": "c90c69a4cb383b55871c1dd1be6ec60b5b1e2a5056af67bfefcf56543c5c2ba4",
+      "lines": 201,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.Finish.fst",
+      "sha256": "610d0e50dd2873203e68282bf441919470a17305416027b04049e5605abc32e1",
+      "lines": 503,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.Finish.fsti",
+      "sha256": "5e05e3caa23858a37c6196a32ac3582c19e08809babcc451b44d367d55a08926",
+      "lines": 246,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.Fragments.fst",
+      "sha256": "31aa1f3ab5851edc22a65e02c3d6f9454774b520797efcc1af6f60b069b0f3be",
+      "lines": 95,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.Fragments.fsti",
+      "sha256": "8cbaff71d323f31ed0eb1f0d48da03f44d043c21a6580c101ef5d0a55e16e3cd",
+      "lines": 82,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KLoop.fst",
+      "sha256": "fb4e5b18feafacbf035d74d8e8af4d34c8bd9ab1bb0e3c264177f081d3fde4d1",
+      "lines": 507,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KLoop.fsti",
+      "sha256": "11a43f505b95295b2f13b61cb8fef20e8c3c3262d589c0a5f8e886598d7041fe",
+      "lines": 272,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KLoopInvariant.fst",
+      "sha256": "5accdf4ab23086865d11ae775f8eb869050669b394883f2caf36807d2432d4f1",
+      "lines": 69,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KLoopInvariant.fsti",
+      "sha256": "60eeb9dc8e645857b41382fb4325cd2bdff223b6736c0763d85fb697b7fe2e93",
+      "lines": 70,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelBody.fst",
+      "sha256": "aa475a68052b12398cdab8cbeaa14ca868a646bb98c4bd06a5a0913018b8e0cf",
+      "lines": 205,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelBody.fsti",
+      "sha256": "e8d69f4643a45bce94421123c55556065676f0449557ac02d6450ddf676771d8",
+      "lines": 107,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelDesc.Epilogue.fst",
+      "sha256": "626acae4bbddb54e2fe01cce201a350cd367a406d4568456d918d5b407ba37ee",
+      "lines": 223,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelDesc.Epilogue.fsti",
+      "sha256": "2ecdf8a5313b09588562a22db7c6769757b444a0c2bc77b7a3e6c4b89f515438",
+      "lines": 105,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelDesc.EpilogueCell.fst",
+      "sha256": "debc5c3f1f182a71ec5f9f24f6257aeda97ca9462b75a0a397bfe2cc39eeb0fa",
+      "lines": 152,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelDesc.EpilogueCell.fsti",
+      "sha256": "393ab7028d2de37395f2cc20791f40dc79e0a33d397db0cc602ae0c5d465d51d",
+      "lines": 126,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelDesc.EpilogueCellUpdate.fst",
+      "sha256": "0d0c79dfb5b3f7895f8ab15f16c27ff70c7e75412b1fd867627a48ca56092366",
+      "lines": 284,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelDesc.EpilogueCellUpdate.fsti",
+      "sha256": "740bcded8840cb12a6bc3cc538d8d1585f5d74607a72fb0ac3c726d3c91ee987",
+      "lines": 117,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelDesc.EpilogueStep.fst",
+      "sha256": "c6bf0c21f06764ef60fcb835815bd5dbc584bf5ebd983b352688f07dbb412be0",
+      "lines": 239,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelDesc.EpilogueStep.fsti",
+      "sha256": "1aa503a3eb9b6016bc292e2d3244f6025620cdad506296352f6f9295a9ea036c",
+      "lines": 161,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelDesc.Teardown.fst",
+      "sha256": "195ffd8873a7540bf5f0bbfaef6d149901e9387ac387cc42de6d770459eab84d",
+      "lines": 981,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelDesc.Teardown.fsti",
+      "sha256": "cc5d403568e9cf931a2dcbab053bc5233bfbda7f422f33226002c9a7ff98f93b",
+      "lines": 63,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelDesc.fst",
+      "sha256": "37476c103a2d564cb09f8fcd8336246dae2f458b6144018bbe82c335140c576d",
+      "lines": 784,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.KernelDesc.fsti",
+      "sha256": "c7c47a698b69d496cc981cd15a453d252b4985445f25da22fc36ef97f669f1b6",
+      "lines": 509,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.fst",
+      "sha256": "b21f254b99deb676ca7ecaaaa928312ae470e805e529e4acb5b7409ddf3265fb",
+      "lines": 382,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.To.fsti",
+      "sha256": "5b124396eb9d0e3bab70f0fea26b2005b7269a0eaf79a5dfc7b7b24b774096a1",
+      "lines": 88,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.fst",
+      "sha256": "6d6b6fc30fc0c09bc182d53a009aafa31add094b709daccfce2bd2b2b404d71e",
+      "lines": 616,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.TensorCore2D.fsti",
+      "sha256": "5904b0f06a99803fe6259a0e739e888584f83e1465f682fe4abea223a2f505e8",
+      "lines": 91,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Tiled.Common.Vec.fst",
+      "sha256": "1e6e5b438c73641a0b9102a91ffcaee9e7605870b8270ba70b28fb87b64d102e",
+      "lines": 108,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Tiled.Common.Vec.fsti",
+      "sha256": "374a9eff0aca4fb5285f3ad5629f03ce50e708a350fdb101bed1355ae10eea3a",
+      "lines": 184,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Tiled.fst",
+      "sha256": "d63c4d36900a49bda8e84add7ad0dd7a474b55ef4e8220d7a7a70e1f56c0cb60",
+      "lines": 1772,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Tiled.fsti",
+      "sha256": "32bc08d18591a6027d43b86ad88ba712f1e5414d55c3ef52ed27b019b0b724a1",
+      "lines": 156,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Util.fst",
+      "sha256": "0c6f45e86d4300044e5949fc091a4dec03453db4de744d7dd6003ef3be857b86",
+      "lines": 432,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMM.Util.fsti",
+      "sha256": "e5411354af47d797266fb15c4071b3d4e69984e5953ea9b911b31138f7add81a",
+      "lines": 288,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMMCPU.fst",
+      "sha256": "79a2c6f92efe060ffa862ff4fbfc61125b41661cfa00bb6d013431873ad4d9ac",
+      "lines": 175,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMMCPU.fsti",
+      "sha256": "fb4ef9cfbae2c1a356ff76281ea91d5c1a1353da588b7d4164ac26692b5d100d",
+      "lines": 359,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kernel/gemm/Kuiper.Kernel.GEMMGPU.Type.fst",
+      "sha256": "99525e74a6a4fd7c310f2a42c0ce6323c981c9eedf110b7434ac054688501010",
+      "lines": 132,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.Base.fst",
+      "sha256": "d6ed2be47160f1d2a3bee3e38de2b95718df6a31d399a534827555f1528ccc20",
+      "lines": 87,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.Core.fst",
+      "sha256": "25474b6612a1a5d79d6aa2b84093122a818e5cd072d95f85d1c19f666117a407",
+      "lines": 57,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.Scalar.fst",
+      "sha256": "056be89c8a5f8d0baf96b05243d36319716fc1f7d3350e9fd6acbc609713266d",
+      "lines": 90,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.U16.fst",
+      "sha256": "d520b75ba91c9041ba74d780b92dd0c1c9d1db9e163d38b0ffac1c017378df81",
+      "lines": 58,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.U16.fsti",
+      "sha256": "c72e4b73e0755b405d41481380ed301e655432fcf0b74e619477c78d34275821",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.U32.fst",
+      "sha256": "56e98936cede4f8c66f126742058d0d801e9b76a1857c90987a37141f62f316e",
+      "lines": 57,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.U32.fsti",
+      "sha256": "a50b7cfe9ed00585e6f9714f145b5a893a50fea70bfc9d45a18a16a78578eaa3",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.U64.fst",
+      "sha256": "c8781fa36b4c57a3979e8709089ea9914ca1f10248f8eedceef7d6cb50384730",
+      "lines": 58,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.U64.fsti",
+      "sha256": "541f91fbaac9bf731ce086b7b536e494f801e4aa648d6c0033c3082c8c6b3f01",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.U8.fst",
+      "sha256": "eac4909caf77be3c503ee371860d23ee486e42cf9552e87ab57e15b8b44ed73a",
+      "lines": 58,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.U8.fsti",
+      "sha256": "2748382d809aafb0bb21d1c7b2326d6d89714ebeb25a81b898b2523bc5e4b390",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.fst",
+      "sha256": "ef9d39a9228e86f111a9d9a4b8296a65bde9d78512bcdde411dae08597b653fd",
+      "lines": 52,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Approximates.fsti",
+      "sha256": "d3a29ef5ce08ff9fde716b01eeaf13b1ed0fe5e4063d395794e3e6baf0f09ecc",
+      "lines": 102,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Array.Core.fst",
+      "sha256": "163797b18179d3b50ec1aba8b23cea429a461e5b6e1e1d0b505e459782c0de17",
+      "lines": 1185,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 71,
+          "marker": "assume"
+        },
+        {
+          "line": 83,
+          "marker": "assume"
+        },
+        {
+          "line": 85,
+          "marker": "assume"
+        },
+        {
+          "line": 86,
+          "marker": "assume"
+        },
+        {
+          "line": 388,
+          "marker": "assume"
+        },
+        {
+          "line": 1154,
+          "marker": "admit"
+        },
+        {
+          "line": 1169,
+          "marker": "admit"
+        },
+        {
+          "line": 1184,
+          "marker": "admit"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Array.Core.fsti",
+      "sha256": "8482828ecfaacf609a16cf6a5ea6a2b717b3ba48e8df30f876620ca4ac9a60e2",
+      "lines": 638,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Array.Derived.fst",
+      "sha256": "bbf2d0965cfa30cacda88f693d201e930a286df495643f064c3ad9f90eb725bd",
+      "lines": 93,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Array.Derived.fsti",
+      "sha256": "d561dafb3d26be0982e41da4233a6391d4c03a8bd1b1632d8f1f2dfd555cef37",
+      "lines": 77,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Array.Extra.fst",
+      "sha256": "41996e5ea6b1f3f7bbd442591706890e6b2bab7064395cd2998bd1056b2c67e0",
+      "lines": 82,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Array.Extra.fsti",
+      "sha256": "c56da6d61d65af0c9a69f8e91c6b6202bc7a57ffbf49ae1784b2d2225d98f13e",
+      "lines": 36,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Array.fsti",
+      "sha256": "a23df8c6a9c466656e2e8c51d85166f4c1974daff9c84b5441230b86d0934f20",
+      "lines": 4,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.ArrayCoreAssumptions.fsti",
+      "sha256": "6ff0034619013e12cbc7a8a951243b41d06ce03a76e1b92fca528fcc705fe643",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 6,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Assert.fst",
+      "sha256": "c5365fedc3f28b1f344413f6c21eeecaf012254de9ada105e0793fb03a1e94eb",
+      "lines": 22,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 21,
+          "marker": "admit"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Assert.fsti",
+      "sha256": "eee6e36727497304f0dfe9668cd04d5cf62cf04708891f35660145e65c852e94",
+      "lines": 13,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.AtomicOps.fsti",
+      "sha256": "5dd95dadf1a03b7328d2f8310a976cdacbe3c2f885de587aad44dd4d224456d6",
+      "lines": 58,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Atomics.fst",
+      "sha256": "55ae29c282cf31b283262e3ed9797c1034f62ce976a54a5ba8cfc9db7efae7d0",
+      "lines": 52,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Barrier.RPM.fst",
+      "sha256": "daa46632ff103bdf3abb652b5e497443fe6380d246c30aa21bcd5186df2daed1",
+      "lines": 48,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Barrier.RPM.fsti",
+      "sha256": "b82f819934569a4958170a8d35f741349d22d36c31c64989f06eda4e90f477d6",
+      "lines": 59,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Barrier.Warp.fsti",
+      "sha256": "6fbd2c25710258748209a7b70a3ff5079bcedd045b66ec89fdec4eb961a4ea72",
+      "lines": 29,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Barrier.fsti",
+      "sha256": "9f45b9f12c8ea1047997f8d8320ec2748518e70e042b22be0bee09a8cc6357a3",
+      "lines": 68,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Base.fsti",
+      "sha256": "cd91a0a96b3912cb9a609d08e09013a8cee833e6a4a9396e892556b99fa6783e",
+      "lines": 48,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Bijection.Tile.fst",
+      "sha256": "961053ee39564ea273b19a0fc70b47dbb8c2cca3b97460e0e9021887ec5b45aa",
+      "lines": 45,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Bijection.fst",
+      "sha256": "35e8900491e889adeafbb4f8e8cbfc8da7bcfcee186d7ffa7f7a50995811cebe",
+      "lines": 36,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Bijection.fsti",
+      "sha256": "1d173f2baa32fc36f065e55d36ff9e669fffa584b2b278718a6d3fcd3a199577",
+      "lines": 380,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Canonical.fsti",
+      "sha256": "fc89cd7126cfd0ec48d9db3435d57c8c107fd6fe880101ed14f97d86f897a8e6",
+      "lines": 16,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Common.fst",
+      "sha256": "5c9dc18975c4f2066cf4fb7b1fc50bed4d970dc20bf338942f02b30ef22958bf",
+      "lines": 110,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Concrete.fst",
+      "sha256": "10ed33ae7bc52c63bd6edb16a24a7c62f885a7660ed6ca102a0ed29246ac6daf",
+      "lines": 72,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Conditional.fst",
+      "sha256": "9cab291ed61f0e9565767be00170cdd29e2ee9a8576f290d161af4878349fc7b",
+      "lines": 244,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Conditional.fsti",
+      "sha256": "e59c5cbae31e20af42495d1cf3e210f072ea8f8abcf8bc1ca44c573a178ddf30",
+      "lines": 115,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Core.fst",
+      "sha256": "739604e76da293aa30f60541dd5b8030d6b2cef35e0895ee409981ce42c17df1",
+      "lines": 48,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Divides.fst",
+      "sha256": "b032595a166833c426476e1095b042910809f7744431f37efb582e6c2e2cc52f",
+      "lines": 174,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Divides.fsti",
+      "sha256": "25767d9e6c61b2ffb7602501f46d2ea8497b213d795f28825b4c3b918490e255",
+      "lines": 101,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Enumerable.fst",
+      "sha256": "c776d6d6d3628ef07b1401ee9065740a5052eb4e9566e2663d1cc7fa37a01020",
+      "lines": 81,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Enumerable.fsti",
+      "sha256": "e393e3d6142557100c1f0025d0d352d0ab0c7210136faa88d62fdd8640bd3346",
+      "lines": 70,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Epoch.fsti",
+      "sha256": "81c2eb6214ff2e0846435707e4e17c2f46365c79bf070f9e284c04af5820db59",
+      "lines": 48,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.For.fst",
+      "sha256": "08bbdebf967fc9b1f9f4e9b06daebd547f0f45e91edf9bb8f229beff1ab2a341",
+      "lines": 82,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.For.fsti",
+      "sha256": "8f89884338a4f60bf5b748683c66be4d8d0fe4e44b9a67b35b64c82b759de56e",
+      "lines": 30,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.ForEvery.fst",
+      "sha256": "6284337db4c63b1dba312b5843e4af01bf6a789f4d10330da457f81f46f2ba73",
+      "lines": 2545,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.ForEvery.fsti",
+      "sha256": "c72bd0a35af8da78d987f19bd9d6e3f0579b639236078af4676bcc898e9b6e0c",
+      "lines": 1143,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Frame.fst",
+      "sha256": "6c71bd41fd00fb9c507e6c803e1cc3a8c4fa62b18b301c2c8dbdcb7fdd40d13b",
+      "lines": 89,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Functions.fst",
+      "sha256": "d0a370d12fb6ca96e711dd3e8baedf0b05818231ea13ce619fe13b61e938818d",
+      "lines": 4,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Functions.fsti",
+      "sha256": "8dcea3d533a01901a8afb0c12347054fe276b17e514b6282fb4012da648dc998",
+      "lines": 40,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Injection.fst",
+      "sha256": "bf47a3a90f2f2e0d995a1d94817fd7cb3cee0502c2ac6848853c375de2d17464",
+      "lines": 25,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Injection.fsti",
+      "sha256": "106907ae65ed9f3d7ae29bc6f91534e44bf1b3d101aeca4def33e78162f30d27",
+      "lines": 164,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.IntAliases.fst",
+      "sha256": "0a2934a19882945f49faf827c252b30095c726325329ce1aace653c9ce7d233d",
+      "lines": 18,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Kernel.Base.fsti",
+      "sha256": "91689b5311a20a785e56504ce24ae1a3db5ebad6dd8add85c5c5207e6e94be4b",
+      "lines": 71,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Kernel.Casts.fst",
+      "sha256": "38a5183dc9fd47c38ab39b2d45625bef30f353035e315dc12d9433c3fa5e9869",
+      "lines": 731,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Kernel.Casts.fsti",
+      "sha256": "f17cfa5c410be807ddc6e3c652e31a3b7aff61ed649207b5b75402bcd88014e6",
+      "lines": 408,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Kernel.Desc.fst",
+      "sha256": "bc008d543bd9701a836dfed340b9fba0647e590090ab801ce7fd8ad083740621",
+      "lines": 148,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Kernel.Par.fst",
+      "sha256": "7c6188faa142e6b518bc9f765b469541d8e7f41e749670f5b1e48e13cab1a482",
+      "lines": 46,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 19,
+          "marker": "admit"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Kernel.Par.fsti",
+      "sha256": "41513d84b92cb3666c9df9c578c5e7f1f04483fdd91a062462b526e39d0d9867",
+      "lines": 24,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Kernel.Stream.fsti",
+      "sha256": "4da77b288948ed3316e7e34b254c326876a249f3fb5deb9d37c6eeb4a2a9f3ad",
+      "lines": 26,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Kernel.Sync.fst",
+      "sha256": "92681092e241c16b575f6148fe8c878255aaeb7895b1f78f66c2b2f27f7b9545",
+      "lines": 283,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 167,
+          "marker": "assume"
+        },
+        {
+          "line": 168,
+          "marker": "assume"
+        },
+        {
+          "line": 203,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Kernel.Sync.fsti",
+      "sha256": "0f8cf9143c96777e4447a1620de6767b1c35826f853666d90f6aada2844a5716",
+      "lines": 26,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Kernel.fst",
+      "sha256": "ad62b2e76e6b2e8a3db4196ce677d0350cd7820233fea940db2c8f7727ec8a46",
+      "lines": 114,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Kernel.fsti",
+      "sha256": "00f7c3f1eae76fe6e712657f7a66c8aa1c5753acae8b714b51cba3a1f2b56c73",
+      "lines": 101,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Len.fst",
+      "sha256": "814b1a55346fe656af14a3b2d83a097de5c828a6dd76e9f30ad8241ad3c97eb0",
+      "lines": 27,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Locs.Base.fsti",
+      "sha256": "b42b18aa902449e61af9534c9b3a2a61551b1b602dc188abcf3248056516d0da",
+      "lines": 62,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Locs.fst",
+      "sha256": "35505a7b579d8c389c5fe5f281b2b47c707a0e27773d9c24e686f5a70dc76379",
+      "lines": 48,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Locs.fsti",
+      "sha256": "c478438c74e4266635ffef5677e2ef6b77b93cd3860bf1ab2dc8f7184b154125",
+      "lines": 100,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Math.Silly.fst",
+      "sha256": "001399c7ddab42709a04800b70d1813b764b24632cbee735335bb37288051b25",
+      "lines": 54,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Math.Silly.fsti",
+      "sha256": "d422a44e243d28e73380263856a4588a48b55c5a38efcd600e90840169aa8012",
+      "lines": 46,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Math.fst",
+      "sha256": "a44ddd6b8772c36fd5fc830841d942e415d5ef83f2494556c803af0995f87fb5",
+      "lines": 155,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Math.fsti",
+      "sha256": "3c9471c0d58003bbb62fa6aad0aeb62fd9258a81c5f66b949898af9afb49c2a3",
+      "lines": 109,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Monoid.fst",
+      "sha256": "5ff43197a931aaa36cf13629dafd160e857a16953520462c6b63a199d2ac42a5",
+      "lines": 18,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.PtsTo.fst",
+      "sha256": "ce65eed5819c1b74c96bec324859867433e1114cd4d0b1f894ea55a34c3c4251",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Real.Trigonometry.fsti",
+      "sha256": "77eff9987e5229f93afa637ceb7d4a16d478987fcaefe4c74b8d7234989c544f",
+      "lines": 50,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Real.fst",
+      "sha256": "36289f493e31ce1f1e0b35d498e1868f5a5c7aacb650224031a5a0df49476ee7",
+      "lines": 39,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Real.fsti",
+      "sha256": "06648ec878e807d8c5e53371b18ff90131475a73e606e56f8daf9aa0ed5ff864",
+      "lines": 29,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Ref.fst",
+      "sha256": "bf2b4cc7e2f4a2b8fb8da2f30e1e144d80c5aaef6e1c9d938aea4fa49a875467",
+      "lines": 191,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 159,
+          "marker": "admit"
+        },
+        {
+          "line": 173,
+          "marker": "admit"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Ref.fsti",
+      "sha256": "c44ec24a15a2c49c55be2a4e5691e87cca15566d7c820ad0eb33b9009021e685",
+      "lines": 130,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.SHMem.fst",
+      "sha256": "d2bb144ca1f504a6974d560ad92ff66f7bdd4a073c6256d56c315ef22f514b7e",
+      "lines": 250,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.SHMem.fsti",
+      "sha256": "2ebd3d2b5272de06ee856f318950c98f95a3fd174ef22ddc3fb4539f96e48705",
+      "lines": 182,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Seq.Common.fst",
+      "sha256": "f6a194d98ba387d6cf753e582884db8d0b8b8980e6e283d50a2d107c301a194b",
+      "lines": 132,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Seq.Common.fsti",
+      "sha256": "378e8c684f0507622754a57736947e6e09c3ca7b2c74978c2e20ee4bd6b29ef8",
+      "lines": 167,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Shareable.fst",
+      "sha256": "a4ff1e67c8c30e05635a9f29ecbf9bc2d7f79571ef4aad6fe744313d57a2d7d8",
+      "lines": 101,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Shareable.fsti",
+      "sha256": "9c17ef858a8d7655c68b68ae4301fb113e8f20fa62f0f925a420cae47097c50c",
+      "lines": 44,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.SizeT.fst",
+      "sha256": "40088c8e9be5f9e7f779a216671b79a91e56674eb4c566fa345c84f40f86c423",
+      "lines": 103,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 12,
+          "marker": "admit"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.SizeT.fsti",
+      "sha256": "5827edba2ec336cb4d3d5668efebf83051aaab2855b910a66031b5ecda664f1e",
+      "lines": 131,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 7,
+          "marker": "assume"
+        },
+        {
+          "line": 38,
+          "marker": "assume"
+        },
+        {
+          "line": 43,
+          "marker": "assume"
+        },
+        {
+          "line": 47,
+          "marker": "assume"
+        },
+        {
+          "line": 49,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Sized.fst",
+      "sha256": "b3304489094640e45643d2d5377a54440e99df070c819347c96e026bfd933145",
+      "lines": 35,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 22,
+          "marker": "assume"
+        },
+        {
+          "line": 25,
+          "marker": "assume"
+        },
+        {
+          "line": 28,
+          "marker": "assume"
+        },
+        {
+          "line": 31,
+          "marker": "assume"
+        },
+        {
+          "line": 35,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.Sum.fst",
+      "sha256": "877a65b069de7e7c8e899ea722609d6662893c3d086a1376108c0f029ea3bb96",
+      "lines": 100,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.TensorCore.Base.fsti",
+      "sha256": "efeab6d662a6a771dbec05a849d6f157d19437e00c5d0bf1c6667df34605e947",
+      "lines": 355,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.TensorCore.WGMMA.Layout.fsti",
+      "sha256": "61d4fd5c6c399e215be1a907b755e66e5f304e79313835e48114b49192139c6a",
+      "lines": 43,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.TensorCore.WGMMA.fsti",
+      "sha256": "efa78dd9a332677d3f70bd312af2d0012552ef53d1068871929510366cbd3fe4",
+      "lines": 102,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.TensorCore.fst",
+      "sha256": "2a0d876dbb72f06f1b60a22c35b5c5ab86be4fadbbb37d9ae8ac370127ac6fa8",
+      "lines": 229,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.TensorCore.fsti",
+      "sha256": "7b409dbed4c4168b3e722e424d8fe977fa70f0b65a91decb37197d968748156a",
+      "lines": 145,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.TradeHelpers.fst",
+      "sha256": "794acb3918257a675a485c8ecca0f06c8c374062a1bacc362bc8e60fd8bbabd7",
+      "lines": 54,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/Kuiper.TradeHelpers.fsti",
+      "sha256": "542039f60ffa0fcef64351b3666c802c3b3c51ac2c7b4d4683ca3575a5040497",
+      "lines": 41,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/fstar.include",
+      "sha256": "1676cab650e6d36fcaa6acbc5745f400e5f5bcc7a0b6cc704a56b8605b078953",
+      "lines": 1,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.BFloat16.Base.fsti",
+      "sha256": "29dc84c6c1575536746d816a5d39c39f249e6fdbddde5bd58c7ef11bac5d1134",
+      "lines": 163,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.BFloat16.fst",
+      "sha256": "ad38375a61a9a5e1df613bc4f1d7f92e6d2de5077c6db592d737caad9e4626be",
+      "lines": 50,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 17,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.BFloat16.fsti",
+      "sha256": "4923acf7505135cf17aa889f1be48c556a5dda1aa8d19ceaa9c5261e35268b7c",
+      "lines": 24,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 18,
+          "marker": "assume"
+        },
+        {
+          "line": 22,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float.Casts.Base.fsti",
+      "sha256": "47f13032af5f173b3f8891cabccd55e9165ef1be299a00b3b82871fd29a8e03a",
+      "lines": 72,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float.Casts.fst",
+      "sha256": "789cd7c372fbb653aeb00f632ceadd6b7debd62a48b33a85847f9b111c3048d7",
+      "lines": 43,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float.Casts.fsti",
+      "sha256": "8e7675529180439811acb4c47b4d83815871df6907d722817d9cc53fe59b14df",
+      "lines": 56,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float.Realops.fst",
+      "sha256": "f570ccb05aa414cb0988203ab1f5aff810d48145b0d2e78f716364768bf5a6ab",
+      "lines": 65,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 55,
+          "marker": "assume"
+        },
+        {
+          "line": 56,
+          "marker": "assume"
+        },
+        {
+          "line": 57,
+          "marker": "assume"
+        },
+        {
+          "line": 58,
+          "marker": "assume"
+        },
+        {
+          "line": 59,
+          "marker": "assume"
+        },
+        {
+          "line": 60,
+          "marker": "assume"
+        },
+        {
+          "line": 61,
+          "marker": "assume"
+        },
+        {
+          "line": 62,
+          "marker": "assume"
+        },
+        {
+          "line": 63,
+          "marker": "assume"
+        },
+        {
+          "line": 64,
+          "marker": "assume"
+        },
+        {
+          "line": 65,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float16.Base.fsti",
+      "sha256": "f04c435458a686eb4528b90d66011c182374a22fa16db1e59bbb99750a8d5180",
+      "lines": 163,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float16.fst",
+      "sha256": "80f8a0a683922fda379e3bf94df9b91dffdb9bd055f6fd284413d90094d4af1d",
+      "lines": 50,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 17,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float16.fsti",
+      "sha256": "75c0bed90817dd36b1f919b7b1f7fc0cc91e8e3d1793dd31a5d7a32e2473c809",
+      "lines": 24,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 18,
+          "marker": "assume"
+        },
+        {
+          "line": 22,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float32.Base.fsti",
+      "sha256": "0b632b7aabfe83bb330a7779b54c6631434baa2cad0ddeb8231b9ea50befeb96",
+      "lines": 170,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float32.FastMath.fsti",
+      "sha256": "7d28a9625a4efcc8c51f8ffa3a47d630be1c940b7a9c318206286cde76124c2c",
+      "lines": 96,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float32.fst",
+      "sha256": "1e708740b5837e907df9c109c9328f4f4de91e1b0f90562d607b16a17a988e8d",
+      "lines": 133,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 24,
+          "marker": "assume"
+        },
+        {
+          "line": 70,
+          "marker": "admit"
+        },
+        {
+          "line": 82,
+          "marker": "admit"
+        },
+        {
+          "line": 94,
+          "marker": "admit"
+        },
+        {
+          "line": 106,
+          "marker": "admit"
+        },
+        {
+          "line": 118,
+          "marker": "admit"
+        },
+        {
+          "line": 130,
+          "marker": "admit"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float32.fsti",
+      "sha256": "ac70729ed7498e8bc52403df3afab85ea1779d1ba1e38f96d08505064d7859d5",
+      "lines": 98,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 35,
+          "marker": "assume"
+        },
+        {
+          "line": 39,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float64.Base.fsti",
+      "sha256": "a27ba2e15a168a52ed44942db562bab80ca641fa6b4dfe9f77a16d7e583eac46",
+      "lines": 159,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float64.fst",
+      "sha256": "a8ef28c20031d8bb8d04223b7a3859af3bfa2e6c0962458dc2348a708673b991",
+      "lines": 50,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 17,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Float64.fsti",
+      "sha256": "bb4bcb5ef9f8696e49ccad404c1ebf8de7a671688b98ccc6eb7a83c5bbd90e39",
+      "lines": 24,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 18,
+          "marker": "assume"
+        },
+        {
+          "line": 22,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Floating.Base.fsti",
+      "sha256": "e133ba313bffe500d592cea1b6f428a0452a7ef373225fcd83c6165bf94bcf0b",
+      "lines": 205,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 55,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Floating.fsti",
+      "sha256": "555456ab542c224475cfa60c4e9ebc8a81a02659a9b03aaaf96cf1e11f9f1510",
+      "lines": 58,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Scalars.Base.fsti",
+      "sha256": "a51a5017da4d5a46a3b9b4ab47992fa88c45fa85853e308dd62b77688496004b",
+      "lines": 70,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 54,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Scalars.fst",
+      "sha256": "91bdbe8e205b95b65c9a0d6bd870feb281e2f3dc0481962a365a9b0922339b90",
+      "lines": 53,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/kuiper/types/Kuiper.Scalars.fsti",
+      "sha256": "128d9fcd7b063b65dd1695bcf229075b8a59118fd2564a82fb2b49a3fef2db92",
+      "lines": 27,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/math/Kuiper.Math.OnlineSoftmax.fst",
+      "sha256": "7b6f10ed5da65c472ed490d5d84939b6f40817fc1060764a4e66c0567090ba77",
+      "lines": 591,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.Array.Iterator.fst",
+      "sha256": "2e6df59b5f92c5078c9afb63277ab2fd37c2ec1ab074ed6c17afdeaa928059ed",
+      "lines": 139,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.Array.PtsTo.fst",
+      "sha256": "2fc63e220162029b8a18aa6844786de68ebfa7249d8cd9a60baa0ec4f2022f7a",
+      "lines": 498,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.Array.fst",
+      "sha256": "aa4c22716c9fd2f11fed638cb86e80f0dc878d2dfae09506a36e76f253eec6f6",
+      "lines": 209,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.Common.fst",
+      "sha256": "50659b06c87e02e710025439b498a80c58842717677ce72776a35128299fa394",
+      "lines": 903,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 184,
+          "marker": "assume"
+        },
+        {
+          "line": 195,
+          "marker": "assume"
+        },
+        {
+          "line": 204,
+          "marker": "assume"
+        },
+        {
+          "line": 213,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.DotProduct.fst",
+      "sha256": "b775d18daea764d33fe839da427e89112812b055ad8c424814f38d5ba928e453",
+      "lines": 482,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.Load.fst",
+      "sha256": "a951d458586f8eaae103ea3d4f7689ef1884dc65ed5f60bfc0c938fe63b37771",
+      "lines": 417,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.Matrix.PtsTo.fst",
+      "sha256": "de28010b314ababc348a6ffc4b10a2e32346c817e6471b30cc955360f7dd85ac",
+      "lines": 675,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.Matrix.fst",
+      "sha256": "f751fe8c6e03e8ce2376454820ed4d9ceb78b0a40e97cb19fe87206bd2ae5240",
+      "lines": 753,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 396,
+          "marker": "admit"
+        },
+        {
+          "line": 406,
+          "marker": "admit"
+        },
+        {
+          "line": 422,
+          "marker": "admit"
+        },
+        {
+          "line": 439,
+          "marker": "admit"
+        },
+        {
+          "line": 456,
+          "marker": "admit"
+        },
+        {
+          "line": 712,
+          "marker": "admit"
+        },
+        {
+          "line": 728,
+          "marker": "admit"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.SPMM.Barrier.fst",
+      "sha256": "2d210a70b02e9ae1964b88141d8a160ddbfd578608b295a5f35dc818d19102b5",
+      "lines": 480,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 81,
+          "marker": "admit"
+        },
+        {
+          "line": 112,
+          "marker": "admit"
+        },
+        {
+          "line": 144,
+          "marker": "admit"
+        },
+        {
+          "line": 176,
+          "marker": "admit"
+        },
+        {
+          "line": 205,
+          "marker": "admit"
+        },
+        {
+          "line": 234,
+          "marker": "admit"
+        },
+        {
+          "line": 263,
+          "marker": "admit"
+        },
+        {
+          "line": 298,
+          "marker": "admit"
+        },
+        {
+          "line": 326,
+          "marker": "admit"
+        },
+        {
+          "line": 354,
+          "marker": "admit"
+        },
+        {
+          "line": 387,
+          "marker": "admit"
+        },
+        {
+          "line": 418,
+          "marker": "admit"
+        },
+        {
+          "line": 451,
+          "marker": "admit"
+        },
+        {
+          "line": 479,
+          "marker": "admit"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.SPMM.Barrier.fsti",
+      "sha256": "ba9eeefac04a6927fe500dac80d14769627f074196d57ab488002fd44b759244",
+      "lines": 637,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.SPMM.Compute.fst",
+      "sha256": "4ee423bad279208eef546e6d5bcb2daa935ba423d5fcf3d3e054f82f59be39c7",
+      "lines": 1409,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 409,
+          "marker": "assume"
+        },
+        {
+          "line": 411,
+          "marker": "assume"
+        },
+        {
+          "line": 666,
+          "marker": "assume"
+        },
+        {
+          "line": 667,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.SPMM.Compute.fsti",
+      "sha256": "b693a8770046b58af0acf578c0a7fc176e5c62a8f8fc7c7fc38036c8b8479da5",
+      "lines": 209,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.SPMM.Defs.fst",
+      "sha256": "fc5724fa86d9447cfa24fdc97baed4a4d126b981fe1b9c02c41b682a7da899be",
+      "lines": 281,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.SPMM.LoadDense.fst",
+      "sha256": "4a83dd6f71735e9631028050178a59f72c60ed6a098592e73160532fde3ee13b",
+      "lines": 546,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.SPMM.LoadSparse.fst",
+      "sha256": "0b1573a4f4218072ffdaff0962f423e5751776e936907a5ae85bceec4d8c6665",
+      "lines": 160,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.SPMM.Mask.fst",
+      "sha256": "b85debb6c9ca48b82bca7cf139201167edd2e84c78367c0c51b26e2605022b33",
+      "lines": 67,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.SPMM.StoreDense.fst",
+      "sha256": "54718df69f8befb4ca511ede1cd4fc26c9aadb4212bc488d8c30108fc9f10d22",
+      "lines": 164,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.SPMM.fst",
+      "sha256": "3e73a5fe5583e6adfabcecc9c72481a3332f3feea3531ab6c82a2425baa1b935",
+      "lines": 2412,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 422,
+          "marker": "admit"
+        },
+        {
+          "line": 486,
+          "marker": "assume"
+        },
+        {
+          "line": 698,
+          "marker": "admit"
+        },
+        {
+          "line": 1432,
+          "marker": "assume"
+        },
+        {
+          "line": 1657,
+          "marker": "assume"
+        },
+        {
+          "line": 2050,
+          "marker": "assume"
+        },
+        {
+          "line": 2326,
+          "marker": "assume"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.SPMM.fsti",
+      "sha256": "7738973e65e8241dfb53bd105ce6602eda7cdf9964aff02957644563a39e9b8b",
+      "lines": 139,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/sparse/Kuiper.Sparse.fst",
+      "sha256": "3280c887fad41fe2bb89cce4cfc75d5af795a280cd36905002f766e2da0e9141",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/spec/Kuiper.Container.fst",
+      "sha256": "bee5e04a6a0638370cd0db8c4f75465da385d2481396605647437046d51a371a",
+      "lines": 30,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/spec/Kuiper.Container.fsti",
+      "sha256": "2adf27629bf86c0d364443deb4513ea445b5183349ba202651ce19976923c54d",
+      "lines": 206,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/spec/Kuiper.Spec.Attention.fsti",
+      "sha256": "fd5c05a9ad506e86ee12dbde7363c91cb612bf2e56b256ee0d1b32a7282eac86",
+      "lines": 96,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/spec/Kuiper.Spec.GEMM.fst",
+      "sha256": "e60c59a475e176fa65b0d38116c7f3dae0ece3de4744ebb8479d35cd0dea83bb",
+      "lines": 723,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/spec/Kuiper.Spec.GEMM.fsti",
+      "sha256": "78c364eda9b42fba36af7f22af8069897745963f364870563b87e789c596b482",
+      "lines": 550,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/spec/Kuiper.Spec.Softmax.fst",
+      "sha256": "fa93d8c1643c92f48ee2fd833a4ca191a8d66b9bfb6f60686119e26b4a3662e8",
+      "lines": 135,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/spec/Kuiper.Spec.Softmax.fsti",
+      "sha256": "f5e651d5ce3901e6e2f3d8b4e02d96433006e604a6f407b4f9f6d3044c66839d",
+      "lines": 34,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/spec/Kuiper.Spec.Stencil.fst",
+      "sha256": "f540d7cb009a9f8d6e4763201be9d9c3d204a6e20a2a6b93f7c90a290170f508",
+      "lines": 42,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/views/Kuiper.IView.fst",
+      "sha256": "4a411503297d99de63191f4c8694563d295f5d6b38c34d1c539f9a88321e6be9",
+      "lines": 42,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/views/Kuiper.IView.fsti",
+      "sha256": "5ca634d1c64436b51e4a2e3172ff1c0abb4e952378070dfc6a97fce69efe6cf5",
+      "lines": 290,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/views/Kuiper.View.Concat.fst",
+      "sha256": "80f90a6bf1d2d7065cf9e9333dadf549af32c3b95868a91e8131fe6356deb3b3",
+      "lines": 61,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/views/Kuiper.View.TwoTiles.fst",
+      "sha256": "5a6d4178aee9e57b483f811438395563f4d9c5bbcfffd31ef5e81d93f79449b0",
+      "lines": 74,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/views/Kuiper.View.fst",
+      "sha256": "ee1d60899f93f2bba75a58be3eb0f5322707415157143af6039638e14cacb455",
+      "lines": 94,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/lib/views/Kuiper.View.fsti",
+      "sha256": "320c300130824776bbc6444430a8163d0efb5ae38d38a332b4d8ad548956938f",
+      "lines": 233,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/tests/Kuiper.Test.Approximates.fst",
+      "sha256": "33a7ca4338078241a6723ff8a99c99bc41b22da405135469cae98fb64090776c",
+      "lines": 56,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/tests/Kuiper.Test.FloatRealops.fst",
+      "sha256": "238326c312023aebc88d31cb1a93d40e4458ab98441c9a913cf6aa02a48ba63c",
+      "lines": 52,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/tests/Kuiper.Test.Floating.fst",
+      "sha256": "70f4026e89ff3d16c115bdfa3155a3d17848d5aca2163a2dc7c3d371f443e5f9",
+      "lines": 101,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/tests/Kuiper.Test.Locs.Friend.fst",
+      "sha256": "4b4138b79ea8fda68322c1fc1b05235646c7bca5ccceec69e50f7249deedb3c1",
+      "lines": 81,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/tests/Kuiper.Test.Locs.Friend.fsti",
+      "sha256": "18d8011ef75f49a3ad97b31e137d3d34a86880e1fa34888bc4bdf29fcce01c52",
+      "lines": 6,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "src/tests/Kuiper.Test.Locs.fst",
+      "sha256": "dce4582bbd6a6b0e7d2fd9aa62b326f52034b565ff9af54e212b6969b97cc509",
+      "lines": 97,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "include/kuiper.h",
+      "sha256": "b14341b95c9e1dde6e62ca5d87f9c40cc645ddc1d95e2620e3f2cb2a3f01f2d6",
+      "lines": 156,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "include/kuiper/atomics.h",
+      "sha256": "05c2ceeb3eab75810a049a6fb97de8bb73268ff33195d77b8c8a17e2e35f7f8b",
+      "lines": 61,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "include/kuiper/float_bits.h",
+      "sha256": "7e90d761ce4e770d1c47d6629dd55338773f9aa58d8b119aaf96eb80440d4a3e",
+      "lines": 42,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "include/kuiper/math.h",
+      "sha256": "79ae63a4bb05c52dfb490ef6d1a7f4afdae7f2b49cee25a614b4a2473cfd56b1",
+      "lines": 208,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "include/kuiper/tensorcores.h",
+      "sha256": "81b4f0474833f03e03448a9d7cba731b0935eb2d561904390e8281f393a73e4c",
+      "lines": 62,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "include/kuiper/vectorops.h",
+      "sha256": "8dcff8dca8152632492b3c5d8ab8f57383625f1234e8a9c9c5da68bac1fdf840",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "include/kuiper/wgmma.h",
+      "sha256": "888c3d1064c2777e06603baac72f867a15f0b254c88a6d8b4ef131115f459cb8",
+      "lines": 96,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "extraction/.gitignore",
+      "sha256": "a00ff50fa5b541706962908be2995b7ccc3e66abe691766683a3f2ceb22ca2ea",
+      "lines": 2,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "extraction/Cfg.fst.config.json",
+      "sha256": "c85884abf30157e5c47669fdadc46dcfd0b81e325d79a98f58e7d5eb2663f6e1",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 5,
+          "marker": "--lax"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "extraction/ExtractKuiper.fst",
+      "sha256": "01dfb58405cc5935b4110643f489be43ad0d0b9a692acc60ca0e9333890da708",
+      "lines": 1202,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "extraction/ExtractKuiper.fsti",
+      "sha256": "54c6f8784354837c5ab773c4d98b8eea5346f8ba4cc35036df19f7ff8c1f0e97",
+      "lines": 3,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "extraction/ExtractionUtils.fst",
+      "sha256": "aadfff9eae11a0c1c1d884fb86bcb883b82beeee7150cac75c33d8478a2d3db6",
+      "lines": 407,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "extraction/Makefile",
+      "sha256": "a7ce2a67b441edc7602de77a15429f2b09424d8a4d38dce0053898bbe87a6ed7",
+      "lines": 31,
+      "lexical_proof_boundary_markers": [
+        {
+          "line": 16,
+          "marker": "--lax"
+        }
+      ],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "extraction/dune/.gitignore",
+      "sha256": "fde6e46547307ef7e718427de6b7e3d65c6804d77a104f59bed39cec5b1b7c51",
+      "lines": 1,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "extraction/dune/dune",
+      "sha256": "54115d55453e84d00af7c72f74d99a83a4365c3e2ba922e3bafff9aaf2871635",
+      "lines": 12,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "extraction/dune/dune-project",
+      "sha256": "1c5c6de06ab448ccd9f52d5069d96cd13e42d85181887bc592b4c24e4b72ec04",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/BUILD_INFO",
+      "sha256": "49b31556a31be9aa16f926ff97260a991ef00dbc337320ed6d78eb43c3c168aa",
+      "lines": 5,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_AtomicReduce.cu",
+      "sha256": "79e56b58c615589b78a8761be9691d1bf073c81d7eb2e8f1d2240e3ebcb4dff8",
+      "lines": 98,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_AtomicReduce.h",
+      "sha256": "4890eea5bf59d35234ca83ed8b15a7c229e807a80497b259c25f4e2d5179ef2e",
+      "lines": 16,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_BlockTiling1D.cu",
+      "sha256": "3ed3e6755e331ba2eee76c6bc6b3b5fc8e187134fede442c9a82878640b30f6f",
+      "lines": 954,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_BlockTiling1D.h",
+      "sha256": "cb0dd9da2408bc0b52693aee8c5c912c6b75b9c726b09086acfc60c1b4b13e9b",
+      "lines": 60,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_BlockTiling2D.cu",
+      "sha256": "31514d6ade4b34abc6fc8d8ce83f423420525d27a04f701b90fa08c1d08e357e",
+      "lines": 14932,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_BlockTiling2D.h",
+      "sha256": "f1f6741f4026dfe5fd880be5002dbacea5a636f5ff640e0d1c6bedd37223a982",
+      "lines": 514,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_Naive1.cu",
+      "sha256": "b171162ecb7e0f5aa17647049b7de2748644c41b581414d6aef8d58daf7bd98f",
+      "lines": 296,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_Naive1.h",
+      "sha256": "88f4cbcca92abf602f87ffab32907e1716eec3fdecef49364f8853eac641ff16",
+      "lines": 38,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_Naive2.cu",
+      "sha256": "8056a28745d0c65824d9b7b999b049cbb4ecf27651b33cc7ee25e8235964e1fe",
+      "lines": 330,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_Naive2.h",
+      "sha256": "8635427382b458b177844026a2fcf53255444f11a4505c8887d18739c75d96ca",
+      "lines": 38,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_Naive3.cu",
+      "sha256": "3bd9a5b54144455254628e66670f0e2d5cf208df7f1101a4b1de863713e1922f",
+      "lines": 228,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_Naive3.h",
+      "sha256": "6e9f9ed19927fcfe66c02e7f4b5920a03b15825479a483d49dfd80138e284090",
+      "lines": 26,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_SHMem.cu",
+      "sha256": "38a05dab296f5ccf075c7a3479d4010d1893bec422f6fe8b01797192cbb6b8b6",
+      "lines": 1294,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_SHMem.h",
+      "sha256": "fb9d13140c15b7aca45800565a84bdde06e3d36baffaf1ade5e4ec37f985595a",
+      "lines": 86,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_TensorCore.cu",
+      "sha256": "5d735b1d697f6cb1e84aa4a96e2a568e2f92949001b7af1995e6d49ec4a35249",
+      "lines": 1048,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_TensorCore.h",
+      "sha256": "9971d0d42cc406e1534aabbbb896c551f3eddec4fa80aa7b4449b194e9dacbb1",
+      "lines": 41,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_TensorCore2D.cu",
+      "sha256": "474f128bfad5384ba9080be5dbf49b4c8680d39343eed6d6fe24d1c35e669dbb",
+      "lines": 17402,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_TensorCore2D.h",
+      "sha256": "8b97a54878eaa18ec498bd819c4fa319e003011858e93728c230536ce556024e",
+      "lines": 538,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_TensorCore2D_To.cu",
+      "sha256": "8579ce41bbc7b5c0c68f1a6c0b3a8c4c645f676e8da1d757465658c260078beb",
+      "lines": 9893,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_TensorCore2D_To.h",
+      "sha256": "da7e9cc87828c70762f14ade709244633ffe6784df46f5a30b10f3301c4b6404",
+      "lines": 368,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_Tiled.cu",
+      "sha256": "3b76677465d949bc49dcf1227b9816bf8a216e365c8e982dbc55ceca87ab3566",
+      "lines": 1142,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_GEMM_Tiled.h",
+      "sha256": "8fe1da026e7f12d416afe2d15d7d74b80e40d256671fe17ac0ea5ff02c5521b8",
+      "lines": 86,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_HReduce.cu",
+      "sha256": "5641220d057911e16dbf7a0785b4a0fb2b4f92e92bbe99dab005b36aeb0079f3",
+      "lines": 271,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_HReduce.h",
+      "sha256": "09788921055365429b50480af05aac45d46e50d43d41372615cf801c107278c1",
+      "lines": 18,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_LogSoftmax.cu",
+      "sha256": "f249a569f1e0036a04dc812188ab1965c4570dedf1094a22fb48fa101b69d78a",
+      "lines": 900,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_LogSoftmax.h",
+      "sha256": "5b69ab8f4fbb0fc9b70d460adbeac44351add9f59f3b28ceaceed1d521192321",
+      "lines": 35,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_RowScale.cu",
+      "sha256": "933af73d3bd5bcde27aa79602b3112912d3655d5d7eeb9b74b75c5ef6c41dfe8",
+      "lines": 154,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_RowScale.h",
+      "sha256": "a4ac85e596016e1b5e866de92e4d419ab7f59f7944544573b8ea0cf8ed7b53c2",
+      "lines": 26,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_RowSoftmax.cu",
+      "sha256": "98c6f978752d2a10dceb067abf2fd94558737bf1efbbd21de84904e0f3541b72",
+      "lines": 256,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_RowSoftmax.h",
+      "sha256": "4ff7fb4a26cb9b9136bcd836a829579377fb1f82b17e56ff48e70d7b7df6d758",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_SPMM.cu",
+      "sha256": "3281ebcfcf037eb248f09a80cd30357bec93629bd461bad5d9f73b96b8477236",
+      "lines": 11252,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_SPMM.h",
+      "sha256": "b3cafdc2048f414153fe6730d34fcd551c309fbc2cff2dd341b1e6e10a93b69d",
+      "lines": 314,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_Softmax.cu",
+      "sha256": "649fe101edf93e75442a18d045bb9cffc219a680e2eaa18b35d039f6bb74adce",
+      "lines": 1521,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Klas_Softmax.h",
+      "sha256": "71347d77a9f05a80d37b2e51023f66081871af017cb03dfa67cd39b2b3b3ccb0",
+      "lines": 32,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example1.cu",
+      "sha256": "903b794585e08b8b16fd3995d7b00fc1b24dac13bad20f766060a2e4121d2db6",
+      "lines": 27,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example1.h",
+      "sha256": "f9d0a65f72f38fcebf0295c4ad95bd381f746ee62a0e788fcda6ada8deee80dd",
+      "lines": 10,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example2.cu",
+      "sha256": "582f2f67fce7cb15c4176701562ae13f60443bc2c9ef1413e90a254aa18e592a",
+      "lines": 20,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example2.h",
+      "sha256": "d7dbdd2222b8b519631ffe08e1a1b1d839ca4b1e3e26fde2d2837c2166c45ad8",
+      "lines": 10,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Add.cu",
+      "sha256": "cae2d5e9029cbd9281dcc5bd5d7b3528068f86549482e2f67d16cb7e5d3cae2a",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Add.h",
+      "sha256": "1438355625d09d3e46cc8b8e3b96d8fdfa4cc77ea161babe072d2bf2d3112660",
+      "lines": 20,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Add2.cu",
+      "sha256": "29d4c013b1c298728a2eff10f18a40f511bd07a1aeb2349004ea0f307e9263ae",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Add2.h",
+      "sha256": "d29fe60c5b2cdc3ed7689a4aba1911312f2fea9e60d42058148ddb4a47c9f2fb",
+      "lines": 20,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Array1.cu",
+      "sha256": "7ad84d3452a7902c0db5404b3e157ef68b9d0fd5648f9245a6dbaf70ab0e8aa6",
+      "lines": 6,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Array1.h",
+      "sha256": "942300acd8f75ff78627e8a2a300b1496a3c8a81b4f5159d157912d34adea15a",
+      "lines": 12,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Array2.cu",
+      "sha256": "3c862e2080801d03b0310544e99b875d1e1e440f8dc6d8be4dca467dbce9b55f",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Array2.h",
+      "sha256": "096024b99c78c376567f6c6149351477e6a5692525b9bb2495900cf430cc5fb6",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Array3.cu",
+      "sha256": "23fb083db43b7b3f28f2dd2c187d96106277b4a5900e0241d1a2a3bde05baab9",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Array3.h",
+      "sha256": "3d26e64b72ff67c67cdf4cddbe52b558e6f1b0c13a991f6f3281f0af4750af32",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Array4.cu",
+      "sha256": "4e98e5b245fc0ab889e6b188b7fb7c056bcfd34f1287ac61a25cc508b2163da7",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Array4.h",
+      "sha256": "ae13b7af129f51c53d7f63e3bb46772491c5955ba309eda8cefba5ab5762cb75",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayReversal.cu",
+      "sha256": "c23df323794e63e7f1ef00012cd94720d09938b1edf47b833e72308e9d903f21",
+      "lines": 23,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayReversal.h",
+      "sha256": "1c0341ebb9c618fa151d41d69bd530bcde7de655544a947b622e503da1211395",
+      "lines": 10,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArraySlices.cu",
+      "sha256": "7848da2f86f99ca4351a72a41188c72ea55df0982511fecaac0ba66d9a6d1215",
+      "lines": 2,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArraySlices.h",
+      "sha256": "7b7d5f17b4b3a150bf3e49062744d30071d04bfeaca38da1062ee8226279ff48",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayView_Test1.cu",
+      "sha256": "49e6bcd67797c8bc0a8d431aa1b2af85d676142cb6f2c553133cd38a0509a19c",
+      "lines": 15,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayView_Test1.h",
+      "sha256": "fafd062752df9c3606623d70ea9fbf0a7029234a1b25dc9fcd704c7caf8ea40c",
+      "lines": 18,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayView_Test_EvenOdds.cu",
+      "sha256": "7d83c8716c875c789f8c1c506b70642e5ada663fac1abfcfbb7f2ef28f6a6e4e",
+      "lines": 17,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayView_Test_EvenOdds.h",
+      "sha256": "ac3f62108052fa489736ca9d20f041cb14c47314eb749cf660f601f0a1cc98d2",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayView_Test_EvenOdds2.cu",
+      "sha256": "472d7d060c5e0b7e72da9ce689c80df799d04c8eeab7abbff810441a5df1c88a",
+      "lines": 31,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayView_Test_EvenOdds2.h",
+      "sha256": "8285329a88300d33e53acc315875616a38d3ebf63c32689c5bd8d90c5d47e415",
+      "lines": 18,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayView_Test_EvenOdds3.cu",
+      "sha256": "dd67861f8b5347b2919e38b3a59784a8c2985e2c5f4131ffbb19feaed31f6bfc",
+      "lines": 26,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayView_Test_EvenOdds3.h",
+      "sha256": "b34b5ca2201ee33fce1beced8d02962993dc5ca3af6d4bd6db3ebf516d5616e5",
+      "lines": 16,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayView_Test_EvenOdds4.cu",
+      "sha256": "6393fa0b649ccb7e01c12db8702b2975675843590bb97572ceac364c0de2b4ec",
+      "lines": 4,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayView_Test_EvenOdds4.h",
+      "sha256": "adbc7c29803534c1a430b9a285764fb478bb1f71ba72f379d846fe072fa23d52",
+      "lines": 10,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayView_Test_Modulo.cu",
+      "sha256": "d07d927d3b70c31b38358a1874e886ce883cea502ff053d6fe3743ebc0523030",
+      "lines": 4,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ArrayView_Test_Modulo.h",
+      "sha256": "99964fd107b3be960419936cd23bb55f19a8dac5df1b507025b5aaf2afa45fda",
+      "lines": 10,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Array_VectorizedAccess.cu",
+      "sha256": "03147ca7f5502d7e84f830bba1d57e8bdab05b390b80a1dbcaee97602c4e38c3",
+      "lines": 33,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Array_VectorizedAccess.h",
+      "sha256": "176f6c5914cd276eba3ef344c098cb24110a3ddb77b257a1e11218a11c78ff9f",
+      "lines": 10,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Async1.cu",
+      "sha256": "a92457497dc24d335b9e193715f5594a874359e567384b09b59a5bb04d52a149",
+      "lines": 119,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Async1.h",
+      "sha256": "5370fb27628e75df28b8261a83639cf5efedadc26bb6b5503ae45d95420d2a80",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Async_Chain.cu",
+      "sha256": "c697e675b27f68cf7920c42b49df2c015ddeefc541ecc580446d00c6cbb2ede1",
+      "lines": 62,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Async_Chain.h",
+      "sha256": "230029c497d1a29c6a37f90e87a8a02a44149726fb679e2502b853e8a31ea6f1",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Async_GEMM.cu",
+      "sha256": "5886892ad3f5d0a7ba21a6acd6b21cde5976827832baa7f9f1b9969ff9d19791",
+      "lines": 80,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Async_GEMM.h",
+      "sha256": "1e6bcec0d18f8f1a0f9a215ebb741031be8eb77ec7311808e3e7030c49ba002d",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_BasicFloat.cu",
+      "sha256": "01be8d187075893c4d5da2c1cc08339168f4cf96d5d8158f00ccde70bbb000bb",
+      "lines": 27,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_BasicFloat.h",
+      "sha256": "79e9f4011d063b26dddc10f6a6f85c9936126544415f58d66c0793f8c0be7a2c",
+      "lines": 10,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_CellRef.cu",
+      "sha256": "1151a9b816a30e4bfd59d9732842d7e65f4e37a1bfafaf97299dfa0ee711e193",
+      "lines": 18,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_CellRef.h",
+      "sha256": "ffb339165b18f37ab8b1001c43d944f09c77a3a07979a521596d41de6dbde5f5",
+      "lines": 15,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_DotProd.cu",
+      "sha256": "f9a6b5577f64a8a17322620756d6f855fd14a9949d2f8333ae3c321f1a2c57e6",
+      "lines": 20,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_DotProd.h",
+      "sha256": "3fd538c84171c1322f8ee8253027d56566820748b80f091dde7921783bffe05d",
+      "lines": 16,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_DotProduct_Poly.cu",
+      "sha256": "cc25beecb96adc53efb1feeafe6ca80d04090b527e7ed51f56e98f93e5082f02",
+      "lines": 6,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_DotProduct_Poly.h",
+      "sha256": "047e6ee0a4dadff9d3bf8cce8bbd5e098fa8c88d5754d5c4ff28397b35877c03",
+      "lines": 12,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_EvenOdds.cu",
+      "sha256": "bdddc861a58a45f26135dd12c736404177d340e4a1b3635f118656229f6c9a67",
+      "lines": 2,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_EvenOdds.h",
+      "sha256": "16aba6f671a4c9b8f90684f84f41300e0abb2cda722f51b164e526259c97a2d3",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Float32FastMath.cu",
+      "sha256": "90b459dd8627d33ea56f2585c962a02952c5ae73ace4afc0f8748a8298077da7",
+      "lines": 35,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Float32FastMath.h",
+      "sha256": "8493ebd4279cf90289c8de4bacca2e61485bd4ab1ff7d0f58b9e4340a0a73f1b",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Float32GPU.cu",
+      "sha256": "314e2b367918e2491a070a3f5770ffe9801425fa35bb3a8b36c51b1246623f80",
+      "lines": 127,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Float32GPU.h",
+      "sha256": "b3a49c3fcb85f858060305f8bcddea79cfb186209b48bcdf4cbf0fd109e0cc35",
+      "lines": 19,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Float32NativeLog.cu",
+      "sha256": "4d570a52e62ad2059214572fcfe3ab8e58f4b3a2981f66eb6b9fb814ada7d8ab",
+      "lines": 25,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Float32NativeLog.h",
+      "sha256": "cd257c843fb8b188060bde2b031a0909516d32e5fac64dbea0dc6a6a613e5bd5",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Float32Order.cu",
+      "sha256": "428af6705490e7e19f945f6970fcc66985f33853a3a55b1af8ad8a97082f111c",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Float32Order.h",
+      "sha256": "32a8c5a939e39d17325e54b732b7e8de172bc3a52f8b534829c1cb706d0db292",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Float32Trigonometry.cu",
+      "sha256": "3740671d38927dd1ed155d7998c3b26632a9b4a792bbedec43fd59e9a22d86c6",
+      "lines": 29,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Float32Trigonometry.h",
+      "sha256": "2c758bc4ce681d3930c016593c7061d11af7ae440b679598440353f29a432df3",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_FloatCasts.cu",
+      "sha256": "1e3400827ed08c48e989ab6943f237b49cb82f8bd42faf73280308ebcecfd1e9",
+      "lines": 73,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_FloatCasts.h",
+      "sha256": "4b0cf7eaefced47b39d6f8c3654186e904575372776bac55c24ddfb303e5a025",
+      "lines": 40,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_FloatEquality.cu",
+      "sha256": "80bc7de9c36882eae80a2ccf868a6a62a52fbe2ee7f5b84461959628d4e2f1a1",
+      "lines": 77,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_FloatEquality.h",
+      "sha256": "39b7bb6e44cdccadbd4f3565aee1dd9bee1c4478f7bd22f0700a1c2698748389",
+      "lines": 44,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_FloatTests.cu",
+      "sha256": "6f72383a21d54904504794c9bf542dd5b572a6beaa9cfe1a4dd22eebc3471c93",
+      "lines": 2,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_FloatTests.h",
+      "sha256": "fb177ad2609e6e840abb7f65deb35f399a7de017aae2f10791501ce5098a81a1",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Fused_GEMM.cu",
+      "sha256": "b7a78a45d06585526a3da30cf2b07812114a96aca9ad2693460c23c92d6941b8",
+      "lines": 40,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Fused_GEMM.h",
+      "sha256": "fb242cafaebb68a7adc05004d26017df6d016f4453669b5502bc16f1f616e1fe",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_IntApprox.cu",
+      "sha256": "32150fe290f2b71ed46719f157fb2d761a6f309cc1d650319cddc1351db4246c",
+      "lines": 2,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_IntApprox.h",
+      "sha256": "48281000a31c40cc344615c7e3d6d3523593b7ebe7bbbf63b8397e1e3331467e",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_LaunchBounds.cu",
+      "sha256": "62d26b665dbf49355f9414b36bf0fe6e4e3008b836e8632e707547408d1ce9f0",
+      "lines": 70,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_LaunchBounds.h",
+      "sha256": "562b9fa40389b965a40355d3d35e9c0b3f3fa5bb3c92911ce213cd295cae1433",
+      "lines": 16,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_MatMulTranspose.cu",
+      "sha256": "16fd209d70dc8216d5f8d6ad9ebbe10606388cc6aa4a928c18b88db0636446e8",
+      "lines": 2,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_MatMulTranspose.h",
+      "sha256": "f464a80c7f5ce980fa382148bfd83d704b68e1ec099d4bf3e7af36c3f307e0c0",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_MathPrimitives.cu",
+      "sha256": "0b53aa4e74314b42ab34cb4ffda0ba7df6108002edc17cd5d80c2cd201feb524",
+      "lines": 384,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_MathPrimitives.h",
+      "sha256": "98b096e0b0904050284a880c7debcc5c0313b9fd41dfe561d422127e65541640",
+      "lines": 210,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Mul.cu",
+      "sha256": "a0c0517801eb27a7e6bbc5fb185b3a96cf8b3b67c41c1be0036bbbf124218f4d",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Mul.h",
+      "sha256": "805f5e2b01b61ea8ad894142252eea6ea7956d5f22eb8240cda88c2e7d79872f",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_OffsetMemcpy.cu",
+      "sha256": "bb5e380f19588d22fabf21037787216f292e1ec2684ef10c99f53b2c08ee89fa",
+      "lines": 32,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_OffsetMemcpy.h",
+      "sha256": "505ad25e0ba5d31bc4e7c1430748f1672678b08b091944d68d4c26588318166f",
+      "lines": 10,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_OnlineSoftmax.cu",
+      "sha256": "ec0990cc3a912e085e40516f8e98187b4357b5250f4dc0490a9d2aa3ade66b46",
+      "lines": 78,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_OnlineSoftmax.h",
+      "sha256": "73e86309c5615597eab3d2e02a163bad5aeaa3911cef9a99d75051681b13e078",
+      "lines": 12,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Polymorphism0.cu",
+      "sha256": "7a766abbc5b5826cb46686d5fa9fac4877310ea74da83a054b2a67ceb4d2cae0",
+      "lines": 17,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Polymorphism0.h",
+      "sha256": "925064129fd31a4d9a47b4e4682fce0f19a4cc68ca5593907f8932db337bbc8c",
+      "lines": 13,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Polymorphism1.cu",
+      "sha256": "2d8129b0aadf7a70903f9cb2b0936157d4c663c1cc0d2cbb53d789413b3d6f16",
+      "lines": 68,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Polymorphism1.h",
+      "sha256": "87635f2dda95510b2053a0db89734f4e1a59569b15b69bd0cfa3c710979930a4",
+      "lines": 12,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Sparse_Example.cu",
+      "sha256": "d94e8905ea5e4746df82b45997116cf5b88794f1cc068bc1a3d4222793f5e65e",
+      "lines": 18,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Sparse_Example.h",
+      "sha256": "aebcf33bcbeff68e6a8b35017f46321c643abbc3856fe4a61b73b5ec635c9d27",
+      "lines": 20,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Sparse_GEMM.cu",
+      "sha256": "8bda856c28fb30d43a1bdf46f154b33a2fe8d9846c216bfe286cda45cbbd4f88",
+      "lines": 35,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Sparse_GEMM.h",
+      "sha256": "74fca2624e3522fb323811d29fe3b360ef03a0bf44e03c201c11156d16c5a9e9",
+      "lines": 19,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Sparse_MM.cu",
+      "sha256": "603080e80a6408eeb2c2cfdeb0f31355972980f7765cd8402b5c5ee8629564ac",
+      "lines": 41,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Sparse_MM.h",
+      "sha256": "05b7316ee1b4ffbbb4c98b45474af6b4ae16df7859d7637c53e48b5210545f9f",
+      "lines": 23,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Stencil.cu",
+      "sha256": "96a2dc2c7b93f1926e7c4b31909c1e6a589823ef47525e29510805a4df1a8fad",
+      "lines": 68,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Stencil.h",
+      "sha256": "e9ff8b7aa24bb01d68af12036cf5d66596df4002c1840af1e222fdf4e9426b18",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_TMap.cu",
+      "sha256": "df1878607589b041e8fd98c210f14ce1b71bee31004d509010c070d069ad336e",
+      "lines": 53,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_TMap.h",
+      "sha256": "53f8ab98809b02e48114a3e14902af314298f7bb3bd8672285ebee047de05677",
+      "lines": 12,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Tensor.cu",
+      "sha256": "5189c076cb41656f3660875707d3c98e5fa40db2bd617b208b01fbb57274670a",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_Tensor.h",
+      "sha256": "76d61c53bae39a606b879d815c06f4ef0a668e959ff99a5a2d5e1bea7e2379c2",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_TensorCore.cu",
+      "sha256": "17b0604d4b77a0a1a725f0bcba6c0a86040f26e09c05f2fc48d0530ae4d43ee1",
+      "lines": 36,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_TensorCore.h",
+      "sha256": "cb112bac9eb5a207b8238d27790cc7a9926f954e1e2bac45e5539671c75a26c4",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_TensorCore_WGMMA.cu",
+      "sha256": "ad61e235e6d2efe1151cf229b4d20c300091345c2d5f4da183970ad0e748fc76",
+      "lines": 21,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_TensorCore_WGMMA.h",
+      "sha256": "47f7b462ebdfa28c32cec85f1189ecef07f82944fdfdf01b18f49aba97887f7f",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_TensorRO.cu",
+      "sha256": "1452234bf50270f11421f31db39d9156160079e6296658d27d068a9bb80e7707",
+      "lines": 8,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_TensorRO.h",
+      "sha256": "e3a07e3da2afc856b7977840818d1963a12fa214e2aa0de47ba3b810965c2695",
+      "lines": 11,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_TestFor.cu",
+      "sha256": "b6b4f85ad5f260a247d2d329d463a0196a7a3f835c2e0d1ecf1ac5e01c878c3f",
+      "lines": 38,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_TestFor.h",
+      "sha256": "74e7f89764555cd8f46a71ea65731f225e01b778eb382696a3802b2dad0426a7",
+      "lines": 18,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_UnusedLocal.cu",
+      "sha256": "1e6dcc7fb81e450208327851d32a8fdfc5b8235031b452a00a8e116ba514c4b7",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_UnusedLocal.h",
+      "sha256": "612b97d134f80ad392f2a615708721501249b42ffd28972d6590a3c26f628071",
+      "lines": 12,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ZeroKernel.cu",
+      "sha256": "84582ba89226dbf999094fc3ded3a9de93624cc0e5434920fe15902b9c14e99f",
+      "lines": 19,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_Example_ZeroKernel.h",
+      "sha256": "654bf24f9cd5d67f95e6a1c2f15baebacc876bc5d5f36f6e98e9b507d553bcdb",
+      "lines": 10,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_GraphDist.cu",
+      "sha256": "e07a9767bbcadf7c241da3dbd1a47ccd9c9706a36011cbaece3814b1731e607d",
+      "lines": 56,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    },
+    {
+      "path": "dist/Kuiper_GraphDist.h",
+      "sha256": "2506b8097b61f3333d68ea61f4a7010ba54eef88903e6740850d2c2fd4b1b79e",
+      "lines": 14,
+      "lexical_proof_boundary_markers": [],
+      "portable_source_export": "not-implemented",
+      "replacement_qualification": "not-run"
+    }
+  ]
+}

@@ -67,8 +67,7 @@ unsafe fn call(
                 canonical::encode(&result).map(|bytes| (status, bytes))
             } else {
                 let invocation: Invocation = canonical::parse(&input)?;
-                let artifact = route.compile(&package, &invocation.entry)?;
-                canonical::encode(&route.execute(&artifact, &invocation)?).map(|bytes| (OK, bytes))
+                canonical::encode(&route.run(&package, &invocation)?).map(|bytes| (OK, bytes))
             }
         })();
         match execution {

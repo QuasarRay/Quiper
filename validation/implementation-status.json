@@ -1,0 +1,366 @@
+{
+  "schema": "kuiper.implementation-status/1",
+  "production_ready": false,
+  "assurance_policy": "kuiper.experimental-tested/1",
+  "milestones": [
+    {
+      "id": "M01",
+      "roadmap": "Roadmap/README/01-freeze-the-goal.md",
+      "status": "partial",
+      "details": "Experimental integer scope and full-replacement boundary are explicit."
+    },
+    {
+      "id": "M02",
+      "roadmap": "Roadmap/README/02-sequence-the-implementation.md",
+      "status": "partial",
+      "details": "Dependency-ordered roadmap preserved; implementation evidence is separate."
+    },
+    {
+      "id": "M03",
+      "roadmap": "Roadmap/00-current-state-and-gaps/01-freeze-the-semantic-inventory.md",
+      "status": "partial",
+      "details": "All legacy source/foreign/generated files inventoried; entrypoint transitive closure still required."
+    },
+    {
+      "id": "M04",
+      "roadmap": "Roadmap/00-current-state-and-gaps/02-classify-the-proof-boundary.md",
+      "status": "partial",
+      "details": "Lexical assumption markers inventoried; actual per-entrypoint trust closure still required."
+    },
+    {
+      "id": "M05",
+      "roadmap": "Roadmap/01-target-architecture/01-isolate-the-contract-core.md",
+      "status": "partial",
+      "details": "Independent core/contracts build and generic manifest routing implemented; general pass planner not implemented."
+    },
+    {
+      "id": "M06",
+      "roadmap": "Roadmap/01-target-architecture/02-freeze-portable-artifacts.md",
+      "status": "partial",
+      "details": "Strict canonical artifacts and parent/reflection checks implemented for the integer profile; protected compatibility/evidence admission unfinished."
+    },
+    {
+      "id": "M07",
+      "roadmap": "Roadmap/02-language-independent-extraction/01-implement-the-neutral-language.md",
+      "status": "partial",
+      "details": "Typed/effect-checked integer KIR, independent evaluator and bounded owned host plans implemented; declarative implementation refinement unfinished."
+    },
+    {
+      "id": "M08",
+      "roadmap": "Roadmap/02-language-independent-extraction/02-export-a-checked-kuiper-program.md",
+      "status": "not-implemented",
+      "details": "Required implementation and qualification remain unfinished."
+    },
+    {
+      "id": "M09",
+      "roadmap": "Roadmap/02-language-independent-extraction/03-run-host-plans-from-two-languages.md",
+      "status": "partial",
+      "details": "Core and C execute the same owned plan; source frontend and general async/native host semantics unfinished."
+    },
+    {
+      "id": "M10",
+      "roadmap": "Roadmap/03-backend-extension-contract/01-load-an-external-compiler.md",
+      "status": "partial",
+      "details": "Measured external compiler installs and runs without core rebuild; independent additional compiler qualification unfinished."
+    },
+    {
+      "id": "M11",
+      "roadmap": "Roadmap/03-backend-extension-contract/02-match-artifacts-to-independent-runtimes.md",
+      "status": "partial",
+      "details": "Independent compiler/runtime match complete word ABI and format; broader capability/evidence composition unfinished."
+    },
+    {
+      "id": "M12",
+      "roadmap": "Roadmap/03-backend-extension-contract/03-prove-additive-installation.md",
+      "status": "partial",
+      "details": "Installer and integration verify unchanged core sources; full immutable release/additional-extension admission unfinished."
+    },
+    {
+      "id": "M13",
+      "roadmap": "Roadmap/04-spirt-and-gpu-lowering/01-build-and-qualify-the-worker.md",
+      "status": "partial",
+      "details": "Pinned direct SPIR-T construction, diagnostics and final validation implemented; broad feasibility/refinement qualification unfinished."
+    },
+    {
+      "id": "M14",
+      "roadmap": "Roadmap/04-spirt-and-gpu-lowering/02-run-the-integer-vertical-slice.md",
+      "status": "partial",
+      "details": "Frontend-free integer KIR executes on CPU Vulkan; actual verified source export and physical GPU evidence missing."
+    },
+    {
+      "id": "M15",
+      "roadmap": "Roadmap/04-spirt-and-gpu-lowering/03-preserve-control-memory-and-participation.md",
+      "status": "partial",
+      "details": "Pretested/nested loops and condition effects tested; full convergence, barrier, pointer and trace refinement unfinished."
+    },
+    {
+      "id": "M16",
+      "roadmap": "Roadmap/04-spirt-and-gpu-lowering/04-complete-numerics-and-target-emission.md",
+      "status": "not-implemented",
+      "details": "Required implementation and qualification remain unfinished."
+    },
+    {
+      "id": "M17",
+      "roadmap": "Roadmap/05-runtime-and-interop/01-enforce-submission-and-failure-semantics.md",
+      "status": "partial",
+      "details": "Bounded private session ledger and synchronous owned dependency DAG implemented; full async scheduling and refinement unfinished."
+    },
+    {
+      "id": "M18",
+      "roadmap": "Roadmap/05-runtime-and-interop/02-make-memory-and-bindings-safe.md",
+      "status": "partial",
+      "details": "Initialized distinct allocation views and copied C byte spans implemented; hardware noncoherence/failure/cancellation qualification missing."
+    },
+    {
+      "id": "M19",
+      "roadmap": "Roadmap/05-runtime-and-interop/03-qualify-the-vulkan-service.md",
+      "status": "partial",
+      "details": "Vulkan feature/limit checks, barriers, fence visibility and retained cleanup implemented; complete deployment/fault qualification missing."
+    },
+    {
+      "id": "M20",
+      "roadmap": "Roadmap/06-verification-and-trust/01-bind-source-and-transformation-evidence.md",
+      "status": "partial",
+      "details": "Digests bind parent, target and tools under an experimental policy; source and transformation proof certificates missing."
+    },
+    {
+      "id": "M21",
+      "roadmap": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md",
+      "status": "partial",
+      "details": "Stronger self-declared policies rejected; protected independently checked policy admission not implemented."
+    },
+    {
+      "id": "M22",
+      "roadmap": "Roadmap/07-implementation-phases/01-close-foundation-and-extraction-gates.md",
+      "status": "not-implemented",
+      "details": "Required implementation and qualification remain unfinished."
+    },
+    {
+      "id": "M23",
+      "roadmap": "Roadmap/07-implementation-phases/02-close-execution-and-proof-gates.md",
+      "status": "not-implemented",
+      "details": "Required implementation and qualification remain unfinished."
+    },
+    {
+      "id": "M24",
+      "roadmap": "Roadmap/07-implementation-phases/03-close-extension-and-release-gates.md",
+      "status": "not-implemented",
+      "details": "Required implementation and qualification remain unfinished."
+    },
+    {
+      "id": "M25",
+      "roadmap": "Roadmap/08-production-acceptance/01-qualify-the-correctness-matrix.md",
+      "status": "not-implemented",
+      "details": "Required implementation and qualification remain unfinished."
+    },
+    {
+      "id": "M26",
+      "roadmap": "Roadmap/08-production-acceptance/02-implement-candidate-bound-admission.md",
+      "status": "partial",
+      "details": "Hosted strict model and CPU execution workflows implemented; complete candidate-bound production admission not implemented."
+    },
+    {
+      "id": "M27",
+      "roadmap": "Roadmap/08-production-acceptance/03-qualify-performance-and-cutover.md",
+      "status": "not-implemented",
+      "details": "Required implementation and qualification remain unfinished."
+    },
+    {
+      "id": "M28",
+      "roadmap": "Roadmap/09-work-packages-and-decisions/01-assign-and-close-review-units.md",
+      "status": "partial",
+      "details": "Review units and test evidence identified; release/proof review still incomplete."
+    },
+    {
+      "id": "M29",
+      "roadmap": "Roadmap/09-work-packages-and-decisions/02-resolve-feasibility-before-freeze.md",
+      "status": "partial",
+      "details": "Pinned loop/annotation/feature restrictions implemented; broad optional-feature feasibility and qualification unfinished."
+    },
+    {
+      "id": "M30",
+      "roadmap": "Roadmap/10-sources/01-lock-and-reproduce-primary-sources.md",
+      "status": "partial",
+      "details": "Official pinned source references, locks and strict model replay available; coherent source-exporter toolchain still required."
+    },
+    {
+      "id": "M31",
+      "roadmap": "Roadmap/10-sources/02-check-each-correctness-claim.md",
+      "status": "partial",
+      "details": "Test/model/refinement distinctions documented; no production gate inferred from partial checks."
+    }
+  ],
+  "release_gates": [
+    {
+      "id": "G-BASELINE",
+      "status": "not-qualified",
+      "criterion": "Complete semantic/primitive inventory and reproducible baseline.",
+      "reason": "File inventory exists; per-entrypoint semantic/assumption closure and complete strict legacy regression still required."
+    },
+    {
+      "id": "G-CONTRACT",
+      "status": "not-qualified",
+      "criterion": "Reviewed contracts, canonical vectors, independent readers and rejection fixtures.",
+      "reason": "Integer contract/core implemented; comprehensive refinement, general pass planning and profile/extension admission unfinished."
+    },
+    {
+      "id": "G-EXTRACT",
+      "status": "not-qualified",
+      "criterion": "Declared baseline extracts through KIR without mandatory CUDA or Karamel.",
+      "reason": "No actual checked Kuiper/Pulse source export to executable KIR."
+    },
+    {
+      "id": "G-VERTICAL",
+      "status": "not-qualified",
+      "criterion": "Real-GPU SPIR-T/Vulkan path with correct results, errors and CUDA-free dependencies.",
+      "reason": "Frontend-free integer path tested; real exported Kuiper kernel and its proof binding missing."
+    },
+    {
+      "id": "G-CONCURRENCY",
+      "status": "not-qualified",
+      "criterion": "Required memory, ownership, subgroup, atomic and async relations checked on qualified devices.",
+      "reason": "Synchronous integer ownership implemented; broader memory events, convergence, async faults and cancellation not qualified."
+    },
+    {
+      "id": "G-COVERAGE",
+      "status": "not-qualified",
+      "criterion": "All legacy inventory rows classified; all claimed features qualified for the release profile.",
+      "reason": "Floating point, barriers, workgroup/subgroup memory, general calls/pointers, reductions and matrices unsupported."
+    },
+    {
+      "id": "G-TRUST",
+      "status": "not-qualified",
+      "criterion": "Fixed evidence policy satisfied; O1-O10 dispositions and required relations complete; no ad hoc trust waivers.",
+      "reason": "O1\u2013O10 and prefix/progress implementation proofs remain open; ABI lemmas only prove model facts."
+    },
+    {
+      "id": "G-ADD-COMPILER",
+      "status": "not-qualified",
+      "criterion": "Independent compiler-only substitution with unchanged runtime/bindings passes against the exact immutable candidate without existing source/build/registry edits.",
+      "reason": "One real compiler and generic-routing tests; second independent compiler/admission qualification missing."
+    },
+    {
+      "id": "G-ADD-RUNTIME",
+      "status": "not-qualified",
+      "criterion": "Independent shared-artifact runtime substitution AND distinct real API backend pass against the exact immutable candidate without existing source/build/registry edits.",
+      "reason": "One real Vulkan runtime; second independently qualified runtime/candidate evidence missing."
+    },
+    {
+      "id": "G-ADD-LANGUAGE",
+      "status": "not-qualified",
+      "criterion": "Independent frontend and host binding reuse unchanged contracts, compiler and runtime.",
+      "reason": "Core and C host interfaces tested; independent source frontend/binding qualification missing."
+    },
+    {
+      "id": "G-ADD-OP",
+      "status": "not-qualified",
+      "criterion": "Semantic extension installs additively and fails safely when its required support is absent.",
+      "reason": "Closed integer opcode/profile catalogue; semantic operation extension not implemented."
+    },
+    {
+      "id": "G-PRODUCTION",
+      "status": "not-qualified",
+      "criterion": "Exact-candidate hardware/workload/operational/install/rollback matrix passes; safety and required soak have no waivers; performance follows fixed pass/fail/inconclusive policy.",
+      "reason": "Physical GPU/driver/workload/fault/soak/performance/install/rollback matrix not completed."
+    },
+    {
+      "id": "G-CUDA-FREE",
+      "status": "not-qualified",
+      "criterion": "Default new path builds, installs and runs without CUDA toolkit/runtime, NVCC or mandatory Karamel.",
+      "reason": "Portable Rust/KIR path builds without CUDA; source frontend path remains incomplete."
+    },
+    {
+      "id": "G-MESA-DECISION",
+      "status": "not-qualified",
+      "criterion": "Measured one-driver comparison supports an explicit promote/defer decision.",
+      "reason": "CPU Vulkan tests do not supply the required one-driver performance comparison."
+    },
+    {
+      "id": "G-SPIRT-FEASIBILITY",
+      "status": "not-qualified",
+      "criterion": "Annotation, loop-triage/exclusion, QPtr eligibility and dependency decisions supported by pinned probes before enabling affected paths.",
+      "reason": "Direct logical integer construction tested; complete prescribed feasibility matrix missing."
+    },
+    {
+      "id": "G-REPLACEMENT",
+      "status": "not-qualified",
+      "criterion": "Every mandatory baseline entrypoint and reachable semantic dependency has qualified CUDA-independent coverage and required evidence; deferred or CUDA-only rows block completion.",
+      "reason": "Legacy scope is not covered by the limited integer source-free path."
+    },
+    {
+      "id": "G-HOST-CODEGEN",
+      "status": "not-qualified",
+      "criterion": "If native host-plan compilation is enabled, establish interpreter/compiler equivalence including callbacks, failures, cleanup and asynchronous ownership.",
+      "reason": "Native host-plan code generation is not enabled or implemented."
+    }
+  ],
+  "proof_obligations": [
+    {
+      "id": "O1",
+      "status": "not-proved",
+      "roadmap": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md"
+    },
+    {
+      "id": "O2",
+      "status": "not-proved",
+      "roadmap": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md"
+    },
+    {
+      "id": "O3",
+      "status": "not-proved",
+      "roadmap": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md"
+    },
+    {
+      "id": "O4",
+      "status": "not-proved",
+      "roadmap": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md"
+    },
+    {
+      "id": "O5",
+      "status": "not-proved",
+      "roadmap": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md"
+    },
+    {
+      "id": "O6",
+      "status": "not-proved",
+      "roadmap": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md"
+    },
+    {
+      "id": "O7",
+      "status": "not-proved",
+      "roadmap": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md"
+    },
+    {
+      "id": "O8",
+      "status": "not-proved",
+      "roadmap": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md"
+    },
+    {
+      "id": "O9",
+      "status": "not-proved",
+      "roadmap": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md"
+    },
+    {
+      "id": "O10",
+      "status": "not-proved",
+      "roadmap": "Roadmap/06-verification-and-trust/02-admit-immutable-evidence-policies.md"
+    }
+  ],
+  "additional_proof_obligations": [
+    {
+      "id": "prefix_safety",
+      "status": "not-proved"
+    },
+    {
+      "id": "progress",
+      "status": "not-proved"
+    }
+  ],
+  "executed_evidence": [
+    "validation/results/abi-bridge.json",
+    "validation/results/integer-vulkan.json",
+    "validation/results/declarative-model.json",
+    "validation/results/package-checks.json"
+  ],
+  "evidence_rule": "Add only reports produced by successful real runs. Each report identifies its own sources, binary/tool identities and limited scope."
+}

@@ -18,7 +18,10 @@ e.g., abstracting layouts and matrix tiling. This allows most algorithms to be
 written in "layout-polymorphic" style, where they can later be instantiated to
 any layout of choice.
 
-Kuiper currently only generates CUDA code.
+Kuiper source extraction currently generates CUDA code. An independent
+[experimental SPIR-T/Vulkan integer path](portable/README.md) accepts checked
+portable KIR through separately installed workers. Its Kuiper/Pulse source
+exporter and production qualification remain unfinished.
 
 **NOTE**: Some modules are still work in progress and therefore
 contain admitted proofs.

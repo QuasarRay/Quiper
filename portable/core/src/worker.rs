@@ -278,6 +278,13 @@ fn rpc(_: &Worker, _: &Request, _: bool) -> Result<Response> {
     Err(error("platform", "the process supervisor requires Linux"))
 }
 impl Route {
+    /// Launch only after checking the retained source's aggregate work bound.
+    pub fn run(&self, package: &Package, invocation: &Invocation) -> Result<Execution> {
+        let kernel = validate::kernel(package, &invocation.entry)?;
+        validate::invocation(&validate::for_kernel(kernel), invocation)?;
+        validate::work_for_dispatch(kernel, invocation.workgroups)?;
+        self.execute(&self.compile(package, &invocation.entry)?, invocation)
+    }
     pub fn compile(&self, package: &Package, entry: &str) -> Result<Artifact> {
         validate::package(package)?;
         let kernel = package
@@ -363,7 +370,7 @@ pub fn cache(directory: &Path, artifact: &Artifact) -> Result<PathBuf> {
     let raw = canonical::encode(artifact)?;
     let final_path = directory.join(format!("{}.json", canonical::hash(&raw)));
     if final_path.exists() {
-        if io(fs::read(&final_path))? != raw {
+        if crate::read_bounded(&final_path, MAX_MESSAGE)? != raw {
             return Err(error(
                 "cache-collision",
                 "cache identity contains different bytes",

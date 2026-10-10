@@ -60,7 +60,9 @@ Context and batch owners are neither Send nor Sync. The entry, instance and devi
 
 The submission flag is set before queue submission. Until a fence signals, failure cleanup retains allocations and command objects until device idle succeeds or the device is lost. Unexpected idle errors retain the native objects and loader instead of freeing potentially live allocations. No return path releases submitted buffers based only on a timeout.
 
-The ordinary fence wait has a ten-second timeout. Safe cleanup can wait longer for device quiescence. The parent process deadline is the outer containment boundary for an unresponsive native driver. Validator descendants that create new sessions, and separately grouped validators surviving an externally terminated worker, need deployment-level job or cgroup containment; process groups alone are not a complete sandbox.
+The ordinary fence wait has a ten-second timeout. Safe cleanup can wait longer for device quiescence. The current core deliberately waits for runtime exit and does not kill a runtime merely because a deadline expired. An unresponsive driver can therefore block a call indefinitely. Deployment-level device/job containment and a proven cancellation protocol are still required. Validator descendants that create new sessions, and separately grouped validators surviving an externally terminated worker, need job or cgroup containment; process groups alone are not a complete sandbox.
+
+The retained-source core caps aggregate KIR instruction work across nested loops and dispatched lanes at ten million steps before submission. That source limit supplements individual loop guards. The artifact reader does not independently recover this bound from arbitrary target loops, and no fixed driver execution time follows from it.
 
 ## Evidence and limits
 

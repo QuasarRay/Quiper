@@ -45,8 +45,7 @@ fn main() {
             let package: Package = read(package)?;
             let invocation: Invocation = read(invocation)?;
             let route = worker::select(&worker::discover(Path::new(root))?, &package.profile)?;
-            let artifact = route.compile(&package, &invocation.entry)?;
-            canonical::encode(&route.execute(&artifact, &invocation)?)
+            canonical::encode(&route.run(&package, &invocation)?)
         }
         ["reference-plan", package, plan] => {
             canonical::encode(&host::reference_plan(&read(package)?, &read(plan)?)?)

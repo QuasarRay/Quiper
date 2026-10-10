@@ -185,6 +185,7 @@ pub fn validate_plan(package: &Package, plan: &HostPlan) -> Result<Vec<usize>> {
             &validate::for_kernel(kernel(package, operation)?),
             &invocation(operation, &buffers)?,
         )?;
+        validate::work_for_dispatch(kernel(package, operation)?, operation.workgroups)?;
     }
     for operation in &plan.operations {
         if operation

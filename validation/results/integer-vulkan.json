@@ -1,0 +1,1040 @@
+{
+  "schema": "kuiper.integer-integration/1",
+  "status": "passed",
+  "profile": "kuiper.integer32/1",
+  "assurance": "kuiper.experimental-tested/1",
+  "device_kind": "cpu",
+  "devices": [
+    "llvmpipe (LLVM 20.1.2, 256 bits)"
+  ],
+  "physical_gpu_qualification": false,
+  "source_frontend_qualification": false,
+  "implementation_refinement": false,
+  "vulkan_validation_layer": "VK_LAYER_KHRONOS_validation",
+  "validation_errors": 0,
+  "vulkaninfo_summary": "==========\nVULKANINFO\n==========\n\nVulkan Instance Version: 1.3.275\n\n\nInstance Extensions: count = 24\n-------------------------------\nVK_EXT_acquire_drm_display             : extension revision 1\nVK_EXT_acquire_xlib_display            : extension revision 1\nVK_EXT_debug_report                    : extension revision 10\nVK_EXT_debug_utils                     : extension revision 2\nVK_EXT_direct_mode_display             : extension revision 1\nVK_EXT_display_surface_counter         : extension revision 1\nVK_EXT_headless_surface                : extension revision 1\nVK_EXT_surface_maintenance1            : extension revision 1\nVK_EXT_swapchain_colorspace            : extension revision 5\nVK_KHR_device_group_creation           : extension revision 1\nVK_KHR_display                         : extension revision 23\nVK_KHR_external_fence_capabilities     : extension revision 1\nVK_KHR_external_memory_capabilities    : extension revision 1\nVK_KHR_external_semaphore_capabilities : extension revision 1\nVK_KHR_get_display_properties2         : extension revision 1\nVK_KHR_get_physical_device_properties2 : extension revision 2\nVK_KHR_get_surface_capabilities2       : extension revision 1\nVK_KHR_portability_enumeration         : extension revision 1\nVK_KHR_surface                         : extension revision 25\nVK_KHR_surface_protected_capabilities  : extension revision 1\nVK_KHR_wayland_surface                 : extension revision 6\nVK_KHR_xcb_surface                     : extension revision 6\nVK_KHR_xlib_surface                    : extension revision 6\nVK_LUNARG_direct_driver_loading        : extension revision 1\n\nInstance Layers: count = 4\n--------------------------\nVK_LAYER_INTEL_nullhw       INTEL NULL HW                1.1.73   version 1\nVK_LAYER_KHRONOS_validation Khronos Validation Layer     1.3.275  version 1\nVK_LAYER_MESA_device_select Linux device selection layer 1.4.303  version 1\nVK_LAYER_MESA_overlay       Mesa Overlay layer           1.4.303  version 1\n\nDevices:\n========\nGPU0:\n\tapiVersion         = 1.4.318\n\tdriverVersion      = 25.2.8\n\tvendorID           = 0x10005\n\tdeviceID           = 0x0000\n\tdeviceType         = PHYSICAL_DEVICE_TYPE_CPU\n\tdeviceName         = llvmpipe (LLVM 20.1.2, 256 bits)\n\tdriverID           = DRIVER_ID_MESA_LLVMPIPE\n\tdriverName         = llvmpipe\n\tdriverInfo         = Mesa 25.2.8-0ubuntu0.24.04.2 (LLVM 20.1.2)\n\tconformanceVersion = 1.3.1.1\n\tdeviceUUID         = 6d657361-3235-2e32-2e38-2d3075627500\n\tdriverUUID         = 6c6c766d-7069-7065-5555-494400000000\n",
+  "build_mode": "release",
+  "elapsed_seconds": 28.36,
+  "case_count": 75,
+  "cases": [
+    {
+      "name": "additive-worker-installation",
+      "category": "installation",
+      "status": "passed",
+      "workers": [
+        {
+          "endpoints": [
+            {
+              "consumes": [
+                "kuiper.kir/1",
+                "kuiper.integer32/1"
+              ],
+              "produces": [
+                "kuiper.artifact/1",
+                "khronos.spirv.vulkan1.2/1",
+                "kuiper.storage-words32/1"
+              ],
+              "role": "compiler"
+            }
+          ],
+          "executable": "worker",
+          "executable_digest": "a2d72e2c40dd7663a54630d899ec83004e09de1864f274a76b44b45d8873651a",
+          "id": "kuiper.spirt.integer32/0.1.0",
+          "protocol": "kuiper.worker/1"
+        },
+        {
+          "endpoints": [
+            {
+              "consumes": [
+                "kuiper.artifact/1",
+                "khronos.spirv.vulkan1.2/1",
+                "kuiper.storage-words32/1"
+              ],
+              "produces": [
+                "kuiper.storage-words32/1",
+                "kuiper.execution/1"
+              ],
+              "role": "runtime"
+            }
+          ],
+          "executable": "worker",
+          "executable_digest": "de6c5cbcac02f9a3f5e0f9490a90eb4a6b2d7ac5f99dd94c5b0a69d6d00c4804",
+          "id": "kuiper.vulkan.integer32/0.1.0",
+          "protocol": "kuiper.worker/1"
+        }
+      ]
+    },
+    {
+      "name": "vector-add-interior-views",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "4fcbe9ef81443600c1bdbe5995bf7a36daab41ab0db5cd5e960dbf6c71978c89",
+      "invocation_digest": "a4dbc17e11c2aed9180a3ab15ba7337bdbcb65812dd215f2e4a6b6e70f48b224",
+      "output_digest": "358ac0d8f5c98d7e2d26d1b6e95bc21b7f4edc1ce534575eaa27a8c1e92841f9",
+      "literal_expected_digest": "49477113b26905062564179e8e54638545414f2f98d8c0876daf29468efe3a25",
+      "interfaces": [
+        "core",
+        "c"
+      ]
+    },
+    {
+      "name": "vector-add-ragged-dispatch",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "4fcbe9ef81443600c1bdbe5995bf7a36daab41ab0db5cd5e960dbf6c71978c89",
+      "invocation_digest": "1d68cfc9025ae35defb9a45d47793d009aa9f13fc2118e083daf46aa13b67a8b",
+      "output_digest": "470bab37a90c4271687b67b0b0ec4d8242958a1d9b36aeb1052cee9753330e31",
+      "literal_expected_digest": "2630793134db4f07d02444fdee3b8b3e45f4e6494cc5b72e7e5d42af2cecc4c4",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "pretested-loop-0",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "02da1f8f73506d2ad47d12ec35cebbea5abd4a6115a1ae862ad1de1c8c007ecf",
+      "invocation_digest": "982c4337bf47dcb7b032fdcf90a517a9eb899ace1ce80f6543bac852306b8b89",
+      "output_digest": "0d543ccbfcd0146da9715e446b6a18e314538ff4c6ef9ca0b1902d2b088df06c",
+      "literal_expected_digest": "b9868a52d739914645ebf5962cff43dfed26beee6795a3f3f9707a522ba02c22",
+      "interfaces": [
+        "core",
+        "c"
+      ]
+    },
+    {
+      "name": "pretested-loop-1",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "02da1f8f73506d2ad47d12ec35cebbea5abd4a6115a1ae862ad1de1c8c007ecf",
+      "invocation_digest": "fbed201f1f79d18f9e929633767136759a822c138423003ccb327b5ea128dd8b",
+      "output_digest": "26c6bd12079c167d8d784211e5c04a3da069e128c8f1664779f89111f992c629",
+      "literal_expected_digest": "01d5d74dcb3050b0b70d94af80c572b0a38666282cd32b4d8e7107c16fecb84c",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "pretested-loop-3",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "02da1f8f73506d2ad47d12ec35cebbea5abd4a6115a1ae862ad1de1c8c007ecf",
+      "invocation_digest": "87539d2eb2fae46fa7b4b22b7897f73a7df32aa322580235186ada27a866c6ef",
+      "output_digest": "404fcc6b3c498947fc1f9702dbbbb012be44408af5cb2c9e91d09d2527cb8f50",
+      "literal_expected_digest": "0712ac193006ef62a4df185640e169b9d650904748f13dfb135b02864105db1d",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "pretested-loop-128",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "02da1f8f73506d2ad47d12ec35cebbea5abd4a6115a1ae862ad1de1c8c007ecf",
+      "invocation_digest": "29960cf3feaf5625b2f4202a7cd973987219ec17a94b570b8b580d48af85c72c",
+      "output_digest": "26f3552f8cb9ef0ae292f20c83a1c122c66205d65b928ddc75561026b535fc3c",
+      "literal_expected_digest": "006ce5676ae220e2224c458a6d6f7224c0441143e2e7cedbeaa2a6ec9bb99ac2",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "pretested-loop-exhaustion",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "02da1f8f73506d2ad47d12ec35cebbea5abd4a6115a1ae862ad1de1c8c007ecf",
+      "invocation_digest": "d2bad811d954bf488b2c9f86dac8d63f698b85353f88a14724d8d3dc6870b9b9",
+      "guard_mask": 4,
+      "interfaces": [
+        "core",
+        "c"
+      ]
+    },
+    {
+      "name": "condition-evaluated-n-plus-one-0",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "ca7e72295b94569d70748e5cd18e5bb05bfb9b83742006f8ac8c1d3cfbf20aa2",
+      "invocation_digest": "61ce01b932996b72f6879e4cd98726c435339626f378fe29254ee1c223fb8ce0",
+      "output_digest": "73f7010c3cbd052502246af1e34af91cad32c9e3dbe1f5d15e13931ec16c30a5",
+      "literal_expected_digest": "48350fa6280240f806eeb6036123f12443ba002651122d1177bdd47a7f861d60",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "condition-evaluated-n-plus-one-1",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "ca7e72295b94569d70748e5cd18e5bb05bfb9b83742006f8ac8c1d3cfbf20aa2",
+      "invocation_digest": "c885c80dc30436f160609a511d1e7b3d8596998d74518e55b5263b53a87a078b",
+      "output_digest": "c9b9e72af860b7f4d8eb00d325c45d373f252c7e971d1d53d300802b3fa0ab39",
+      "literal_expected_digest": "5e0ba820a094fcdf4d857c69f0609783b831458b4ddbd083c2700a6103e098d2",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "condition-evaluated-n-plus-one-3",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "ca7e72295b94569d70748e5cd18e5bb05bfb9b83742006f8ac8c1d3cfbf20aa2",
+      "invocation_digest": "0b7253cf884484838e57dfc5b97e0e1f908d47818ce29243d7327b658f979733",
+      "output_digest": "66d75082d72556885c7d719fa7bc587bfc34fd826e01d1c8be57521079776be6",
+      "literal_expected_digest": "8aa3d26577ebe1a2b1f5bc5292d0565749b0e733b0c2b57c63bfcc76f1103c0c",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "nested-loop-0-3",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "b9a8c0496eaea188e2796dea170c0f7223df32831b45c0da94127b7c736b1ea7",
+      "invocation_digest": "3e1bcbdf8ab20acf05a097446237f8ac231f212182f32771c80f7772cf44e33e",
+      "output_digest": "0d543ccbfcd0146da9715e446b6a18e314538ff4c6ef9ca0b1902d2b088df06c",
+      "literal_expected_digest": "b9868a52d739914645ebf5962cff43dfed26beee6795a3f3f9707a522ba02c22",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "nested-loop-3-0",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "b9a8c0496eaea188e2796dea170c0f7223df32831b45c0da94127b7c736b1ea7",
+      "invocation_digest": "e4068350912de939fc83c3a634990a971057f9dbfdf247806299b0628e1bf733",
+      "output_digest": "0d543ccbfcd0146da9715e446b6a18e314538ff4c6ef9ca0b1902d2b088df06c",
+      "literal_expected_digest": "b9868a52d739914645ebf5962cff43dfed26beee6795a3f3f9707a522ba02c22",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "nested-loop-2-3",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "b9a8c0496eaea188e2796dea170c0f7223df32831b45c0da94127b7c736b1ea7",
+      "invocation_digest": "d786ceaa656ebddc82b7a63f54fefc36d969bb6e1d873ce054a9a1997a4f7ffb",
+      "output_digest": "b65e422a6e245051464099b0e4f16a86a45515a07ad9cdcf29d23dfadd5b49de",
+      "literal_expected_digest": "0083e8f54be5274833e4434ceb041d3de81e87a7ead7096ecc19b53aa7560925",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "atomic-add-wrap-and-frame",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "3f6d4577b7855133509cc6409bc9ee29d2b9f8fd87b4b167bdc5947fff5e4ce2",
+      "invocation_digest": "567e17bf7532f688500a15c062c857b37d933a440544d4a64d1a72aa62d3cfdf",
+      "output_digest": "0539f258cc53c34b7c931e9a10c121ac20bbebd32758f325f12cc6410f6d3cba",
+      "literal_expected_digest": "f6a62bd1df6bbc8366f9e96399ee46a7e6e5a3d048fca84c5493ca1f22c1636c",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-add-0",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "e3aa4958efda328c561d246b0e9227fbad37822bc9088f2f419ed9adcfc6e9a7",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "01ba101bcf62de044f39a24cf4b0295d3e79ca8659394704e55311deab611352",
+      "literal_expected_digest": "a18f4a5c3e2baaf31ad424216e92ba7a2f8b58e6fbd8768c17df98fd398d10bd",
+      "interfaces": [
+        "core",
+        "c"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-sub-1",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "ffc1028ca8f9e2f6ed94e8ce4a2ccc16dd5ed27389904eafbca329c20e5b8d39",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "913ceeba33d50af1ef2457b6795f59dd126f7a5cb5b24579b6d436518a52f1fb",
+      "literal_expected_digest": "d4e4192e76c96829b5dcd597a19b744f1ca96a5eb9a2aee93d65f26ad0dbb696",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-mul-2",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "a03f043865ae795c23e7ac2c3fb8ef68ebfc3d8866b325814cea9b55e7baede0",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "01ba101bcf62de044f39a24cf4b0295d3e79ca8659394704e55311deab611352",
+      "literal_expected_digest": "a18f4a5c3e2baaf31ad424216e92ba7a2f8b58e6fbd8768c17df98fd398d10bd",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-div-3",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "1483480c38dbcc8b406bb71e1920b34b7aee876affb71158611dc25a509afece",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "ce2103b44a7c1a5c80ae8d4d472b3620dfdb7fa65f337d02943d3446757ab18a",
+      "literal_expected_digest": "ce40473cd53b9285ddb8debb7b96ca1524ffd563c35629cf7661609d88e81148",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-rem-4",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "b77252eec00e838b65962a0639022976037682efdd02199922214fc0af076710",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-bit_and-5",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "d1b2229de5ccc11d0a36aa7144091088b63a0d15fc7be983b3302785cb70f033",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "01ba101bcf62de044f39a24cf4b0295d3e79ca8659394704e55311deab611352",
+      "literal_expected_digest": "a18f4a5c3e2baaf31ad424216e92ba7a2f8b58e6fbd8768c17df98fd398d10bd",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-bit_or-6",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "8a285b477a7e89de8506f6392346ab76b7e3f8a1e0a11766a21a8f79ebbe518d",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "fd41f6fedbc09f25c4507edf81972db59edd6b4f16d3a2a7dd43236cafaf83fc",
+      "literal_expected_digest": "6edfd8196adf82a46074ce682f9c6e34dbf273ea2884013465dc0e6c9ea9e0ef",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-bit_xor-7",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "b328f5401cd3abd05d667093779a7c47eed00bed3a43e0808131ce01c10dc850",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "a191a73369a79d0f3207df69a2bb0fd469d33df04ff467f56b90b2ef2d8171c1",
+      "literal_expected_digest": "ffefe46fd239dffaff1516dae8346f75dfccc6c2fd1e7587f32996e7ef57bafd",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-shift_left-8",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "e58febfb2a116d1e104c717c42e949b10e033af9335f0d63d7f4adb25d721bbb",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "d924b3b03c6a67affab0d7e1ecbb5347a3b3d844407a9718ad9c9a53db71a8f0",
+      "literal_expected_digest": "76f5d4abe1e77af924806b31b5fdabc75e94922857138b495284ef244f8f9241",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-shift_right-9",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "eb735a44f826764096066a87770a11389a987d282b346d2b130447c6837c3455",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-eq-10",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "39d6a3ac03cea9617182bf2e8d8fe3ce4f1e5dfe982d1f63e087ae45269a5990",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-ne-11",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "3d672616e8249af9b745f1599241c28d5cb354a65c7ce9fef4be9a8b94d2dae1",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-lt-12",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "bd1e86779d8d4a66986c1a6ad13016e48b180d29988457b0d3cb39a6dab6a160",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-le-13",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "ca4f149634f567fab7fa6dd75e46abc5d4d02e18755bb3a9f38ae5a3ec5ab851",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-gt-14",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "699051665dbb20fa260afb8a0f8f84b06dde203ca03cc5822980fd44c39bac5a",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-u32-ge-15",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "df34610141372c3acbe8c3544e2e89235abf90254967bb09e3ac349c532ff896",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-add-16",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "36ee9dde8ba0a6317c8060d068461b817d27d29547caeec6bc6cacd795c0d364",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "d924b3b03c6a67affab0d7e1ecbb5347a3b3d844407a9718ad9c9a53db71a8f0",
+      "literal_expected_digest": "76f5d4abe1e77af924806b31b5fdabc75e94922857138b495284ef244f8f9241",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-sub-17",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "eb51ed35db5823accf846fc3714e3de97c881c9105c5cd952fc52f9ca0ebcb5c",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "f1158d44be712d93c1448acfaace11b65016491151fc798a4ec03bff3c107ddd",
+      "literal_expected_digest": "ac780f6de3af323802a0a61bb9fdceded44ea35ad855dd2f206e039228c8c737",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-mul-18",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "c12d8a7855f07cea315f1317fbacd09a877ecf2c00ba2ada83238013f873cfe6",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "2d6035adfa3a68a073b760bdf3978a630b094254c9badbd5e958921682ecd1f8",
+      "literal_expected_digest": "986ef15609e3dc03065fedbedfbdba6a488ee4f206747aa7da0f1bbb7b02db3c",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-div-19",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "79ede2416e9eff583fb0ef70f05fa583e1cf153d6253f61f291e5d912108d896",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "06f847ad5ce99365ac0328308efe5027dc85ac620b9b68f0547ac0f33a6ec0f2",
+      "literal_expected_digest": "831a0b6aa426cee3f4f0eac01034ec512ecec658fe6fdaf5781007673e8e3154",
+      "interfaces": [
+        "core",
+        "c"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-div-20",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "3a6276c125f28487c57e3a194656fc60a3338aa19779ed5ad7fb761485cf484e",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "06f847ad5ce99365ac0328308efe5027dc85ac620b9b68f0547ac0f33a6ec0f2",
+      "literal_expected_digest": "831a0b6aa426cee3f4f0eac01034ec512ecec658fe6fdaf5781007673e8e3154",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-rem-21",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "29a04dcc436855593b7a1bcf95763d6c5deac61cd7f7394d9d70ef147ef52b1b",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "913ceeba33d50af1ef2457b6795f59dd126f7a5cb5b24579b6d436518a52f1fb",
+      "literal_expected_digest": "d4e4192e76c96829b5dcd597a19b744f1ca96a5eb9a2aee93d65f26ad0dbb696",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-rem-22",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "678a41172d621d0b181377e69b121beddec44b9ec0df20c461e8d0a874d98e0c",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-shift_right-23",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "28cf7c09cbff1acf596d88b24988ff48bd83f3365d1d14af28cd0b383141860f",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "913ceeba33d50af1ef2457b6795f59dd126f7a5cb5b24579b6d436518a52f1fb",
+      "literal_expected_digest": "d4e4192e76c96829b5dcd597a19b744f1ca96a5eb9a2aee93d65f26ad0dbb696",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-shift_left-24",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "19d00d6a2100aa48b29c0a8b6b16fafaac3012e96a1d01bd05af869f76ee5cea",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "06f847ad5ce99365ac0328308efe5027dc85ac620b9b68f0547ac0f33a6ec0f2",
+      "literal_expected_digest": "831a0b6aa426cee3f4f0eac01034ec512ecec658fe6fdaf5781007673e8e3154",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-bit_xor-25",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "fa0ded18755e75ca7d1a9d289d6787d35790344e98f2e2f672f608ec2b7bdf0f",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "15ac21d1f42a833aedb672802a238a9b5801d52afafe026524c2d01afdb38af2",
+      "literal_expected_digest": "a399585b3929dce3b0321da3fb92f5dc7ac492f3ac7301a38472ed9fd26b1aa9",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-eq-26",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "f1f5f2d2054fa9493d141e5ee62aad82b5aafe811308f3f73dc8de1d47578a59",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-ne-27",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "f73d2790aa4608801f96f1a9ea5ecfe0678aa3dd7721a6301ff56d75e0d49b6f",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-lt-28",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "b2c63dcc184cb4bf4d5268a9da40a9460e357e948fcd16515bbafefd2b25d3ee",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-le-29",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "a3f59d2a8cc63d9b9e8af84972b952c73143f7dc52e0459f5b91a4d36c32f948",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-gt-30",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "31eec0847b2875305510f67b32a50963177249318293791f8afc32f46730abfa",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-i32-ge-31",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "3cd665e31ab38c9758b6624c4a63e4224aaa15584b673c6e9e549c079130e745",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-bool-logical_and-32",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "c62a05d16b40690e8b4e7be40d24defc2fa31e82bfc17811dc9df6c18512c80e",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "01ba101bcf62de044f39a24cf4b0295d3e79ca8659394704e55311deab611352",
+      "literal_expected_digest": "a18f4a5c3e2baaf31ad424216e92ba7a2f8b58e6fbd8768c17df98fd398d10bd",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-bool-logical_or-33",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "21872d640244395331dfcf4c0e9dc1ca5e58e63ff5dbe51a39849df45acae732",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core",
+        "c"
+      ]
+    },
+    {
+      "name": "arithmetic-bool-eq-34",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "d2861b74d4c8233578a26f518dd71d763e9289e6c204549d834591e444496e65",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-bool-ne-35",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "63b1bced2a94d52cee4db60f11ed82d49c8c26cb2f25f57ba489528c95f69157",
+      "invocation_digest": "35e2eac0a6a8cb91cfe11a70b6ab44a84702768e6d12a1472a76dc1dacdecd10",
+      "output_digest": "6c81c7d7b0f16d4b5d7da7b3eaadb80fd5ab0e4c587dd567182d6115ab0a2f01",
+      "literal_expected_digest": "9dcc14d147871e0760c5c8124b858db7c9423cef41226aff80baf6ebd85ad86e",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-undefined-u32-div-0",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "6432bc9c97f3f8841cf3cfb1211975ed47b0a40f1e7cc9632dfaf275364720fb",
+      "invocation_digest": "5f346fdbe53c813978aad6bba7abfe4b21fe32fab516570906a3ba2d05b98fdc",
+      "guard_mask": 2,
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-undefined-u32-rem-0",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "f5f99ca8cd1532aab7767b14ec9647aec62298a3d4b95a2e72740aec34325686",
+      "invocation_digest": "5f346fdbe53c813978aad6bba7abfe4b21fe32fab516570906a3ba2d05b98fdc",
+      "guard_mask": 2,
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-undefined-i32-div-4294967295",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "f623ac8f8b3d3df814bb2183278e3ea1aa23cf2b9d283ceb3c99eda7bb36224b",
+      "invocation_digest": "5f346fdbe53c813978aad6bba7abfe4b21fe32fab516570906a3ba2d05b98fdc",
+      "guard_mask": 2,
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-undefined-i32-rem-4294967295",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "365222ba59575265a6691c1d376b7df369b3f983909779918f9ca67ce0772e50",
+      "invocation_digest": "5f346fdbe53c813978aad6bba7abfe4b21fe32fab516570906a3ba2d05b98fdc",
+      "guard_mask": 2,
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-undefined-u32-shift_left-32",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "4d9fe248a3ed91e356723d2c4dc2592c9e67855e12061e21cdfd2d22531f2fd5",
+      "invocation_digest": "5f346fdbe53c813978aad6bba7abfe4b21fe32fab516570906a3ba2d05b98fdc",
+      "guard_mask": 2,
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-undefined-u32-shift_right-32",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "abb8be90d71b22a4cc64ddaad0acafed069e65db54002bd1f9b44fccdab04f1d",
+      "invocation_digest": "5f346fdbe53c813978aad6bba7abfe4b21fe32fab516570906a3ba2d05b98fdc",
+      "guard_mask": 2,
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "arithmetic-undefined-i32-shift_right-32",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "81aecbdf4ebd4ebc37168591d16d562301ceaa12b13592798627e25903cf78d1",
+      "invocation_digest": "5f346fdbe53c813978aad6bba7abfe4b21fe32fab516570906a3ba2d05b98fdc",
+      "guard_mask": 2,
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "explicit-guard-no-published-output",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "4fcd26db576a4be7cf23f4b642c8d74b66c3d2097dccd3abea3257511ca82806",
+      "invocation_digest": "9b09637a296c169946c21b0f64edc54c4e059ea74a67fc2df562d899d43795d4",
+      "guard_mask": 8,
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "checked-load-oob",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "2fa555f79e46dcfdfcc0ede3b2f829c4810b362b4bb00d7244ac4f74d6461b78",
+      "invocation_digest": "82c5be1c0c7e4db29062a48e714bfbfdc91dbd5f0ca9b399b8f1152a88f004a1",
+      "guard_mask": 1,
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "checked-store-oob",
+      "category": "guard-rejection",
+      "status": "passed",
+      "package_digest": "2fa555f79e46dcfdfcc0ede3b2f829c4810b362b4bb00d7244ac4f74d6461b78",
+      "invocation_digest": "2382d434d7c8b3433c6771e524630bf24c1663ffc43e51c6f58801f46c15fea4",
+      "guard_mask": 1,
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "select-final-value-0",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "4ba1fd5ae4a973e95cba0939a4d0ed041ae658c21be489aaf3c6b5ec134a9aaf",
+      "invocation_digest": "37565696bfcf09d73ce8a7a4d5b434062d51d8231c652ccb77c31abf4cef2171",
+      "output_digest": "834e36bc31beaf823eeb88b7d474b7ee784a232e2bc0fe2dd7c714ea4d6ddb38",
+      "literal_expected_digest": "e10875c985648f44396ce7d9d46b0602f50c0f73ff1313922336d036c2c3be55",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "select-final-value-1",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "4ba1fd5ae4a973e95cba0939a4d0ed041ae658c21be489aaf3c6b5ec134a9aaf",
+      "invocation_digest": "7854d46392f4d42d81f315dfd417b2df4fb3b5c828bba6ad0d6c5c1cb5f218a0",
+      "output_digest": "67ac9c5f3303883a3ffaf129f58213856892402e131f58624a972086ece59c0d",
+      "literal_expected_digest": "9fffbb24dc00c95965a682b5fca6eed2556b37f972c283c844393c7a995a37ad",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "builtin-multiple-workgroups",
+      "category": "execution",
+      "status": "passed",
+      "package_digest": "8e781a04dc588c3176d040a761a36a223d745e1c8693d5823210fe7300a82b1a",
+      "invocation_digest": "fa89977ec9f0df41c936ae470cb585002f20c1573d98688cbe609c4e1015586f",
+      "output_digest": "700c1eb1381c8d5a7a57cfd0c4acba42b72e7df9397adecd6184f79a44213d61",
+      "literal_expected_digest": "de5aa3e6ea5d723d34e4f1551a415b0a5bdd64167d8eb5a0c9dfabae41b9a566",
+      "interfaces": [
+        "core"
+      ]
+    },
+    {
+      "name": "content-addressed-artifact-cache",
+      "category": "cache",
+      "status": "passed",
+      "artifact_digest": "2224fe535dd2c58be3fb3efb3888ecdfae1e65f9ac9e1cba3a31ff9d3b011daf"
+    },
+    {
+      "name": "reflected-local-size-mismatch",
+      "category": "artifact-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "spv-entry",
+        "message": "entry name or local size differs from reflection",
+        "stage": "vulkan"
+      },
+      "artifact_digest": "3965439321bd1ec578015e392fa6ee2e6d40d9704a40b2dc19f856b9fe53de8b"
+    },
+    {
+      "name": "reflected-entry-mismatch",
+      "category": "artifact-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "entry-mismatch",
+        "message": "invocation entry differs from reflection",
+        "stage": "checker"
+      },
+      "artifact_digest": "6565e3a2c315c808ada49bb0bba22f37943381b57e8d56e789edd301da8f76c7"
+    },
+    {
+      "name": "unknown-required-feature",
+      "category": "artifact-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "requirements",
+        "message": "runtime requires the exact supported feature set; unknown or missing required features are rejected",
+        "stage": "vulkan"
+      },
+      "artifact_digest": "95ef6f5d1eb4b88a44bf40ff37aa88372a171fd336eccef54e3f191d2ffaf877"
+    },
+    {
+      "name": "self-declared-refinement-policy",
+      "category": "artifact-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "assurance-policy",
+        "message": "only the explicit experimental tested policy is currently implemented",
+        "stage": "checker"
+      },
+      "artifact_digest": "f086ecf9e8b1f978dcc613755af8054d477a03f0260f0fa66b8252304df43ba9"
+    },
+    {
+      "name": "rehash-does-not-admit-malformed-spirv",
+      "category": "artifact-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "spv-header",
+        "message": "expected bounded SPIR-V 1.5 with the standard word encoding",
+        "stage": "vulkan"
+      },
+      "artifact_digest": "f387ac82855202bfeceda49633c612d8ca653538567b529a06d84e3eddc63117"
+    },
+    {
+      "name": "host-dag-failure-poison-and-independent-publication",
+      "category": "host-plan",
+      "status": "passed",
+      "interfaces": [
+        "core",
+        "c"
+      ],
+      "plan_digest": "99521eedce21aa864f0e883b2752327f9f86b56d051ffd69945c317cd5c71294"
+    },
+    {
+      "name": "host-dag-successful-sequenced-versions",
+      "category": "host-plan",
+      "status": "passed",
+      "interfaces": [
+        "core",
+        "c"
+      ],
+      "plan_digest": "97610517e451410ec885e6fac59ed972c29c14e93f8e835557e4e4ee1f1c530f"
+    },
+    {
+      "name": "aggregate-dispatch-work-rejected",
+      "category": "source-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "work-limit",
+        "stage": "checker",
+        "message": "aggregate dispatched instruction work exceeds the profile limit"
+      },
+      "package_digest": "02da1f8f73506d2ad47d12ec35cebbea5abd4a6115a1ae862ad1de1c8c007ecf"
+    },
+    {
+      "name": "aggregate-nested-loop-work-rejected",
+      "category": "source-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "work-limit",
+        "stage": "checker",
+        "message": "aggregate dispatched instruction work exceeds the profile limit"
+      },
+      "package_digest": "5d08d5d7e2acee23f4a4d82de5ddb7f60fffd1510987311fafaf11fb26eb7d9f"
+    },
+    {
+      "name": "invalid-view-rejected-before-compilation",
+      "category": "source-rejection",
+      "status": "passed",
+      "diagnostic": {
+        "code": "view-bounds",
+        "stage": "checker",
+        "message": "resource view exceeds its owned allocation"
+      },
+      "package_digest": "02da1f8f73506d2ad47d12ec35cebbea5abd4a6115a1ae862ad1de1c8c007ecf"
+    }
+  ],
+  "sources": {
+    "backends/spirt/Cargo.lock": "49ee9c715aa067e5f52d09f425e47e5e2ec370dc273af296cdab086923b4b8d8",
+    "backends/spirt/Cargo.toml": "983624b2dd06ba7049b2e92a81a50d7f4f58b1e13b9b0b853ce17a38519835af",
+    "backends/spirt/src/inspect.rs": "e577614e8a0838d031fbe09c7f35d4d7b5b8052108d5776b31dc25390e927cd4",
+    "backends/spirt/src/lib.rs": "7293426a342c5e89fcf581b9d267036e10143bd3867ff1e81466e4fd39e54a09",
+    "backends/spirt/src/lower.rs": "193be1456b97027ccddd120bd1d7284fd4ff97f996514cc15311b8eb3821d29b",
+    "backends/spirt/src/main.rs": "068398a517b0163b3ffa3bfdc1fff041e658abb9b53caccd767ccc0902f01439",
+    "backends/spirt/src/spirv_values.rs": "43dee4ba2763d0be26d46651b7b70f1aa09a2500b826645999dc4aea6731efd0",
+    "backends/spirt/src/tests.rs": "1ab95cdb96df2e4251dc28c28be3f38fd3249c1d43d68f5344666c7c3d617753",
+    "backends/spirt/src/tool.rs": "075c2e1ac97fef9433a167de269c3fb889b284464ce603793be76eb234d0d89a",
+    "backends/spirt/tests/fixtures/atomic-add.json": "83430c84f1f587d76241506471ece8a2bc99036f0e45e6fb0076e751a4b33550",
+    "backends/spirt/tests/fixtures/checked-load.json": "f7e66b9b83fbc7aa7d61edda653d4b8cc7c01d8efda1f03ecfce3a3eae4611c4",
+    "backends/spirt/tests/fixtures/condition-effects.json": "64e7d19d7d2bc45ce6016fecd83bbe6a053b32376ee3980d988ede9c271593c1",
+    "backends/spirt/tests/fixtures/guarded-vector-add.json": "7e85bf28df87b71c9f1c479b5de26bff41fbe973ffc86eba3c1b7407284a3ba0",
+    "backends/spirt/tests/fixtures/nested-loops.json": "9a70e4b4fb557690a67ddda5109175661f77c82437978b4552c94bd4041d85f3",
+    "backends/spirt/tests/fixtures/pretested-loop.json": "cc41b8f45cb094c952e89f9fc76d8e81d87ad6226773049d3dbf17b9c9af7980",
+    "backends/spirt/tests/worker.rs": "cce3a53f337d694bdeb64b00c6ca511f6abbf22d2d33a06c4105a7bff4fab58e",
+    "backends/vulkan/Cargo.lock": "e7a1f7cb0ccd28db54c2b348a8f32a241e80cd04b080a2fe82281a1129ba11aa",
+    "backends/vulkan/Cargo.toml": "89922fe6f08b8599e49a448ec7a126aa023111e43d685a233cdc5589abd89430",
+    "backends/vulkan/src/driver.rs": "82680252885444f45c7b9ef6f781e0125079c5d3c4b1ffcfeec789afde86643d",
+    "backends/vulkan/src/inspect.rs": "2de76409d101e2480800b9e07eb2a7565278dc74098e3399f4ff4b785bf55950",
+    "backends/vulkan/src/lib.rs": "78b3edc73b30913cb9787c8010b1272e83dbe26e6c863fce1225b8b447f7f7d4",
+    "backends/vulkan/src/main.rs": "24e7df777b403fa9fe4136f474dd6bb4f6f92b8d55559c755def4c1451784cd4",
+    "backends/vulkan/src/tool.rs": "71b38a37ee1b431f388a48fded1554d9eb161c8f036b7499e9c4f8ec843d7706",
+    "backends/vulkan/tests/admission.rs": "02ed7bef6172f043f131458578deaf07a511b18879f42a3bacad515d504993c7",
+    "backends/vulkan/tests/fixtures/atomic-add.json": "633045085b4e60a190524be4198d5d7f8dee4bac4a403b4f57b89c8c161e81b8",
+    "backends/vulkan/tests/fixtures/binary_add.json": "326ede939cc4efb64c4a1a30195383b386ad000bfd436183cc3b38997628095a",
+    "backends/vulkan/tests/fixtures/binary_div.json": "5b37027a35ced97511b50babc7893ea3ecdeafaf28343a4ffd58315f2cdc7968",
+    "backends/vulkan/tests/fixtures/binary_ne.json": "ba4f771a40b064c833969774e15685657f243b3d15f426df64750e322011d093",
+    "backends/vulkan/tests/fixtures/binary_rem.json": "87d2b6cbc5b345a33d3e3a3a2d29f3130b09f3b8525178703fc515bcb6238840",
+    "backends/vulkan/tests/fixtures/binary_shift_right.json": "8c253c1df4eb708d3598018c4223f49289306afc7283c84a76c0b966be20a5d2",
+    "backends/vulkan/tests/fixtures/checked-load.json": "80308463e919e02a1ccb7dd83b756b2ef55d4efb57065950d166e60df1d74ce4",
+    "backends/vulkan/tests/fixtures/condition-effects.json": "56c0c9e3980ceb156e96ed81a86d5ae39dbf0a8636a57d7a8d3a7eb3dce7ef03",
+    "backends/vulkan/tests/fixtures/guarded-vector-add.json": "5350723864b36099329b683e5c6ac59c1bde7cdb5d8383d81700f17a7bb0957c",
+    "backends/vulkan/tests/fixtures/nested-loops.json": "914e996680cd9929dd256ba4c20db991c6669185797b2cbf79dd5aaf37dd074e",
+    "backends/vulkan/tests/fixtures/pretested-loop.json": "e0fc925c1368075e487939c7203e6b38524c5f04bb4dff27663c792785d753cf",
+    "backends/vulkan/tests/software_vulkan.rs": "0b7e4034e0fd636d5d11ab36c4beb3b1a16575c659d316957338cb0ee8bdeb27",
+    "backends/vulkan/tests/worker.rs": "30f23c7776272ee8fcfe78661722ec87dd1b2768ae11eccb253cb926536ec6a2",
+    "bindings/c/Cargo.lock": "2ab8554fcd985fbb4f454d6a951d80cdf39267c8e04fb3456fb063d36bafa161",
+    "bindings/c/Cargo.toml": "bd176fbeb52038e3804f4a1e31cd577c43652cc0d4e3bfd7c82734a46588883f",
+    "bindings/c/include/kuiper_portable.h": "74737e097ded579621659153898b690e579b8111b96be4fce435cdbbc262d88c",
+    "bindings/c/src/lib.rs": "0fa69caff90cc21660952533fa17d04dcf004f07d8eb494122c0b0817a7f4fb0",
+    "bindings/c/test/driver.c": "cafdab9409873d9991a0de80ec009b331ffbabfcabafbca8ed0fc46ef673c206",
+    "portable/contracts/Cargo.lock": "93cb21d4d2f511a0c5e752dd231a8159599496cea0f319795e36f8b5922428ed",
+    "portable/contracts/Cargo.toml": "6d31759fb08be07420e90f104a47b05a9dc5b992bad31b14be42b013a540191d",
+    "portable/contracts/src/canonical.rs": "3b6c9dd738efeddef54b37eb15ed998eaa6c2e2a90ec5ddb3080b912c50eb6a2",
+    "portable/contracts/src/lib.rs": "f5e936533cf4be02c0804fb3c5462c247592a744f7cd54d69edf6cbf4933b00c",
+    "portable/contracts/src/validate.rs": "8092d7dfbd26cc1b5c8aca8c01a18e2ddd2dd1ba37b411522d994462bb58dac2",
+    "portable/contracts/tests/rejections.rs": "975f4f376adb085c269b0d940a8f7cfe1306260c5112b24c2e50655a92e9c5ab",
+    "portable/core/Cargo.lock": "77d2b0c942606b4d84d181c12a6fa6feb37a1161514c910d6bfc08a9429dc608",
+    "portable/core/Cargo.toml": "55b2ff828e3e884264bd89d4a076ad08ae56ccd7d8522164ee7d2485d887fcb3",
+    "portable/core/src/host.rs": "82931e68bfd2debfa989f1ef02612ed654f5a7494f5ff7d6adf6f113526b279c",
+    "portable/core/src/lib.rs": "06ea13e5720a91e55392b2ebfd7dee17f21c5daa83c7a092c81b2ae399493d13",
+    "portable/core/src/main.rs": "4236515222d0467397ff7904e99032ad17fb56e851a5576779929489c295d9c6",
+    "portable/core/src/reference.rs": "6b04e0fd1e0dc370aeef3708357f3c435885a20027c265db7ba8046a18b6282e",
+    "portable/core/src/session.rs": "400156074cd75090b451e2bbbe786fc362e50568345cdbd8c395194f269877e0",
+    "portable/core/src/worker.rs": "9e6b4d1859f78fea80cc39c4ce5b9749e03bc35562fbab891eb4ab956b6c0e2d",
+    "portable/core/tests/semantics.rs": "140e68218da4c1b603b579abaeda4c3377318fa85ed84c7258fd3f35c5c75986",
+    "validation/fixtures/loop.json": "cc41b8f45cb094c952e89f9fc76d8e81d87ad6226773049d3dbf17b9c9af7980",
+    "validation/fixtures/vector-add.json": "7e85bf28df87b71c9f1c479b5de26bff41fbe973ffc86eba3c1b7407284a3ba0",
+    "validation/run_portable.py": "7ca5dd9bf2f4e47532a07eae90ed7cbb0f9699eb04f6ae9abedab97a8028593a",
+    "scripts/install-portable-worker.py": "f811be7c3eca353f0217357eae1e96c7dcc2070ef924c3ff7b7265fe5d27a576"
+  },
+  "workers": [
+    {
+      "endpoints": [
+        {
+          "consumes": [
+            "kuiper.kir/1",
+            "kuiper.integer32/1"
+          ],
+          "produces": [
+            "kuiper.artifact/1",
+            "khronos.spirv.vulkan1.2/1",
+            "kuiper.storage-words32/1"
+          ],
+          "role": "compiler"
+        }
+      ],
+      "executable": "worker",
+      "executable_digest": "a2d72e2c40dd7663a54630d899ec83004e09de1864f274a76b44b45d8873651a",
+      "id": "kuiper.spirt.integer32/0.1.0",
+      "protocol": "kuiper.worker/1"
+    },
+    {
+      "endpoints": [
+        {
+          "consumes": [
+            "kuiper.artifact/1",
+            "khronos.spirv.vulkan1.2/1",
+            "kuiper.storage-words32/1"
+          ],
+          "produces": [
+            "kuiper.storage-words32/1",
+            "kuiper.execution/1"
+          ],
+          "role": "runtime"
+        }
+      ],
+      "executable": "worker",
+      "executable_digest": "de6c5cbcac02f9a3f5e0f9490a90eb4a6b2d7ac5f99dd94c5b0a69d6d00c4804",
+      "id": "kuiper.vulkan.integer32/0.1.0",
+      "protocol": "kuiper.worker/1"
+    }
+  ],
+  "validator": "SPIRV-Tools v2025.1 unknown hash, 2026-05-13T06:03:38+00:00\nTargets:\n  SPIR-V 1.0\n  SPIR-V 1.1\n  SPIR-V 1.2\n  SPIR-V 1.3\n  SPIR-V 1.4\n  SPIR-V 1.5\n  SPIR-V 1.6\n  SPIR-V 1.2 (under OpenCL 2.2 Full Profile semantics)\n  SPIR-V 1.0 (under Vulkan 1.0 semantics)\n  SPIR-V 1.3 (under Vulkan 1.1 semantics)\n  SPIR-V 1.4 (under Vulkan 1.1 semantics)\n  SPIR-V 1.5 (under Vulkan 1.2 semantics)\n  SPIR-V 1.6 (under Vulkan 1.3 semantics) SPIR-V 1.6 (under Vulkan 1.4 semantics)\n",
+  "validator_sha256": "20c5998a46f02310f56bf11be238c34d374bb50104b7ccf85bb909f9da883ff9"
+}

@@ -1,0 +1,174 @@
+{
+  "scope": "declarative specification only",
+  "fstar_version": "F* 2026.09.27\nplatform=Linux_x86_64\nsystem=Unix\ncompiler=OCaml 5.3.0\ndate=2026-09-27 16:52:08 +0000\ncommit=7deb38a27c86990664c6b41e4b6093597acdebd4",
+  "fstar_binary_sha256": "2b4d515eff88030c6d9b8fb3bf54f85267e90539865d4aaa32c6052b597feedf",
+  "modules": [
+    {
+      "file": "Specification/modules/Quiper.Spec.Foundation.fst",
+      "sha256": "456e76e6febbfcb54eb55e8f8c5a7e1aff338a5f5a7ff7d94fd0a67cbb16c65c",
+      "command": [
+        "fstar.exe",
+        "--include",
+        "Specification/modules",
+        "--cache_dir",
+        "<fresh-temporary-directory>",
+        "--cache_checked_modules",
+        "Specification/modules/Quiper.Spec.Foundation.fst"
+      ],
+      "exit_code": 0,
+      "output": "Verified module: Quiper.Spec.Foundation\nAll verification conditions discharged successfully\n"
+    },
+    {
+      "file": "Specification/modules/Quiper.Spec.Kernel.fst",
+      "sha256": "31561fae2846a25d9deb08b19be3e3f6493645c4f3bf460cb70782ebbf68f617",
+      "command": [
+        "fstar.exe",
+        "--include",
+        "Specification/modules",
+        "--cache_dir",
+        "<fresh-temporary-directory>",
+        "--cache_checked_modules",
+        "Specification/modules/Quiper.Spec.Kernel.fst"
+      ],
+      "exit_code": 0,
+      "output": "Verified module: Quiper.Spec.Kernel\nAll verification conditions discharged successfully\n"
+    },
+    {
+      "file": "Specification/modules/Quiper.Spec.Memory.fst",
+      "sha256": "db73b9ded17778caccd30377cf7b90c0c9d648b1a51d40ef193c14b8bc92df69",
+      "command": [
+        "fstar.exe",
+        "--include",
+        "Specification/modules",
+        "--cache_dir",
+        "<fresh-temporary-directory>",
+        "--cache_checked_modules",
+        "Specification/modules/Quiper.Spec.Memory.fst"
+      ],
+      "exit_code": 0,
+      "output": "Verified module: Quiper.Spec.Memory\nAll verification conditions discharged successfully\n"
+    },
+    {
+      "file": "Specification/modules/Quiper.Spec.Runtime.fst",
+      "sha256": "ae6cbf4e32aff4dde1dccb47b7d6509a13f102e92cb190005b203042657f78f9",
+      "command": [
+        "fstar.exe",
+        "--include",
+        "Specification/modules",
+        "--cache_dir",
+        "<fresh-temporary-directory>",
+        "--cache_checked_modules",
+        "Specification/modules/Quiper.Spec.Runtime.fst"
+      ],
+      "exit_code": 0,
+      "output": "Verified module: Quiper.Spec.Runtime\nAll verification conditions discharged successfully\n"
+    },
+    {
+      "file": "Specification/modules/Quiper.Spec.Refinement.fst",
+      "sha256": "b0190d5fca98587f617c42525a46f1fc16ce10b0ab0ad1cd0d9c6dfeeebc4b78",
+      "command": [
+        "fstar.exe",
+        "--include",
+        "Specification/modules",
+        "--cache_dir",
+        "<fresh-temporary-directory>",
+        "--cache_checked_modules",
+        "Specification/modules/Quiper.Spec.Refinement.fst"
+      ],
+      "exit_code": 0,
+      "output": "Verified module: Quiper.Spec.Refinement\nAll verification conditions discharged successfully\n"
+    },
+    {
+      "file": "Specification/modules/Quiper.Spec.Extension.fst",
+      "sha256": "b5b8d0e05028475de0ef077c18c38ee45f83431b39dc1de8762be2342506be2e",
+      "command": [
+        "fstar.exe",
+        "--include",
+        "Specification/modules",
+        "--cache_dir",
+        "<fresh-temporary-directory>",
+        "--cache_checked_modules",
+        "Specification/modules/Quiper.Spec.Extension.fst"
+      ],
+      "exit_code": 0,
+      "output": "Verified module: Quiper.Spec.Extension\nAll verification conditions discharged successfully\n"
+    },
+    {
+      "file": "Specification/modules/Quiper.Spec.Lowering.fst",
+      "sha256": "e4ee231462c4f78f5af959b773733da782d670424d9c00d30c0cd7dd3a202b35",
+      "command": [
+        "fstar.exe",
+        "--include",
+        "Specification/modules",
+        "--cache_dir",
+        "<fresh-temporary-directory>",
+        "--cache_checked_modules",
+        "Specification/modules/Quiper.Spec.Lowering.fst"
+      ],
+      "exit_code": 0,
+      "output": "Verified module: Quiper.Spec.Lowering\nAll verification conditions discharged successfully\n"
+    },
+    {
+      "file": "Specification/modules/Quiper.Spec.Qualification.fst",
+      "sha256": "19d01c79cabbee1916cf8928cae61f3d9c3e71fd2cf4bcf1c59d57519e882923",
+      "command": [
+        "fstar.exe",
+        "--include",
+        "Specification/modules",
+        "--cache_dir",
+        "<fresh-temporary-directory>",
+        "--cache_checked_modules",
+        "Specification/modules/Quiper.Spec.Qualification.fst"
+      ],
+      "exit_code": 0,
+      "output": "Verified module: Quiper.Spec.Qualification\nAll verification conditions discharged successfully\n"
+    },
+    {
+      "file": "Specification/modules/Quiper.Spec.Operations.fst",
+      "sha256": "b89994244575713c0d16ed008411cd8a8bc22e48ee381b7cc464b607f3eda9fe",
+      "command": [
+        "fstar.exe",
+        "--include",
+        "Specification/modules",
+        "--cache_dir",
+        "<fresh-temporary-directory>",
+        "--cache_checked_modules",
+        "Specification/modules/Quiper.Spec.Operations.fst"
+      ],
+      "exit_code": 0,
+      "output": "Verified module: Quiper.Spec.Operations\nAll verification conditions discharged successfully\n"
+    },
+    {
+      "file": "Specification/modules/Quiper.Spec.Host.fst",
+      "sha256": "7534db115000246094cfe428feab262803fb40d88d1aa09378560711f532a2c2",
+      "command": [
+        "fstar.exe",
+        "--include",
+        "Specification/modules",
+        "--cache_dir",
+        "<fresh-temporary-directory>",
+        "--cache_checked_modules",
+        "Specification/modules/Quiper.Spec.Host.fst"
+      ],
+      "exit_code": 0,
+      "output": "Verified module: Quiper.Spec.Host\nAll verification conditions discharged successfully\n"
+    },
+    {
+      "file": "Specification/modules/Quiper.Spec.All.fst",
+      "sha256": "cbe5a0d250e9568682015ae290554815c3a38f3db923257579968df73f9a52a0",
+      "command": [
+        "fstar.exe",
+        "--include",
+        "Specification/modules",
+        "--cache_dir",
+        "<fresh-temporary-directory>",
+        "--cache_checked_modules",
+        "Specification/modules/Quiper.Spec.All.fst"
+      ],
+      "exit_code": 0,
+      "output": "Verified module: Quiper.Spec.All\nAll verification conditions discharged successfully\n"
+    }
+  ],
+  "backend_gates": "not-run",
+  "passed": true
+}

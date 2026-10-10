@@ -1,4 +1,27 @@
 use kuiper_contracts::{canonical, validate, *};
+
+#[test]
+fn nested_and_dispatched_work_is_bounded_as_a_product() {
+    let mut package: Package =
+        canonical::parse(include_bytes!("../../../validation/fixtures/loop.json")).unwrap();
+    let kernel = &mut package.kernels[0];
+    assert!(validate::work_for_dispatch(kernel, [1, 1, 1]).is_ok());
+    assert_eq!(
+        validate::work_for_dispatch(kernel, [MAX_WORDS as u32 / 4, 1, 1])
+            .unwrap_err()
+            .code,
+        "work-limit"
+    );
+    if let Instruction::While {
+        iteration_limit, ..
+    } = &mut kernel.body.instructions[4]
+    {
+        *iteration_limit = 1_048_576;
+    } else {
+        panic!("fixture must contain the expected loop");
+    }
+    assert_eq!(validate::package(&package).unwrap_err().code, "work-limit");
+}
 fn package() -> Package {
     canonical::parse(include_bytes!("../../../validation/fixtures/loop.json")).unwrap()
 }

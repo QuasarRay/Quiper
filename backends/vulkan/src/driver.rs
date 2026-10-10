@@ -585,8 +585,8 @@ impl Drop for Batch<'_> {
     fn drop(&mut self) {
         let device = self.context.device();
         if self.submitted {
-            // This wait can outlast the ordinary fence timeout. The parent worker
-            // deadline is the containment boundary for an unresponsive native driver.
+            // This wait can outlast the ordinary fence timeout. The current core
+            // retains ownership and waits; deployment cancellation remains unproved.
             match unsafe { device.device_wait_idle() } {
                 Ok(()) | Err(vk::Result::ERROR_DEVICE_LOST) => self.submitted = false,
                 Err(_) => {

@@ -68,28 +68,34 @@ def store(res, index, value):
 
 
 class Harness:
-    def __init__(self, directory):
+    def __init__(self, directory, release):
         self.directory = Path(directory)
         self.workers = self.directory / 'workers'
         self.cache = self.directory / 'cache'
-        self.core = ROOT / 'portable/core/target/debug/kuiper-core'
-        self.runtime = ROOT / 'backends/vulkan/target/debug/kuiper-vulkan-worker'
+        self.mode = 'release' if release else 'debug'
+        self.core = ROOT / f'portable/core/target/{self.mode}/kuiper-core'
+        self.runtime = ROOT / f'backends/vulkan/target/{self.mode}/kuiper-vulkan-worker'
         self.driver = self.directory / 'c-driver'
         self.cases = []
         self.devices = set()
         self.env = dict(os.environ, XDG_RUNTIME_DIR=str(self.directory),
                         VK_INSTANCE_LAYERS='VK_LAYER_KHRONOS_validation')
+        self.env.pop('VK_LOADER_LAYERS_DISABLE', None)
         self.directory.chmod(0o700)
+        device_info = self.command(['vulkaninfo', '--summary']).stdout.decode(errors='replace')
+        if 'VK_LAYER_KHRONOS_validation' not in device_info:
+            raise AssertionError('Qualification run requires the Khronos validation layer')
+        self.device_info = device_info
         before = self.core_sources()
         for name in ('spirt', 'vulkan'):
-            binary = ROOT / f'backends/{name}/target/debug/kuiper-{name}-worker'
+            binary = ROOT / f'backends/{name}/target/{self.mode}/kuiper-{name}-worker'
             self.command(['python3', ROOT / 'scripts/install-portable-worker.py',
                           '--root', self.workers, binary])
         assert self.core_sources() == before, 'Installing workers changed core sources'
         self.command(['cc', '-std=c11', '-Wall', '-Wextra', '-Werror',
                       '-I', ROOT / 'bindings/c/include', ROOT / 'bindings/c/test/driver.c',
-                      '-L', ROOT / 'bindings/c/target/debug', '-lkuiper_c',
-                      '-Wl,-rpath,' + str(ROOT / 'bindings/c/target/debug'), '-o', self.driver])
+                      '-L', ROOT / f'bindings/c/target/{self.mode}', '-lkuiper_c',
+                      '-Wl,-rpath,' + str(ROOT / f'bindings/c/target/{self.mode}'), '-o', self.driver])
         self.manifests = self.cli('inspect', self.workers)
         assert len(self.manifests) == 2
         self.record('additive-worker-installation', 'installation', {'workers': self.manifests})
@@ -162,6 +168,16 @@ class Harness:
         self.record(name, 'artifact-rejection', {'diagnostic': response['diagnostic'],
                     'artifact_digest': digest(artifact)})
 
+    def reject_source(self, name, package, invocation, code, check=False):
+        pp = self.path('package.json', package)
+        ip = self.path('invocation.json', invocation)
+        arguments = [self.core, 'check', pp] if check else [
+            self.core, 'run', pp, ip, self.workers, '--allow-experimental']
+        result = self.command(arguments, accepted=(1,))
+        error = json.loads(result.stderr.splitlines()[-1])
+        assert error['code'] == code and not result.stdout.strip(), (name, error)
+        self.record(name, 'source-rejection', {'diagnostic':error,'package_digest':digest(package)})
+
 
 def arithmetic(h):
     # Literal expected values are separate from both the Rust evaluator and the backend.
@@ -188,7 +204,8 @@ def arithmetic(h):
     for n, (ty, op, a, b, expected) in enumerate(cases):
         comparison = op in ('eq', 'ne', 'lt', 'le', 'gt', 'ge', 'logical_and', 'logical_or')
         out_ty = 'bool' if comparison else ty
-        p = package([global_id(), const(2, ty, a), const(3, ty, b),
+        count_ty = 'u32' if op in ('shift_left', 'shift_right') else ty
+        p = package([global_id(), const(2, ty, a), const(3, count_ty, b),
             {'kind': 'binary', 'result': 4, 'op': op, 'left': 2, 'right': 3}, store(0, 1, 4)],
             [resource(0, out_ty)])
         i = invocation(p, [buffer(0, [0, 0, 0, 0, 0, 0], 1, 4)])
@@ -197,7 +214,8 @@ def arithmetic(h):
                           ('i32', 'div', 0x80000000, MASK), ('i32', 'rem', 0x80000000, MASK),
                           ('u32', 'shift_left', 1, 32), ('u32', 'shift_right', 1, 32),
                           ('i32', 'shift_right', MASK, 32)]:
-        p = package([global_id(), const(2, ty, a), const(3, ty, b),
+        count_ty = 'u32' if op in ('shift_left', 'shift_right') else ty
+        p = package([global_id(), const(2, ty, a), const(3, count_ty, b),
                      {'kind': 'binary', 'result': 4, 'op': op, 'left': 2, 'right': 3}, store(0, 1, 4)],
                     [resource(0, ty)])
         h.guard(f'arithmetic-undefined-{ty}-{op}-{b}', p, invocation(p, [buffer(0, [9]*4)]), 2)
@@ -206,10 +224,13 @@ def arithmetic(h):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', required=True)
+    parser.add_argument('--release', action='store_true')
     args = parser.parse_args()
+    # Never leave a prior passing report behind after a failed candidate run.
+    Path(args.output).unlink(missing_ok=True)
     started = time.time()
     with tempfile.TemporaryDirectory(prefix='kuiper-integration-') as directory:
-        h = Harness(directory)
+        h = Harness(directory, args.release)
         p = fixture('guarded-vector-add')
         i = invocation(p, [buffer(0, [99, 1, 2, 3, 4, 88], 1, 4),
                            buffer(1, [77, 10, 20, 30, 40, 66], 1, 4),
@@ -299,15 +320,29 @@ def main():
         assert actual['buffers'][0]['words'] == [99,3,3,3,3,88]
         assert json.loads(h.command([h.driver,h.workers,pp,pl,'plan']).stdout)['buffers'] == actual['buffers']
         h.record('host-dag-successful-sequenced-versions', 'host-plan', {'interfaces':['core','c'], 'plan_digest':digest(plan)})
-        source_paths = sorted(p for top in ('portable','backends','bindings','validation','scripts')
+        too_much = invocation(loop, [buffer(0,[0]*4)], [0], groups=262144)
+        h.reject_source('aggregate-dispatch-work-rejected', loop, too_much, 'work-limit')
+        nested = fixture('nested-loops')
+        outer = next(x for x in nested['kernels'][0]['body']['instructions'] if x['kind']=='while')
+        outer['iteration_limit'] = 1024
+        next(x for x in outer['body']['instructions'] if x['kind']=='while')['iteration_limit'] = 1024
+        h.reject_source('aggregate-nested-loop-work-rejected', nested,
+                        invocation(nested,[buffer(0,[0]*4)],[0,0]), 'work-limit', check=True)
+        bad = copy.deepcopy(inv); bad['buffers'][0]['offset'] = MASK
+        h.reject_source('invalid-view-rejected-before-compilation', loop,bad,'view-bounds')
+        source_paths = sorted(p for top in ('portable/contracts','portable/core','backends','bindings','validation/fixtures')
                               for p in (ROOT / top).rglob('*') if p.is_file()
+                              and p.suffix in ('.rs','.toml','.lock','.h','.c','.json')
                               and not any(part in ('target','results','__pycache__') for part in p.parts))
+        source_paths += [ROOT/'validation/run_portable.py', ROOT/'scripts/install-portable-worker.py']
         report = {'schema':'kuiper.integer-integration/1', 'status':'passed',
-            'profile':'kuiper.integer32/1', 'assurance':'experimental-tested/1',
+            'profile':'kuiper.integer32/1', 'assurance':'kuiper.experimental-tested/1',
             'device_kind':'cpu' if all('llvmpipe' in d for d in h.devices) else 'unclassified',
             'devices':sorted(h.devices), 'physical_gpu_qualification':False,
             'source_frontend_qualification':False, 'implementation_refinement':False,
             'vulkan_validation_layer':'VK_LAYER_KHRONOS_validation', 'validation_errors':0,
+            'vulkaninfo_summary':h.device_info,
+            'build_mode':h.mode,
             'elapsed_seconds':round(time.time()-started,2), 'case_count':len(h.cases), 'cases':h.cases,
             'sources':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths},
             'workers':h.manifests,

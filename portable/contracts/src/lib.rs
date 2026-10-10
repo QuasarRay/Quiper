@@ -17,6 +17,7 @@ pub const MAX_WORDS: usize = 1_048_576;
 pub const MAX_NODES: usize = 16_384;
 pub const MAX_DEPTH: usize = 32;
 pub const MAX_RESOURCES: usize = 16;
+pub const MAX_WORK_STEPS: u64 = 10_000_000;
 
 #[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(deny_unknown_fields)]

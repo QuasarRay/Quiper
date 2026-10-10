@@ -429,8 +429,71 @@ pub fn package(package: &Package) -> Result<()> {
                 "kernel body must return no SSA values",
             ));
         }
+        work_for_dispatch(kernel, [1, 1, 1])?;
     }
     Ok(())
+}
+/// Conservative source instruction count, including the final loop pretest.
+/// This is a resource limit, not a proof of target execution time or progress.
+pub fn work_for_dispatch(kernel: &Kernel, workgroups: [u32; 3]) -> Result<u64> {
+    fn add(a: u64, b: u64) -> Result<u64> {
+        a.checked_add(b)
+            .filter(|v| *v <= MAX_WORK_STEPS)
+            .ok_or_else(|| {
+                error(
+                    "work-limit",
+                    "aggregate nested instruction work exceeds the profile limit",
+                )
+            })
+    }
+    fn multiply(a: u64, b: u64) -> Result<u64> {
+        a.checked_mul(b)
+            .filter(|v| *v <= MAX_WORK_STEPS)
+            .ok_or_else(|| {
+                error(
+                    "work-limit",
+                    "aggregate dispatched instruction work exceeds the profile limit",
+                )
+            })
+    }
+    fn cost(region: &Region, depth: usize) -> Result<u64> {
+        if depth > MAX_DEPTH || region.instructions.len() > MAX_NODES {
+            return Err(error(
+                "work-limit",
+                "instruction structure exceeds the work-accounting limit",
+            ));
+        }
+        let mut total = 1;
+        for instruction in &region.instructions {
+            let nested = match instruction {
+                Instruction::Select {
+                    then_region,
+                    else_region,
+                    ..
+                } => cost(then_region, depth + 1)?.max(cost(else_region, depth + 1)?),
+                Instruction::While {
+                    condition,
+                    body,
+                    iteration_limit,
+                    ..
+                } => {
+                    let count = u64::from(*iteration_limit);
+                    add(
+                        multiply(cost(condition, depth + 1)?, count + 1)?,
+                        multiply(cost(body, depth + 1)?, count)?,
+                    )?
+                }
+                _ => 0,
+            };
+            total = add(total, add(1, nested)?)?;
+        }
+        Ok(total)
+    }
+    let lanes = workgroups
+        .iter()
+        .chain(&kernel.local_size)
+        .try_fold(1u64, |n, v| multiply(n, u64::from(*v)))?;
+    multiply(cost(&kernel.body, 0)?, lanes)
 }
 pub fn kernel<'a>(package_value: &'a Package, entry: &str) -> Result<&'a Kernel> {
     package(package_value)?;
