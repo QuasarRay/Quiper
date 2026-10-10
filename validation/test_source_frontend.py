@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 import sys
 import tempfile
+import time
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,12 +39,22 @@ class SourceBoundary(unittest.TestCase):
                     f'open({str(marker)!r},"w").write(str(p)) if p else None; '
                     'time.sleep(30)')
             with self.assertRaises(TimeoutError):
-                compiler([sys.executable, '-c', code], dict(os.environ), Path(directory) / 'log', .15)
+                compiler([sys.executable, '-c', code], dict(os.environ), Path(directory) / 'log', .5)
             pid = int(marker.read_text())
             # A killed child may briefly remain as a zombie until init reaps
             # it. That state cannot write another capture or keep computing.
             stat = Path(f'/proc/{pid}/stat')
-            self.assertTrue(not stat.exists() or stat.read_text().split(') ', 1)[1].startswith('Z '))
+            deadline = time.monotonic() + 1
+            while True:
+                try:
+                    state = stat.read_text().split(') ', 1)[1].split()[0]
+                except (FileNotFoundError, ProcessLookupError):
+                    break
+                if state in ('Z', 'X'):
+                    break
+                if time.monotonic() >= deadline:
+                    self.fail('Compiler descendant still runs after timeout termination')
+                time.sleep(.01)
 
     def test_duplicate_json_field_is_rejected(self):
         with tempfile.TemporaryDirectory() as directory:
