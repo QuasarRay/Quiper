@@ -111,7 +111,7 @@ let rec stateful depth (t:P.st_term) =
   | P.Tm_Rewrite x -> "rewrite",["left",pt x.P.t1; "right",pt x.P.t2;
       "tactic",(match x.P.tac_opt with None -> `Null | Some t -> pt t)]
   | P.Tm_Admit _ -> "admit",[]
-  | P.Tm_Unreachable x -> inspect_comp x.P.c; "unreachable",[]
+  | P.Tm_Unreachable c -> inspect_comp c; "unreachable",[]
   | P.Tm_While x ->
       List.iter inspect_pure (x.P.invariant::x.P.loop_requires::x.P.meas);
       "unsupported",["constructor",str "while";
