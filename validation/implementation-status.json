@@ -49,7 +49,7 @@
       "id": "M08",
       "roadmap": "Roadmap/02-language-independent-extraction/02-export-a-checked-kuiper-program.md",
       "status": "partial",
-      "details": "Live checked Pulse observer and closed U32/ref exporter implemented; structured selections, typed joins and scoped return continuations added with an expanded real-source regression. Arrays, loops, static shapes, dependency proof closure, per-lane lifting and O1/O2 remain unfinished. Candidate-bound source CI must pass before treating the new regression as measured evidence."
+      "details": "Live checked Pulse observer and closed U32/ref exporter implemented; structured selections, typed joins, scoped return continuations and U32 quotient/remainder/bitwise/shift mappings have a 45-case proposed real-source regression. Arrays, loops, static shapes, dependency proof closure, per-lane lifting and O1/O2 remain unfinished. Candidate-bound source CI must pass before treating the expanded regression as measured evidence."
     },
     {
       "id": "M09",
@@ -96,8 +96,8 @@
     {
       "id": "M16",
       "roadmap": "Roadmap/04-spirt-and-gpu-lowering/04-complete-numerics-and-target-emission.md",
-      "status": "not-implemented",
-      "details": "Required implementation and qualification remain unfinished."
+      "status": "partial",
+      "details": "Bounded U32/I32 arithmetic, word and Boolean operations execute through direct SPIR-T; actual U32 source coverage is expanding for quotient/remainder, bitwise and shifts. Floating-point policies, full numerical semantics and target/refinement qualification remain unfinished."
     },
     {
       "id": "M17",

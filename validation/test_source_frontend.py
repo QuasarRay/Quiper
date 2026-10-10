@@ -136,5 +136,43 @@ class SourceBoundary(unittest.TestCase):
         self.mutate_early_return('argument', {'tag': 'unit'}, 'label result type disagrees')
 
 
+    @staticmethod
+    def dead_tail(source=False):
+        return {'tag': 'unreachable', 'effect': 'ghost', 'source': source}
+
+    @staticmethod
+    def returning_body(tail):
+        return {'tag': 'label', 'effect': 'stateful', 'source': False,
+                'result_type': {'tag': 'symbol', 'name': 'Prims.unit'},
+                'body': {'tag': 'bind', 'effect': 'stateful', 'source': False,
+                         'binder': {'type': {'tag': 'symbol', 'name': 'Prims.unit'}},
+                         'head': {'tag': 'jump', 'effect': 'stateful', 'source': True,
+                                  'label': {'tag': 'bound', 'index': 0},
+                                  'argument': {'tag': 'unit'}},
+                         'body': tail}}
+
+    def test_generated_unreachable_after_a_checked_jump_is_not_emitted(self):
+        body = self.returning_body(self.dead_tail())
+        translator = Translator({'Test.returning': {'body': body}})
+        result = translator.function('Test.returning', [])
+        self.assertEqual(result.category, 'unit')
+        self.assertEqual(translator.instructions, [])
+
+    def test_reachable_or_source_unreachable_is_rejected(self):
+        for body in (self.dead_tail(), self.returning_body(self.dead_tail(source=True))):
+            with self.subTest(body=body), self.assertRaises(Unsupported):
+                Translator({'Test.returning': {'body': body}}).function('Test.returning', [])
+        # Ghost erasure must not turn an encountered unreachable into success.
+        translator = Translator({})
+        with self.assertRaisesRegex(Unsupported, 'reachable generated unreachable'):
+            translator.stateful(self.dead_tail(), [])
+
+    def test_dead_return_tail_cannot_conceal_an_explicit_bypass(self):
+        tail = self.dead_tail()
+        tail['hidden'] = {'tag': 'symbol', 'name': 'Prims._assume'}
+        with self.assertRaisesRegex(Unsupported, 'explicit proof bypass'):
+            Translator({'Test.returning': {'body': self.returning_body(tail)}}).function('Test.returning', [])
+
+
 if __name__ == '__main__':
     unittest.main()

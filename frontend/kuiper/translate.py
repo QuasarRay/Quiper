@@ -53,13 +53,33 @@ def erased_type(node):
             and scalar_type(node['arguments'][0]['value']) in ('u32', 'bool', 'unit'))
 
 
-def reject_bypasses(node):
+def never_returns(node):
+    if not isinstance(node, dict):
+        return False
+    tag = node.get('tag')
+    if tag == 'jump':
+        return True
+    if tag == 'bind':
+        return never_returns(node.get('head')) or never_returns(node.get('body'))
+    if tag == 'pure_bind':
+        return never_returns(node.get('body'))
+    if tag == 'if':
+        return (never_returns(node.get('condition'))
+                or (never_returns(node.get('then')) and never_returns(node.get('else'))))
+    # A label consumes jumps to itself and resumes its enclosing continuation.
+    return False
+
+
+def reject_bypasses(node, allow_generated_unreachable=False, dead=False):
     if isinstance(node, dict):
-        if node.get('tag') == 'unsupported' and 'effect' in node:
+        tag = node.get('tag')
+        if tag == 'unsupported' and 'effect' in node:
             raise Unsupported('unsupported source construct: ' + str(node.get('constructor')))
-        if node.get('tag') in ('admit', 'unreachable', 'pragma'):
-            raise Unsupported('capture contains ' + node['tag'] + ': ' + str(node.get('constructor', '')))
-        if node.get('tag') == 'symbol' and node.get('name') in (
+        generated_dead_tail = (tag == 'unreachable' and allow_generated_unreachable and dead
+                               and node.get('source') is False and 'effect' in node)
+        if tag in ('admit', 'pragma') or (tag == 'unreachable' and not generated_dead_tail):
+            raise Unsupported('capture contains ' + tag + ': ' + str(node.get('constructor', '')))
+        if tag == 'symbol' and node.get('name') in (
                 'Prims.admit', 'Prims.assume', 'Prims._assume', 'Prims.magic', 'Prims.unsafe_coerce',
                 'FStar.Pervasives.admit',
                 'FStar.Pervasives.assume', 'FStar.Pervasives.unsafe_coerce',
@@ -67,12 +87,16 @@ def reject_bypasses(node):
                 'Pulse.Lib.Core.stt_admit', 'Pulse.Lib.Core.stt_atomic_admit',
                 'Pulse.Lib.Core.stt_ghost_admit'):
             raise Unsupported('capture contains an explicit proof bypass')
-        for child in node.values():
-            reject_bypasses(child)
+        for key, child in node.items():
+            child_dead = dead
+            if tag == 'bind' and key == 'body':
+                child_dead |= never_returns(node.get('head'))
+            if tag == 'if' and key in ('then', 'else'):
+                child_dead |= never_returns(node.get('condition'))
+            reject_bypasses(child, allow_generated_unreachable, child_dead)
     elif isinstance(node, list):
         for child in node:
-            reject_bypasses(child)
-
+            reject_bypasses(child, allow_generated_unreachable, dead)
 
 class Translator:
     def __init__(self, declarations):
@@ -137,6 +161,10 @@ class Translator:
     def call(self, fn, raw_args, args, origin):
         binary = {'FStar.UInt32.add_mod': 'add', 'FStar.UInt32.sub_mod': 'sub',
                   'FStar.UInt32.mul_mod': 'mul', 'FStar.UInt32.eq': 'eq',
+                  'FStar.UInt32.div': 'div', 'FStar.UInt32.rem': 'rem',
+                  'FStar.UInt32.logand': 'bit_and', 'FStar.UInt32.logor': 'bit_or',
+                  'FStar.UInt32.logxor': 'bit_xor',
+                  'FStar.UInt32.shift_left': 'shift_left', 'FStar.UInt32.shift_right': 'shift_right',
                   'FStar.UInt32.lt': 'lt', 'FStar.UInt32.lte': 'le'}
         if fn in binary:
             if len(args) != 2 or any(a['implicit'] for a in raw_args):
@@ -145,6 +173,14 @@ class Translator:
             n = self.result()
             self.emit('binary', origin, result=n, op=binary[fn], left=left, right=right)
             return Value('bool' if binary[fn] in ('eq', 'lt', 'le') else 'u32', n)
+        if fn == 'FStar.UInt32.lognot':
+            if len(args) != 1 or any(a['implicit'] for a in raw_args):
+                raise Unsupported('unexpected word complement signature')
+            left = self.expect(args[0], 'u32')
+            mask = self.constant(0xffffffff, 'u32', origin)
+            n = self.result()
+            self.emit('binary', origin, result=n, op='bit_xor', left=left, right=mask.number)
+            return Value('u32', n)
         if fn in ('Kuiper.Ref.read', 'Kuiper.Ref.write'):
             if origin.get('effect') == 'atomic':
                 raise Unsupported('ordinary reference accesses cannot realize an atomic source step')
@@ -217,6 +253,8 @@ class Translator:
 
     def stateful(self, node, env, continuation=identity):
         tag = node['tag']
+        if tag == 'unreachable':
+            raise Unsupported('reachable generated unreachable cannot become executable KIR')
         if node['effect'] == 'ghost':
             return continuation(PROOF)
         if tag in ('introduce_pure', 'introduce_exists', 'eliminate_exists', 'rewrite'):
@@ -285,7 +323,7 @@ class Translator:
             raise Unsupported('recursive or deeply nested helper closure')
         self.call_stack.append(fn)
         try:
-            reject_bypasses(self.declarations[fn])
+            reject_bypasses(self.declarations[fn], allow_generated_unreachable=True)
             body = self.declarations[fn]['body']
             env = []
             remaining = list(args)
@@ -310,7 +348,7 @@ class Translator:
 
     def kernel(self, name, local_size):
         record = self.declarations[name]
-        reject_bypasses(record)
+        reject_bypasses(record, allow_generated_unreachable=True)
         body = record['body']
         resources, parameters, args = [], [], []
         while body['tag'] == 'abstract':

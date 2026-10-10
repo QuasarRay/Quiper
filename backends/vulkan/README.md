@@ -16,7 +16,7 @@ cargo clippy --locked --manifest-path backends/vulkan/Cargo.toml --all-targets -
 printf '%s\n' '{"method":"describe"}' | backends/vulkan/target/debug/kuiper-vulkan-worker
 ```
 
-The execution suite is explicit because it requires Vulkan and a validator. It was run on **llvmpipe (LLVM 20.1.2, 256 bits)**, a CPU device reporting Vulkan 1.4.318. No physical-GPU test is claimed.
+The execution suite is explicit because it requires Vulkan and a validator. It was run on **llvmpipe (LLVM 20.1.2, 256 bits)**, a CPU device reporting Vulkan 1.4.318. No successful physical-GPU test is claimed. The [hardware replay workflow](../../.github/workflows/portable-hardware.yml) selects a hardware-only driver, runs the integer matrix and execution suites, and replays the exact checked-source packages/vectors from successful candidate-matched source CI; its actual candidate result must be recorded separately. [The replay procedure](../../portable/implementation/05-replay-on-physical-vulkan.md) gives the admission rules and remaining qualification boundary.
 
 The worker rejects compiler requests, duplicate keys, unknown required fields and oversized JSON lines. Its runtime endpoint declares both the execution schema and output word ABI. `execute(&Artifact, &Invocation)` also supports direct library use; process deadlines and containment must be provided by its caller.
 

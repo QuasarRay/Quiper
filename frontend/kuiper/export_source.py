@@ -209,6 +209,9 @@ def main():
                     'primitive_mappings': {'Kuiper.Ref.read': 'per-lane checked word load',
                         'Kuiper.Ref.write': 'per-lane checked word store',
                         'FStar.UInt32.add_mod/sub_mod/mul_mod': 'wrapping U32 arithmetic',
+                        'FStar.UInt32.div/rem': 'U32 quotient/remainder with guarded invalid operands',
+                        'FStar.UInt32.logand/logor/logxor/lognot': 'exact 32-bit word operations',
+                        'FStar.UInt32.shift_left/shift_right': '32-bit shifts with guarded invalid counts',
                         'Pulse if': 'one condition evaluation, exclusive regions and typed result joins'},
                     'instructions': translator.mapping}
         target.parent.mkdir(parents=True, exist_ok=True)

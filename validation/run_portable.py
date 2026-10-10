@@ -14,6 +14,8 @@ import subprocess
 import tempfile
 import time
 
+from vulkan_devices import device_types, driver_input, require_physical
+
 ROOT = Path(__file__).resolve().parents[1]
 MASK = (1 << 32) - 1
 
@@ -68,7 +70,7 @@ def store(res, index, value):
 
 
 class Harness:
-    def __init__(self, directory, release):
+    def __init__(self, directory, release, require_gpu=False):
         self.directory = Path(directory)
         self.workers = self.directory / 'workers'
         self.cache = self.directory / 'cache'
@@ -86,19 +88,38 @@ class Harness:
         if 'VK_LAYER_KHRONOS_validation' not in device_info:
             raise AssertionError('Qualification run requires the Khronos validation layer')
         self.device_info = device_info
+        self.device_types = device_types(device_info)
+        self.driver_input = None
+        if require_gpu:
+            require_physical(device_info)
+            self.driver_input = driver_input(self.env)
+        self.driver_input_digest = (hashlib.sha256(self.driver_input.read_bytes()).hexdigest()
+                                    if self.driver_input else None)
         before = self.core_sources()
+        immutable_hosts = [self.core, ROOT / f'bindings/c/target/{self.mode}/libkuiper_c.so']
+        host_digests = {p: hashlib.sha256(p.read_bytes()).hexdigest() for p in immutable_hosts}
         for name in ('spirt', 'vulkan'):
             binary = ROOT / f'backends/{name}/target/{self.mode}/kuiper-{name}-worker'
             self.command(['python3', ROOT / 'scripts/install-portable-worker.py',
                           '--root', self.workers, binary])
         assert self.core_sources() == before, 'Installing workers changed core sources'
+        assert all(hashlib.sha256(p.read_bytes()).hexdigest() == sha for p, sha in host_digests.items()), 'Installing workers changed host binaries'
         self.command(['cc', '-std=c11', '-Wall', '-Wextra', '-Werror',
                       '-I', ROOT / 'bindings/c/include', ROOT / 'bindings/c/test/driver.c',
                       '-L', ROOT / f'bindings/c/target/{self.mode}', '-lkuiper_c',
                       '-Wl,-rpath,' + str(ROOT / f'bindings/c/target/{self.mode}'), '-o', self.driver])
+        self.host_paths = dict(zip(('core', 'c_binding', 'c_driver'), [*immutable_hosts, self.driver]))
+        self.host_binaries = {name: hashlib.sha256(p.read_bytes()).hexdigest()
+                              for name, p in self.host_paths.items()}
         self.manifests = self.cli('inspect', self.workers)
         assert len(self.manifests) == 2
         self.record('additive-worker-installation', 'installation', {'workers': self.manifests})
+
+    def assert_host_inputs_unchanged(self):
+        current = {name: hashlib.sha256(p.read_bytes()).hexdigest()
+                   for name, p in self.host_paths.items()}
+        if current != self.host_binaries:
+            raise AssertionError('Host execution binaries changed during replay')
 
     @staticmethod
     def core_sources():
@@ -111,8 +132,9 @@ class Harness:
         result = subprocess.run([str(x) for x in arguments], input=raw,
                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=self.env)
         stderr = result.stderr.decode(errors='replace')
-        if 'VUID-' in stderr or 'Validation Error' in stderr:
-            raise AssertionError('Vulkan validation error: ' + stderr[-8000:])
+        messages = stderr + result.stdout.decode(errors='replace')
+        if 'VUID-' in messages or 'Validation Error' in messages:
+            raise AssertionError('Vulkan validation error: ' + messages[-8000:])
         if result.returncode not in accepted:
             raise AssertionError(f'{arguments[0]} exited {result.returncode}: {stderr[-8000:]}')
         return result
@@ -179,6 +201,17 @@ class Harness:
         self.record(name, 'source-rejection', {'diagnostic':error,'package_digest':digest(package)})
 
 
+def execution_inputs():
+    paths = sorted(p for top in ('portable/contracts', 'portable/core', 'backends',
+                                'bindings', 'validation/fixtures')
+                   for p in (ROOT / top).rglob('*') if p.is_file()
+                   and p.suffix in ('.rs', '.toml', '.lock', '.h', '.c', '.json')
+                   and not any(part in ('target', 'results', '__pycache__') for part in p.parts))
+    paths += [ROOT / 'validation/run_portable.py', ROOT / 'validation/vulkan_devices.py',
+              ROOT / 'scripts/install-portable-worker.py']
+    return {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+
+
 def arithmetic(h):
     # Literal expected values are separate from both the Rust evaluator and the backend.
     cases = [
@@ -225,12 +258,14 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', required=True)
     parser.add_argument('--release', action='store_true')
+    parser.add_argument('--require-physical-gpu', action='store_true')
     args = parser.parse_args()
     # Never leave a prior passing report behind after a failed candidate run.
     Path(args.output).unlink(missing_ok=True)
     started = time.time()
+    inputs_before = execution_inputs()
     with tempfile.TemporaryDirectory(prefix='kuiper-integration-') as directory:
-        h = Harness(directory, args.release)
+        h = Harness(directory, args.release, args.require_physical_gpu)
         p = fixture('guarded-vector-add')
         i = invocation(p, [buffer(0, [99, 1, 2, 3, 4, 88], 1, 4),
                            buffer(1, [77, 10, 20, 30, 40, 66], 1, 4),
@@ -330,22 +365,27 @@ def main():
                         invocation(nested,[buffer(0,[0]*4)],[0,0]), 'work-limit', check=True)
         bad = copy.deepcopy(inv); bad['buffers'][0]['offset'] = MASK
         h.reject_source('invalid-view-rejected-before-compilation', loop,bad,'view-bounds')
-        source_paths = sorted(p for top in ('portable/contracts','portable/core','backends','bindings','validation/fixtures')
-                              for p in (ROOT / top).rglob('*') if p.is_file()
-                              and p.suffix in ('.rs','.toml','.lock','.h','.c','.json')
-                              and not any(part in ('target','results','__pycache__') for part in p.parts))
-        source_paths += [ROOT/'validation/run_portable.py', ROOT/'scripts/install-portable-worker.py']
+        if execution_inputs() != inputs_before:
+            raise AssertionError('Measured execution inputs changed during replay')
+        h.assert_host_inputs_unchanged()
+        if h.driver_input and hashlib.sha256(h.driver_input.read_bytes()).hexdigest() != h.driver_input_digest:
+            raise AssertionError('Selected hardware driver manifest changed during replay')
         report = {'schema':'kuiper.integer-integration/1', 'status':'passed',
             'profile':'kuiper.integer32/1', 'assurance':'kuiper.experimental-tested/1',
-            'device_kind':'cpu' if all('llvmpipe' in d for d in h.devices) else 'unclassified',
+            'device_kind':('physical_gpu' if args.require_physical_gpu else
+                           'cpu' if h.device_types and all(t == 'PHYSICAL_DEVICE_TYPE_CPU' for t in h.device_types)
+                           else 'unclassified'),
+            'device_types':h.device_types, 'hardware_only_driver_required':args.require_physical_gpu,
+            'selected_driver_manifest':(str(h.driver_input) if h.driver_input else None),
+            'selected_driver_manifest_sha256':h.driver_input_digest,
             'devices':sorted(h.devices), 'physical_gpu_qualification':False,
             'source_frontend_qualification':False, 'implementation_refinement':False,
             'vulkan_validation_layer':'VK_LAYER_KHRONOS_validation', 'validation_errors':0,
             'vulkaninfo_summary':h.device_info,
             'build_mode':h.mode,
             'elapsed_seconds':round(time.time()-started,2), 'case_count':len(h.cases), 'cases':h.cases,
-            'sources':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths},
-            'workers':h.manifests,
+            'sources':inputs_before,
+            'workers':h.manifests, 'host_binaries':h.host_binaries,
             'validator':subprocess.check_output(['spirv-val','--version'],text=True),
             'validator_sha256':hashlib.sha256(Path('/usr/bin/spirv-val').read_bytes()).hexdigest()}
         output = Path(args.output); output.parent.mkdir(parents=True,exist_ok=True)

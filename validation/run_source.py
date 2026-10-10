@@ -22,6 +22,19 @@ def export(harness, source, entry, output, accepted=(0,)):
                             '--entry', entry, '--output', output], accepted=accepted)
 
 
+def source_inputs():
+    paths = sorted(p for top in (FRONTEND, ROOT / 'src', ROOT / 'portable/contracts',
+                                 ROOT / 'portable/core', ROOT / 'backends/spirt',
+                                 ROOT / 'backends/vulkan', ROOT / 'bindings/c')
+                   for p in top.rglob('*') if p.is_file() and not any(
+                       part in ('target', '_build', '__pycache__') for part in p.parts)
+                   and p.suffix in ('.rs', '.toml', '.lock', '.ml', '.py', '.fst', '.fsti', '.h', '.c', '.json'))
+    paths += [ROOT / 'validation/run_source.py', ROOT / 'validation/run_portable.py',
+              ROOT / 'validation/vulkan_devices.py', ROOT / 'validation/run_source_hardware.py',
+              ROOT / 'validation/fetch_source_evidence.py', ROOT / 'scripts/install-portable-worker.py']
+    return {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path, required=True)
@@ -30,6 +43,8 @@ def main():
     args.output.unlink(missing_ok=True)
     started = time.monotonic()
     manifests = []
+    vectors = []
+    inputs_before = source_inputs()
     with tempfile.TemporaryDirectory(prefix='kuiper-source-integration-') as directory:
         h = Harness(directory, True)
         packages = {}
@@ -66,6 +81,30 @@ def main():
             ('asymmetric_return_continue', 'Control', 'asymmetric_return',
              [buffer(0, [71, 0, 1, 0xfffffffe, 0xffffffff, 72], 1, 4)], [1], 1,
              [[71, 5, 6, 3, 4, 72]]),
+            ('divide_three', 'Operations', 'divide_three',
+             [buffer(0, [101, 0, 1, 2, 3, 2147483647, 2147483648, 4294967294, 4294967295, 102], 1, 8)], [], 2,
+             [[101, 0, 0, 0, 1, 715827882, 715827882, 1431655764, 1431655765, 102]]),
+            ('remainder_three', 'Operations', 'remainder_three',
+             [buffer(0, [101, 0, 1, 2, 3, 2147483647, 2147483648, 4294967294, 4294967295, 102], 1, 8)], [], 2,
+             [[101, 0, 1, 2, 0, 1, 2, 2, 0, 102]]),
+            ('and_mask', 'Operations', 'and_mask',
+             [buffer(0, [101, 0, 1, 2, 3, 2147483647, 2147483648, 4294967294, 4294967295, 102], 1, 8)], [], 2,
+             [[101, 0, 1, 2, 3, 16711935, 0, 16711934, 16711935, 102]]),
+            ('or_mask', 'Operations', 'or_mask',
+             [buffer(0, [101, 0, 1, 2, 3, 2147483647, 2147483648, 4294967294, 4294967295, 102], 1, 8)], [], 2,
+             [[101, 2147549184, 2147549185, 2147549186, 2147549187, 4294967295, 2147549184, 4294967294, 4294967295, 102]]),
+            ('xor_mask', 'Operations', 'xor_mask',
+             [buffer(0, [101, 0, 1, 2, 3, 2147483647, 2147483648, 4294967294, 4294967295, 102], 1, 8)], [], 2,
+             [[101, 2863311530, 2863311531, 2863311528, 2863311529, 3579139413, 715827882, 1431655764, 1431655765, 102]]),
+            ('not_bits', 'Operations', 'not_bits',
+             [buffer(0, [101, 0, 1, 2, 3, 2147483647, 2147483648, 4294967294, 4294967295, 102], 1, 8)], [], 2,
+             [[101, 4294967295, 4294967294, 4294967293, 4294967292, 2147483648, 2147483647, 1, 0, 102]]),
+            ('shift_left_one', 'Operations', 'shift_left_one',
+             [buffer(0, [101, 0, 1, 2, 3, 2147483647, 2147483648, 4294967294, 4294967295, 102], 1, 8)], [], 2,
+             [[101, 0, 2, 4, 6, 4294967294, 0, 4294967292, 4294967294, 102]]),
+            ('shift_right_31', 'Operations', 'shift_right_31',
+             [buffer(0, [101, 0, 1, 2, 3, 2147483647, 2147483648, 4294967294, 4294967295, 102], 1, 8)], [], 2,
+             [[101, 0, 0, 0, 0, 0, 1, 1, 1, 102]]),
         ):
             key = (module, entry)
             if key not in packages:
@@ -83,15 +122,22 @@ def main():
                 assert 'Z3 version 4.13.3 ' in manifest['toolchain']['solver']['version']
                 manifests.append(manifest)
             package = packages[key]
-            h.success('checked-source-' + case, package, invocation(package, inputs, params, groups), expected, c=True)
+            full = invocation(package, inputs, params, groups)
+            h.success('checked-source-' + case, package, full, expected, c=True)
+            vectors.append({'name': 'checked-source-' + case, 'entry': full['entry'],
+                            'invocation': full, 'expected': expected, 'guard_mask': 0})
             short = invocation(package, [buffer(b['resource'], b['words'], b['offset'], groups * 4 - 1)
                                          for b in inputs], params, groups)
             if case == 'asymmetric_return_skip':
                 # The selected early return performs no access. An inaccessible
                 # lane must not guard against an unselected continuation.
                 h.success('checked-source-short-view-' + case, package, short, expected, c=True)
+                vectors.append({'name': 'checked-source-short-view-' + case, 'entry': short['entry'],
+                                'invocation': short, 'expected': expected, 'guard_mask': 0})
             else:
                 h.guard('checked-source-short-view-' + case, package, short, 1, c=True)
+                vectors.append({'name': 'checked-source-short-view-' + case, 'entry': short['entry'],
+                                'invocation': short, 'expected': None, 'guard_mask': 1})
             if module == 'Int32' and entry == 'increment' and args.fixture_output:
                 args.fixture_output.parent.mkdir(parents=True, exist_ok=True)
                 captures = json.loads((output / 'capture.json').read_text())
@@ -127,11 +173,9 @@ def main():
         error = json.loads(result.stderr.splitlines()[-1])
         assert 'source verification failed' in error['message'] and not output.exists(), error
         h.record('reject-failure-after-live-capture', 'source-admission-rejection', {'diagnostic': error})
-        paths = sorted(p for top in (FRONTEND, ROOT / 'portable/contracts', ROOT / 'portable/core',
-                                     ROOT / 'backends/spirt', ROOT / 'backends/vulkan', ROOT / 'bindings/c')
-                       for p in top.rglob('*') if p.is_file() and not any(
-                           part in ('target', '_build', '__pycache__') for part in p.parts)
-                       and p.suffix in ('.rs', '.toml', '.lock', '.ml', '.py', '.fst', '.h', '.c', '.json'))
+        if source_inputs() != inputs_before:
+            raise AssertionError('Measured source inputs changed during CPU replay')
+        h.assert_host_inputs_unchanged()
         report = {'schema': 'kuiper.source-integration/1', 'status': 'passed',
                   'assurance': 'kuiper.experimental-tested/1', 'production_ready': False,
                   'source_to_kir_refinement': False, 'per_lane_lifting_proved': False,
@@ -139,9 +183,12 @@ def main():
                   'physical_gpu_qualification': False, 'devices': sorted(h.devices),
                   'vulkan_validation_layer': 'VK_LAYER_KHRONOS_validation', 'validation_errors': 0,
                   'vulkaninfo_summary': h.device_info, 'case_count': len(h.cases), 'cases': h.cases,
-                  'source_exports': manifests, 'workers': h.manifests,
+                  'source_exports': manifests, 'source_packages': list(packages.values()),
+                  'hardware_replay_vectors': vectors,
+                  'candidate_checkout_sha': h.command(['git', '-C', ROOT, 'rev-parse', 'HEAD']).stdout.decode().strip(),
+                  'workers': h.manifests, 'host_binaries': h.host_binaries,
                   'elapsed_seconds': round(time.monotonic() - started, 2),
-                  'sources': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
+                  'sources': inputs_before,
                   'harness_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(report, indent=2) + '\n')
