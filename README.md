@@ -20,8 +20,9 @@ any layout of choice.
 
 Kuiper source extraction currently generates CUDA code. An independent
 [experimental SPIR-T/Vulkan integer path](portable/README.md) accepts checked
-portable KIR through separately installed workers. Its Kuiper/Pulse source
-exporter and production qualification remain unfinished.
+portable KIR through separately installed workers. A closed U32/ref adapter
+exports live checked Pulse into that path; general source coverage, refinement
+and production qualification remain unfinished.
 
 **NOTE**: Some modules are still work in progress and therefore
 contain admitted proofs.

@@ -21,6 +21,8 @@ A temporary Karamel-IR importer may accelerate comparison tests, but it cannot b
 
 ## Locate the checked boundary
 
+The [implemented source spike](../../frontend/kuiper/README.md) now captures live checked Pulse in the [pinned observer patch](https://github.com/QuasarRay/FStar/commit/32822af9504e97e560315109c595f3d444583a16), before deep compression as well as erasure. Saved checked-file metadata is insufficient: the baseline compressor unfolds the embedded extension node into a display string. Follow [the implementation findings](../Flaws/implementation/01-capture-live-checked-pulse.md) for the observed failure and regression. The closed U32/ref spike executes actual source, but does not close this milestone's shape/loop/static-value and refinement requirements.
+
 Read the official [F* erasure documentation](https://fstar-lang.org/tutorial/book/part4/part4_ghost.html) and [Pulse ghost-computation documentation](https://fstar-lang.org/tutorial/book/pulse/pulse_ghost.html). They distinguish computational data from erased proof/specification content. They do not imply that every implicit argument is erased or that an erased value can be recovered at runtime.
 
 In the pinned project F* fork, inspect [Pulse.Extract.Main](https://github.com/QuasarRay/FStar/blob/0eef57bef411aac090354a75c21e00b674bd420c/pulse/src/checker/Pulse.Extract.Main.fst#L582-L592). `extract_pulse_dv` erases ghost subterms, simplifies, eliminates gotos, and converts the result. Instrument immediately before the first erasure, then trace backwards to the checker call that supplies the term/environment. Confirm the term has passed the intended source checks; a syntactically typed reflection term alone is not a source-proof certificate.
@@ -51,7 +53,7 @@ A temporary Karamel importer is comparison scaffolding, with a documented remova
 
 ## Exit evidence
 
-G-EXTRACT requires the real-entrypoint trace, all three value classes, deterministic KIR output, rejection fixtures, strict source-check provenance, and the O1/O2 evidence disposition under the selected policy. Source inspection in this roadmap identifies a candidate hook. Building the hook and establishing its correctness remain required implementation work.
+G-EXTRACT requires the real-entrypoint trace, all three value classes, deterministic KIR output, rejection fixtures, strict source-check provenance, and the O1/O2 evidence disposition under the selected policy. The current live observer and linear U32/ref regression establish a tested hook and bounded execution slice. The required array/view entrypoint, bound static dimensions/layouts, loop trace, dependency proof closure and source implementation relation remain open.
 
 ## Evidence required to close this milestone
 

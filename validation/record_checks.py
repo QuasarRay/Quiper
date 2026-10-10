@@ -33,7 +33,7 @@ def main():
     results = re.findall(r'test result: ok\. (\d+) passed; 0 failed; (\d+) ignored;', tests)
     if not results or not re.search(r'test result: ok\..*finished in [\d.]+s$', tests.rstrip()):
         raise SystemExit('Missing final test completion')
-    sources = sorted(p for top in ('portable','backends','bindings') for p in (ROOT/top).rglob('*')
+    sources = sorted(p for top in ('portable','backends','bindings','frontend') for p in (ROOT/top).rglob('*')
                      if p.is_file() and 'target' not in p.parts and p.suffix in ('.rs','.toml','.lock','.h','.c','.json'))
     report = {'schema':'kuiper.package-checks/1','status':'passed','scope':'Rust formatting, clippy with warnings denied, locked tests; no release gate admission.',
         'packages':packages, 'tests_passed':sum(int(x) for x,_ in results),

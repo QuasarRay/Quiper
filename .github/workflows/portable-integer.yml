@@ -3,9 +3,9 @@ name: Portable integer backend
 on:
   push:
     branches: [main, feat/spirt-backend]
-    paths: ['portable/**', 'backends/**', 'bindings/**', 'validation/**', 'scripts/*portable*', 'Makefile', 'portable.mk', '.github/workflows/portable-integer.yml']
+    paths: ['portable/**', 'backends/**', 'bindings/**', 'frontend/**', 'validation/**', 'scripts/*portable*', 'Makefile', 'portable.mk', '.github/workflows/portable-integer.yml']
   pull_request:
-    paths: ['portable/**', 'backends/**', 'bindings/**', 'validation/**', 'scripts/*portable*', 'Makefile', 'portable.mk', '.github/workflows/portable-integer.yml']
+    paths: ['portable/**', 'backends/**', 'bindings/**', 'frontend/**', 'validation/**', 'scripts/*portable*', 'Makefile', 'portable.mk', '.github/workflows/portable-integer.yml']
   workflow_dispatch:
 
 permissions:
@@ -40,6 +40,7 @@ jobs:
           make -j2 portable-check
           make -j2 portable-test
           python3 -m unittest discover -s validation -p test_installer.py -v
+          python3 -m unittest discover -s validation -p test_source_frontend.py -v
       - name: Execute installed workers through the core and C binding
         run: |
           rm -f validation/results/integer-vulkan.json

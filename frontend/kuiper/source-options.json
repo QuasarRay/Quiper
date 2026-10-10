@@ -1,0 +1,18 @@
+{
+  "schema": "kuiper.source-options/1",
+  "options": [
+    "--warn_error", "-274",
+    "--warn_error", "-291",
+    "--warn_error", "-249-321",
+    "--warn_error", "@242@250",
+    "--z3version", "4.13.3",
+    "--ext", "kuiper",
+    "--ext", "__unrefine",
+    "--ext", "no_krml_private",
+    "--ext", "pulse:extra_simplify",
+    "--warn_error", "-288",
+    "--warn_error", "-271",
+    "--ext", "context_pruning_no_ambients",
+    "--ext", "freshen"
+  ]
+}

@@ -8,7 +8,7 @@ The integration report binds the actual sources, worker binaries, validator and 
 
 ## Close the missing implementation work
 
-1. Complete actual Kuiper/Pulse export and evidence-bound source admission. Execute a real exported program through both host interfaces.
+1. Extend the tested U32/ref source adapter to the full required Kuiper scope. Bind source predicates, static shapes, permissions and the per-lane ownership relation to the package. The three current source entrypoints execute through core and C; their imported proof closure and source refinement remain open.
 2. Complete O1–O10, resource framing, memory-event/convergence refinement, prefix ownership and progress. Replace the experimental assurance boundary only when an independent trusted checker accepts the exact evidence.
 3. Extend semantics and emission for shared memory, barriers, subgroup operations, general pointers, calls, floating-point policies, reductions, matrices, tensor operations and required legacy entrypoints. Do not defer mandatory legacy rows while claiming full CUDA replacement.
 4. Implement production deployment containment, cancellation/quiescence, worker parent-death behavior, crash recovery, bounded asynchronous scheduling and failure injection. Exercise noncoherent paths, partial acquisition/submission, device loss, lost replies and process descendants.

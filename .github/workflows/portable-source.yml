@@ -1,0 +1,62 @@
+name: Checked Pulse integer source
+
+on:
+  pull_request:
+    paths: ['FStar', 'frontend/**', 'portable/**', 'backends/**', 'bindings/**', 'validation/**', 'verify.mk', '.github/workflows/portable-source.yml']
+  push:
+    branches: [main]
+    paths: ['FStar', 'frontend/**', 'validation/run_source.py', '.github/workflows/portable-source.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checked-source-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      CARGO_BUILD_JOBS: 2
+      OPAMJOBS: 2
+      DUNE_CACHE: disabled
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          submodules: recursive
+          persist-credentials: false
+      - name: Remove prior source evidence
+        run: rm -f validation/results/source-vulkan.json
+      - name: Install build tools and CPU Vulkan
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes opam build-essential m4 pkg-config libgmp-dev curl unzip ripgrep spirv-tools libvulkan1 mesa-vulkan-drivers vulkan-tools vulkan-validationlayers
+          rustup toolchain install 1.90.0 --profile minimal
+          rustup default 1.90.0
+      - name: Build the coherent pinned compiler and Pulse
+        run: |
+          opam init --bare --disable-sandboxing --yes
+          opam switch create kuiper-source 5.3.0 --yes
+          xargs -a frontend/kuiper/opam-packages.txt opam install --switch=kuiper-source --yes --jobs=2
+          mkdir -p "$RUNNER_TEMP/z3"
+          FStar/.scripts/get_fstar_z3.sh "$RUNNER_TEMP/z3"
+          echo "$RUNNER_TEMP/z3" >> "$GITHUB_PATH"
+          PATH="$RUNNER_TEMP/z3:$PATH" opam exec --switch=kuiper-source -- make -j2 -C FStar 3
+      - name: Build the live capture plugin and independent packages
+        run: |
+          opam exec --switch=kuiper-source -- python3 frontend/kuiper/build_capture.py
+          make -j2 portable-release
+      - name: Execute checked source and reject invalid admission
+        run: |
+          python3 validation/run_source.py --output validation/results/source-vulkan.json
+          python3 -m unittest discover -s validation -p test_source_frontend.py -v
+      - name: Upload actual source execution evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: source-cpu-vulkan-evidence
+          path: validation/results/source-vulkan.json
+          if-no-files-found: warn

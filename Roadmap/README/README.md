@@ -1,10 +1,12 @@
 # Kuiper roadmap v3: implement the declarative specification
 
-Implement these milestones in order. Each page names a concrete deliverable, its declarative F* relations, the implementation procedure and the evidence required to close it. These are implementation instructions; the backend work remains planned.
+Implement these milestones in order. Each page names a concrete deliverable, its declarative F* relations, the implementation procedure and the evidence required to close it. The tested partial implementation is linked below; the full production implementation remains unfinished.
 
 The target is a fully decoupled Kuiper with language-independent kernel/host contracts and independently installable compiler, runtime, binding and semantic packages. Compatible backend additions must preserve the frozen installed core and existing packages. SPIR-T is the first detailed compiler realization.
 
 **V3 status:** all eight v2 documentation flaws are corrected. The executable F* model and its verification record are in [Specification](../Specification/README.md). Production implementation, refinement of concrete code and GPU qualification remain outstanding.
+
+[The experimental implementation](../../portable/README.md) now executes checked linear U32/ref source through SPIR-T and software Vulkan. [Implementation status](../../validation/implementation-status.json) and [implementation findings](../Flaws/implementation/README.md) record its measured scope and unresolved gates separately from this declarative roadmap.
 
 ## Begin here
 

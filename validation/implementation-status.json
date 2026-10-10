@@ -48,14 +48,14 @@
     {
       "id": "M08",
       "roadmap": "Roadmap/02-language-independent-extraction/02-export-a-checked-kuiper-program.md",
-      "status": "not-implemented",
-      "details": "Required implementation and qualification remain unfinished."
+      "status": "partial",
+      "details": "Live checked Pulse observer and closed linear U32/ref exporter implemented; three actual source entrypoints execute through core/C/SPIR-T/Vulkan. Static shapes, arrays, loops, dependency proof closure, per-lane lifting and O1/O2 remain unfinished."
     },
     {
       "id": "M09",
       "roadmap": "Roadmap/02-language-independent-extraction/03-run-host-plans-from-two-languages.md",
       "status": "partial",
-      "details": "Core and C execute the same owned plan; source frontend and general async/native host semantics unfinished."
+      "details": "Core and C execute owned KIR plans and three actual source-derived kernels. General source host-plan export, async/native host semantics and an independent second source frontend remain unfinished."
     },
     {
       "id": "M10",
@@ -85,7 +85,7 @@
       "id": "M14",
       "roadmap": "Roadmap/04-spirt-and-gpu-lowering/02-run-the-integer-vertical-slice.md",
       "status": "partial",
-      "details": "Frontend-free integer KIR executes on CPU Vulkan; actual verified source export and physical GPU evidence missing."
+      "details": "Actual checked linear U32/ref source and independent KIR fixtures execute through direct SPIR-T on CPU Vulkan. Source refinement and physical GPU qualification remain unfinished."
     },
     {
       "id": "M15",
@@ -362,5 +362,7 @@
     "validation/results/declarative-model.json",
     "validation/results/package-checks.json"
   ],
-  "evidence_rule": "Add only reports produced by successful real runs. Each report identifies its own sources, binary/tool identities and limited scope."
+  "evidence_rule": "Add only reports produced by successful real runs. Each report identifies its own sources, binary/tool identities and limited scope.",
+  "source_frontend": "frontend/kuiper/README.md",
+  "source_execution_evidence": "validation/results/source-vulkan.json"
 }

@@ -1,8 +1,8 @@
 # Portable integer implementation
 
-The new path accepts checked KIR, constructs SPIR-T directly, emits SPIR-V and runs it through an independent Vulkan worker. Compiler and runtime installation only adds files. The core has no F*, Pulse, SPIR-T, Vulkan or CUDA dependency.
+The new path accepts checked KIR, constructs SPIR-T directly, emits SPIR-V and runs it through an independent Vulkan worker. A [closed U32/ref source frontend](../frontend/kuiper/README.md) also exports live checked Pulse to that KIR. Compiler and runtime installation only adds files. The core has no F*, Pulse, SPIR-T, Vulkan or CUDA dependency.
 
-This is an **experimental integer implementation**, with `kuiper.experimental-tested/1` evidence. It is not a production-ready replacement for Kuiper's CUDA backend. A Kuiper/Pulse source exporter, complete refinement proofs, broader GPU semantics and the hardware/operational qualification matrix remain unfinished.
+This is an **experimental integer implementation**, with `kuiper.experimental-tested/1` evidence. It is not a production-ready replacement for Kuiper's CUDA backend. General Kuiper/Pulse export, source predicate and per-lane refinement, broader GPU semantics and the hardware/operational qualification matrix remain unfinished.
 
 Follow these milestones in order:
 
