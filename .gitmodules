@@ -5,7 +5,7 @@
 	depth = 1
 [submodule "karamel"]
 	path = karamel
-	url = ../karamel
+	url = https://github.com/FStarLang/karamel
 	branch = kuiper
 	depth = 1
 [submodule "bench/SGEMM_CUDA"]

@@ -28,6 +28,7 @@ on:
 # and ci.yml.
 jobs:
   build:
+    if: github.repository == 'FStarLang/kuiper'
     # No GPU needed here: this job only verifies, extracts and regenerates
     # dist/, and the CUDA tests it used to run are already covered by the CI
     # run on the PR it opens below. Running on a GitHub-hosted runner keeps the

@@ -1,0 +1,94 @@
+{
+  "schema": "kuiper.kir/1",
+  "profile": "kuiper.integer32/1",
+  "kernels": [
+    {
+      "name": "vector_add",
+      "local_size": [
+        4,
+        1,
+        1
+      ],
+      "resources": [
+        {
+          "id": 0,
+          "element": "u32",
+          "access": "read"
+        },
+        {
+          "id": 1,
+          "element": "u32",
+          "access": "read"
+        },
+        {
+          "id": 2,
+          "element": "u32",
+          "access": "write"
+        }
+      ],
+      "parameters": [],
+      "body": {
+        "instructions": [
+          {
+            "kind": "builtin",
+            "result": 1,
+            "builtin": "global_id",
+            "axis": 0
+          },
+          {
+            "kind": "resource_length",
+            "result": 2,
+            "resource": 0
+          },
+          {
+            "kind": "binary",
+            "result": 3,
+            "op": "lt",
+            "left": 1,
+            "right": 2
+          },
+          {
+            "kind": "select",
+            "condition": 3,
+            "then_region": {
+              "instructions": [
+                {
+                  "kind": "load",
+                  "result": 4,
+                  "resource": 0,
+                  "index": 1
+                },
+                {
+                  "kind": "load",
+                  "result": 5,
+                  "resource": 1,
+                  "index": 1
+                },
+                {
+                  "kind": "binary",
+                  "result": 6,
+                  "op": "add",
+                  "left": 4,
+                  "right": 5
+                },
+                {
+                  "kind": "store",
+                  "resource": 2,
+                  "index": 1,
+                  "value": 6
+                }
+              ],
+              "outputs": []
+            },
+            "else_region": {
+              "instructions": [],
+              "outputs": []
+            },
+            "results": []
+          }
+        ],
+        "outputs": []
+      }
+    }
+  ]
+}

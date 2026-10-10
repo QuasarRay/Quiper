@@ -23,3 +23,8 @@ src/klas/Klas.SPMM.fst
 src/klas/Klas.GEMM.BlockTiling2D.fst
 src/klas/Klas.GEMM.TensorCore2D.fst
 src/klas/Klas.GEMM.TensorCore2D.To.fst
+.portable-install/
+.portable-cache/
+**/target/
+**/_build/
+**/__pycache__/

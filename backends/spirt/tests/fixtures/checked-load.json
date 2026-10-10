@@ -1,0 +1,50 @@
+{
+  "schema": "kuiper.kir/1",
+  "profile": "kuiper.integer32/1",
+  "kernels": [
+    {
+      "name": "checked_load",
+      "local_size": [
+        4,
+        1,
+        1
+      ],
+      "resources": [
+        {
+          "id": 0,
+          "element": "u32",
+          "access": "read"
+        },
+        {
+          "id": 1,
+          "element": "u32",
+          "access": "write"
+        }
+      ],
+      "parameters": [],
+      "body": {
+        "instructions": [
+          {
+            "kind": "builtin",
+            "result": 1,
+            "builtin": "global_id",
+            "axis": 0
+          },
+          {
+            "kind": "load",
+            "result": 2,
+            "resource": 0,
+            "index": 1
+          },
+          {
+            "kind": "store",
+            "resource": 1,
+            "index": 1,
+            "value": 2
+          }
+        ],
+        "outputs": []
+      }
+    }
+  ]
+}

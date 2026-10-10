@@ -1,0 +1,193 @@
+{
+  "schema": "kuiper.kir/1",
+  "profile": "kuiper.integer32/1",
+  "kernels": [
+    {
+      "name": "nested_loops",
+      "local_size": [
+        4,
+        1,
+        1
+      ],
+      "resources": [
+        {
+          "id": 0,
+          "element": "u32",
+          "access": "write"
+        }
+      ],
+      "parameters": [
+        "u32",
+        "u32"
+      ],
+      "body": {
+        "instructions": [
+          {
+            "kind": "builtin",
+            "result": 1,
+            "builtin": "global_id",
+            "axis": 0
+          },
+          {
+            "kind": "constant",
+            "result": {
+              "id": 2,
+              "ty": "u32"
+            },
+            "bits": 0
+          },
+          {
+            "kind": "constant",
+            "result": {
+              "id": 3,
+              "ty": "u32"
+            },
+            "bits": 1
+          },
+          {
+            "kind": "parameter",
+            "result": 4,
+            "index": 0
+          },
+          {
+            "kind": "parameter",
+            "result": 8,
+            "index": 1
+          },
+          {
+            "kind": "while",
+            "carried": [
+              {
+                "value": {
+                  "id": 5,
+                  "ty": "u32"
+                },
+                "initial": 2
+              },
+              {
+                "value": {
+                  "id": 6,
+                  "ty": "u32"
+                },
+                "initial": 2
+              }
+            ],
+            "condition": {
+              "instructions": [
+                {
+                  "kind": "binary",
+                  "result": 7,
+                  "op": "lt",
+                  "left": 5,
+                  "right": 4
+                }
+              ],
+              "outputs": [
+                7
+              ]
+            },
+            "body": {
+              "instructions": [
+                {
+                  "kind": "while",
+                  "carried": [
+                    {
+                      "value": {
+                        "id": 9,
+                        "ty": "u32"
+                      },
+                      "initial": 2
+                    },
+                    {
+                      "value": {
+                        "id": 10,
+                        "ty": "u32"
+                      },
+                      "initial": 6
+                    }
+                  ],
+                  "condition": {
+                    "instructions": [
+                      {
+                        "kind": "binary",
+                        "result": 11,
+                        "op": "lt",
+                        "left": 9,
+                        "right": 8
+                      }
+                    ],
+                    "outputs": [
+                      11
+                    ]
+                  },
+                  "body": {
+                    "instructions": [
+                      {
+                        "kind": "binary",
+                        "result": 12,
+                        "op": "add",
+                        "left": 9,
+                        "right": 3
+                      },
+                      {
+                        "kind": "binary",
+                        "result": 13,
+                        "op": "add",
+                        "left": 10,
+                        "right": 3
+                      }
+                    ],
+                    "outputs": [
+                      12,
+                      13
+                    ]
+                  },
+                  "results": [
+                    {
+                      "id": 14,
+                      "ty": "u32"
+                    },
+                    {
+                      "id": 15,
+                      "ty": "u32"
+                    }
+                  ],
+                  "iteration_limit": 128
+                },
+                {
+                  "kind": "binary",
+                  "result": 16,
+                  "op": "add",
+                  "left": 5,
+                  "right": 3
+                }
+              ],
+              "outputs": [
+                16,
+                15
+              ]
+            },
+            "results": [
+              {
+                "id": 17,
+                "ty": "u32"
+              },
+              {
+                "id": 18,
+                "ty": "u32"
+              }
+            ],
+            "iteration_limit": 128
+          },
+          {
+            "kind": "store",
+            "resource": 0,
+            "index": 1,
+            "value": 18
+          }
+        ],
+        "outputs": []
+      }
+    }
+  ]
+}
