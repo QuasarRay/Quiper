@@ -1,0 +1,85 @@
+name: Physical GPU source and integer replay
+
+on:
+  pull_request:
+    paths: ['portable/**', 'backends/**', 'bindings/**', 'frontend/**', 'validation/**', 'scripts/*portable*', 'Makefile', 'portable.mk', '.github/workflows/portable-source.yml', '.github/workflows/portable-hardware.yml']
+  push:
+    branches: [main]
+    paths: ['portable/**', 'backends/**', 'bindings/**', 'frontend/**', 'validation/**', 'scripts/*portable*', 'Makefile', 'portable.mk', '.github/workflows/portable-source.yml', '.github/workflows/portable-hardware.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+# Serialize GPU replays. A newer candidate must not terminate an older GPU
+# submission; runtime quiescence remains a separate qualification obligation.
+concurrency:
+  group: physical-integer-replay
+  cancel-in-progress: false
+
+jobs:
+  hardware:
+    runs-on: [self-hosted, linux, X64, cuda]
+    timeout-minutes: 240
+    container:
+      image: ubuntu:24.04
+      options: --gpus all
+    defaults:
+      run:
+        shell: bash
+    env:
+      CARGO_BUILD_JOBS: 2
+      NVIDIA_DRIVER_CAPABILITIES: graphics,utility
+      KUIPER_CANDIDATE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Remove earlier hardware evidence
+        run: rm -f validation/results/integer-hardware.json validation/results/source-hardware.json
+      - name: Install CUDA-free build tools and Vulkan diagnostics
+        run: |
+          apt-get update
+          apt-get install --yes ca-certificates curl build-essential git pkg-config python3 ripgrep spirv-tools libvulkan1 vulkan-tools vulkan-validationlayers
+      - uses: dtolnay/rust-toolchain@686976e191b89faba57d3206551f0f330d8cb249
+        with:
+          toolchain: 1.90.0
+      - name: Select hardware Vulkan and reject software fallback
+        run: |
+          python3 validation/vulkan_devices.py --environment-file "$GITHUB_ENV" --summary "$RUNNER_TEMP/vulkan-device.txt"
+          if command -v nvcc; then
+            echo "Hardware replay container unexpectedly contains NVCC" >&2
+            exit 1
+          fi
+      - name: Build independently locked packages
+        run: make -j2 portable-release
+      - name: Require successful source CI for this exact head
+        id: source-evidence
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 validation/fetch_source_evidence.py
+      - name: Download the measured checked-source packages and vectors
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: source-cpu-vulkan-evidence
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.source-evidence.outputs.run-id }}
+          path: ${{ runner.temp }}/checked-source
+      - name: Replay integer semantics through core and C
+        run: |
+          python3 validation/run_portable.py --release --require-physical-gpu --output validation/results/integer-hardware.json
+          cargo test --locked --manifest-path backends/vulkan/Cargo.toml --test software_vulkan -- --ignored --test-threads=1
+      - name: Replay every measured checked-source vector through core and C
+        run: |
+          python3 validation/run_source_hardware.py --source-report "$RUNNER_TEMP/checked-source/source-vulkan.json" --output validation/results/source-hardware.json
+      - name: Upload actual hardware evidence
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: integer-and-source-physical-gpu-evidence
+          path: |
+            validation/results/integer-hardware.json
+            validation/results/source-hardware.json
+            ${{ runner.temp }}/vulkan-device.txt
+          if-no-files-found: warn

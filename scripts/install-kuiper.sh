@@ -266,7 +266,7 @@ mkdir -p "$DEST"
 # The tarball has a leading kuiper/ directory; strip it into DEST.
 
 echo "Extracting to $DEST..."
-tar xzf "$WORKDIR/$ASSET_NAME" --strip-components=1 -C "$DEST"
+tar --no-same-owner -xzf "$WORKDIR/$ASSET_NAME" --strip-components=1 -C "$DEST"
 
 # Sanity check
 if [[ ! -x "$DEST/inst/bin/fstar.exe" ]]; then

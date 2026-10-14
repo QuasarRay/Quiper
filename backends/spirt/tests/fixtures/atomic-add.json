@@ -1,0 +1,50 @@
+{
+  "schema": "kuiper.kir/1",
+  "profile": "kuiper.integer32/1",
+  "kernels": [
+    {
+      "name": "atomic_add",
+      "local_size": [
+        4,
+        1,
+        1
+      ],
+      "resources": [
+        {
+          "id": 0,
+          "element": "u32",
+          "access": "atomic"
+        }
+      ],
+      "parameters": [],
+      "body": {
+        "instructions": [
+          {
+            "kind": "constant",
+            "result": {
+              "id": 1,
+              "ty": "u32"
+            },
+            "bits": 0
+          },
+          {
+            "kind": "constant",
+            "result": {
+              "id": 2,
+              "ty": "u32"
+            },
+            "bits": 1
+          },
+          {
+            "kind": "atomic_add",
+            "result": 3,
+            "resource": 0,
+            "index": 1,
+            "value": 2
+          }
+        ],
+        "outputs": []
+      }
+    }
+  ]
+}

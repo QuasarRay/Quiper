@@ -1,0 +1,58 @@
+name: Portable integer backend
+
+on:
+  push:
+    branches: [main, feat/spirt-backend]
+    paths: ['portable/**', 'backends/**', 'bindings/**', 'frontend/**', 'validation/**', 'scripts/*portable*', 'Makefile', 'portable.mk', '.github/workflows/portable-integer.yml']
+  pull_request:
+    paths: ['portable/**', 'backends/**', 'bindings/**', 'frontend/**', 'validation/**', 'scripts/*portable*', 'Makefile', 'portable.mk', '.github/workflows/portable-integer.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      CARGO_BUILD_JOBS: 2
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Remove prior execution evidence
+        run: rm -f validation/results/integer-vulkan.json
+      - name: Install pinned Rust and software Vulkan
+        run: |
+          rustup toolchain install 1.90.0 --profile minimal --component rustfmt --component clippy
+          rustup default 1.90.0
+          sudo apt-get update
+          sudo apt-get install --yes ripgrep spirv-tools libvulkan1 mesa-vulkan-drivers vulkan-tools vulkan-validationlayers
+      - name: Require the validation layer and CPU Vulkan device
+        run: |
+          vulkaninfo --summary > "$RUNNER_TEMP/vulkan-device.txt"
+          cat "$RUNNER_TEMP/vulkan-device.txt"
+          rg 'VK_LAYER_KHRONOS_validation' "$RUNNER_TEMP/vulkan-device.txt"
+          rg 'PHYSICAL_DEVICE_TYPE_CPU' "$RUNNER_TEMP/vulkan-device.txt"
+      - name: Check independently locked packages and protocol lifetimes
+        run: |
+          make -j2 portable-check
+          make -j2 portable-test
+          python3 -m unittest discover -s validation -p test_installer.py -v
+          python3 -m unittest discover -s validation -p test_source_frontend.py -v
+          python3 -m unittest discover -s validation -p test_vulkan_devices.py -v
+          python3 -m unittest discover -s validation -p test_source_evidence.py -v
+      - name: Execute installed workers through the core and C binding
+        run: |
+          rm -f validation/results/integer-vulkan.json
+          make -j2 portable-integration
+      - name: Upload actual CPU execution evidence
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: integer-cpu-vulkan-evidence
+          path: |
+            validation/results/integer-vulkan.json
+            ${{ runner.temp }}/vulkan-device.txt
+          if-no-files-found: error

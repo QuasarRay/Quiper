@@ -1,6 +1,7 @@
 .DEFAULT_GOAL := all
 
 include .common.mk
+include portable.mk
 
 SHELL := bash
 

@@ -1,0 +1,121 @@
+{
+  "schema": "kuiper.kir/1",
+  "profile": "kuiper.integer32/1",
+  "kernels": [
+    {
+      "name": "condition_effects",
+      "local_size": [
+        4,
+        1,
+        1
+      ],
+      "resources": [
+        {
+          "id": 0,
+          "element": "u32",
+          "access": "atomic"
+        },
+        {
+          "id": 1,
+          "element": "u32",
+          "access": "write"
+        }
+      ],
+      "parameters": [
+        "u32"
+      ],
+      "body": {
+        "instructions": [
+          {
+            "kind": "builtin",
+            "result": 1,
+            "builtin": "global_id",
+            "axis": 0
+          },
+          {
+            "kind": "constant",
+            "result": {
+              "id": 2,
+              "ty": "u32"
+            },
+            "bits": 0
+          },
+          {
+            "kind": "constant",
+            "result": {
+              "id": 3,
+              "ty": "u32"
+            },
+            "bits": 1
+          },
+          {
+            "kind": "parameter",
+            "result": 4,
+            "index": 0
+          },
+          {
+            "kind": "while",
+            "carried": [
+              {
+                "value": {
+                  "id": 5,
+                  "ty": "u32"
+                },
+                "initial": 2
+              }
+            ],
+            "condition": {
+              "instructions": [
+                {
+                  "kind": "atomic_add",
+                  "result": 10,
+                  "resource": 0,
+                  "index": 2,
+                  "value": 3
+                },
+                {
+                  "kind": "binary",
+                  "result": 6,
+                  "op": "lt",
+                  "left": 5,
+                  "right": 4
+                }
+              ],
+              "outputs": [
+                6
+              ]
+            },
+            "body": {
+              "instructions": [
+                {
+                  "kind": "binary",
+                  "result": 7,
+                  "op": "add",
+                  "left": 5,
+                  "right": 3
+                }
+              ],
+              "outputs": [
+                7
+              ]
+            },
+            "results": [
+              {
+                "id": 8,
+                "ty": "u32"
+              }
+            ],
+            "iteration_limit": 128
+          },
+          {
+            "kind": "store",
+            "resource": 1,
+            "index": 1,
+            "value": 8
+          }
+        ],
+        "outputs": []
+      }
+    }
+  ]
+}

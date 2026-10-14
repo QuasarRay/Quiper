@@ -1,0 +1,1723 @@
+[
+  {
+    "schema": "kuiper.pulse-capture/1",
+    "name": "Kuiper.Portable.Int32.add_one",
+    "type_display": "x: FStar.UInt32.t\n  -> fn\n       requires Pulse.Lib.Core.emp\n       returns x : FStar.UInt32.t\n       ensures Pulse.Lib.Core.pure (x == FStar.UInt32.add_mod x 1ul)",
+    "body": {
+      "tag": "abstract",
+      "effect": "unspecified",
+      "source": false,
+      "range": "dummy:0.0-0.0",
+      "binder": {
+        "type": {
+          "tag": "symbol",
+          "name": "FStar.UInt32.t"
+        },
+        "type_display": "FStar.UInt32.t"
+      },
+      "implicit": false,
+      "computation": null,
+      "body": {
+        "tag": "bind",
+        "effect": "stateful",
+        "source": false,
+        "range": "dummy:0.0-0.0",
+        "binder": {
+          "type": {
+            "tag": "symbol",
+            "name": "FStar.UInt32.t"
+          },
+          "type_display": "FStar.UInt32.t"
+        },
+        "head": {
+          "tag": "label",
+          "effect": "stateful",
+          "source": false,
+          "range": "dummy:0.0-0.0",
+          "body": {
+            "tag": "bind",
+            "effect": "stateful",
+            "source": false,
+            "range": "dummy:0.0-0.0",
+            "binder": {
+              "type": {
+                "tag": "symbol",
+                "name": "FStar.UInt32.t"
+              },
+              "type_display": "FStar.UInt32.t"
+            },
+            "head": {
+              "tag": "bind",
+              "effect": "atomic",
+              "source": false,
+              "range": "dummy:0.0-0.0",
+              "binder": {
+                "type": {
+                  "tag": "symbol",
+                  "name": "Prims.unit"
+                },
+                "type_display": "Prims.unit"
+              },
+              "head": {
+                "tag": "introduce_pure",
+                "effect": "ghost",
+                "source": false,
+                "range": "dummy:0.0-0.0",
+                "proposition": {
+                  "tag": "symbol",
+                  "name": "Prims.l_True"
+                }
+              },
+              "body": {
+                "tag": "return",
+                "effect": "atomic",
+                "source": false,
+                "range": "dummy:0.0-0.0",
+                "type": {
+                  "tag": "unsupported",
+                  "constructor": "Tm_unknown"
+                },
+                "value": {
+                  "tag": "apply",
+                  "head": {
+                    "tag": "symbol",
+                    "name": "FStar.UInt32.add_mod"
+                  },
+                  "arguments": [
+                    {
+                      "implicit": false,
+                      "value": {
+                        "tag": "bound",
+                        "index": 2
+                      }
+                    },
+                    {
+                      "implicit": false,
+                      "value": {
+                        "tag": "apply",
+                        "head": {
+                          "tag": "symbol",
+                          "name": "FStar.UInt32.__uint_to_t"
+                        },
+                        "arguments": [
+                          {
+                            "implicit": false,
+                            "value": {
+                              "tag": "integer",
+                              "value": 1
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "body": {
+              "tag": "bind",
+              "effect": "stateful",
+              "source": false,
+              "range": "dummy:0.0-0.0",
+              "binder": {
+                "type": {
+                  "tag": "apply",
+                  "head": {
+                    "tag": "symbol",
+                    "name": "Prims.squash"
+                  },
+                  "arguments": [
+                    {
+                      "implicit": false,
+                      "value": {
+                        "tag": "apply",
+                        "head": {
+                          "tag": "symbol",
+                          "name": "Prims.eq2"
+                        },
+                        "arguments": [
+                          {
+                            "implicit": true,
+                            "value": {
+                              "tag": "symbol",
+                              "name": "FStar.UInt32.t"
+                            }
+                          },
+                          {
+                            "implicit": false,
+                            "value": {
+                              "tag": "bound",
+                              "index": 0
+                            }
+                          },
+                          {
+                            "implicit": false,
+                            "value": {
+                              "tag": "apply",
+                              "head": {
+                                "tag": "symbol",
+                                "name": "FStar.UInt32.add_mod"
+                              },
+                              "arguments": [
+                                {
+                                  "implicit": false,
+                                  "value": {
+                                    "tag": "bound",
+                                    "index": 2
+                                  }
+                                },
+                                {
+                                  "implicit": false,
+                                  "value": {
+                                    "tag": "apply",
+                                    "head": {
+                                      "tag": "symbol",
+                                      "name": "FStar.UInt32.uint_to_t"
+                                    },
+                                    "arguments": [
+                                      {
+                                        "implicit": false,
+                                        "value": {
+                                          "tag": "integer",
+                                          "value": 1
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "type_display": "Prims.squash (_fret == FStar.UInt32.add_mod x 1ul)"
+              },
+              "head": {
+                "tag": "stateful_apply",
+                "effect": "ghost",
+                "source": false,
+                "range": "dummy:0.0-0.0",
+                "function": {
+                  "tag": "unsupported",
+                  "constructor": "Tm_unknown"
+                },
+                "arguments": []
+              },
+              "body": {
+                "tag": "bind",
+                "effect": "stateful",
+                "source": false,
+                "range": "dummy:0.0-0.0",
+                "binder": {
+                  "type": {
+                    "tag": "symbol",
+                    "name": "Prims.unit"
+                  },
+                  "type_display": "Prims.unit"
+                },
+                "head": {
+                  "tag": "introduce_pure",
+                  "effect": "ghost",
+                  "source": false,
+                  "range": "dummy:0.0-0.0",
+                  "proposition": {
+                    "tag": "apply",
+                    "head": {
+                      "tag": "symbol",
+                      "name": "Prims.eq2"
+                    },
+                    "arguments": [
+                      {
+                        "implicit": true,
+                        "value": {
+                          "tag": "symbol",
+                          "name": "FStar.UInt32.t"
+                        }
+                      },
+                      {
+                        "implicit": false,
+                        "value": {
+                          "tag": "bound",
+                          "index": 1
+                        }
+                      },
+                      {
+                        "implicit": false,
+                        "value": {
+                          "tag": "apply",
+                          "head": {
+                            "tag": "symbol",
+                            "name": "FStar.UInt32.add_mod"
+                          },
+                          "arguments": [
+                            {
+                              "implicit": false,
+                              "value": {
+                                "tag": "bound",
+                                "index": 3
+                              }
+                            },
+                            {
+                              "implicit": false,
+                              "value": {
+                                "tag": "apply",
+                                "head": {
+                                  "tag": "symbol",
+                                  "name": "FStar.UInt32.uint_to_t"
+                                },
+                                "arguments": [
+                                  {
+                                    "implicit": false,
+                                    "value": {
+                                      "tag": "integer",
+                                      "value": 1
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "body": {
+                  "tag": "return",
+                  "effect": "stateful",
+                  "source": false,
+                  "range": "dummy:0.0-0.0",
+                  "type": {
+                    "tag": "unsupported",
+                    "constructor": "Tm_unknown"
+                  },
+                  "value": {
+                    "tag": "bound",
+                    "index": 2
+                  }
+                }
+              }
+            }
+          },
+          "result_type": {
+            "tag": "symbol",
+            "name": "FStar.UInt32.t"
+          }
+        },
+        "body": {
+          "tag": "return",
+          "effect": "stateful",
+          "source": false,
+          "range": "dummy:0.0-0.0",
+          "type": {
+            "tag": "unsupported",
+            "constructor": "Tm_unknown"
+          },
+          "value": {
+            "tag": "bound",
+            "index": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "schema": "kuiper.pulse-capture/1",
+    "name": "Kuiper.Portable.Int32.early_add_three",
+    "type_display": "x: FStar.UInt32.t\n  -> fn\n       requires Pulse.Lib.Core.emp\n       returns x : FStar.UInt32.t\n       ensures Pulse.Lib.Core.pure (x == FStar.UInt32.add_mod x 3ul)",
+    "body": {
+      "tag": "abstract",
+      "effect": "unspecified",
+      "source": false,
+      "range": "dummy:0.0-0.0",
+      "binder": {
+        "type": {
+          "tag": "symbol",
+          "name": "FStar.UInt32.t"
+        },
+        "type_display": "FStar.UInt32.t"
+      },
+      "implicit": false,
+      "computation": null,
+      "body": {
+        "tag": "bind",
+        "effect": "stateful",
+        "source": false,
+        "range": "dummy:0.0-0.0",
+        "binder": {
+          "type": {
+            "tag": "symbol",
+            "name": "FStar.UInt32.t"
+          },
+          "type_display": "FStar.UInt32.t"
+        },
+        "head": {
+          "tag": "label",
+          "effect": "stateful",
+          "source": false,
+          "range": "dummy:0.0-0.0",
+          "body": {
+            "tag": "bind",
+            "effect": "stateful",
+            "source": false,
+            "range": "dummy:0.0-0.0",
+            "binder": {
+              "type": {
+                "tag": "symbol",
+                "name": "FStar.UInt32.t"
+              },
+              "type_display": "FStar.UInt32.t"
+            },
+            "head": {
+              "tag": "return",
+              "effect": "atomic",
+              "source": false,
+              "range": "dummy:0.0-0.0",
+              "type": {
+                "tag": "unsupported",
+                "constructor": "Tm_unknown"
+              },
+              "value": {
+                "tag": "apply",
+                "head": {
+                  "tag": "symbol",
+                  "name": "FStar.UInt32.add_mod"
+                },
+                "arguments": [
+                  {
+                    "implicit": false,
+                    "value": {
+                      "tag": "bound",
+                      "index": 1
+                    }
+                  },
+                  {
+                    "implicit": false,
+                    "value": {
+                      "tag": "apply",
+                      "head": {
+                        "tag": "symbol",
+                        "name": "FStar.UInt32.__uint_to_t"
+                      },
+                      "arguments": [
+                        {
+                          "implicit": false,
+                          "value": {
+                            "tag": "integer",
+                            "value": 3
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "body": {
+              "tag": "bind",
+              "effect": "stateful",
+              "source": false,
+              "range": "dummy:0.0-0.0",
+              "binder": {
+                "type": {
+                  "tag": "apply",
+                  "head": {
+                    "tag": "symbol",
+                    "name": "Prims.squash"
+                  },
+                  "arguments": [
+                    {
+                      "implicit": false,
+                      "value": {
+                        "tag": "apply",
+                        "head": {
+                          "tag": "symbol",
+                          "name": "Prims.eq2"
+                        },
+                        "arguments": [
+                          {
+                            "implicit": true,
+                            "value": {
+                              "tag": "symbol",
+                              "name": "FStar.UInt32.t"
+                            }
+                          },
+                          {
+                            "implicit": false,
+                            "value": {
+                              "tag": "bound",
+                              "index": 0
+                            }
+                          },
+                          {
+                            "implicit": false,
+                            "value": {
+                              "tag": "apply",
+                              "head": {
+                                "tag": "symbol",
+                                "name": "FStar.UInt32.add_mod"
+                              },
+                              "arguments": [
+                                {
+                                  "implicit": false,
+                                  "value": {
+                                    "tag": "bound",
+                                    "index": 2
+                                  }
+                                },
+                                {
+                                  "implicit": false,
+                                  "value": {
+                                    "tag": "apply",
+                                    "head": {
+                                      "tag": "symbol",
+                                      "name": "FStar.UInt32.uint_to_t"
+                                    },
+                                    "arguments": [
+                                      {
+                                        "implicit": false,
+                                        "value": {
+                                          "tag": "integer",
+                                          "value": 3
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "type_display": "Prims.squash (y == FStar.UInt32.add_mod x 3ul)"
+              },
+              "head": {
+                "tag": "stateful_apply",
+                "effect": "ghost",
+                "source": false,
+                "range": "dummy:0.0-0.0",
+                "function": {
+                  "tag": "unsupported",
+                  "constructor": "Tm_unknown"
+                },
+                "arguments": []
+              },
+              "body": {
+                "tag": "bind",
+                "effect": "stateful",
+                "source": false,
+                "range": "dummy:0.0-0.0",
+                "binder": {
+                  "type": {
+                    "tag": "symbol",
+                    "name": "FStar.UInt32.t"
+                  },
+                  "type_display": "FStar.UInt32.t"
+                },
+                "head": {
+                  "tag": "bind",
+                  "effect": "stateful",
+                  "source": false,
+                  "range": "dummy:0.0-0.0",
+                  "binder": {
+                    "type": {
+                      "tag": "symbol",
+                      "name": "Prims.unit"
+                    },
+                    "type_display": "Prims.unit"
+                  },
+                  "head": {
+                    "tag": "introduce_pure",
+                    "effect": "ghost",
+                    "source": false,
+                    "range": "dummy:0.0-0.0",
+                    "proposition": {
+                      "tag": "apply",
+                      "head": {
+                        "tag": "symbol",
+                        "name": "Prims.eq2"
+                      },
+                      "arguments": [
+                        {
+                          "implicit": true,
+                          "value": {
+                            "tag": "symbol",
+                            "name": "FStar.UInt32.t"
+                          }
+                        },
+                        {
+                          "implicit": false,
+                          "value": {
+                            "tag": "bound",
+                            "index": 1
+                          }
+                        },
+                        {
+                          "implicit": false,
+                          "value": {
+                            "tag": "apply",
+                            "head": {
+                              "tag": "symbol",
+                              "name": "FStar.UInt32.add_mod"
+                            },
+                            "arguments": [
+                              {
+                                "implicit": false,
+                                "value": {
+                                  "tag": "bound",
+                                  "index": 3
+                                }
+                              },
+                              {
+                                "implicit": false,
+                                "value": {
+                                  "tag": "apply",
+                                  "head": {
+                                    "tag": "symbol",
+                                    "name": "FStar.UInt32.uint_to_t"
+                                  },
+                                  "arguments": [
+                                    {
+                                      "implicit": false,
+                                      "value": {
+                                        "tag": "integer",
+                                        "value": 3
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "body": {
+                    "tag": "jump",
+                    "effect": "stateful",
+                    "source": false,
+                    "range": "dummy:0.0-0.0",
+                    "label": {
+                      "tag": "bound",
+                      "index": 3
+                    },
+                    "argument": {
+                      "tag": "bound",
+                      "index": 2
+                    }
+                  }
+                },
+                "body": {
+                  "tag": "bind",
+                  "effect": "stateful",
+                  "source": false,
+                  "range": "dummy:0.0-0.0",
+                  "binder": {
+                    "type": {
+                      "tag": "apply",
+                      "head": {
+                        "tag": "symbol",
+                        "name": "Prims.squash"
+                      },
+                      "arguments": [
+                        {
+                          "implicit": false,
+                          "value": {
+                            "tag": "apply",
+                            "head": {
+                              "tag": "symbol",
+                              "name": "Prims.eq2"
+                            },
+                            "arguments": [
+                              {
+                                "implicit": true,
+                                "value": {
+                                  "tag": "symbol",
+                                  "name": "FStar.UInt32.t"
+                                }
+                              },
+                              {
+                                "implicit": false,
+                                "value": {
+                                  "tag": "bound",
+                                  "index": 0
+                                }
+                              },
+                              {
+                                "implicit": false,
+                                "value": {
+                                  "tag": "apply",
+                                  "head": {
+                                    "tag": "symbol",
+                                    "name": "FStar.UInt32.add_mod"
+                                  },
+                                  "arguments": [
+                                    {
+                                      "implicit": false,
+                                      "value": {
+                                        "tag": "bound",
+                                        "index": 4
+                                      }
+                                    },
+                                    {
+                                      "implicit": false,
+                                      "value": {
+                                        "tag": "apply",
+                                        "head": {
+                                          "tag": "symbol",
+                                          "name": "FStar.UInt32.uint_to_t"
+                                        },
+                                        "arguments": [
+                                          {
+                                            "implicit": false,
+                                            "value": {
+                                              "tag": "integer",
+                                              "value": 3
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "type_display": "Prims.squash (__ == FStar.UInt32.add_mod x 3ul)"
+                  },
+                  "head": {
+                    "tag": "stateful_apply",
+                    "effect": "ghost",
+                    "source": false,
+                    "range": "dummy:0.0-0.0",
+                    "function": {
+                      "tag": "unsupported",
+                      "constructor": "Tm_unknown"
+                    },
+                    "arguments": []
+                  },
+                  "body": {
+                    "tag": "bind",
+                    "effect": "stateful",
+                    "source": false,
+                    "range": "dummy:0.0-0.0",
+                    "binder": {
+                      "type": {
+                        "tag": "symbol",
+                        "name": "Prims.unit"
+                      },
+                      "type_display": "Prims.unit"
+                    },
+                    "head": {
+                      "tag": "introduce_pure",
+                      "effect": "ghost",
+                      "source": false,
+                      "range": "dummy:0.0-0.0",
+                      "proposition": {
+                        "tag": "apply",
+                        "head": {
+                          "tag": "symbol",
+                          "name": "Prims.eq2"
+                        },
+                        "arguments": [
+                          {
+                            "implicit": true,
+                            "value": {
+                              "tag": "symbol",
+                              "name": "FStar.UInt32.t"
+                            }
+                          },
+                          {
+                            "implicit": false,
+                            "value": {
+                              "tag": "bound",
+                              "index": 1
+                            }
+                          },
+                          {
+                            "implicit": false,
+                            "value": {
+                              "tag": "apply",
+                              "head": {
+                                "tag": "symbol",
+                                "name": "FStar.UInt32.add_mod"
+                              },
+                              "arguments": [
+                                {
+                                  "implicit": false,
+                                  "value": {
+                                    "tag": "bound",
+                                    "index": 5
+                                  }
+                                },
+                                {
+                                  "implicit": false,
+                                  "value": {
+                                    "tag": "apply",
+                                    "head": {
+                                      "tag": "symbol",
+                                      "name": "FStar.UInt32.uint_to_t"
+                                    },
+                                    "arguments": [
+                                      {
+                                        "implicit": false,
+                                        "value": {
+                                          "tag": "integer",
+                                          "value": 3
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "body": {
+                      "tag": "return",
+                      "effect": "stateful",
+                      "source": false,
+                      "range": "dummy:0.0-0.0",
+                      "type": {
+                        "tag": "unsupported",
+                        "constructor": "Tm_unknown"
+                      },
+                      "value": {
+                        "tag": "bound",
+                        "index": 2
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "result_type": {
+            "tag": "symbol",
+            "name": "FStar.UInt32.t"
+          }
+        },
+        "body": {
+          "tag": "return",
+          "effect": "stateful",
+          "source": false,
+          "range": "dummy:0.0-0.0",
+          "type": {
+            "tag": "unsupported",
+            "constructor": "Tm_unknown"
+          },
+          "value": {
+            "tag": "bound",
+            "index": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "schema": "kuiper.pulse-capture/1",
+    "name": "Kuiper.Portable.Int32.early_increment",
+    "type_display": "r: Kuiper.Ref.gpu_ref FStar.UInt32.t\n  -> fn\n       requires r |-> 'x\n       ensures r |-> FStar.UInt32.add_mod 'x 3ul",
+    "body": {
+      "tag": "abstract",
+      "effect": "unspecified",
+      "source": false,
+      "range": "dummy:0.0-0.0",
+      "binder": {
+        "type": {
+          "tag": "apply",
+          "head": {
+            "tag": "symbol",
+            "name": "Kuiper.Ref.gpu_ref"
+          },
+          "arguments": [
+            {
+              "implicit": false,
+              "value": {
+                "tag": "symbol",
+                "name": "FStar.UInt32.t"
+              }
+            }
+          ]
+        },
+        "type_display": "Kuiper.Ref.gpu_ref FStar.UInt32.t"
+      },
+      "implicit": false,
+      "computation": null,
+      "body": {
+        "tag": "abstract",
+        "effect": "unspecified",
+        "source": false,
+        "range": "dummy:0.0-0.0",
+        "binder": {
+          "type": {
+            "tag": "apply",
+            "head": {
+              "tag": "symbol",
+              "name": "FStar.Ghost.erased"
+            },
+            "arguments": [
+              {
+                "implicit": false,
+                "value": {
+                  "tag": "symbol",
+                  "name": "FStar.UInt32.t"
+                }
+              }
+            ]
+          },
+          "type_display": "FStar.Ghost.erased FStar.UInt32.t"
+        },
+        "implicit": true,
+        "computation": null,
+        "body": {
+          "tag": "bind",
+          "effect": "stateful",
+          "source": false,
+          "range": "dummy:0.0-0.0",
+          "binder": {
+            "type": {
+              "tag": "symbol",
+              "name": "Prims.unit"
+            },
+            "type_display": "Prims.unit"
+          },
+          "head": {
+            "tag": "label",
+            "effect": "stateful",
+            "source": false,
+            "range": "dummy:0.0-0.0",
+            "body": {
+              "tag": "bind",
+              "effect": "stateful",
+              "source": false,
+              "range": "dummy:0.0-0.0",
+              "binder": {
+                "type": {
+                  "tag": "symbol",
+                  "name": "FStar.UInt32.t"
+                },
+                "type_display": "FStar.UInt32.t"
+              },
+              "head": {
+                "tag": "stateful_apply",
+                "effect": "stateful",
+                "source": false,
+                "range": "Kuiper.Portable.Int32.fst:60.11-60.28",
+                "function": {
+                  "tag": "apply",
+                  "head": {
+                    "tag": "symbol",
+                    "name": "Kuiper.Ref.read"
+                  },
+                  "arguments": [
+                    {
+                      "implicit": true,
+                      "value": {
+                        "tag": "symbol",
+                        "name": "FStar.UInt32.t"
+                      }
+                    },
+                    {
+                      "implicit": false,
+                      "value": {
+                        "tag": "bound",
+                        "index": 2
+                      }
+                    },
+                    {
+                      "implicit": true,
+                      "value": {
+                        "tag": "unsupported",
+                        "constructor": "Tm_constant"
+                      }
+                    },
+                    {
+                      "implicit": true,
+                      "value": {
+                        "tag": "bound",
+                        "index": 1
+                      }
+                    }
+                  ]
+                },
+                "arguments": []
+              },
+              "body": {
+                "tag": "bind",
+                "effect": "stateful",
+                "source": false,
+                "range": "dummy:0.0-0.0",
+                "binder": {
+                  "type": {
+                    "tag": "apply",
+                    "head": {
+                      "tag": "symbol",
+                      "name": "Prims.squash"
+                    },
+                    "arguments": [
+                      {
+                        "implicit": false,
+                        "value": {
+                          "tag": "apply",
+                          "head": {
+                            "tag": "symbol",
+                            "name": "Prims.eq2"
+                          },
+                          "arguments": [
+                            {
+                              "implicit": true,
+                              "value": {
+                                "tag": "symbol",
+                                "name": "FStar.UInt32.t"
+                              }
+                            },
+                            {
+                              "implicit": false,
+                              "value": {
+                                "tag": "bound",
+                                "index": 0
+                              }
+                            },
+                            {
+                              "implicit": false,
+                              "value": {
+                                "tag": "apply",
+                                "head": {
+                                  "tag": "symbol",
+                                  "name": "FStar.Ghost.reveal"
+                                },
+                                "arguments": [
+                                  {
+                                    "implicit": true,
+                                    "value": {
+                                      "tag": "symbol",
+                                      "name": "FStar.UInt32.t"
+                                    }
+                                  },
+                                  {
+                                    "implicit": false,
+                                    "value": {
+                                      "tag": "bound",
+                                      "index": 2
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "type_display": "Prims.squash (x == 'x)"
+                },
+                "head": {
+                  "tag": "stateful_apply",
+                  "effect": "ghost",
+                  "source": false,
+                  "range": "dummy:0.0-0.0",
+                  "function": {
+                    "tag": "unsupported",
+                    "constructor": "Tm_unknown"
+                  },
+                  "arguments": []
+                },
+                "body": {
+                  "tag": "bind",
+                  "effect": "stateful",
+                  "source": false,
+                  "range": "dummy:0.0-0.0",
+                  "binder": {
+                    "type": {
+                      "tag": "symbol",
+                      "name": "FStar.UInt32.t"
+                    },
+                    "type_display": "FStar.UInt32.t"
+                  },
+                  "head": {
+                    "tag": "stateful_apply",
+                    "effect": "stateful",
+                    "source": false,
+                    "range": "Kuiper.Portable.Int32.fst:61.11-61.28",
+                    "function": {
+                      "tag": "apply",
+                      "head": {
+                        "tag": "symbol",
+                        "name": "Kuiper.Portable.Int32.early_add_three"
+                      },
+                      "arguments": [
+                        {
+                          "implicit": false,
+                          "value": {
+                            "tag": "bound",
+                            "index": 1
+                          }
+                        }
+                      ]
+                    },
+                    "arguments": []
+                  },
+                  "body": {
+                    "tag": "bind",
+                    "effect": "stateful",
+                    "source": false,
+                    "range": "dummy:0.0-0.0",
+                    "binder": {
+                      "type": {
+                        "tag": "apply",
+                        "head": {
+                          "tag": "symbol",
+                          "name": "Prims.squash"
+                        },
+                        "arguments": [
+                          {
+                            "implicit": false,
+                            "value": {
+                              "tag": "apply",
+                              "head": {
+                                "tag": "symbol",
+                                "name": "Prims.eq2"
+                              },
+                              "arguments": [
+                                {
+                                  "implicit": true,
+                                  "value": {
+                                    "tag": "symbol",
+                                    "name": "FStar.UInt32.t"
+                                  }
+                                },
+                                {
+                                  "implicit": false,
+                                  "value": {
+                                    "tag": "bound",
+                                    "index": 0
+                                  }
+                                },
+                                {
+                                  "implicit": false,
+                                  "value": {
+                                    "tag": "apply",
+                                    "head": {
+                                      "tag": "symbol",
+                                      "name": "FStar.UInt32.add_mod"
+                                    },
+                                    "arguments": [
+                                      {
+                                        "implicit": false,
+                                        "value": {
+                                          "tag": "bound",
+                                          "index": 2
+                                        }
+                                      },
+                                      {
+                                        "implicit": false,
+                                        "value": {
+                                          "tag": "apply",
+                                          "head": {
+                                            "tag": "symbol",
+                                            "name": "FStar.UInt32.uint_to_t"
+                                          },
+                                          "arguments": [
+                                            {
+                                              "implicit": false,
+                                              "value": {
+                                                "tag": "integer",
+                                                "value": 3
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "type_display": "Prims.squash (y == FStar.UInt32.add_mod x 3ul)"
+                    },
+                    "head": {
+                      "tag": "stateful_apply",
+                      "effect": "ghost",
+                      "source": false,
+                      "range": "dummy:0.0-0.0",
+                      "function": {
+                        "tag": "unsupported",
+                        "constructor": "Tm_unknown"
+                      },
+                      "arguments": []
+                    },
+                    "body": {
+                      "tag": "bind",
+                      "effect": "stateful",
+                      "source": false,
+                      "range": "dummy:0.0-0.0",
+                      "binder": {
+                        "type": {
+                          "tag": "symbol",
+                          "name": "Prims.unit"
+                        },
+                        "type_display": "Prims.unit"
+                      },
+                      "head": {
+                        "tag": "stateful_apply",
+                        "effect": "stateful",
+                        "source": false,
+                        "range": "Kuiper.Portable.Int32.fst:62.3-62.23",
+                        "function": {
+                          "tag": "apply",
+                          "head": {
+                            "tag": "symbol",
+                            "name": "Kuiper.Ref.write"
+                          },
+                          "arguments": [
+                            {
+                              "implicit": true,
+                              "value": {
+                                "tag": "symbol",
+                                "name": "FStar.UInt32.t"
+                              }
+                            },
+                            {
+                              "implicit": false,
+                              "value": {
+                                "tag": "bound",
+                                "index": 6
+                              }
+                            },
+                            {
+                              "implicit": false,
+                              "value": {
+                                "tag": "bound",
+                                "index": 1
+                              }
+                            },
+                            {
+                              "implicit": true,
+                              "value": {
+                                "tag": "bound",
+                                "index": 5
+                              }
+                            }
+                          ]
+                        },
+                        "arguments": []
+                      },
+                      "body": {
+                        "tag": "bind",
+                        "effect": "stateful",
+                        "source": false,
+                        "range": "dummy:0.0-0.0",
+                        "binder": {
+                          "type": {
+                            "tag": "symbol",
+                            "name": "Prims.unit"
+                          },
+                          "type_display": "Prims.unit"
+                        },
+                        "head": {
+                          "tag": "jump",
+                          "effect": "stateful",
+                          "source": false,
+                          "range": "dummy:0.0-0.0",
+                          "label": {
+                            "tag": "bound",
+                            "index": 5
+                          },
+                          "argument": {
+                            "tag": "unit"
+                          }
+                        },
+                        "body": {
+                          "tag": "return",
+                          "effect": "stateful",
+                          "source": false,
+                          "range": "dummy:0.0-0.0",
+                          "type": {
+                            "tag": "unsupported",
+                            "constructor": "Tm_unknown"
+                          },
+                          "value": {
+                            "tag": "bound",
+                            "index": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "result_type": {
+              "tag": "symbol",
+              "name": "Prims.unit"
+            }
+          },
+          "body": {
+            "tag": "return",
+            "effect": "stateful",
+            "source": false,
+            "range": "dummy:0.0-0.0",
+            "type": {
+              "tag": "unsupported",
+              "constructor": "Tm_unknown"
+            },
+            "value": {
+              "tag": "bound",
+              "index": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "schema": "kuiper.pulse-capture/1",
+    "name": "Kuiper.Portable.Int32.increment",
+    "type_display": "r: Kuiper.Ref.gpu_ref FStar.UInt32.t\n  -> fn\n       requires r |-> 'x\n       ensures r |-> FStar.UInt32.add_mod 'x 1ul",
+    "body": {
+      "tag": "abstract",
+      "effect": "unspecified",
+      "source": false,
+      "range": "dummy:0.0-0.0",
+      "binder": {
+        "type": {
+          "tag": "apply",
+          "head": {
+            "tag": "symbol",
+            "name": "Kuiper.Ref.gpu_ref"
+          },
+          "arguments": [
+            {
+              "implicit": false,
+              "value": {
+                "tag": "symbol",
+                "name": "FStar.UInt32.t"
+              }
+            }
+          ]
+        },
+        "type_display": "Kuiper.Ref.gpu_ref FStar.UInt32.t"
+      },
+      "implicit": false,
+      "computation": null,
+      "body": {
+        "tag": "abstract",
+        "effect": "unspecified",
+        "source": false,
+        "range": "dummy:0.0-0.0",
+        "binder": {
+          "type": {
+            "tag": "apply",
+            "head": {
+              "tag": "symbol",
+              "name": "FStar.Ghost.erased"
+            },
+            "arguments": [
+              {
+                "implicit": false,
+                "value": {
+                  "tag": "symbol",
+                  "name": "FStar.UInt32.t"
+                }
+              }
+            ]
+          },
+          "type_display": "FStar.Ghost.erased FStar.UInt32.t"
+        },
+        "implicit": true,
+        "computation": null,
+        "body": {
+          "tag": "bind",
+          "effect": "stateful",
+          "source": false,
+          "range": "dummy:0.0-0.0",
+          "binder": {
+            "type": {
+              "tag": "symbol",
+              "name": "Prims.unit"
+            },
+            "type_display": "Prims.unit"
+          },
+          "head": {
+            "tag": "label",
+            "effect": "stateful",
+            "source": false,
+            "range": "dummy:0.0-0.0",
+            "body": {
+              "tag": "bind",
+              "effect": "stateful",
+              "source": false,
+              "range": "dummy:0.0-0.0",
+              "binder": {
+                "type": {
+                  "tag": "symbol",
+                  "name": "FStar.UInt32.t"
+                },
+                "type_display": "FStar.UInt32.t"
+              },
+              "head": {
+                "tag": "stateful_apply",
+                "effect": "stateful",
+                "source": false,
+                "range": "Kuiper.Portable.Int32.fst:21.11-21.28",
+                "function": {
+                  "tag": "apply",
+                  "head": {
+                    "tag": "symbol",
+                    "name": "Kuiper.Ref.read"
+                  },
+                  "arguments": [
+                    {
+                      "implicit": true,
+                      "value": {
+                        "tag": "symbol",
+                        "name": "FStar.UInt32.t"
+                      }
+                    },
+                    {
+                      "implicit": false,
+                      "value": {
+                        "tag": "bound",
+                        "index": 2
+                      }
+                    },
+                    {
+                      "implicit": true,
+                      "value": {
+                        "tag": "unsupported",
+                        "constructor": "Tm_constant"
+                      }
+                    },
+                    {
+                      "implicit": true,
+                      "value": {
+                        "tag": "bound",
+                        "index": 1
+                      }
+                    }
+                  ]
+                },
+                "arguments": []
+              },
+              "body": {
+                "tag": "bind",
+                "effect": "stateful",
+                "source": false,
+                "range": "dummy:0.0-0.0",
+                "binder": {
+                  "type": {
+                    "tag": "apply",
+                    "head": {
+                      "tag": "symbol",
+                      "name": "Prims.squash"
+                    },
+                    "arguments": [
+                      {
+                        "implicit": false,
+                        "value": {
+                          "tag": "apply",
+                          "head": {
+                            "tag": "symbol",
+                            "name": "Prims.eq2"
+                          },
+                          "arguments": [
+                            {
+                              "implicit": true,
+                              "value": {
+                                "tag": "symbol",
+                                "name": "FStar.UInt32.t"
+                              }
+                            },
+                            {
+                              "implicit": false,
+                              "value": {
+                                "tag": "bound",
+                                "index": 0
+                              }
+                            },
+                            {
+                              "implicit": false,
+                              "value": {
+                                "tag": "apply",
+                                "head": {
+                                  "tag": "symbol",
+                                  "name": "FStar.Ghost.reveal"
+                                },
+                                "arguments": [
+                                  {
+                                    "implicit": true,
+                                    "value": {
+                                      "tag": "symbol",
+                                      "name": "FStar.UInt32.t"
+                                    }
+                                  },
+                                  {
+                                    "implicit": false,
+                                    "value": {
+                                      "tag": "bound",
+                                      "index": 2
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "type_display": "Prims.squash (x == 'x)"
+                },
+                "head": {
+                  "tag": "stateful_apply",
+                  "effect": "ghost",
+                  "source": false,
+                  "range": "dummy:0.0-0.0",
+                  "function": {
+                    "tag": "unsupported",
+                    "constructor": "Tm_unknown"
+                  },
+                  "arguments": []
+                },
+                "body": {
+                  "tag": "bind",
+                  "effect": "stateful",
+                  "source": false,
+                  "range": "dummy:0.0-0.0",
+                  "binder": {
+                    "type": {
+                      "tag": "symbol",
+                      "name": "FStar.UInt32.t"
+                    },
+                    "type_display": "FStar.UInt32.t"
+                  },
+                  "head": {
+                    "tag": "stateful_apply",
+                    "effect": "stateful",
+                    "source": false,
+                    "range": "Kuiper.Portable.Int32.fst:22.11-22.20",
+                    "function": {
+                      "tag": "apply",
+                      "head": {
+                        "tag": "symbol",
+                        "name": "Kuiper.Portable.Int32.add_one"
+                      },
+                      "arguments": [
+                        {
+                          "implicit": false,
+                          "value": {
+                            "tag": "bound",
+                            "index": 1
+                          }
+                        }
+                      ]
+                    },
+                    "arguments": []
+                  },
+                  "body": {
+                    "tag": "bind",
+                    "effect": "stateful",
+                    "source": false,
+                    "range": "dummy:0.0-0.0",
+                    "binder": {
+                      "type": {
+                        "tag": "apply",
+                        "head": {
+                          "tag": "symbol",
+                          "name": "Prims.squash"
+                        },
+                        "arguments": [
+                          {
+                            "implicit": false,
+                            "value": {
+                              "tag": "apply",
+                              "head": {
+                                "tag": "symbol",
+                                "name": "Prims.eq2"
+                              },
+                              "arguments": [
+                                {
+                                  "implicit": true,
+                                  "value": {
+                                    "tag": "symbol",
+                                    "name": "FStar.UInt32.t"
+                                  }
+                                },
+                                {
+                                  "implicit": false,
+                                  "value": {
+                                    "tag": "bound",
+                                    "index": 0
+                                  }
+                                },
+                                {
+                                  "implicit": false,
+                                  "value": {
+                                    "tag": "apply",
+                                    "head": {
+                                      "tag": "symbol",
+                                      "name": "FStar.UInt32.add_mod"
+                                    },
+                                    "arguments": [
+                                      {
+                                        "implicit": false,
+                                        "value": {
+                                          "tag": "bound",
+                                          "index": 2
+                                        }
+                                      },
+                                      {
+                                        "implicit": false,
+                                        "value": {
+                                          "tag": "apply",
+                                          "head": {
+                                            "tag": "symbol",
+                                            "name": "FStar.UInt32.uint_to_t"
+                                          },
+                                          "arguments": [
+                                            {
+                                              "implicit": false,
+                                              "value": {
+                                                "tag": "integer",
+                                                "value": 1
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "type_display": "Prims.squash (y == FStar.UInt32.add_mod x 1ul)"
+                    },
+                    "head": {
+                      "tag": "stateful_apply",
+                      "effect": "ghost",
+                      "source": false,
+                      "range": "dummy:0.0-0.0",
+                      "function": {
+                        "tag": "unsupported",
+                        "constructor": "Tm_unknown"
+                      },
+                      "arguments": []
+                    },
+                    "body": {
+                      "tag": "bind",
+                      "effect": "stateful",
+                      "source": false,
+                      "range": "dummy:0.0-0.0",
+                      "binder": {
+                        "type": {
+                          "tag": "symbol",
+                          "name": "Prims.unit"
+                        },
+                        "type_display": "Prims.unit"
+                      },
+                      "head": {
+                        "tag": "stateful_apply",
+                        "effect": "stateful",
+                        "source": true,
+                        "range": "Kuiper.Portable.Int32.fst:23.3-23.23",
+                        "function": {
+                          "tag": "apply",
+                          "head": {
+                            "tag": "symbol",
+                            "name": "Kuiper.Ref.write"
+                          },
+                          "arguments": [
+                            {
+                              "implicit": true,
+                              "value": {
+                                "tag": "symbol",
+                                "name": "FStar.UInt32.t"
+                              }
+                            },
+                            {
+                              "implicit": false,
+                              "value": {
+                                "tag": "bound",
+                                "index": 6
+                              }
+                            },
+                            {
+                              "implicit": false,
+                              "value": {
+                                "tag": "bound",
+                                "index": 1
+                              }
+                            },
+                            {
+                              "implicit": true,
+                              "value": {
+                                "tag": "bound",
+                                "index": 5
+                              }
+                            }
+                          ]
+                        },
+                        "arguments": []
+                      },
+                      "body": {
+                        "tag": "return",
+                        "effect": "stateful",
+                        "source": false,
+                        "range": "dummy:0.0-0.0",
+                        "type": {
+                          "tag": "unsupported",
+                          "constructor": "Tm_unknown"
+                        },
+                        "value": {
+                          "tag": "bound",
+                          "index": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "result_type": {
+              "tag": "symbol",
+              "name": "Prims.unit"
+            }
+          },
+          "body": {
+            "tag": "return",
+            "effect": "stateful",
+            "source": false,
+            "range": "dummy:0.0-0.0",
+            "type": {
+              "tag": "unsupported",
+              "constructor": "Tm_unknown"
+            },
+            "value": {
+              "tag": "bound",
+              "index": 0
+            }
+          }
+        }
+      }
+    }
+  }
+]

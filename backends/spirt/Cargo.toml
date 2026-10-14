@@ -1,0 +1,22 @@
+[package]
+name = "kuiper-spirt"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.90"
+license = "Apache-2.0"
+
+[dependencies]
+kuiper-contracts = { path = "../../portable/contracts" }
+spirt = { git = "https://github.com/rust-gpu/spirt", rev = "e8757adba8d14068a7bf1b3bc9f24cac982f4bd3" }
+smallvec = "=1.15.1"
+serde_json = "=1.0.145"
+
+[target.'cfg(all(target_os = "linux", not(target_env = "uclibc")))'.dependencies]
+nix = { version = "=0.30.1", default-features = false, features = ["signal", "process", "fs"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[[bin]]
+name = "kuiper-spirt-worker"
+path = "src/main.rs"

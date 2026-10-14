@@ -1,0 +1,8 @@
+[package]
+name = "kuiper-source-check"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.90"
+
+[dependencies]
+kuiper-contracts = { path = "../../portable/contracts" }
